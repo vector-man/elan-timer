@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="Eggzle.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false"/>
+        </sectionGroup>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="Eggzle.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false"/>
+        </sectionGroup>
+    </configSections>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5"/>
+    </startup>
+    <userSettings>
+        <Eggzle.My.MySettings>
+            <setting name="TaskFile" serializeAs="String">
+                <value>default_tasks.task</value>
+            </setting>
+            <setting name="AlwaysOnTop" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="EnableAutomaticUpdateChecking" serializeAs="String">
+                <value>True</value>
+            </setting>
+            <setting name="Setting" serializeAs="String">
+                <value/>
+            </setting>
+            <setting name="NumberOfDaysBetweenUpdateChecks" serializeAs="String">
+                <value>90</value>
+            </setting>
+            <setting name="OpacityLevel" serializeAs="String">
+                <value>100</value>
+            </setting>
+            <setting name="LookFile" serializeAs="String">
+                <value>default_look.look</value>
+            </setting>
+            <setting name="TimeFile" serializeAs="String">
+                <value>default_time.time</value>
+            </setting>
+            <setting name="WindowSize" serializeAs="String">
+                <value>290, 145</value>
+            </setting>
+            <setting name="WindowMaximized" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="WindowFullScreen" serializeAs="String">
+                <value>False</value>
+            </setting>
+        </Eggzle.My.MySettings>
+    </userSettings>
+    <applicationSettings>
+        <Eggzle.My.MySettings>
+            <setting name="TimeDialogFilter" serializeAs="String">
+                <value>Time Files (*.time)|*.time</value>
+            </setting>
+            <setting name="TaskDialogFilter" serializeAs="String">
+                <value>Task Files (*.task)|*.task</value>
+            </setting>
+            <setting name="AlarmDialogFilter" serializeAs="String">
+                <value>Audio Files (*.wav; *.wave)|*.wav; *.wave</value>
+            </setting>
+            <setting name="DefaultWindowSize" serializeAs="String">
+                <value>290, 145</value>
+            </setting>
+            <setting name="DefaultCompactWindowWidth" serializeAs="String">
+                <value>290</value>
+            </setting>
+            <setting name="LookDialogFilter" serializeAs="String">
+                <value>Look Files (*.look)|*.look</value>
+            </setting>
+            <setting name="DefaultFont" serializeAs="String">
+                <value>White Rabbit, 35.9999962pt</value>
+            </setting>
+        </Eggzle.My.MySettings>
+    </applicationSettings>
+</configuration>
