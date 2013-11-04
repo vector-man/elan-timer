@@ -6,7 +6,6 @@ Public Class DialogTimerSettings
     Dim alarpPath As String
     Dim formLoaded As Boolean = False
     Public Sub UpdateStates(sender As Object, e As EventArgs)
-        ButtonOK.Enabled = TextBoxTime.Text.Trim.Length > 0
         ComboBoxAlarmPath.Enabled = CheckBoxAlarmSet.Checked
         CheckBoxLoop.Enabled = ComboBoxAlarmPath.Enabled
         ButtonAlarmPlay.Enabled = CheckBoxLoop.Enabled
@@ -14,7 +13,13 @@ Public Class DialogTimerSettings
     End Sub
 
     Private Sub LoadSettings()
-        Me.TextBoxTime.Text = Common.Time.Duration.ToString
+        Dim duration = Common.Time.Duration
+        NumericUpDownDays.Value = duration.Days
+        NumericUpDownHours.Value = duration.Hours
+        NumericUpDownMinutes.Value = duration.Minutes
+        NumericUpDownSeconds.Value = duration.Seconds
+
+
         Me.CheckBoxCountUp.Checked = Common.Time.CountUp
         Me.CheckBoxAutoStart.Checked = Common.Time.AutoStart
         Me.NumericUpDownRestarts.Value = Common.Time.Restarts
@@ -64,7 +69,7 @@ Public Class DialogTimerSettings
         'End If
     End Sub
     Private Sub SaveSettings()
-        Common.Time.Duration = New CleanCode.Data.RoundedTimeSpan(TimeParser.Parse(TextBoxTime.Text).Ticks, 0).TimeSpan
+        Common.Time.Duration = New TimeSpan(NumericUpDownDays.Value, NumericUpDownHours.Value, NumericUpDownMinutes.Value, NumericUpDownSeconds.Value)
         Common.Time.CountUp = Me.CheckBoxCountUp.Checked
         Common.Time.AutoStart = Me.CheckBoxAutoStart.Checked
         Common.Time.Restarts = Me.NumericUpDownRestarts.Value
@@ -93,19 +98,10 @@ Public Class DialogTimerSettings
     Private Sub DialogTimer_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler Application.Idle, AddressOf UpdateStates
         Common.Time.BeginEdit()
-        Me.TextBoxTime.Select()
         LoadSettings()
         UpdateUI()
     End Sub
 
-
-    Private Sub TextBoxTime_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextBoxTime.Validating
-        Dim text = TextBoxTime.Text.Trim
-        If TimeParser.Parse(text) = Nothing And (Not text = String.Empty) Then
-            MessageBox.Show(My.Resources.Strings.MessageUnrecognizedTimerFormat, My.Application.Info.AssemblyName)
-            e.Cancel = True
-        End If
-    End Sub
 
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Try
@@ -174,11 +170,21 @@ Public Class DialogTimerSettings
         End Try
     End Sub
     Private Sub UpdateUI()
-        Me.TextBoxTime.Enabled = (Not Editing)
+        Me.LabelDays.Enabled = (Not Editing)
+        Me.NumericUpDownDays.Enabled = (Not Editing)
+        Me.LabelHours.Enabled = (Not Editing)
+        Me.NumericUpDownHours.Enabled = (Not Editing)
+        Me.LabelMinutes.Enabled = (Not Editing)
+        Me.NumericUpDownMinutes.Enabled = (Not Editing)
+        Me.LabelSeconds.Enabled = (Not Editing)
+        Me.NumericUpDownSeconds.Enabled = (Not Editing)
+        Me.LabelRestarts.Enabled = (Not Editing)
+        Me.NumericUpDownRestarts.Enabled = (Not Editing)
+
         Me.ButtonImport.Enabled = (Not Editing)
         Me.Text = If(Editing, "Edit Timer", "New Timer")
         Me.CheckBoxCountUp.Enabled = (Not Editing)
-        Me.NumericUpDownRestarts.Enabled = (Not Editing)
+
     End Sub
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click

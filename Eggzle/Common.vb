@@ -125,7 +125,7 @@ Public Class Common
         ' DialogTimerSettings.
         DialogTimerSettings.SuspendLayout()
 
-        DialogTimerSettings.TextBoxTime.Text = My.Resources.Strings.Duration
+        DialogTimerSettings.GroupBoxDuration.Text = My.Resources.Strings.Duration
         DialogTimerSettings.LabelRestarts.Text = My.Resources.Strings.Restarts
         DialogTimerSettings.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
         DialogTimerSettings.CheckBoxAutoStart.Text = My.Resources.Strings.AutoStart
