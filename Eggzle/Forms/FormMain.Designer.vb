@@ -50,6 +50,7 @@ Partial Class FormMain
         Me.ToolStripButtonStartPause = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonReset = New System.Windows.Forms.ToolStripButton()
         Me.PanelTimer = New System.Windows.Forms.Panel()
+        Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -201,10 +202,16 @@ Partial Class FormMain
         Me.PanelTimer.Name = "PanelTimer"
         Me.PanelTimer.TabStop = True
         '
+        'ProgressBarMain
+        '
+        resources.ApplyResources(Me.ProgressBarMain, "ProgressBarMain")
+        Me.ProgressBarMain.Name = "ProgressBarMain"
+        '
         'FormMain
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.ProgressBarMain)
         Me.Controls.Add(Me.PanelTimer)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "FormMain"
@@ -241,5 +248,6 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItem5 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItemExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemEditTimer As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ProgressBarMain As System.Windows.Forms.ProgressBar
 
 End Class

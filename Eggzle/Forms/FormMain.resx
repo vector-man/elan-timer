@@ -254,18 +254,18 @@
   <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -283,21 +283,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM4SURBVDhPZZJraBNZFMcvyuKXfhVfVOsWLSpUlCrYxVU/
+        +EERfC3W4ANqxfiAdomuFLRN6yOo0Upam6ZqTWKryxZFW9KKaLphScu2uxVLURq7vltNOnMzyUzGmTST
+        +TszDmzBHxzmzLn3dy73zBAd2Mk0oYvUpAJkiA+QAbWbzDAWpiB0kFn6uravP/mIFJhlTW4mP8Tvk0uJ
+        fyxjk+yfEP/eFROa88JK+bGQdPQIlayHqFx2IJS4Nv8v8d+D7JeXlTR+j/TTByTXaBD9nZxK9O8bT0e7
+        wIdLuPj1uYLoPAe++Sq4Ng+41iYk3ZfBnz0B9kqOyD+3icLz4xPRO2RQP5x88JIqfrCSfg6VcG8b52WS
+        txrAP7yLtMsB1XYEavlByBerkPzDD+r5De/aVmTpiFf5/HBJZOymdpXX18naN+7pkVeXc8TkrXqI7T6k
+        Wm9CHvuATHoSipyG9P4dBFcdxJYGRBtLMNY8R37dMO3ZG7c5C/64xZly2sE/uINUixs6iqKAYRgj11Gz
+        WSQd55FovQHWVgpu3ZrzhqyjHLOGkp46yI4qfPnvrakAXq8X6XTayIPBILhnQ5COloE6apFYWRwydUL0
+        SXO3m6AesCA7mTEEHbvdjo6ODlRXV2NgYAAC5aCuLwbTdBWx5SuoqWsN9u6lnN8NtWQrMpJsyJIkwel0
+        GvLw8LBRS0YZqGuLMOHWGuRPaSDv3x9K1F+EXHEY8cEhY3Mmk0FfXx8EQTDe9ZnEenoh7d4BpvY02MWF
+        U65gsdTwVZWgd33gTp5AVska0lT0GrVa8cnbAra0FHThkhpTJ0TcubNI3Lb9Rbz+EuKuK0aT1MsRqKpq
+        RGokgritAhMXHGAcZzS54AWTW1Bk6t8QN2+xxmw2kXE58anNB6nMAnVTMdSNqyHt2YGPPh/Gr7kw+otF
+        ZHIXWU3tf8Lh8AZ9WP3BHoWtKAd7zo6JxjojGPtpjFf8iuDjx+rTJ0/U3t7en03tG93d3TMDgYAwOjqq
+        fzbKrfqpNlG4KqRPOpZfSNkfl4bogoKars5OPhKJoL29PaM5+aZOiFbI8fl8Ix6PJ609l5nl79B+rDy/
+        35/QYlzLZxNCyFfWpnOxBfX5HgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -350,7 +350,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ToolStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="PanelTimer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -359,7 +359,7 @@
     <value>0, 25</value>
   </data>
   <data name="PanelTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 82</value>
+    <value>274, 102</value>
   </data>
   <data name="PanelTimer.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -374,6 +374,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PanelTimer.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ProgressBarMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="ProgressBarMain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ProgressBarMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 124</value>
+  </data>
+  <data name="ProgressBarMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 3</value>
+  </data>
+  <data name="ProgressBarMain.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarMain.Name" xml:space="preserve">
+    <value>ProgressBarMain</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ProgressBarMain.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -386,7 +413,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>274, 107</value>
+    <value>274, 127</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

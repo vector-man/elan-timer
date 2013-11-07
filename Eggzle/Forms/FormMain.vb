@@ -237,6 +237,7 @@ Public Class FormMain
             Await Task.Delay(500)
             Await Task.Factory.StartNew(Sub()
                                             progressBar.CurrentValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
+                                            ProgressBarMain.Value = progressBar.CurrentValue
                                         End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
 
         End While
