@@ -20,12 +20,12 @@ Public Class DialogLookSettings
     )
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
-        ComboBoxRenderer.DisplayMember = "Name"
-        ComboBoxRenderer.ValueMember = "Id"
+        ComboBoxStyle.DisplayMember = "Name"
+        ComboBoxStyle.ValueMember = "Id"
 
-        ComboBoxRenderer.DataSource = Common.RendererManager.GetRendererList
+        ComboBoxStyle.DataSource = Common.RendererManager.GetRendererList
         Try
-            Me.ComboBoxRenderer.SelectedValue = Common.Look.Renderer
+            Me.ComboBoxStyle.SelectedValue = Common.Look.Renderer
         Catch ex As Exception
 
         End Try
@@ -38,7 +38,7 @@ Public Class DialogLookSettings
 
     End Sub
     Sub SaveSettings()
-        Common.Look.Renderer = Me.ComboBoxRenderer.SelectedValue
+        Common.Look.Renderer = Me.ComboBoxStyle.SelectedValue
         Common.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
         Common.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
         Common.Look.Font = Me.FontPickerFont.Value
@@ -85,7 +85,7 @@ Public Class DialogLookSettings
         LoadSettings()
 
         ShutDownRendering()
-        StartUpRendering(timer, ComboBoxRenderer.SelectedValue)
+        StartUpRendering(timer, ComboBoxStyle.SelectedValue)
         timer.Start()
     End Sub
 
@@ -93,7 +93,7 @@ Public Class DialogLookSettings
         Try
             timerInfo = New Information.TimerInfo(timer)
 
-            Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = Common.RendererManager.GetRendererNode(ComboBoxRenderer.SelectedValue)
+            Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = Common.RendererManager.GetRendererNode(ComboBoxStyle.SelectedValue)
             'Dim rendererInstance As EggzleLib.Extend.Rendering.IRenderer = node.CreateInstance
             timerSurface = Extend.Rendering.SurfaceFactory.CreateInstance(node.CreateInstance, args, True)
             timerSurface.Dock = DockStyle.Fill
@@ -121,9 +121,9 @@ Public Class DialogLookSettings
         End Try
     End Sub
 
-    Private Sub ComboBoxRenderer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxRenderer.SelectedIndexChanged
+    Private Sub ComboBoxRenderer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxStyle.SelectedIndexChanged
         ShutDownRendering()
-        StartUpRendering(timer, ComboBoxRenderer.SelectedValue)
+        StartUpRendering(timer, ComboBoxStyle.SelectedValue)
     End Sub
 
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
