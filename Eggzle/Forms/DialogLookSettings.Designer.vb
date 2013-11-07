@@ -25,7 +25,7 @@ Partial Class DialogLookSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DialogLookSettings))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LabelRenderer = New System.Windows.Forms.Label()
-        Me.ComboBoxRenderer = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxStyle = New System.Windows.Forms.ComboBox()
         Me.LabelForegroundColor = New System.Windows.Forms.Label()
         Me.ColorComboBoxForegrounColor = New ColorComboTestApp.ColorComboBox()
         Me.LabelBackgroundColor = New System.Windows.Forms.Label()
@@ -135,7 +135,7 @@ Partial Class DialogLookSettings
         '
         resources.ApplyResources(Me.TableLayoutPanel3, "TableLayoutPanel3")
         Me.TableLayoutPanel3.Controls.Add(Me.LabelRenderer, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ComboBoxRenderer, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ComboBoxStyle, 1, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
         'TableLayoutPanel4
@@ -255,7 +255,7 @@ Partial Class DialogLookSettings
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents LabelRenderer As System.Windows.Forms.Label
-    Friend WithEvents ComboBoxRenderer As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxStyle As System.Windows.Forms.ComboBox
     Friend WithEvents LabelForegroundColor As System.Windows.Forms.Label
     Friend WithEvents ColorComboBoxForegrounColor As ColorComboTestApp.ColorComboBox
     Friend WithEvents LabelBackgroundColor As System.Windows.Forms.Label
