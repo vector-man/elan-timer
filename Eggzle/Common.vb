@@ -1,4 +1,6 @@
 ﻿Imports System.IO
+Imports System.Threading
+
 Public Class Common
     Private Shared ReadOnly RootPath As String = If(My.Settings.EnableDocumentsDataFolder, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), My.Application.Info.AssemblyName), My.Application.Info.DirectoryPath)
 
@@ -17,7 +19,6 @@ Public Class Common
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     Private Shared ReadOnly PluginsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.DefaultPluginsFolder)).FullName
-
 #If DEBUG Then
     Public Shared ReadOnly RendererManager As New RendererManager(PluginsPath, My.Application.Info.DirectoryPath, PluginsPath)
 #ElseIf CONFIG = "Release" Then
