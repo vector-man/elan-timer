@@ -1,5 +1,7 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Shell.Taskbar
 Imports Mono.Addins
+Imports System.Threading
+
 Public Class FormMain
     'Private renderer As RendererManager
     Public context As Information.TimerInfo
@@ -88,8 +90,6 @@ Public Class FormMain
         progressBar = New ProgressBarExt(Me)
         progressBar.MaxValue = 100
 
-        AddHandler Application.Idle, AddressOf UpdateUI
-
         LoadSettings()
 
         Dim alarm As Alarm = Nothing
@@ -102,6 +102,8 @@ Public Class FormMain
 
         timer = TimerFactory.CreateInstance(Common.Time.Duration, Common.Time.CountUp, Common.Time.Restarts, alarm, Common.Time.AlarmEnabled)
         StartUpRendering(timer)
+
+        AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
     Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemConfiguration.Click
         Common.Settings_Click()
@@ -188,9 +190,9 @@ Public Class FormMain
         context = New Information.TimerInfo(timer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
-        'Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = AddinManager.GetExtensionNodes(GetType(EggzleLib.Extend.Rendering.IRenderer))(0)
+        ' Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = AddinManager.GetExtensionNodes(GetType(EggzleLib.Extend.Rendering.IRenderer))(0)
         Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = Common.RendererManager.GetRendererNode(Common.Look.Renderer)
-        Common.Look.Renderer = node.Id
+        'Common.Look.Renderer = node.Id
         'Dim rendererInstance As EggzleLib.Extend.Rendering.IRenderer = node.CreateInstance
         timerSurface = Extend.Rendering.SurfaceFactory.CreateInstance(node.CreateInstance, New RenderArgs(
                                                                           Nothing,
@@ -261,6 +263,7 @@ Public Class FormMain
     Private Sub UpdateUI()
         ToolStripButtonStartPause.Enabled = Not timer.IsExpired
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
+        Me.Opacity = Common.Look.Opacity / 100
     End Sub
 
     Private Sub LoadSettings()
@@ -281,7 +284,7 @@ Public Class FormMain
 
         Me.ToolStripMenuItemAlwaysOnTop.Checked = My.Settings.AlwaysOnTop
         Me.TopMost = Me.ToolStripMenuItemAlwaysOnTop.Checked
-        Me.Opacity = Common.Look.Opacity / 100
+        ' Me.Opacity = Common.Look.Opacity / 100
 
         Me.Size = My.Settings.WindowSize
         If My.Settings.WindowMaximized Then
