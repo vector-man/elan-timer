@@ -4,22 +4,18 @@
         Private jsonDatabase As JsonDatabase
         Private _look As Models.LookModel
         Private backupLook As Models.LookModel
+        Private _defaultModel As Object
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
         Sub New(path As String, Optional defaultModel As Models.LookModel = Nothing, Optional load As Boolean = True)
             MyClass.New()
+            _defaultModel = defaultModel
             _path = path
             If load Then
                 MyClass.Load()
             End If
-            If _look Is Nothing Then
-                If defaultModel Is Nothing Then
-                    _look = New Models.LookModel(System.Drawing.SystemFonts.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 75, String.Empty)
-                Else
-                    _look = defaultModel
-                End If
-            End If
+
         End Sub
         Public Property Renderer As String
             Get
@@ -78,6 +74,9 @@
 
         Public Sub ImportFrom(path As String) Implements ISettings.ImportFrom
             _look = jsonDatabase.Load(path, GetType(Models.LookModel))
+            If _look Is Nothing Then
+                _look = _defaultModel
+            End If
         End Sub
 
         Public Sub Load() Implements ISettings.Load
