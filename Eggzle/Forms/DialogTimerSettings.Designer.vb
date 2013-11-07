@@ -26,24 +26,21 @@ Partial Class DialogTimerSettings
         Me.Label7 = New System.Windows.Forms.Label()
         Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxMemo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
-        Me.ButtonOpenAlarm = New System.Windows.Forms.Button()
-        Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
-        Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
+        Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
+        Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
+        Me.ButtonOpenAlarm = New System.Windows.Forms.Button()
+        Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ButtonImport = New System.Windows.Forms.Button()
-        Me.ButtonExport = New System.Windows.Forms.Button()
-        Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
+        Me.ButtonOK = New System.Windows.Forms.Button()
+        Me.ButtonExport = New System.Windows.Forms.Button()
+        Me.ButtonImport = New System.Windows.Forms.Button()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxDuration = New System.Windows.Forms.GroupBox()
-        Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
-        Me.LabelRestarts = New System.Windows.Forms.Label()
-        Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.LabelDays = New System.Windows.Forms.Label()
         Me.NumericUpDownDays = New System.Windows.Forms.NumericUpDown()
@@ -53,6 +50,9 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownMinutes = New System.Windows.Forms.NumericUpDown()
         Me.LabelSeconds = New System.Windows.Forms.Label()
         Me.NumericUpDownSeconds = New System.Windows.Forms.NumericUpDown()
+        Me.LabelRestarts = New System.Windows.Forms.Label()
+        Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
+        Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
         Me.CheckBoxAutoStart = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -60,12 +60,12 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBoxDuration.SuspendLayout()
-        CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.NumericUpDownDays, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label7
@@ -85,15 +85,15 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel5.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
         'TextBoxMemo
         '
         resources.ApplyResources(Me.TextBoxMemo, "TextBoxMemo")
         Me.TextBoxMemo.Name = "TextBoxMemo"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
         '
         'TableLayoutPanel4
         '
@@ -105,23 +105,11 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxLoop, 1, 1)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         '
-        'CheckBoxLoop
+        'CheckBoxAlarmSet
         '
-        resources.ApplyResources(Me.CheckBoxLoop, "CheckBoxLoop")
-        Me.CheckBoxLoop.Name = "CheckBoxLoop"
-        Me.CheckBoxLoop.UseVisualStyleBackColor = True
-        '
-        'ButtonOpenAlarm
-        '
-        resources.ApplyResources(Me.ButtonOpenAlarm, "ButtonOpenAlarm")
-        Me.ButtonOpenAlarm.Name = "ButtonOpenAlarm"
-        Me.ButtonOpenAlarm.UseVisualStyleBackColor = True
-        '
-        'ButtonAlarmPlay
-        '
-        resources.ApplyResources(Me.ButtonAlarmPlay, "ButtonAlarmPlay")
-        Me.ButtonAlarmPlay.Name = "ButtonAlarmPlay"
-        Me.ButtonAlarmPlay.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
+        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
+        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
         '
         'ComboBoxAlarmPath
         '
@@ -129,11 +117,23 @@ Partial Class DialogTimerSettings
         Me.ComboBoxAlarmPath.FormattingEnabled = True
         Me.ComboBoxAlarmPath.Name = "ComboBoxAlarmPath"
         '
-        'CheckBoxAlarmSet
+        'ButtonAlarmPlay
         '
-        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
-        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
-        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonAlarmPlay, "ButtonAlarmPlay")
+        Me.ButtonAlarmPlay.Name = "ButtonAlarmPlay"
+        Me.ButtonAlarmPlay.UseVisualStyleBackColor = True
+        '
+        'ButtonOpenAlarm
+        '
+        resources.ApplyResources(Me.ButtonOpenAlarm, "ButtonOpenAlarm")
+        Me.ButtonOpenAlarm.Name = "ButtonOpenAlarm"
+        Me.ButtonOpenAlarm.UseVisualStyleBackColor = True
+        '
+        'CheckBoxLoop
+        '
+        resources.ApplyResources(Me.CheckBoxLoop, "CheckBoxLoop")
+        Me.CheckBoxLoop.Name = "CheckBoxLoop"
+        Me.CheckBoxLoop.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -144,17 +144,12 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonImport, 0, 1)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
-        'ButtonImport
+        'ButtonCancel
         '
-        resources.ApplyResources(Me.ButtonImport, "ButtonImport")
-        Me.ButtonImport.Name = "ButtonImport"
-        Me.ButtonImport.UseVisualStyleBackColor = True
-        '
-        'ButtonExport
-        '
-        resources.ApplyResources(Me.ButtonExport, "ButtonExport")
-        Me.ButtonExport.Name = "ButtonExport"
-        Me.ButtonExport.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
+        Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ButtonCancel.Name = "ButtonCancel"
+        Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'ButtonOK
         '
@@ -163,12 +158,17 @@ Partial Class DialogTimerSettings
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.UseVisualStyleBackColor = True
         '
-        'ButtonCancel
+        'ButtonExport
         '
-        resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
-        Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonExport, "ButtonExport")
+        Me.ButtonExport.Name = "ButtonExport"
+        Me.ButtonExport.UseVisualStyleBackColor = True
+        '
+        'ButtonImport
+        '
+        resources.ApplyResources(Me.ButtonImport, "ButtonImport")
+        Me.ButtonImport.Name = "ButtonImport"
+        Me.ButtonImport.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel3
         '
@@ -185,24 +185,6 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.GroupBoxDuration, "GroupBoxDuration")
         Me.GroupBoxDuration.Name = "GroupBoxDuration"
         Me.GroupBoxDuration.TabStop = False
-        '
-        'CheckBoxCountUp
-        '
-        resources.ApplyResources(Me.CheckBoxCountUp, "CheckBoxCountUp")
-        Me.FlowLayoutPanel1.SetFlowBreak(Me.CheckBoxCountUp, True)
-        Me.CheckBoxCountUp.Name = "CheckBoxCountUp"
-        Me.CheckBoxCountUp.UseVisualStyleBackColor = True
-        '
-        'LabelRestarts
-        '
-        resources.ApplyResources(Me.LabelRestarts, "LabelRestarts")
-        Me.LabelRestarts.Name = "LabelRestarts"
-        '
-        'NumericUpDownRestarts
-        '
-        resources.ApplyResources(Me.NumericUpDownRestarts, "NumericUpDownRestarts")
-        Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownRestarts, True)
-        Me.NumericUpDownRestarts.Name = "NumericUpDownRestarts"
         '
         'FlowLayoutPanel1
         '
@@ -230,7 +212,9 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.NumericUpDownDays, "NumericUpDownDays")
         Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownDays, True)
+        Me.NumericUpDownDays.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.NumericUpDownDays.Name = "NumericUpDownDays"
+        Me.NumericUpDownDays.Value = New Decimal(New Integer() {365, 0, 0, 0})
         '
         'LabelHours
         '
@@ -241,6 +225,7 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.NumericUpDownHours, "NumericUpDownHours")
         Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownHours, True)
+        Me.NumericUpDownHours.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.NumericUpDownHours.Name = "NumericUpDownHours"
         '
         'LabelMinutes
@@ -252,6 +237,7 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.NumericUpDownMinutes, "NumericUpDownMinutes")
         Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownMinutes, True)
+        Me.NumericUpDownMinutes.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.NumericUpDownMinutes.Name = "NumericUpDownMinutes"
         '
         'LabelSeconds
@@ -263,7 +249,27 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.NumericUpDownSeconds, "NumericUpDownSeconds")
         Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownSeconds, True)
+        Me.NumericUpDownSeconds.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.NumericUpDownSeconds.Name = "NumericUpDownSeconds"
+        '
+        'LabelRestarts
+        '
+        resources.ApplyResources(Me.LabelRestarts, "LabelRestarts")
+        Me.LabelRestarts.Name = "LabelRestarts"
+        '
+        'NumericUpDownRestarts
+        '
+        resources.ApplyResources(Me.NumericUpDownRestarts, "NumericUpDownRestarts")
+        Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownRestarts, True)
+        Me.NumericUpDownRestarts.Maximum = New Decimal(New Integer() {999, 0, 0, 0})
+        Me.NumericUpDownRestarts.Name = "NumericUpDownRestarts"
+        '
+        'CheckBoxCountUp
+        '
+        resources.ApplyResources(Me.CheckBoxCountUp, "CheckBoxCountUp")
+        Me.FlowLayoutPanel1.SetFlowBreak(Me.CheckBoxCountUp, True)
+        Me.CheckBoxCountUp.Name = "CheckBoxCountUp"
+        Me.CheckBoxCountUp.UseVisualStyleBackColor = True
         '
         'CheckBoxAutoStart
         '
@@ -296,13 +302,13 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel3.PerformLayout()
         Me.GroupBoxDuration.ResumeLayout(False)
         Me.GroupBoxDuration.PerformLayout()
-        CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         CType(Me.NumericUpDownDays, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
