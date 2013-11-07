@@ -42,8 +42,6 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxDuration = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.LabelDays = New System.Windows.Forms.Label()
-        Me.NumericUpDownDays = New System.Windows.Forms.NumericUpDown()
         Me.LabelHours = New System.Windows.Forms.Label()
         Me.NumericUpDownHours = New System.Windows.Forms.NumericUpDown()
         Me.LabelMinutes = New System.Windows.Forms.Label()
@@ -61,7 +59,6 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBoxDuration.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
-        CType(Me.NumericUpDownDays, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,16 +178,14 @@ Partial Class DialogTimerSettings
         '
         'GroupBoxDuration
         '
-        Me.GroupBoxDuration.Controls.Add(Me.FlowLayoutPanel1)
         resources.ApplyResources(Me.GroupBoxDuration, "GroupBoxDuration")
+        Me.GroupBoxDuration.Controls.Add(Me.FlowLayoutPanel1)
         Me.GroupBoxDuration.Name = "GroupBoxDuration"
         Me.GroupBoxDuration.TabStop = False
         '
         'FlowLayoutPanel1
         '
         resources.ApplyResources(Me.FlowLayoutPanel1, "FlowLayoutPanel1")
-        Me.FlowLayoutPanel1.Controls.Add(Me.LabelDays)
-        Me.FlowLayoutPanel1.Controls.Add(Me.NumericUpDownDays)
         Me.FlowLayoutPanel1.Controls.Add(Me.LabelHours)
         Me.FlowLayoutPanel1.Controls.Add(Me.NumericUpDownHours)
         Me.FlowLayoutPanel1.Controls.Add(Me.LabelMinutes)
@@ -202,19 +197,6 @@ Partial Class DialogTimerSettings
         Me.FlowLayoutPanel1.Controls.Add(Me.CheckBoxCountUp)
         Me.FlowLayoutPanel1.Controls.Add(Me.CheckBoxAutoStart)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        '
-        'LabelDays
-        '
-        resources.ApplyResources(Me.LabelDays, "LabelDays")
-        Me.LabelDays.Name = "LabelDays"
-        '
-        'NumericUpDownDays
-        '
-        resources.ApplyResources(Me.NumericUpDownDays, "NumericUpDownDays")
-        Me.FlowLayoutPanel1.SetFlowBreak(Me.NumericUpDownDays, True)
-        Me.NumericUpDownDays.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
-        Me.NumericUpDownDays.Name = "NumericUpDownDays"
-        Me.NumericUpDownDays.Value = New Decimal(New Integer() {365, 0, 0, 0})
         '
         'LabelHours
         '
@@ -304,7 +286,6 @@ Partial Class DialogTimerSettings
         Me.GroupBoxDuration.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
-        CType(Me.NumericUpDownDays, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).EndInit()
@@ -332,8 +313,6 @@ Partial Class DialogTimerSettings
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents GroupBoxDuration As System.Windows.Forms.GroupBox
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents LabelDays As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDownDays As System.Windows.Forms.NumericUpDown
     Friend WithEvents LabelHours As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownHours As System.Windows.Forms.NumericUpDown
     Friend WithEvents LabelMinutes As System.Windows.Forms.Label

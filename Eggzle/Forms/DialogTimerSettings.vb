@@ -14,7 +14,7 @@ Public Class DialogTimerSettings
 
     Private Sub LoadSettings()
         Dim duration = Common.Time.Duration
-        NumericUpDownDays.Value = duration.Days
+
         NumericUpDownHours.Value = duration.Hours
         NumericUpDownMinutes.Value = duration.Minutes
         NumericUpDownSeconds.Value = duration.Seconds
@@ -69,7 +69,7 @@ Public Class DialogTimerSettings
         'End If
     End Sub
     Private Sub SaveSettings()
-        Common.Time.Duration = New TimeSpan(NumericUpDownDays.Value, NumericUpDownHours.Value, NumericUpDownMinutes.Value, NumericUpDownSeconds.Value)
+        Common.Time.Duration = New TimeSpan(0, NumericUpDownHours.Value, NumericUpDownMinutes.Value, NumericUpDownSeconds.Value)
         Common.Time.CountUp = Me.CheckBoxCountUp.Checked
         Common.Time.AutoStart = Me.CheckBoxAutoStart.Checked
         Common.Time.Restarts = Me.NumericUpDownRestarts.Value
@@ -170,8 +170,6 @@ Public Class DialogTimerSettings
         End Try
     End Sub
     Private Sub UpdateUI()
-        Me.LabelDays.Enabled = (Not Editing)
-        Me.NumericUpDownDays.Enabled = (Not Editing)
         Me.LabelHours.Enabled = (Not Editing)
         Me.NumericUpDownHours.Enabled = (Not Editing)
         Me.LabelMinutes.Enabled = (Not Editing)
