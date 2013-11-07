@@ -67,12 +67,12 @@ Partial Class DialogLookSettings
         resources.ApplyResources(Me.LabelRenderer, "LabelRenderer")
         Me.LabelRenderer.Name = "LabelRenderer"
         '
-        'ComboBoxRenderer
+        'ComboBoxStyle
         '
-        resources.ApplyResources(Me.ComboBoxRenderer, "ComboBoxRenderer")
-        Me.ComboBoxRenderer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxRenderer.FormattingEnabled = True
-        Me.ComboBoxRenderer.Name = "ComboBoxRenderer"
+        resources.ApplyResources(Me.ComboBoxStyle, "ComboBoxStyle")
+        Me.ComboBoxStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxStyle.FormattingEnabled = True
+        Me.ComboBoxStyle.Name = "ComboBoxStyle"
         '
         'LabelForegroundColor
         '
