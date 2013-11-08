@@ -1,4 +1,4 @@
-﻿Imports Microsoft.WindowsAPICodePack.Shell.Taskbar
+﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Imports System.Threading
 
 Public Class FormMain
