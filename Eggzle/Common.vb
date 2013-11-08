@@ -6,7 +6,7 @@ Public Class Common
 
     Public Shared ReadOnly TimePath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.TimeFolder)).FullName)
     Private Shared ReadOnly DefaultTimePath As String = Path.Combine(TimePath, My.Settings.DefaultTimeFile)
-    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, Nothing, False)
+    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), False)
 
     Public Shared ReadOnly TasksPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.TaskFolder)).FullName)
     Private Shared ReadOnly DefaultTasksPath As String = Path.Combine(TasksPath, My.Settings.DefaultTaskFile)
