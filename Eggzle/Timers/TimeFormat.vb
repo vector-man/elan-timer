@@ -7,7 +7,7 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
     Sub New()
 
     End Sub
-    Sub New(daysText As String, hoursText As String, minutesText As String, secondsText As String, expiredText As String)
+    Sub New(daysText As String, hoursText As String, minutesText As String, secondsText As String)
         MyClass.daysText = daysText
         MyClass.hoursText = hoursText
         MyClass.minutesText = minutesText
