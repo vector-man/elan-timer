@@ -25,6 +25,8 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
                     sb.Append(".")
                 End If
                 sb.Append(ts.ToString("hh\:mm\:ss"))
+            Case "m"
+                sb.Append(ts.ToString("hh\:mm"))
             Case "v"
                 If Math.Floor(ts.Days) > 0 Then
                     sb.Append(ts.Days)
