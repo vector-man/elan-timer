@@ -120,137 +120,7 @@
   <metadata name="ToolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>106, 17</value>
   </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ToolStripMenuItemNewTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+N</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ToolStripMenuItemNewTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemNewTimer.Text" xml:space="preserve">
-    <value>New Timer...</value>
-  </data>
-  <data name="ToolStripMenuItemEditTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+E</value>
-  </data>
-  <data name="ToolStripMenuItemEditTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemEditTimer.Text" xml:space="preserve">
-    <value>Edit Timer...</value>
-  </data>
-  <data name="ToolStripMenuItemTasks.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+T</value>
-  </data>
-  <data name="ToolStripMenuItemTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemTasks.Text" xml:space="preserve">
-    <value>Tasks...</value>
-  </data>
-  <data name="ToolStripMenuItemLook.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+L</value>
-  </data>
-  <data name="ToolStripMenuItemLook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemLook.Text" xml:space="preserve">
-    <value>Look...</value>
-  </data>
-  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
-  <data name="ToolStripMenuItemConfiguration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemConfiguration.Text" xml:space="preserve">
-    <value>Configuration...</value>
-  </data>
-  <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
-  <data name="ToolStripMenuItemAlwaysOnTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemAlwaysOnTop.Text" xml:space="preserve">
-    <value>Always On Top</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+D</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.Text" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+C</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.Text" xml:space="preserve">
-    <value>Compact</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.Text" xml:space="preserve">
-    <value>Full Screen</value>
-  </data>
-  <data name="ToolStripMenuItemWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemWindow.Text" xml:space="preserve">
-    <value>Window</value>
-  </data>
-  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F1</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.Text" xml:space="preserve">
-    <value>Help Online</value>
-  </data>
-  <data name="ToolStripMenuItemAboutEggzle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemAboutEggzle.Text" xml:space="preserve">
-    <value>About Eggzle</value>
-  </data>
-  <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 6</value>
-  </data>
-  <data name="ToolStripMenuItemCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
-    <value>Check for Updates</value>
-  </data>
-  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
-  <data name="ToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 6</value>
-  </data>
-  <data name="ToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
-  </data>
   <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -351,6 +221,136 @@
   </data>
   <data name="&gt;&gt;ToolStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ToolStripMenuItemNewTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
+  <data name="ToolStripMenuItemNewTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemNewTimer.Text" xml:space="preserve">
+    <value>New Timer...</value>
+  </data>
+  <data name="ToolStripMenuItemEditTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+E</value>
+  </data>
+  <data name="ToolStripMenuItemEditTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemEditTimer.Text" xml:space="preserve">
+    <value>Edit Timer...</value>
+  </data>
+  <data name="ToolStripMenuItemTasks.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+T</value>
+  </data>
+  <data name="ToolStripMenuItemTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemTasks.Text" xml:space="preserve">
+    <value>Tasks...</value>
+  </data>
+  <data name="ToolStripMenuItemLook.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+L</value>
+  </data>
+  <data name="ToolStripMenuItemLook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemLook.Text" xml:space="preserve">
+    <value>Look...</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemConfiguration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemConfiguration.Text" xml:space="preserve">
+    <value>Configuration...</value>
+  </data>
+  <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemAlwaysOnTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemAlwaysOnTop.Text" xml:space="preserve">
+    <value>Always On Top</value>
+  </data>
+  <data name="ToolStripMenuItemWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemWindow.Text" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="ToolStripMenuItemDefault.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+D</value>
+  </data>
+  <data name="ToolStripMenuItemDefault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemDefault.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+C</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.Text" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.Text" xml:space="preserve">
+    <value>Full Screen</value>
+  </data>
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F1</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.Text" xml:space="preserve">
+    <value>Help Online</value>
+  </data>
+  <data name="ToolStripMenuItemAboutEggzle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemAboutEggzle.Text" xml:space="preserve">
+    <value>About Eggzle</value>
+  </data>
+  <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 6</value>
+  </data>
+  <data name="ToolStripMenuItemCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
+    <value>Check for Updates</value>
+  </data>
+  <data name="ToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
+    <value>E&amp;xit</value>
   </data>
   <data name="PanelTimer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

@@ -56,6 +56,7 @@ Partial Class FormMain
         '
         'ToolStrip1
         '
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset})
         resources.ApplyResources(Me.ToolStrip1, "ToolStrip1")
         Me.ToolStrip1.Name = "ToolStrip1"
