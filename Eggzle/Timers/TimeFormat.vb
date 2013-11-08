@@ -12,7 +12,6 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
         MyClass.hoursText = hoursText
         MyClass.minutesText = minutesText
         MyClass.secondsText = secondsText
-        MyClass.expiredText = expiredText
     End Sub
     Public Function Format(fmt As String, arg As Object, formatProvider As IFormatProvider) As String Implements ICustomFormatter.Format
         Dim sb = New StringBuilder()
