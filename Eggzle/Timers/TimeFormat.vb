@@ -45,9 +45,6 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
                     sb.Append(ts.Seconds)
                     sb.Append(String.Format(" {0} ", secondsText))
                 End If
-                If sb.Length = 0 Then
-                    sb.Append(String.Format(" {0} ", expiredText))
-                End If
         End Select
         Return sb.ToString
     End Function
