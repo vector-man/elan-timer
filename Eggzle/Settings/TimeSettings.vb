@@ -4,6 +4,7 @@ Namespace Settings
         Private _time As Models.TimeModel
         Private backupTime As Models.TimeModel
         Private _path As String
+        Private _defaultModel As Models.TimeModel
         Private jsonDatabase As JsonDatabase
         Sub New()
             jsonDatabase = New JsonDatabase
@@ -11,16 +12,10 @@ Namespace Settings
         Sub New(path As String, Optional defaultModel As Models.TimeModel = Nothing, Optional load As Boolean = True)
             MyClass.New()
             _path = path
+            _defaultModel = defaultModel
             _time = New Models.TimeModel
             If load Then
                 MyClass.Load()
-            End If
-            If _time Is Nothing Then
-                If defaultModel Is Nothing Then
-                    _time = New Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty)
-                Else
-                    _time = defaultModel
-                End If
             End If
         End Sub
 
@@ -104,6 +99,9 @@ Namespace Settings
 
         Public Sub ImportFrom(path As String) Implements ISettings.ImportFrom
             _time = jsonDatabase.Load(path, GetType(Models.TimeModel))
+            If (_time Is Nothing) Then
+                _time = _defaultModel
+            End If
         End Sub
 
         Public Sub Load() Implements ISettings.Load
