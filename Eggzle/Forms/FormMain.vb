@@ -7,7 +7,6 @@ Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
     Private Const RenderRate As Integer = 1000 / 30
-    Private progressBar As ProgressBarExt
     Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
@@ -23,7 +22,7 @@ Public Class FormMain
     End Sub
     Public Sub Timer_Paused(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Paused)
-        progressBar.State = TaskbarButtonProgressState.Paused
+        ' TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused)
     End Sub
     Public Sub Timer_Restarted(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Restarted)
@@ -86,8 +85,8 @@ Public Class FormMain
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadLanguage()
-        progressBar = New ProgressBarExt(Me)
-        progressBar.MaxValue = 100
+
+        ' TaskbarManager.Instance.SetProgressValue(0, 100)
 
         LoadSettings()
 
@@ -228,11 +227,15 @@ Public Class FormMain
     End Sub
 
     Private Async Sub FormMainProgressUpdateAsync(token As System.Threading.CancellationToken)
+        Dim currentProgressValue As Long
         While Not token.IsCancellationRequested
             Await TaskEx.Delay(500)
             Await Task.Factory.StartNew(Sub()
-                                            progressBar.CurrentValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
-                                            ProgressBarMain.Value = progressBar.CurrentValue
+                                            currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
+                                            If TaskbarManager.IsPlatformSupported Then
+                                                TaskbarManager.Instance.SetProgressValue(currentProgressValue, 100, Me.Handle)
+                                            End If
+                                            ProgressBarMain.Value = currentProgressValue
                                         End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
 
         End While
@@ -328,7 +331,10 @@ Public Class FormMain
             Else
                 timer.Pause()
             End If
-            progressBar.State = If(timer.IsPaused, TaskbarButtonProgressState.Paused, TaskbarButtonProgressState.Normal)
+            If (TaskbarManager.IsPlatformSupported) Then
+                Dim progressState = If(timer.IsPaused, TaskbarProgressBarState.Paused, TaskbarProgressBarState.Normal)
+                TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
+            End If
         Catch ex As Exception
             Throw ex
         End Try
