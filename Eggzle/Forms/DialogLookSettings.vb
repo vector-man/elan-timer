@@ -1,12 +1,11 @@
 ﻿Imports System.Windows.Forms
-Imports Mono.Addins
 Public Class DialogLookSettings
     Private lookBindingSource As BindingSource
     Private argsBindingSource As BindingSource
     Private args As RenderArgs
     Private timer As CodeIsle.Timers.AlarmTimer
     Private timerInfo As Information.TimerInfo
-    Private timerSurface As Extend.Rendering.Surface
+    Private timerSurface As Rendering.Surface
     Sub LoadSettings()
         args = New RenderArgs(
     Nothing,
@@ -22,8 +21,8 @@ Public Class DialogLookSettings
 
         ComboBoxStyle.DisplayMember = "Name"
         ComboBoxStyle.ValueMember = "Id"
-
-        ComboBoxStyle.DataSource = Common.RendererManager.GetRendererList
+        'TODO: Change style combo fgunctionality
+        ' ComboBoxStyle.DataSource = Common.RendererManager.GetRendererList
         Try
             Me.ComboBoxStyle.SelectedValue = Common.Look.Renderer
         Catch ex As Exception
@@ -93,9 +92,7 @@ Public Class DialogLookSettings
         Try
             timerInfo = New Information.TimerInfo(timer)
 
-            Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = Common.RendererManager.GetRendererNode(ComboBoxStyle.SelectedValue)
-            'Dim rendererInstance As EggzleLib.Extend.Rendering.IRenderer = node.CreateInstance
-            timerSurface = Extend.Rendering.SurfaceFactory.CreateInstance(node.CreateInstance, args, True)
+            timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, args, True)
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100

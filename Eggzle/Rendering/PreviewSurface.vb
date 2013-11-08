@@ -1,8 +1,8 @@
-﻿Public Class PreviewSurface : Inherits Extend.Rendering.Surface
-    Sub New(renderer As EggzleLib.Extend.Rendering.IRenderer, args As RenderArgs)
+﻿Public Class PreviewSurface : Inherits Rendering.Surface
+    Sub New(renderer As Rendering.IRenderer, args As RenderArgs)
         MyClass.New(renderer, args, 1)
     End Sub
-    Sub New(renderer As EggzleLib.Extend.Rendering.IRenderer, args As RenderArgs, opacity As Double)
+    Sub New(renderer As Rendering.IRenderer, args As RenderArgs, opacity As Double)
         MyBase.New(renderer, args)
         MyClass.Opacity = opacity
     End Sub

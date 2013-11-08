@@ -1,12 +1,11 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Shell.Taskbar
-Imports Mono.Addins
 Imports System.Threading
 
 Public Class FormMain
     'Private renderer As RendererManager
     Public context As Information.TimerInfo
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
-    Public timerSurface As Eggzle.Extend.Rendering.Surface
+    Public timerSurface As Rendering.Surface
     Private Const RenderRate As Integer = 1000 / 30
     Private progressBar As ProgressBarExt
     Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
@@ -190,11 +189,7 @@ Public Class FormMain
         context = New Information.TimerInfo(timer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
-        ' Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = AddinManager.GetExtensionNodes(GetType(EggzleLib.Extend.Rendering.IRenderer))(0)
-        Dim node As TypeExtensionNode(Of EggzleLib.RendererAttribute) = Common.RendererManager.GetRendererNode(Common.Look.Renderer)
-        'Common.Look.Renderer = node.Id
-        'Dim rendererInstance As EggzleLib.Extend.Rendering.IRenderer = node.CreateInstance
-        timerSurface = Extend.Rendering.SurfaceFactory.CreateInstance(node.CreateInstance, New RenderArgs(
+        timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, New RenderArgs(
                                                                           Nothing,
                                                                           Nothing,
                                                                           Common.Look.Font,

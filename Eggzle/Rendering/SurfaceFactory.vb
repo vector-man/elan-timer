@@ -1,9 +1,9 @@
-﻿Namespace Extend.Rendering
+﻿Namespace Rendering
     Public Class SurfaceFactory
-        Public Shared Function CreateInstance(renderer As EggzleLib.Extend.Rendering.IRenderer, args As RenderArgs)
+        Public Shared Function CreateInstance(renderer As Rendering.IRenderer, args As RenderArgs)
             Return CreateInstance(renderer, args, False)
         End Function
-        Public Shared Function CreateInstance(renderer As EggzleLib.Extend.Rendering.IRenderer, args As RenderArgs, preview As Boolean)
+        Public Shared Function CreateInstance(renderer As IRenderer, args As RenderArgs, preview As Boolean)
             If preview Then
                 Return New PreviewSurface(renderer, args, 1)
             Else

@@ -19,12 +19,6 @@ Public Class Common
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     Private Shared ReadOnly PluginsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.DefaultPluginsFolder)).FullName
-#If DEBUG Then
-    Public Shared ReadOnly RendererManager As New RendererManager(PluginsPath, My.Application.Info.DirectoryPath, PluginsPath)
-#ElseIf CONFIG = "Release" Then
-    Public Shared ReadOnly RendererManager As New RendererManager(PluginsFolder, PluginsFolder, PluginsFolder)
-#End If
-    'Public Shared RenderInfo As New Eggzle.Information.MutableRenderInfo(New Size, Color.OrangeRed, Color.GhostWhite, System.Drawing.SystemFonts.DefaultFont, Settings.SizeToFit)
 
     Public Shared Sub Settings_Click()
         Try

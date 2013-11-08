@@ -98,19 +98,12 @@
     <Reference Include="ColorComboBox">
       <HintPath>..\..\..\..\..\..\SharpDevelop Projects\ColorComboBox\ColorComboBox\bin\Release\ColorComboBox.dll</HintPath>
     </Reference>
-    <Reference Include="CommonServiceLocator.NinjectAdapter">
-      <HintPath>..\..\..\..\..\Libraries\Ninject\Ninject-3.0.0.15-release-net-4.5\extensions\CommonServiceLocator.NinjectAdapter.dll</HintPath>
-    </Reference>
     <Reference Include="FontComboBox">
       <HintPath>..\..\..\..\..\..\SharpDevelop Projects\FontComboBox\FontComboBox\bin\Release\FontComboBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Libraries\Windows API Codec Pack\1.1 Ext\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Addins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Downloads\Programming\mono-addins-master\mono-addins-master\bin\Mono.Addins.dll</HintPath>
     </Reference>
     <Reference Include="NAudio">
       <HintPath>..\..\..\..\..\Libraries\NAudio\1.6\NAudio.dll</HintPath>
@@ -184,11 +177,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="Renderer\EggzleRenderer.vb" />
+    <Compile Include="Renderer\IRenderArgs.vb" />
+    <Compile Include="Renderer\IRenderer.vb" />
+    <Compile Include="Renderer\ITimerInfo.vb" />
+    <Compile Include="Renderer\RenderArgs.vb" />
     <Compile Include="Rendering\PreviewSurface.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Rendering\RenderArgs.vb" />
-    <Compile Include="Rendering\RendererManager.vb" />
     <Compile Include="Rendering\Surface.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -325,12 +322,6 @@
     <None Include="Resources\pause_green.png" />
     <None Include="Resources\arrow_refresh.png" />
     <None Include="Resources\play_green.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EggzleLib\EggzleLib.vbproj">
-      <Project>{df58977b-90a5-4d2f-9fa7-8252950017ad}</Project>
-      <Name>EggzleLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="eggzle.ico" />

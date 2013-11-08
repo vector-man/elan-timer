@@ -1,16 +1,16 @@
-﻿Namespace Extend.Rendering
+﻿Namespace Rendering
     Public Class Surface
         Inherits PictureBox
-        Private _renderer As EggzleLib.Extend.Rendering.IRenderer
+        Private _renderer As IRenderer
         Private Const DefaultRenderRate As Integer = 1000 / 60
         Private _renderRate As Integer
         Private _args As RenderArgs
         Private surfaceInvalidatorCancellationTokenSource As System.Threading.CancellationTokenSource
 
-        Sub New(renderer As EggzleLib.Extend.Rendering.IRenderer, args As RenderArgs)
+        Sub New(renderer As IRenderer, args As RenderArgs)
             MyClass.New(renderer, args, DefaultRenderRate)
         End Sub
-        Sub New(renderer As EggzleLib.Extend.Rendering.IRenderer, args As Object, renderRate As Integer)
+        Sub New(renderer As IRenderer, args As Object, renderRate As Integer)
             MyBase.New()
             _renderer = renderer
             _renderRate = renderRate
@@ -24,7 +24,7 @@
         Private Sub Surface_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs)
             _args.ClipRectangle = e.ClipRectangle
             _args.Graphics = e.Graphics
-            _renderer.Render(New EggzleLib.RenderArgs(_args))
+            _renderer.Render(New RenderArgs(_args.ClipRectangle, _args.Graphics, _args.Font, _args.BackgroundColor, _args.ForegroundColor, _args.SizeToFit, _args.Data, _args.FormatProvider, _args.Format))
         End Sub
         Private Async Sub SurfaceInvalidatorAsync(token As System.Threading.CancellationToken)
             While Not token.IsCancellationRequested

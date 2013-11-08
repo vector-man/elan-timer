@@ -1,6 +1,5 @@
 ﻿Imports System.Windows.Forms
 Imports Eggzle.Settings.Models
-Imports Mono.Addins
 Public Class DialogTaskSettings
 
     Private actionsData As List(Of TaskModel)

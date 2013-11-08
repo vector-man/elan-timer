@@ -1,5 +1,4 @@
 ﻿Imports System.Windows.Forms
-Imports Mono.Addins
 Public Class DialogTimerSettings
     Public Property Editing As Boolean = False
     Dim alarmPlayer As Alarm
