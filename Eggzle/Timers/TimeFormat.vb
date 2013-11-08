@@ -4,7 +4,6 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
     Private hoursText As String = "Hours"
     Private minutesText As String = "Minutes"
     Private secondsText As String = "Seconds"
-    Private expiredText As String = "Expired"
     Sub New()
 
     End Sub
