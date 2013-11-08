@@ -99,10 +99,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\ColorComboBox.dll</HintPath>
     </Reference>
-    <Reference Include="FontComboBox, Version=1.0.4830.16522, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libraries\FontComboBox.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -112,19 +108,23 @@
     <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.16\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Windows7APICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Libraries\Windows API Codec Pack\1.1 Ext\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <HintPath>..\packages\Windows7APICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
     <Reference Include="NAudio">
-      <HintPath>..\..\..\..\..\Libraries\NAudio\1.6\NAudio.dll</HintPath>
+      <HintPath>..\packages\NAudio.1.7\lib\net35\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ObjectListView">
-      <HintPath>..\..\..\..\..\Libraries\ObjectListView\2.5.1\ObjectListView.dll</HintPath>
+      <HintPath>..\packages\Unofficial.ObjectListView.2.6.0\lib\net20\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="Picker">
       <HintPath>..\..\..\..\..\Libraries\Picker\Picker.dll</HintPath>
