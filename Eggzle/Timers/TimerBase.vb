@@ -293,7 +293,7 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Private Async Sub ExpiredPollAsync(token As Threading.CancellationToken)
             While Not token.IsCancellationRequested Or Enabled
-                Await Task.Delay(1)
+                Await TaskEx.Delay(1)
                 If Remaining.TotalMilliseconds <= 0 Then
                     If restartCount > 0 Then
                         restartCount -= 1

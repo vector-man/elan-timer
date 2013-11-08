@@ -18,7 +18,7 @@
             AddHandler Me.Paint, AddressOf Surface_Paint
 
             surfaceInvalidatorCancellationTokenSource = New System.Threading.CancellationTokenSource
-            Task.Run(Sub() SurfaceInvalidatorAsync(surfaceInvalidatorCancellationTokenSource.Token), surfaceInvalidatorCancellationTokenSource.Token)
+            TaskEx.Run(Sub() SurfaceInvalidatorAsync(surfaceInvalidatorCancellationTokenSource.Token), surfaceInvalidatorCancellationTokenSource.Token)
         End Sub
 
         Private Sub Surface_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs)
@@ -28,7 +28,7 @@
         End Sub
         Private Async Sub SurfaceInvalidatorAsync(token As System.Threading.CancellationToken)
             While Not token.IsCancellationRequested
-                Await Task.Delay(_renderRate)
+                Await TaskEx.Delay(_renderRate)
                 Me.Invalidate()
             End While
         End Sub

@@ -33,19 +33,19 @@ Public Class FormMain
     End Sub
 
     Public Sub ExecuteActions(e As Settings.Models.TimerEvent)
-        Task.Run(Sub()
+        TaskEx.Run(Sub()
 
-                     Dim actions = From action In Common.Tasks.Tasks
-                                   Where action.Enabled.Equals(True) And action.Event.Equals(e)
-                                   Select action
-                     For Each action In actions
-                         Try
-                             Process.Start(action.Command, action.Arguments)
-                         Catch ex As Exception
+                       Dim actions = From action In Common.Tasks.Tasks
+                                     Where action.Enabled.Equals(True) And action.Event.Equals(e)
+                                     Select action
+                       For Each action In actions
+                           Try
+                               Process.Start(action.Command, action.Arguments)
+                           Catch ex As Exception
 
-                         End Try
-                     Next
-                 End Sub)
+                           End Try
+                       Next
+                   End Sub)
     End Sub
 #End Region
 #Region "Form Event Handelers"
@@ -229,7 +229,7 @@ Public Class FormMain
 
     Private Async Sub FormMainProgressUpdateAsync(token As System.Threading.CancellationToken)
         While Not token.IsCancellationRequested
-            Await Task.Delay(500)
+            Await TaskEx.Delay(500)
             Await Task.Factory.StartNew(Sub()
                                             progressBar.CurrentValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
                                             ProgressBarMain.Value = progressBar.CurrentValue
@@ -241,7 +241,7 @@ Public Class FormMain
 
     Private Async Sub FormMainTextUpdaterAsync(token As System.Threading.CancellationToken)
         While Not token.IsCancellationRequested
-            Await Task.Delay(RenderRate)
+            Await TaskEx.Delay(RenderRate)
             Await Task.Factory.StartNew(Sub()
                                             If Not token.IsCancellationRequested Then
                                                 'Me.Text = String.Format("[{0}] - {1} - {2}", EggzleLib.TimeFormatter.Format(timer.Current), If((Common.Time.Memo = 0), String.Empty, String.Concat("""", Common.Time.Memo, """")), My.Application.Info.AssemblyName) ' String.Concat(New String() {"(", EggzleLib.TimeFormatter.Format(timer.Current), ") """, """", " - ", My.Application.Info.AssemblyName})
