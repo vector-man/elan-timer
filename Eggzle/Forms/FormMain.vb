@@ -200,6 +200,7 @@ Public Class FormMain
                                                                           New TimeFormat,
                                                                           "v"
                                                                           ))
+                                                                          "d",
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
