@@ -238,6 +238,11 @@ Public Class FormMain
                                             End If
                                             ProgressBarMain.Value = currentProgressValue
                                         End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
+                                            Me.Text = String.Format(formatProvider, String.Concat("{0:", "s", "}"), timer.Current)
+                                            ' Me.Text = String.Concat("[", String.Format(New TimeFormat, "h", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
+                                            Await TaskEx.Delay(500)
+                                        End While
+                                    End Function, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
 
         End While
 
