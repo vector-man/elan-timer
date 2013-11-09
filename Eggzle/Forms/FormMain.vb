@@ -199,7 +199,7 @@ Public Class FormMain
                                                                           Common.Look.SizeToFit,
                                                                           New Information.TimerInfo(timer),
                                                                           New TimeFormat,
-                                                                          "d",
+                                                                          Common.Look.DisplayFormat,
                                                                           Common.Time.Note
                                                                           ), RenderRate)
 

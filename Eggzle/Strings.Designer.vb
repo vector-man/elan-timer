@@ -155,6 +155,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Display Format:.
+        '''</summary>
+        Public Shared ReadOnly Property DisplayFormat() As String
+            Get
+                Return ResourceManager.GetString("DisplayFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Duration:.
         '''</summary>
         Public Shared ReadOnly Property Duration() As String
@@ -547,15 +556,6 @@ Namespace My.Resources
         Public Shared ReadOnly Property Remove() As String
             Get
                 Return ResourceManager.GetString("Remove", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Renderer:.
-        '''</summary>
-        Public Shared ReadOnly Property Renderer() As String
-            Get
-                Return ResourceManager.GetString("Renderer", resourceCulture)
             End Get
         End Property
         

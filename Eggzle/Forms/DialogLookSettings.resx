@@ -163,13 +163,13 @@
     <value>0, 6, 0, 6</value>
   </data>
   <data name="LabelRenderer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
+    <value>79, 13</value>
   </data>
   <data name="LabelRenderer.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
   <data name="LabelRenderer.Text" xml:space="preserve">
-    <value>Style: </value>
+    <value>Display format: </value>
   </data>
   <data name="&gt;&gt;LabelRenderer.Name" xml:space="preserve">
     <value>LabelRenderer</value>
@@ -183,28 +183,28 @@
   <data name="&gt;&gt;LabelRenderer.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ComboBoxStyle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="ComboBoxDisplayFormat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="ComboBoxStyle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 3</value>
+  <data name="ComboBoxDisplayFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 3</value>
   </data>
-  <data name="ComboBoxStyle.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ComboBoxDisplayFormat.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 21</value>
   </data>
-  <data name="ComboBoxStyle.TabIndex" type="System.Int32, mscorlib">
+  <data name="ComboBoxDisplayFormat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;ComboBoxStyle.Name" xml:space="preserve">
-    <value>ComboBoxStyle</value>
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Name" xml:space="preserve">
+    <value>ComboBoxDisplayFormat</value>
   </data>
-  <data name="&gt;&gt;ComboBoxStyle.Type" xml:space="preserve">
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ComboBoxStyle.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Parent" xml:space="preserve">
     <value>TableLayoutPanel3</value>
   </data>
-  <data name="&gt;&gt;ComboBoxStyle.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ComboBoxDisplayFormat.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="LabelForegroundColor.AutoSize" type="System.Boolean, mscorlib">
@@ -250,7 +250,7 @@
     <value>ColorComboBoxForegrounColor</value>
   </data>
   <data name="&gt;&gt;ColorComboBoxForegrounColor.Type" xml:space="preserve">
-    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.4830.17238, Culture=neutral, PublicKeyToken=null</value>
+    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5060.1935, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ColorComboBoxForegrounColor.Parent" xml:space="preserve">
     <value>TableLayoutPanel4</value>
@@ -301,7 +301,7 @@
     <value>ColorComboBoxBackgroundColor</value>
   </data>
   <data name="&gt;&gt;ColorComboBoxBackgroundColor.Type" xml:space="preserve">
-    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.4830.17238, Culture=neutral, PublicKeyToken=null</value>
+    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5060.1935, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ColorComboBoxBackgroundColor.Parent" xml:space="preserve">
     <value>TableLayoutPanel5</value>
@@ -478,7 +478,7 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="LabelRenderer" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxStyle" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,196,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="LabelRenderer" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxDisplayFormat" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,196,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

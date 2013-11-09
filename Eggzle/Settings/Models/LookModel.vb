@@ -3,13 +3,14 @@
         Sub New()
 
         End Sub
-        Sub New(font As Font, sizeToFit As Boolean, backgroundColor As Color, foregroundColor As Color, opacity As Integer, renderer As String)
+        Sub New(font As Font, sizeToFit As Boolean, backgroundColor As Color, foregroundColor As Color, opacity As Integer, renderer As String, displayFormat As String)
             MyClass.Font = font
             MyClass.SizeToFit = sizeToFit
             MyClass.BackgroundColor = backgroundColor
             MyClass.ForegroundColor = foregroundColor
             MyClass.Opacity = opacity
             MyClass.Renderer = renderer
+            MyClass.DisplayFormat = displayFormat
         End Sub
         Public Property Font As Font
         Public Property SizeToFit As Boolean
@@ -17,5 +18,6 @@
         Public Property ForegroundColor As Color
         Public Property Opacity As Integer
         Public Property Renderer As String
+        Public Property DisplayFormat
     End Class
 End Namespace

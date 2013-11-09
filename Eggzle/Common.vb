@@ -14,12 +14,19 @@ Public Class Common
 
     Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.LookFolder)).FullName)
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 75, String.Empty), False)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 75, String.Empty, "h"), False)
 
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     Private Shared ReadOnly PluginsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.DefaultPluginsFolder)).FullName
 
+    Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
+        {New KeyValuePair(Of String, String)("Standard", "s")},
+        {New KeyValuePair(Of String, String)("Deciseconds", "d")},
+        {New KeyValuePair(Of String, String)("Microseconds", "m")},
+        {New KeyValuePair(Of String, String)("Verbal", "v")}
+        }
+    '("Standard", "h"}, {"Deciseconds", "d"}, {"Microseconds", "m"}, {"Verbal", "v"
     Public Shared Sub Settings_Click()
         Try
             FormConfiguration.ShowDialog(FormMain)
@@ -85,7 +92,7 @@ Public Class Common
         DialogLookSettings.SuspendLayout()
 
         DialogLookSettings.Text = My.Resources.Strings.Look
-        DialogLookSettings.LabelRenderer.Text = My.Resources.Strings.Renderer
+        DialogLookSettings.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
         DialogLookSettings.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
         DialogLookSettings.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
         DialogLookSettings.LabelFont.Text = My.Resources.Strings.Font

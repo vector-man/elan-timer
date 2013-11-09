@@ -147,6 +147,9 @@
   <data name="Days" xml:space="preserve">
     <value>Days</value>
   </data>
+  <data name="DisplayFormat" xml:space="preserve">
+    <value>Display Format:</value>
+  </data>
   <data name="Duration" xml:space="preserve">
     <value>Duration:</value>
   </data>
@@ -278,9 +281,6 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
-  </data>
-  <data name="Renderer" xml:space="preserve">
-    <value>Renderer:</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>

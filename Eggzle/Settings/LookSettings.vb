@@ -67,7 +67,14 @@
                 _look.Opacity = value
             End Set
         End Property
-
+        Public Property DisplayFormat As String
+            Get
+                Return _look.DisplayFormat
+            End Get
+            Set(value As String)
+                _look.DisplayFormat = value
+            End Set
+        End Property
         Public Sub ExportTo(path As String) Implements ISettings.ExportTo
             jsonDatabase.Save(path, _look)
         End Sub
@@ -88,7 +95,7 @@
         End Sub
 
         Private Function Clone(look As Models.LookModel)
-            Return New Models.LookModel(look.Font, look.SizeToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer)
+            Return New Models.LookModel(look.Font, look.SizeToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit
