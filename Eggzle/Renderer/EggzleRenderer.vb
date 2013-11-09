@@ -4,22 +4,32 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
 
     Private stringAlignment As StringFormat
     Private Const MaximumFontSize = Int16.MaxValue
+    Private backgroundBrush As SolidBrush
+    Private foregroundBrush As SolidBrush
     Sub New()
         stringAlignment = New StringFormat
         stringAlignment.Alignment = Drawing.StringAlignment.Center
         stringAlignment.LineAlignment = Drawing.StringAlignment.Center
+        backgroundBrush = New SolidBrush(Color.Black)
+        foregroundBrush = New SolidBrush(Color.Black)
     End Sub
 
     Public Sub Render(args As RenderArgs) Implements Rendering.IRenderer.Render
-        Dim time As String = String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), CType(args.Data, Information.ITimerInfo).Current)
+
+        Dim time = String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), CType(args.Data, Information.ITimerInfo).Current)
+        If time = String.Empty Then
+            time = args.Note
+        End If
         Using f2 As Font = AppropriateFont(args.Graphics, 1, If(args.SizeToFit, MaximumFontSize, args.Font.Size), args.ClipRectangle.Size, time, args.Font)
             args.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias
-            args.Graphics.Clear(args.BackgroundColor)
-            Using sb As New SolidBrush(args.ForegroundColor)
-                'args.Graphics.FillRectangle(New SolidBrush(args.BackgroundColor), 0, 0, args.ClipRectangle.Width, args.ClipRectangle.Height)
-                args.Graphics.DrawString(time, f2, sb, New Rectangle(New Point(0, 0), args.ClipRectangle.Size), stringAlignment)
-            End Using
+            '  args.Graphics.Clear(args.BackgroundColor)
 
+            backgroundBrush.Color = args.BackgroundColor
+            args.Graphics.FillRectangle(backgroundBrush, args.ClipRectangle)
+
+
+            foregroundBrush.Color = args.ForegroundColor
+            args.Graphics.DrawString(time, f2, foregroundBrush, New Rectangle(New Point(0, 0), args.ClipRectangle.Size), stringAlignment)
         End Using
     End Sub
 
