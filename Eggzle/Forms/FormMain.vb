@@ -1,5 +1,6 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Imports System.Threading
+Imports System.Text
 
 Public Class FormMain
     'Private renderer As RendererManager
@@ -237,7 +238,15 @@ Public Class FormMain
                                                 TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                             End If
                                             ProgressBarMain.Value = currentProgressValue
-                                            Me.Text = String.Format(formatProvider, String.Concat("{0:", "s", "}"), timer.Current)
+                                            Dim sb = New StringBuilder
+                                            If (Not timer.IsExpired) Then
+                                                sb.Append(String.Format(formatProvider, "{0:s}", timer.Current, "test"))
+                                            End If
+                                            If (Not Common.Time.Note = String.Empty) Then
+                                                sb.Append(" - ")
+                                                sb.Append(Common.Time.Note)
+                                            End If
+                                            Me.Text = sb.ToString
                                             ' Me.Text = String.Concat("[", String.Format(New TimeFormat, "h", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
                                             Await TaskEx.Delay(500)
                                         End While
