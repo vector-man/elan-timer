@@ -86,11 +86,11 @@ Public Class DialogLookSettings
         LoadSettings()
 
         ShutDownRendering()
-        StartUpRendering(timer, ComboBoxStyle.SelectedValue)
+        StartUpRendering(timer)
         timer.Start()
     End Sub
 
-    Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer, rendererId As String)
+    Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
         Try
             timerInfo = New Information.TimerInfo(timer)
 
