@@ -6,6 +6,7 @@ Public Class DialogLookSettings
     Private timer As CodeIsle.Timers.AlarmTimer
     Private timerInfo As Information.TimerInfo
     Private timerSurface As Rendering.Surface
+    Private Const renderRate As Integer = 1000 / 10
     Sub LoadSettings()
         args = New RenderArgs(
     Nothing,
