@@ -208,7 +208,6 @@ Public Class FormMain
         PanelTimer.Controls.Add(timerSurface)
 
         'renderer = New RendererManager(rendererInstance, context, timerSurface, False)
-        Task.Factory.StartNew(Sub() FormMainTextUpdaterAsync(updateCancellationTokenSource.Token), updateCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
         Task.Factory.StartNew(Sub() FormMainProgressUpdateAsync(updateCancellationTokenSource.Token), updateCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
         AddHandler timer.Started, AddressOf Timer_Started
         AddHandler timer.Paused, AddressOf Timer_Paused
@@ -244,17 +243,7 @@ Public Class FormMain
 
     End Sub
 
-    Private Async Sub FormMainTextUpdaterAsync(token As System.Threading.CancellationToken)
-        While Not token.IsCancellationRequested
-            Await TaskEx.Delay(RenderRate)
-            Await Task.Factory.StartNew(Sub()
-                                            If Not token.IsCancellationRequested Then
-                                                'Me.Text = String.Format("[{0}] - {1} - {2}", EggzleLib.TimeFormatter.Format(timer.Current), If((Common.Time.Memo = 0), String.Empty, String.Concat("""", Common.Time.Memo, """")), My.Application.Info.AssemblyName) ' String.Concat(New String() {"(", EggzleLib.TimeFormatter.Format(timer.Current), ") """, """", " - ", My.Application.Info.AssemblyName})
-                                                Me.Text = String.Concat("[", String.Format(New TimeFormat, "{0}", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
-                                            End If
-                                        End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
 
-        End While
 
     End Sub
 
