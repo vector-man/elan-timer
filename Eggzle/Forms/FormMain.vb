@@ -173,6 +173,8 @@ Public Class FormMain
         GoFullscreen(My.Settings.WindowFullScreen)
     End Sub
     Private Sub ShutDownRendering()
+        updateCancellationTokenSource.Cancel()
+        Task.WaitAll()
         context = Nothing
         PanelTimer.Controls.Clear()
         RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
@@ -181,7 +183,6 @@ Public Class FormMain
         RemoveHandler timer.Paused, AddressOf Timer_Paused
         RemoveHandler timer.Expired, AddressOf Timer_Expired
         RemoveHandler timer.Restarted, AddressOf Timer_Restarted
-        updateCancellationTokenSource.Cancel()
         Task.WaitAll()
     End Sub
     Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
