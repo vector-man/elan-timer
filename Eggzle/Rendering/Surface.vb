@@ -1,6 +1,6 @@
 ﻿Namespace Rendering
     Public Class Surface
-        Inherits PictureBox
+        Inherits Label
         Private _renderer As IRenderer
         Private Const DefaultRenderRate As Integer = 1000 / 60
         Private _renderRate As Integer
