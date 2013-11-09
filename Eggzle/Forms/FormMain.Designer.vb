@@ -206,6 +206,7 @@ Partial Class FormMain
         'ProgressBarMain
         '
         resources.ApplyResources(Me.ProgressBarMain, "ProgressBarMain")
+        Me.ProgressBarMain.Maximum = 1000
         Me.ProgressBarMain.Name = "ProgressBarMain"
         '
         'FormMain
