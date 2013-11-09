@@ -157,7 +157,7 @@
     <value>DataListViewActions</value>
   </data>
   <data name="&gt;&gt;DataListViewActions.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.DataListView, ObjectListView, Version=2.5.1.23848, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.DataListView, ObjectListView, Version=2.5.1.30870, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;DataListViewActions.Parent" xml:space="preserve">
     <value>TableLayoutPanel1</value>
@@ -830,25 +830,25 @@
     <value>OlvColumnName</value>
   </data>
   <data name="&gt;&gt;OlvColumnName.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.23848, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.30870, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;OlvColumnEvent.Name" xml:space="preserve">
     <value>OlvColumnEvent</value>
   </data>
   <data name="&gt;&gt;OlvColumnEvent.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.23848, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.30870, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;OlvColumnCommand.Name" xml:space="preserve">
     <value>OlvColumnCommand</value>
   </data>
   <data name="&gt;&gt;OlvColumnCommand.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.23848, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.30870, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;OlvColumnArguments.Name" xml:space="preserve">
     <value>OlvColumnArguments</value>
   </data>
   <data name="&gt;&gt;OlvColumnArguments.Type" xml:space="preserve">
-    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.23848, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
+    <value>BrightIdeasSoftware.OLVColumn, ObjectListView, Version=2.5.1.30870, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4</value>
   </data>
   <data name="&gt;&gt;ContextMenuExport.Name" xml:space="preserve">
     <value>ContextMenuExport</value>
