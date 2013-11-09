@@ -229,24 +229,20 @@ Public Class FormMain
 
     Private Async Sub FormMainProgressUpdateAsync(token As System.Threading.CancellationToken)
         Dim currentProgressValue As Long
-        While Not token.IsCancellationRequested
-            Await TaskEx.Delay(500)
-            Await Task.Factory.StartNew(Sub()
-                                            currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
+        Dim formatProvider = New TimeFormat
+        Await Task.Factory.StartNew(Async Function()
+                                        While (Not token.IsCancellationRequested)
                                             If TaskbarManager.IsPlatformSupported Then
                                                 TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                             End If
                                             ProgressBarMain.Value = currentProgressValue
-                                        End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
                                             Me.Text = String.Format(formatProvider, String.Concat("{0:", "s", "}"), timer.Current)
                                             ' Me.Text = String.Concat("[", String.Format(New TimeFormat, "h", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
                                             Await TaskEx.Delay(500)
                                         End While
                                     End Function, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
 
-        End While
 
-    End Sub
 
 
 
