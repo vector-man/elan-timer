@@ -12,6 +12,8 @@
         End Sub
         Sub New(renderer As IRenderer, args As RenderArgs, renderRate As Integer)
             MyBase.New()
+            Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
+            Me.SetStyle(ControlStyles.ResizeRedraw, True)
             _renderer = renderer
             _renderRate = renderRate
             _args = args
