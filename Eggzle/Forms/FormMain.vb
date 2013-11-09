@@ -198,9 +198,9 @@ Public Class FormMain
                                                                           Common.Look.SizeToFit,
                                                                           New Information.TimerInfo(timer),
                                                                           New TimeFormat,
-                                                                          "v"
-                                                                          ))
                                                                           "d",
+                                                                          Common.Time.Memo
+                                                                          ), RenderRate)
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
