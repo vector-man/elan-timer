@@ -9,15 +9,16 @@ Public Class DialogLookSettings
     Private Const renderRate As Integer = 1000 / 10
     Sub LoadSettings()
         args = New RenderArgs(
-    Nothing,
-    Nothing,
-    Common.Look.Font,
-    Common.Look.BackgroundColor,
-    Common.Look.ForegroundColor,
-    Common.Look.SizeToFit, New Information.TimerInfo(timer),
-    New TimeFormat,
-        String.Empty
-    )
+                              Nothing,
+                              Nothing,
+                              Common.Look.Font,
+                              Common.Look.BackgroundColor,
+                              Common.Look.ForegroundColor,
+                              Common.Look.SizeToFit, New Information.TimerInfo(timer),
+                              New TimeFormat,
+                              String.Empty,
+                              Common.Time.Memo
+                              )
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
         ComboBoxStyle.DisplayMember = "Name"
