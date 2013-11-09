@@ -10,7 +10,7 @@
         Sub New(renderer As IRenderer, args As RenderArgs)
             MyClass.New(renderer, args, DefaultRenderRate)
         End Sub
-        Sub New(renderer As IRenderer, args As Object, renderRate As Integer)
+        Sub New(renderer As IRenderer, args As RenderArgs, renderRate As Integer)
             MyBase.New()
             _renderer = renderer
             _renderRate = renderRate
