@@ -92,7 +92,7 @@ Public Class DialogLookSettings
         Try
             timerInfo = New Information.TimerInfo(timer)
 
-            timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, args, True)
+            timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, args, True, renderRate)
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100
