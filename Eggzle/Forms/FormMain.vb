@@ -232,6 +232,7 @@ Public Class FormMain
         Dim formatProvider = New TimeFormat
         Await Task.Factory.StartNew(Async Function()
                                         While (Not token.IsCancellationRequested)
+                                            currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
                                             If TaskbarManager.IsPlatformSupported Then
                                                 TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                             End If
