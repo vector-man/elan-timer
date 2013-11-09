@@ -17,22 +17,20 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
         Dim sb = New StringBuilder()
         Dim ts = CType(arg, TimeSpan)
         Select Case fmt
-            ' Show seconds - format: hh:mm:ss.
-            Case "m", Nothing
-                If Math.Floor(ts.Days) > 0 Then
-                    sb.Append(ts.Days)
-                    sb.Append(".")
-                End If
-                sb.Append(ts.ToString("hh\:mm\:ss"))
-                ' Show minutes (no seconds) - format: hh:mm
-            Case "s"
-                sb.Append(ts.ToString("hh\:mm"))
-                ' Show words (verbal) - format: x Days x Hours x Minutes x Seconds.
+            Case "s", Nothing
+                ' Show seconds - format: hours:mm:ss
+                sb.Append(Math.Floor(ts.TotalHours))
+                sb.Append(ts.ToString("\:mm\:ss"))
+            Case "m"
+                ' Show microseconds - format: hours:mm:ss.ff
+                sb.Append(Math.Floor(ts.TotalHours))
+                sb.Append(ts.ToString("\:mm\:ss\.ff"))
+            Case "d"
+                ' Show deciseconds - format: hours:mm:ss.f
+                sb.Append(Math.Floor(ts.TotalHours))
+                sb.Append(ts.ToString("\:mm\:ss\.f"))
             Case "v"
-                If Math.Floor(ts.Days) > 0 Then
-                    sb.Append(ts.Days)
-                    sb.Append(String.Format(" {0} ", daysText))
-                End If
+                ' Show text (verbal) - format: d days format h hours m minutes s seconds.
                 If ts.Hours > 0 Then
                     sb.Append(ts.Hours)
                     sb.Append(String.Format(" {0} ", hoursText))
