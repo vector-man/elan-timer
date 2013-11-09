@@ -234,7 +234,7 @@ Public Class FormMain
             Await Task.Factory.StartNew(Sub()
                                             currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 100
                                             If TaskbarManager.IsPlatformSupported Then
-                                                TaskbarManager.Instance.SetProgressValue(currentProgressValue, 100, Me.Handle)
+                                                TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                             End If
                                             ProgressBarMain.Value = currentProgressValue
                                         End Sub, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
