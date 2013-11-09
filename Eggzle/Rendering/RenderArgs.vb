@@ -1,5 +1,5 @@
 ﻿Public Class RenderArgs : Implements IRenderArgs
-    Public Sub New(clipRectangle As System.Drawing.Rectangle, graphics As System.Drawing.Graphics, font As System.Drawing.Font, backgroundColor As System.Drawing.Color, foregroundColor As System.Drawing.Color, sizeToFit As Boolean, data As Object, formatProvider As IFormatProvider, format As String)
+    Public Sub New(clipRectangle As System.Drawing.Rectangle, graphics As System.Drawing.Graphics, font As System.Drawing.Font, backgroundColor As System.Drawing.Color, foregroundColor As System.Drawing.Color, sizeToFit As Boolean, data As Object, formatProvider As IFormatProvider, format As String, note As String)
         MyClass.ClipRectangle = clipRectangle
         MyClass.Graphics = graphics
         MyClass.Font = font
@@ -9,6 +9,7 @@
         MyClass.Data = data
         MyClass.FormatProvider = formatProvider
         MyClass.Format = format
+        MyClass.Note = note
     End Sub
     Public Property BackgroundColor As Color Implements IRenderArgs.BackgroundColor
 
@@ -27,4 +28,6 @@
     Public Property FormatProvider As IFormatProvider Implements IRenderArgs.FormatProvider
 
     Public Property Format As String Implements IRenderArgs.Format
+
+    Public Property Note As String Implements IRenderArgs.Note
 End Class

@@ -18,4 +18,5 @@
 
     Property Format As String
 
+    Property Note As String
 End Interface

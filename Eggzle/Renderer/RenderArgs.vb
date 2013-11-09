@@ -50,6 +50,11 @@
                 Return _args.Format
             End Get
         End Property
+        Public ReadOnly Property Note As String
+            Get
+                Return _args.Note
+            End Get
+        End Property
     End Class
 
 End Namespace
