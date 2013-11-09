@@ -21,12 +21,11 @@ Public Class DialogLookSettings
                               )
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
-        ComboBoxStyle.DisplayMember = "Name"
-        ComboBoxStyle.ValueMember = "Id"
-        'TODO: Change style combo fgunctionality
-        ' ComboBoxStyle.DataSource = Common.RendererManager.GetRendererList
+        ComboBoxDisplayFormat.DisplayMember = "Key"
+        ComboBoxDisplayFormat.ValueMember = "Value"
+        ComboBoxDisplayFormat.DataSource = Common.DisplayFormats
         Try
-            Me.ComboBoxStyle.SelectedValue = Common.Look.Renderer
+            Me.ComboBoxDisplayFormat.SelectedValue = Common.Look.DisplayFormat
         Catch ex As Exception
 
         End Try
@@ -39,12 +38,13 @@ Public Class DialogLookSettings
 
     End Sub
     Sub SaveSettings()
-        Common.Look.Renderer = Me.ComboBoxStyle.SelectedValue
+        Common.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
         Common.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
         Common.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
         Common.Look.Font = Me.FontPickerFont.Value
         Common.Look.SizeToFit = Me.CheckBoxSizeToFit.Checked
         Common.Look.Opacity = Me.NumericUpDownOpacityLevel.Value
+        Common.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
     End Sub
     Sub UpdateUI()
@@ -120,9 +120,8 @@ Public Class DialogLookSettings
         End Try
     End Sub
 
-    Private Sub ComboBoxRenderer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxStyle.SelectedIndexChanged
-        ShutDownRendering()
-        StartUpRendering(timer, ComboBoxStyle.SelectedValue)
+    Private Sub ComboBoxDisplayFormat_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedIndexChanged
+        args.Format = ComboBoxDisplayFormat.SelectedValue
     End Sub
 
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
