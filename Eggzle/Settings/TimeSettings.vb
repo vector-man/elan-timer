@@ -85,12 +85,12 @@ Namespace Settings
                 _time.AlarmVolume = value
             End Set
         End Property
-        Public Property Memo As String
+        Public Property Note As String
             Get
-                Return _time.Memo
+                Return _time.Note
             End Get
             Set(value As String)
-                _time.Memo = value
+                _time.Note = value
             End Set
         End Property
         Public Sub ExportTo(path As String) Implements ISettings.ExportTo
@@ -125,7 +125,7 @@ Namespace Settings
         '    '_time.Restarts = backupTime.Restarts
         'End Sub
         Private Function Clone(time As Models.TimeModel)
-            Return New Models.TimeModel(time.Duration, time.CountUp, time.AutoStart, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Memo)
+            Return New Models.TimeModel(time.Duration, time.CountUp, time.AutoStart, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit

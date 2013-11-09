@@ -9,7 +9,7 @@
             MyClass.AlarmPath = alarmPath
             MyClass.AlarmLoop = alarmLoop
             MyClass.AlarmVolume = alarmVolume
-            MyClass.Memo = memo
+            MyClass.Note = memo
         End Sub
         Sub New()
 
@@ -22,6 +22,6 @@
         Public Property AlarmPath As String
         Public Property AlarmLoop As Boolean
         Public Property AlarmVolume As Integer
-        Public Property Memo As String 
+        Public Property Note As String
     End Class
 End Namespace

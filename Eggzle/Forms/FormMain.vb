@@ -199,7 +199,7 @@ Public Class FormMain
                                                                           New Information.TimerInfo(timer),
                                                                           New TimeFormat,
                                                                           "d",
-                                                                          Common.Time.Memo
+                                                                          Common.Time.Note
                                                                           ), RenderRate)
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick

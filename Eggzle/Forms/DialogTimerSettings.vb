@@ -14,7 +14,7 @@ Public Class DialogTimerSettings
     Private Sub LoadSettings()
         Dim duration = Common.Time.Duration
 
-        NumericUpDownHours.Value = duration.Hours
+        NumericUpDownHours.Value = Math.Floor(duration.TotalHours)
         NumericUpDownMinutes.Value = duration.Minutes
         NumericUpDownSeconds.Value = duration.Seconds
 
@@ -26,8 +26,8 @@ Public Class DialogTimerSettings
         Me.CheckBoxLoop.Checked = Common.Time.AlarmLoop
         Me.NumericUpDownVolume.Value = Common.Time.AlarmVolume
 
-        Me.TextBoxMemo.DataBindings.Clear()
-        Me.TextBoxMemo.DataBindings.Add("Text", Common.Time, "Memo", True, DataSourceUpdateMode.OnPropertyChanged)
+        Me.TextBoxNote.DataBindings.Clear()
+        Me.TextBoxNote.DataBindings.Add("Text", Common.Time, "Note", True, DataSourceUpdateMode.OnPropertyChanged)
 
         Me.ComboBoxAlarmPath.ValueMember = "FileName"
         Me.ComboBoxAlarmPath.DisplayMember = "Name"
@@ -76,7 +76,7 @@ Public Class DialogTimerSettings
         Common.Time.AlarmPath = Me.ComboBoxAlarmPath.Text
         Common.Time.AlarmLoop = Me.CheckBoxLoop.Checked
         Common.Time.AlarmVolume = Me.NumericUpDownVolume.Value
-        Common.Time.Memo = Me.TextBoxMemo.Text.Trim
+        Common.Time.Note = Me.TextBoxNote.Text.Trim
         UpdateAlarmPath()
     End Sub
 

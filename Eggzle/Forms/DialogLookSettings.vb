@@ -17,7 +17,7 @@ Public Class DialogLookSettings
                               Common.Look.SizeToFit, New Information.TimerInfo(timer),
                               New TimeFormat,
                               String.Empty,
-                              Common.Time.Memo
+                              Common.Time.Note
                               )
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 

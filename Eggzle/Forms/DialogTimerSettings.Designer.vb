@@ -26,7 +26,7 @@ Partial Class DialogTimerSettings
         Me.Label7 = New System.Windows.Forms.Label()
         Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TextBoxMemo = New System.Windows.Forms.TextBox()
+        Me.TextBoxNote = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
@@ -78,14 +78,14 @@ Partial Class DialogTimerSettings
         'TableLayoutPanel5
         '
         resources.ApplyResources(Me.TableLayoutPanel5, "TableLayoutPanel5")
-        Me.TableLayoutPanel5.Controls.Add(Me.TextBoxMemo, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.TextBoxNote, 1, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         '
-        'TextBoxMemo
+        'TextBoxNote
         '
-        resources.ApplyResources(Me.TextBoxMemo, "TextBoxMemo")
-        Me.TextBoxMemo.Name = "TextBoxMemo"
+        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
+        Me.TextBoxNote.Name = "TextBoxNote"
         '
         'Label1
         '
@@ -297,7 +297,7 @@ Partial Class DialogTimerSettings
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownVolume As System.Windows.Forms.NumericUpDown
     Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TextBoxMemo As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxNote As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
