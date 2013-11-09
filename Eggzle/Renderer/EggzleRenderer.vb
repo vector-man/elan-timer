@@ -77,7 +77,8 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
         If Not Me.disposedValue Then
             If disposing Then
                 stringAlignment.Dispose()
-
+                backgroundBrush.Dispose()
+                foregroundBrush.Dispose()
                 ' TODO: dispose managed state (managed objects).
             End If
 
