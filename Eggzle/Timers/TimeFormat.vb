@@ -17,14 +17,17 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
         Dim sb = New StringBuilder()
         Dim ts = CType(arg, TimeSpan)
         Select Case fmt
-            Case "s", Nothing
+            ' Show seconds - format: hh:mm:ss.
+            Case "m", Nothing
                 If Math.Floor(ts.Days) > 0 Then
                     sb.Append(ts.Days)
                     sb.Append(".")
                 End If
                 sb.Append(ts.ToString("hh\:mm\:ss"))
-            Case "m"
+                ' Show minutes (no seconds) - format: hh:mm
+            Case "s"
                 sb.Append(ts.ToString("hh\:mm"))
+                ' Show words (verbal) - format: x Days x Hours x Minutes x Seconds.
             Case "v"
                 If Math.Floor(ts.Days) > 0 Then
                     sb.Append(ts.Days)
