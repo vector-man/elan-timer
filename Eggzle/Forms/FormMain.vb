@@ -6,7 +6,7 @@ Public Class FormMain
     Public context As Information.TimerInfo
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
-    Private Const RenderRate As Integer = 1000 / 30
+    Private Const RenderRate As Integer = 1000 / 10
     Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
