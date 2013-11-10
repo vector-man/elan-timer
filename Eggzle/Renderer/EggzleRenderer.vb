@@ -29,7 +29,7 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
 
 
             foregroundBrush.Color = args.ForegroundColor
-            args.Graphics.DrawString(time, f2, foregroundBrush, New Rectangle(New Point(0, 0), args.ClipRectangle.Size), stringAlignment)
+            args.Graphics.DrawString(time, f2, foregroundBrush, args.ClipRectangle, stringAlignment)
         End Using
     End Sub
 
