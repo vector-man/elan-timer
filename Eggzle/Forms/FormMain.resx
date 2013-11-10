@@ -121,6 +121,82 @@
     <value>106, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVDhPfVNNS2phED74A9z7E/wVbly0LAUJWlkJCaUu
+        0xClDCJy00KIUhTxA1OjoELLjn1ZWifJNBLThR8cFHTlVufOvJ1udLk1IMfzvjPP88wzc7if4uHhYe72
+        9pa/ubnhLy4u5qTj3+Pl5UV5f38vBwDZ3d1dr9PpQLvdhng83nM4HLKTkxN5MplUSunfo1gs7vI8PyoU
+        CuLl5aXi6upKbDQaUK/X4eDgQEwkEgoEEiORyCgQCOxKZR+BxSvv7+/Q7/ehVqsBFg+Rcfz6+grlchno
+        PxYPsS0QRRFOT09hc3NzRSrnuHw+b19dXR0TCBVUq1UG9AlA76VSCQgAWwSr1Tq2WCx2qfwj0LB1Sn58
+        fAQEhHQ6DXt7e4BySRHkcjnA1hj7xsbGulTGcYgoXF9ft87OzgZvb28gCAKcn58DKsotLy+rUb56a2sr
+        hzkMiO7xfeByuVqYI3BkXLfbZXKJ+enpCUKhEKytraklDm5nZ0eNHgCOlCkjNWSuSqUaMYBms8l6pAti
+        ODw8hO3t7b8AHo9HHY1GmQJqIZvNsnwG4Pf7Bbfb3fJ6vQOcBgMhH3w+X46YCYhaoP6ptVQqBXq9fqDT
+        6VparVaQODgOJa6jkcwoeuIiQSwWA5w7O8NthOPjY3ZmNBq/TKTY39+306wrlQorpnE9Pz8zTwiIFNF5
+        JpNhdyaTaWwwGL7GGAwGV0gebV44HKbFYYtEplHfS0tL44WFhSHdUe9OpxM0Gs3XIlHg4S6ZMj8/L9ps
+        NgVOQSQ2UjA7OyvOzMwopqenRcqZmJj4vsqfYTablcgmR3YZ/nok+ejoCLCYfUz4lE9OTv7/Y/o3FhcX
+        55CRn5qa4lHuD58zx/0Bt7Ya7zixg7YAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 22</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.Text" xml:space="preserve">
+    <value>Customize and control Eggzle</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVDhPZZJrSBRRGIYPRfSnv1EUdpOSCozCgoxuP/pR
+        BF3Jli5gRtsFNLYLQulql6XaMlZz1Mp2N61MilJWpcJaYpW0jEQSF8tuWrvOzM7uzE4z687O28w0kNAL
+        H/PNd87zHs47Q3TBTiYILaQk7iO9vI90q61ksrEwTkITmaava/u6Ym0kwxxrcA2ZFHlMrkTfWobHmFcQ
+        3+wKCzVzAkr+Mb909AgrWQ+xct4Bf/TGrNfiu4PM7/5CNvKIdLFPSJphEHpAzkS79o0kQi3gAzlc5OYM
+        QXReAF9zHVx9Nbi6KsSoq+DPnwRzdYrIf7CJwocTo6F7pEc/nHx3kyK+p5D95c/hvlTOTMbuVIB/eh8J
+        lwOq7QjU/IOQLxch9tALtvoUhuqXpuj+WuXX04XB4dvaVT7fJKuHqInBAc09dqccYqMH8brbkIe/I5kY
+        gyInIH37CsFVBrG2AqHKHAzXTJM/V0x4P0SZWfAnLM640w7+yT3EaynoUhQFNE0bvS41lULMcRHRultg
+        bLng1q68aMC6lGNWf6y6DLKjCL8/fTERwO12I5FIGH17ezu4972QjuaBdZQiuizbb+KE6Elzd6ugHrAg
+        NZY0AF12ux1NTU0oLi5Gd3c3BJaDui4bdNV1hJcsZU1cM9i7l+W8FNScLUhKsgFLkgSn02nAfX19xiwW
+        oqGuzsIopRmkjzOQ9+/3R8svQy44jEhPr7E5mUyis7MTgiAY73om4ZcdkHZvB116FsyCzHFXsFhK+KJC
+        sPc94E6fREpJGdB46TPWasVPdy2Y3FywcxeWmDgh4o4dWeLWbR8j5VcQcV0zTOL9A1BV1aj4QBARWwFG
+        LzlAO85pcMZHOi0jy8T/Sty02Rq22UTa5cTPeg+kPAvUjdlQN6yAtGc7fng8GLnhQnCnRaTT5ltN7J8C
+        gcB6Payu9pcKU5AP5oIdo5VlRtH2sxgpOI4XbW3q82fP1I6OjjUm9letra1TfT6fMDg4qH82llu+qjSa
+        udyvJx1Oz2SZeYv87OyMkpbmZj4YDKKhoSGpMekmTkhjY+MUj8czQFFUQnsuNsf/Sfux5ni93qhWI1o/
+        nRBC/gCjUHOKAoFXLgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
+    <value>New timer...</value>
+  </data>
+  <data name="ToolStripButtonStartPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonStartPause.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonStartPause.Text" xml:space="preserve">
+    <value>Start/Pause</value>
+  </data>
+  <data name="ToolStripButtonReset.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonReset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
   <data name="ToolStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -145,32 +221,6 @@
   </data>
   <data name="&gt;&gt;ToolStrip1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKISURBVDhPfVNNS2phED74A9z7E/wVbly0LAUJWlkJCaUu
-        0xClDCJy00KIUhTxA1OjoELLjn1ZWifJNBLThR8cFHTlVufOvJ1udLk1IMfzvjPP88wzc7if4uHhYe72
-        9pa/ubnhLy4u5qTj3+Pl5UV5f38vBwDZ3d1dr9PpQLvdhng83nM4HLKTkxN5MplUSunfo1gs7vI8PyoU
-        CuLl5aXi6upKbDQaUK/X4eDgQEwkEgoEEiORyCgQCOxKZR+BxSvv7+/Q7/ehVqsBFg+Rcfz6+grlchno
-        PxYPsS0QRRFOT09hc3NzRSrnuHw+b19bWxsTCBVUq1UG9AlA76VSCQgAWwSr1Tq2WCx2qfwj0LB1Sn58
-        fAQEhHQ6DXt7e4BySRHkcjnA1hj7xsbGulTGcYgoXF9ft87OzgZvb28gCAKcn5/D6upqbnl5WY3y1Vtb
-        WznMYUB0j+8Dl8vVwhyBI+O63S6TS8xPT08QCoUAW1JLHNzOzo4aPQAcKVNGashclUo1YgDNZpP1SBfE
-        cHh4CNvb238BPB6POhqNMgXUQjabZfkMwO/3C263u+X1egc4DQZCPvh8vhwxExC1QP1Ta6lUCvR6/UCn
-        07W0Wq0gcXAcSlxHI5lR9MRFglgsBjh3dobbCMfHx+zMaDR+mUixv79vp1lXKhVWTON6fn5mnhAQKaLz
-        TCbD7kwm09hgMHyNMRgMrpA82rxwOEyLwxaJTKO+l5aWxgsLC0O6o96dTidoNJqvRaLAw10yZX5+XrTZ
-        bAqcgkhspGB2dlacmZlRTE9Pi5QzMTHxfZU/w2w2K5FNjuwy/PVI8tHREWAx+5jwKZ+cnPz/x/RvLC4u
-        ziEjPzU1xaPcHz5njvsDwLwa8t7E9zsAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 22</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Text" xml:space="preserve">
-    <value>Customize and control Eggzle</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ToolStripMenuItemNewTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
@@ -301,56 +351,6 @@
   </data>
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMzSURBVDhPZZJ9SBNhHMcfiuif/o2isDcpqcAoLMjo7Y/+
-        KIJeyUYvYEarBI31glA67WVUK2Oam1a6La1QijKmRaWNmJKWkUjlsrIXrc272213u+7mbvft7jpI6As/
-        7ne/5/l8H57vHdEEKxnHt5DSuI/0cj7SrbSSifrCGPHNZIq2ru7rij0iGcZYhWvIhMg9cjH6yjQ0Sj+H
-        8HJHmK+ZFZAL8v3i4UOMaD7ASHn7/NGrM14Ir/fTv98XMZG7pIu5T9J0g9AdcjLatWc4EWoBF8hhI9em
-        8YL9LLiaK2AbqsHWuxBzXgJ35hjoS5ME7q1F4N8eHQndIj3a4eS7mxRzPUXML38OO1g1PRmrqwT34DYS
-        DhsUyyEoBfshXShGrNELpvo4BhsWp+gPdfKvB/ODQzfUq3y+RlZ+cY4PBlX3WF0FhCYP4vU3IA19RzIx
-        CllKQPz2FbyjHEJtJUJVORiqmSp9rhz35ovTyII7arLH7VZw928hXuuEJlmWQVGU3mtSUinEbOcQrb8O
-        2pILdvXyczqsSc43+2PV5ZBsxfj9adBAALfbjUQiofdtbW1g3/RCPJwHxlaG6JJsv4EToiXN3nRB2WdC
-        ajSpA5qsViuam5tRUlKC7u5u8AwLZU02KNcVhBctZgxcNdi9m2G9Tig5m5AUJR0WRRF2u12H+/r69Fks
-        REFZmYURp2qQPsZA2rvXH624AKnwICI9vfrmZDKJzs5O8Dyvv2uZhNs7IO7cCqrsFOh5mWOuYDKVcsVF
-        YG57wJ44hpSc0qGx0maM2Yyf7lrQublgZs8vNXBChG3bsoTNW95FKi4i4rism8Tf90NRFL3i/UFELIUY
-        OW8DZTutwhnvqLSMLAP/K2HDRnPYYhEohx0/GzwQ80xQ1mdDWbcM4q6t+OHxYPiqAx+3mwQqba7ZwP4p
-        EAis1cLqamuX6cIC0GetGKkq14uynsJw4RE8e/xYefrkidLR0bHKwP6qtbV1ss/n4wcGBrTPxrBLV5RF
-        M5f6taTD6ZkMPWeBn5mZUdry8CEXDAbR2NiYVJl0Ayekqalpksfj6Xe5XAn1udAY/yf1x5rl9Xqjag2r
-        /VRCCPkDu0tznalTi8IAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
-    <value>New timer...</value>
-  </data>
-  <data name="ToolStripButtonStartPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonStartPause.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonStartPause.Text" xml:space="preserve">
-    <value>Start/Pause</value>
-  </data>
-  <data name="ToolStripButtonReset.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonReset.Text" xml:space="preserve">
-    <value>Reset</value>
   </data>
   <data name="PanelTimer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
