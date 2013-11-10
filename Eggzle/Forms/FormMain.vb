@@ -243,7 +243,9 @@ Public Class FormMain
                                                 sb.Append(String.Format(formatProvider, "{0:s}", timer.Current, "test"))
                                             End If
                                             If (Not Common.Time.Note = String.Empty) Then
-                                                sb.Append(" - ")
+                                                If (Not timer.IsExpired) Then
+                                                    sb.Append(" - ")
+                                                End If
                                                 sb.Append(Common.Time.Note)
                                             End If
                                             Me.Text = sb.ToString
