@@ -15,8 +15,8 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
     End Sub
 
     Public Sub Render(args As RenderArgs) Implements Rendering.IRenderer.Render
-
-        Dim time = String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), CType(args.Data, Information.ITimerInfo).Current)
+        Dim info = CType(args.Data, Information.ITimerInfo)
+        Dim time = If((info.IsExpired) AndAlso (Not args.Note = String.Empty), args.Note, String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), info.Current))
         If time = String.Empty Then
             time = args.Note
         End If
