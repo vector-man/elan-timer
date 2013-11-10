@@ -252,7 +252,7 @@ Public Class FormMain
                                             ' Me.Text = String.Concat("[", String.Format(New TimeFormat, "h", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
                                             Await TaskEx.Delay(RenderRate)
                                         End While
-                                    End Function, System.Threading.CancellationToken.None, TaskCreationOptions.None, uiScheduler)
+                                    End Function, token, TaskCreationOptions.None, uiScheduler)
 
 
 
