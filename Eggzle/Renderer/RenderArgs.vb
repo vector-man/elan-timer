@@ -5,9 +5,9 @@
         Sub New(args As IRenderArgs)
             _args = args
         End Sub
-        Public ReadOnly Property ClipRectangle As System.Drawing.Rectangle
+        Public ReadOnly Property ClientRectangle As System.Drawing.Rectangle
             Get
-                Return _args.ClipRectangle
+                Return _args.ClientRectangle
             End Get
         End Property
         Public ReadOnly Property Graphics As System.Drawing.Graphics

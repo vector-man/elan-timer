@@ -25,9 +25,9 @@
         End Sub
 
         Private Sub Surface_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs)
-            _args.ClipRectangle = e.ClipRectangle
+            _args.ClientRectangle = Me.ClientRectangle
             _args.Graphics = e.Graphics
-            _renderer.Render(New RenderArgs(_args.ClipRectangle, _args.Graphics, _args.Font, _args.BackgroundColor, _args.ForegroundColor, _args.SizeToFit, _args.Data, _args.FormatProvider, _args.Format, _args.Note))
+            _renderer.Render(New RenderArgs(_args.ClientRectangle, _args.Graphics, _args.Font, _args.BackgroundColor, _args.ForegroundColor, _args.SizeToFit, _args.Data, _args.FormatProvider, _args.Format, _args.Note))
         End Sub
         Private Async Sub SurfaceInvalidatorAsync(token As System.Threading.CancellationToken)
             While Not token.IsCancellationRequested

@@ -20,16 +20,16 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
         If time = String.Empty Then
             time = args.Note
         End If
-        Using f2 As Font = AppropriateFont(args.Graphics, 1, If(args.SizeToFit, MaximumFontSize, args.Font.Size), args.ClipRectangle.Size, time, args.Font)
+        Using f2 As Font = AppropriateFont(args.Graphics, 1, If(args.SizeToFit, MaximumFontSize, args.Font.Size), args.ClientRectangle.Size, time, args.Font)
             args.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias
             '  args.Graphics.Clear(args.BackgroundColor)
 
             backgroundBrush.Color = args.BackgroundColor
-            args.Graphics.FillRectangle(backgroundBrush, args.ClipRectangle)
+            args.Graphics.FillRectangle(backgroundBrush, args.ClientRectangle)
 
 
             foregroundBrush.Color = args.ForegroundColor
-            args.Graphics.DrawString(time, f2, foregroundBrush, args.ClipRectangle, stringAlignment)
+            args.Graphics.DrawString(time, f2, foregroundBrush, args.ClientRectangle, stringAlignment)
         End Using
     End Sub
 

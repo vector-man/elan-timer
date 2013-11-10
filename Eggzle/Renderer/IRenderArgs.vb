@@ -1,6 +1,6 @@
 ﻿Public Interface IRenderArgs
 
-    Property ClipRectangle As System.Drawing.Rectangle
+    Property ClientRectangle As System.Drawing.Rectangle
 
     Property Graphics As System.Drawing.Graphics
 
