@@ -23,7 +23,6 @@ Public Class Common
     Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
         {New KeyValuePair(Of String, String)("Standard", "s")},
         {New KeyValuePair(Of String, String)("Deciseconds", "d")},
-        {New KeyValuePair(Of String, String)("Microseconds", "m")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
     '("Standard", "h"}, {"Deciseconds", "d"}, {"Microseconds", "m"}, {"Verbal", "v"
