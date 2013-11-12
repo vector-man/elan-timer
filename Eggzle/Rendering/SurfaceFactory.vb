@@ -1,13 +1,13 @@
 ﻿Namespace Rendering
     Public Class SurfaceFactory
-        Public Shared Function CreateInstance(renderer As Rendering.IRenderer, args As RenderArgs, renderRate As Integer)
-            Return CreateInstance(renderer, args, False, renderRate)
+        Public Shared Function CreateInstance(renderer As Rendering.IRenderer, framerate As Integer)
+            Return CreateInstance(renderer, framerate, False)
         End Function
-        Public Shared Function CreateInstance(renderer As IRenderer, args As RenderArgs, preview As Boolean, renderRate As Integer)
+        Public Shared Function CreateInstance(renderer As IRenderer, framerate As Integer, preview As Boolean)
             If preview Then
-                Return New PreviewSurface(renderer, args, 1)
+                Return New PreviewSurface(renderer, 1, framerate)
             Else
-                Return New Surface(renderer, args, renderRate)
+                Return New Surface(renderer, framerate)
             End If
         End Function
     End Class
