@@ -190,20 +190,22 @@
     <Compile Include="Forms\DialogTimerSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Information\TimerInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="Renderer\EggzleRenderer.vb" />
-    <Compile Include="Renderer\IRenderArgs.vb" />
-    <Compile Include="Renderer\IRenderer.vb" />
-    <Compile Include="Renderer\ITimerInfo.vb" />
-    <Compile Include="Renderer\RenderArgs.vb" />
+    <Compile Include="Rendering\Renderer.vb" />
+    <Compile Include="Rendering\IRenderer.vb" />
+    <Compile Include="Rendering\RenderObjects\ClearRenderObject.vb" />
+    <Compile Include="Rendering\RenderObjects\IRenderArgs.vb" />
+    <Compile Include="Rendering\RenderObjects\IRenderObject.vb" />
     <Compile Include="Rendering\PreviewSurface.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Rendering\RenderArgs.vb" />
+    <Compile Include="Rendering\RenderObjects\FillRectangleRenderObject.vb" />
+    <Compile Include="Rendering\RenderObjects\RenderArgs.vb" />
+    <Compile Include="Rendering\RenderObjects\TextRenderObject.vb" />
+    <Compile Include="Rendering\RenderObjects\TimerTextRenderObject.vb" />
     <Compile Include="Rendering\Surface.vb">
       <SubType>Component</SubType>
     </Compile>
