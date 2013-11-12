@@ -21,6 +21,9 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
                 ' Show seconds - format: hours:mm:ss
                 sb.Append(Math.Floor(ts.TotalHours))
                 sb.Append(ts.ToString("\:mm\:ss"))
+            Case "S"
+                ' Show only seconds - format: s
+                sb.Append(Math.Floor(ts.TotalSeconds))
             Case "m"
                 ' Show microseconds - format: hours:mm:ss.ff
                 sb.Append(Math.Floor(ts.TotalHours))
