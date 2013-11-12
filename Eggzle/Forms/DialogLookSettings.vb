@@ -91,7 +91,7 @@ Public Class DialogLookSettings
             objects.Add(backgroundObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
-            timerSurface = New PreviewSurface(renderer, NumericUpDownOpacityLevel.Value / 100, renderRate)
+            timerSurface = New PreviewSurface(renderer, NumericUpDownOpacityLevel.Value / 100, Common.Framerate)
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100
