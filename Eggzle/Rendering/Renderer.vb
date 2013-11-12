@@ -10,45 +10,7 @@ Public Class Renderer : Implements Rendering.IRenderer, IDisposable
 
     Sub New(objects As List(Of IRenderObject))
         MyClass.Objects = objects
-        'stringAlignment = New StringFormat
-        'stringAlignment.Alignment = Drawing.StringAlignment.Center
-        'stringAlignment.LineAlignment = Drawing.StringAlignment.Center
-        'backgroundBrush = New SolidBrush(Color.Black)
-        'foregroundBrush = New SolidBrush(Color.Black)
     End Sub
-
-    ' Public Sub Render(args As RenderArgs) Implements Rendering.IRenderer.Render
-
-    'Dim info As Information.ITimerInfo = CType(args.Data, Information.ITimerInfo)
-
-    'Dim time As String
-    'If ((info.IsExpired) AndAlso (Not args.Note = String.Empty)) Then
-    '    time = args.Note
-    'Else
-    '    time = String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), info.Current)
-    'End If
-
-    'Dim prefferedFontSize As Long
-    'If (args.SizeToFit) Then
-    '    prefferedFontSize = MaximumFontSize
-    'Else
-    '    prefferedFontSize = args.Font.Size
-    'End If
-
-    '' Dim minimumFontSize = If(prefferedFontSize = MaximumFontSize, 12, prefferedFontSize)
-
-    'Using f2 As Font = AppropriateFont(args.Graphics, args.Font.Size, prefferedFontSize, args.ClientRectangle.Size, time, args.Font)
-    '    args.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias
-    '    '  args.Graphics.Clear(args.BackgroundColor)
-
-    '    backgroundBrush.Color = args.BackgroundColor
-    '    args.Graphics.FillRectangle(backgroundBrush, args.ClientRectangle)
-
-    '    foregroundBrush.Color = args.ForegroundColor
-    '    args.Graphics.DrawString(time, f2, foregroundBrush, args.ClientRectangle, stringAlignment)
-    'End Using
-    ' End Sub
-
 
     Private Function BestFontSize(g As System.Drawing.Graphics, z As Size, f As Font, s As String) As Font
         Dim p As SizeF = g.MeasureString(s, f)
