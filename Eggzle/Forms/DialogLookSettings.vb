@@ -102,7 +102,7 @@ Public Class DialogLookSettings
 
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
         Try
-            args.ForegroundColor = e.color
+            timerObject.Color = e.color
         Catch ex As Exception
 
         End Try
@@ -114,7 +114,7 @@ Public Class DialogLookSettings
 
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
         Try
-            args.BackgroundColor = e.color
+            backgroundObject.Color = e.color
         Catch ex As Exception
 
         End Try
@@ -122,7 +122,7 @@ Public Class DialogLookSettings
 
     Private Sub FontPickerFont_ValueChanged(sender As Object, e As EventArgs) Handles FontPickerFont.ValueChanged
         Try
-            args.Font = FontPickerFont.Value
+            timerObject.Font = FontPickerFont.Value
         Catch ex As Exception
 
         End Try
@@ -130,7 +130,7 @@ Public Class DialogLookSettings
 
     Private Sub CheckBoxSizeToFit_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSizeToFit.CheckedChanged
         Try
-            args.SizeToFit = CheckBoxSizeToFit.Checked
+            timerObject.SizeToFit = CheckBoxSizeToFit.Checked
         Catch ex As Exception
 
         End Try
@@ -191,6 +191,8 @@ Public Class DialogLookSettings
     End Sub
 
     Private Sub ComboBoxDisplayFormat_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedValueChanged
-        args.Format = ComboBoxDisplayFormat.SelectedValue
+
+        timerObject.Format = ComboBoxDisplayFormat.SelectedValue
+
     End Sub
 End Class
