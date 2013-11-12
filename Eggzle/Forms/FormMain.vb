@@ -4,13 +4,18 @@ Imports System.Text
 
 Public Class FormMain
     'Private renderer As RendererManager
-    Public context As Information.TimerInfo
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
     Private Const RenderRate As Integer = 1000 / 10
     Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
+
+    Private backgroundObject As ClearRenderObject
+    Private timerObject As TimerTextRenderObject
+    Private noteObject As TextRenderObject
+    Private stringFormat As New StringFormat
+    Private renderer As Rendering.IRenderer
 #If DEBUG Then
     Private sw As New Stopwatch ' Used for benchmark and testing.
 #End If
@@ -27,11 +32,12 @@ Public Class FormMain
     End Sub
     Public Sub Timer_Restarted(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Restarted)
+        HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Expired)
+        ShowNote()
     End Sub
-
     Public Sub ExecuteActions(e As Settings.Models.TimerEvent)
         TaskEx.Run(Sub()
 
@@ -51,6 +57,7 @@ Public Class FormMain
 #Region "Form Event Handelers"
     Private Sub ToolStripButtonReset_Click(sender As Object, e As EventArgs) Handles ToolStripButtonReset.Click
         timer.Reset()
+        HideNote()
         UpdateIcons()
     End Sub
 
@@ -160,6 +167,15 @@ Public Class FormMain
 
 
 #Region "Helper Methods"
+    Private Sub HideNote()
+        noteObject.Visible = False
+        timerObject.Visible = True
+    End Sub
+
+    Private Sub ShowNote()
+        noteObject.Visible = True
+        timerObject.Visible = False
+    End Sub
     Private Sub LoadLanguage()
         Try
             Common.Languages.SetUICulture(My.Settings.Language)
@@ -176,7 +192,6 @@ Public Class FormMain
     Private Sub ShutDownRendering()
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
-        context = Nothing
         PanelTimer.Controls.Clear()
         RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         timerSurface.Dispose()
@@ -187,21 +202,24 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
-        context = New Information.TimerInfo(timer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
-        timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, New RenderArgs(
-                                                                          Nothing,
-                                                                          Nothing,
-                                                                          Common.Look.Font,
-                                                                          Common.Look.BackgroundColor,
-                                                                          Common.Look.ForegroundColor,
-                                                                          Common.Look.SizeToFit,
-                                                                          New Information.TimerInfo(timer),
-                                                                          New TimeFormat,
-                                                                          Common.Look.DisplayFormat,
-                                                                          Common.Time.Note
-                                                                          ), RenderRate)
+        backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
+
+        stringFormat = New StringFormat
+        stringFormat.Alignment = StringAlignment.Center
+        stringFormat.LineAlignment = StringAlignment.Center
+
+        timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderObject(Common.Time.Note, Common.Look.Font, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, False)
+
+        Dim objects As New List(Of IRenderObject)
+
+        objects.Add(backgroundObject)
+        objects.Add(timerObject)
+        objects.Add(noteObject)
+        renderer = New Renderer(objects)
+        timerSurface = Rendering.SurfaceFactory.CreateInstance(renderer, RenderRate)
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
