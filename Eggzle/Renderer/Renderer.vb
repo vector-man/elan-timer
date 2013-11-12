@@ -1,6 +1,6 @@
 ﻿Imports System.Drawing
 Imports System.Text
-Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
+Public Class Renderer : Implements Rendering.IRenderer, IDisposable
 
     Private stringAlignment As StringFormat
     Private Const MaximumFontSize = Int16.MaxValue
