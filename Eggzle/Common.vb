@@ -14,7 +14,7 @@ Public Class Common
 
     Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.LookFolder)).FullName)
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 75, String.Empty, "h"), False)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 75, String.Empty, "s"), False)
 
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
