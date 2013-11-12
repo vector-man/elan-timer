@@ -99,15 +99,6 @@ Public Class DialogLookSettings
 
         End Try
     End Sub
-    Private Sub ShutDownRendering()
-        Try
-            timerInfo = Nothing
-            PanelRenderPreview.Controls.Clear()
-            timerSurface.Dispose()
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
         Try
