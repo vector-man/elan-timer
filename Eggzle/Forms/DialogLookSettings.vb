@@ -76,18 +76,22 @@ Public Class DialogLookSettings
         Common.Look.BeginEdit()
         Dim rand As New Random
         timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, 30), Common.Time.CountUp, Integer.MaxValue, Nothing, False)
-        LoadSettings()
-
-        ShutDownRendering()
         StartUpRendering(timer)
+        LoadSettings()
         timer.Start()
     End Sub
 
     Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
         Try
-            timerInfo = New Information.TimerInfo(timer)
-
-            timerSurface = Rendering.SurfaceFactory.CreateInstance(New EggzleRenderer, args, True, renderRate)
+            stringFormat.Alignment = StringAlignment.Center
+            stringFormat.LineAlignment = StringAlignment.Center
+            backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
+            timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
+            Dim objects As New List(Of IRenderObject)
+            objects.Add(backgroundObject)
+            objects.Add(timerObject)
+            renderer = New Renderer(objects)
+            timerSurface = New PreviewSurface(renderer, NumericUpDownOpacityLevel.Value / 100, renderRate)
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100
