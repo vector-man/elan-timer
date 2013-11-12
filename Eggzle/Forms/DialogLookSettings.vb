@@ -2,23 +2,15 @@
 Public Class DialogLookSettings
     Private lookBindingSource As BindingSource
     Private argsBindingSource As BindingSource
-    Private args As RenderArgs
+
+    Private timerObject As TimerTextRenderObject
+    Private backgroundObject As ClearRenderObject
+    Private renderer As Rendering.IRenderer
+    Private stringFormat As New StringFormat
     Private timer As CodeIsle.Timers.AlarmTimer
-    Private timerInfo As Information.TimerInfo
     Private timerSurface As Rendering.Surface
     Private Const renderRate As Integer = 1000 / 10
     Sub LoadSettings()
-        args = New RenderArgs(
-                              Nothing,
-                              Nothing,
-                              Common.Look.Font,
-                              Common.Look.BackgroundColor,
-                              Common.Look.ForegroundColor,
-                              Common.Look.SizeToFit, New Information.TimerInfo(timer),
-                              New TimeFormat,
-                              String.Empty,
-                              Common.Time.Note
-                              )
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
         ComboBoxDisplayFormat.DisplayMember = "Key"
