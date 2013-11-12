@@ -25,6 +25,7 @@ Public Class DialogLookSettings
         ComboBoxDisplayFormat.ValueMember = "Value"
         ComboBoxDisplayFormat.DataSource = Common.DisplayFormats
         Try
+            Me.ComboBoxDisplayFormat.SelectedIndex = 0
             Me.ComboBoxDisplayFormat.SelectedValue = Common.Look.DisplayFormat
         Catch ex As Exception
 
@@ -121,7 +122,7 @@ Public Class DialogLookSettings
     End Sub
 
     Private Sub ComboBoxDisplayFormat_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedIndexChanged
-        args.Format = ComboBoxDisplayFormat.SelectedValue
+
     End Sub
 
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
@@ -200,5 +201,9 @@ Public Class DialogLookSettings
                 End Try
             End If
         End Using
+    End Sub
+
+    Private Sub ComboBoxDisplayFormat_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedValueChanged
+        args.Format = ComboBoxDisplayFormat.SelectedValue
     End Sub
 End Class
