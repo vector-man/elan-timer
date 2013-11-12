@@ -160,19 +160,6 @@ Public Class DialogLookSettings
             End If
         End Using
     End Sub
-    'Private Sub SetDialogValues(look As Settings.LookSettings)
-    '    Me.ComboBoxRenderer.SelectedValue = look.Renderer
-    '    Me.ColorComboBoxForegrounColor.SelectedColor = look.ForegroundColor
-    '    Me.ColorComboBoxBackgroundColor.SelectedColor = look.BackgroundColor
-    '    Me.FontPickerFont.Value = look.Font
-    '    Me.CheckBoxSizeToFit.Checked = look.SizeToFit
-    '    Me.NumericUpDownOpacityLevel.Value = look.Opacity
-
-    '    args.ForegroundColor = look.ForegroundColor
-    '    args.BackgroundColor = look.BackgroundColor
-    '    args.Font = look.Font
-    '    args.SizeToFit = look.SizeToFit
-    'End Sub
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         Using dialogSave As New SaveFileDialog
