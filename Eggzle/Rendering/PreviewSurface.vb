@@ -1,9 +1,9 @@
 ﻿Public Class PreviewSurface : Inherits Rendering.Surface
-    Sub New(renderer As Rendering.IRenderer, args As RenderArgs)
-        MyClass.New(renderer, args, 1)
+    Sub New(renderer As Rendering.IRenderer, framerate As Integer)
+        MyClass.New(renderer, 1, framerate)
     End Sub
-    Sub New(renderer As Rendering.IRenderer, args As RenderArgs, opacity As Double)
-        MyBase.New(renderer, args)
+    Sub New(renderer As Rendering.IRenderer, opacity As Double, framerate As Integer)
+        MyBase.New(renderer, framerate)
         MyClass.Opacity = opacity
     End Sub
     Public Property Opacity As Double
