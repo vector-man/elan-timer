@@ -15,18 +15,30 @@ Public Class EggzleRenderer : Implements Rendering.IRenderer, IDisposable
     End Sub
 
     Public Sub Render(args As RenderArgs) Implements Rendering.IRenderer.Render
-        Dim info = CType(args.Data, Information.ITimerInfo)
-        Dim time = If((info.IsExpired) AndAlso (Not args.Note = String.Empty), args.Note, String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), info.Current))
-        If time = String.Empty Then
+        Dim info As Information.ITimerInfo = CType(args.Data, Information.ITimerInfo)
+
+        Dim time As String
+        If ((info.IsExpired) AndAlso (Not args.Note = String.Empty)) Then
             time = args.Note
+        Else
+            time = String.Format(args.FormatProvider, String.Concat("{0:", args.Format, "}"), info.Current)
         End If
-        Using f2 As Font = AppropriateFont(args.Graphics, 1, If(args.SizeToFit, MaximumFontSize, args.Font.Size), args.ClientRectangle.Size, time, args.Font)
+
+        Dim prefferedFontSize As Long
+        If (args.SizeToFit) Then
+            prefferedFontSize = MaximumFontSize
+        Else
+            prefferedFontSize = args.Font.Size
+        End If
+
+        ' Dim minimumFontSize = If(prefferedFontSize = MaximumFontSize, 12, prefferedFontSize)
+
+        Using f2 As Font = AppropriateFont(args.Graphics, args.Font.Size, prefferedFontSize, args.ClientRectangle.Size, time, args.Font)
             args.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias
             '  args.Graphics.Clear(args.BackgroundColor)
 
             backgroundBrush.Color = args.BackgroundColor
             args.Graphics.FillRectangle(backgroundBrush, args.ClientRectangle)
-
 
             foregroundBrush.Color = args.ForegroundColor
             args.Graphics.DrawString(time, f2, foregroundBrush, args.ClientRectangle, stringAlignment)
