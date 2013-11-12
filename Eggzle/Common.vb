@@ -19,7 +19,7 @@ Public Class Common
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     Private Shared ReadOnly PluginsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.DefaultPluginsFolder)).FullName
-
+    Public Const Framerate As Integer = 1000 / 10
     Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
         {New KeyValuePair(Of String, String)("Standard", "s")},
         {New KeyValuePair(Of String, String)("Deciseconds", "d")},
