@@ -108,10 +108,6 @@ Public Class DialogLookSettings
         End Try
     End Sub
 
-    Private Sub ComboBoxDisplayFormat_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedIndexChanged
-
-    End Sub
-
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
         Try
             backgroundObject.Color = e.color
