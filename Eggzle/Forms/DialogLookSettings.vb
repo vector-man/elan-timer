@@ -6,7 +6,7 @@ Public Class DialogLookSettings
     Private timerObject As TimerTextRenderObject
     Private backgroundObject As ClearRenderObject
     Private renderer As Rendering.IRenderer
-    Private stringFormat As New StringFormat
+    Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timer As CodeIsle.Timers.AlarmTimer
     Private timerSurface As Rendering.Surface
     Sub LoadSettings()
