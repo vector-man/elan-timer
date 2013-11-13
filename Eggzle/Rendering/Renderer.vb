@@ -57,6 +57,7 @@ Public Class Renderer : Implements Rendering.IRenderer, IDisposable
     Public Property Objects As List(Of IRenderObject)
 
     Public Sub Render(args As IRenderArgs) Implements Rendering.IRenderer.Render
+        args.Graphics.TextRenderingHint = Text.TextRenderingHint.AntiAlias
         For Each renderObject In Objects
             renderObject.Draw(args)
         Next
