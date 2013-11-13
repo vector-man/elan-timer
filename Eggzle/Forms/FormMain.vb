@@ -107,6 +107,7 @@ Public Class FormMain
 
         timer = TimerFactory.CreateInstance(Common.Time.Duration, Common.Time.CountUp, Common.Time.Restarts, alarm, Common.Time.AlarmEnabled)
         StartUpRendering(timer)
+        AddTimerHandlers()
 
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
@@ -121,8 +122,26 @@ Public Class FormMain
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemLook.Click
         Try
             DialogLookSettings.ShowDialog(Me)
-            ShutDownRendering()
-            StartUpRendering(timer)
+            Dim timeVisible = timerObject.Visible
+            timerObject.Visible = False
+
+            Dim noteVisible = noteObject.Visible
+            noteObject.Visible = False
+
+            backgroundObject.Color = Common.Look.BackgroundColor
+            timerObject.Color = Common.Look.ForegroundColor
+            timerObject.Font = Common.Look.Font
+            timerObject.Format = Common.Look.DisplayFormat
+            timerObject.SizeToFit = Common.Look.SizeToFit
+
+
+            noteObject.Color = Common.Look.ForegroundColor
+            noteObject.Font = Common.Look.Font
+
+
+            timerObject.Visible = timeVisible
+            noteObject.Visible = noteVisible
+
         Catch ex As Exception
 
         End Try
@@ -188,16 +207,25 @@ Public Class FormMain
         My.Settings.WindowMaximized = False
         GoFullscreen(My.Settings.WindowFullScreen)
     End Sub
-    Private Sub ShutDownRendering()
-        updateCancellationTokenSource.Cancel()
-        Task.WaitAll()
-        PanelTimer.Controls.Clear()
-        RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
-        timerSurface.Dispose()
+    Private Sub RemoveTimerHandlers()
         RemoveHandler timer.Started, AddressOf Timer_Started
         RemoveHandler timer.Paused, AddressOf Timer_Paused
         RemoveHandler timer.Expired, AddressOf Timer_Expired
         RemoveHandler timer.Restarted, AddressOf Timer_Restarted
+    End Sub
+    Private Sub AddTimerHandlers()
+        AddHandler timer.Started, AddressOf Timer_Started
+        AddHandler timer.Paused, AddressOf Timer_Paused
+        AddHandler timer.Expired, AddressOf Timer_Expired
+        AddHandler timer.Restarted, AddressOf Timer_Restarted
+    End Sub
+    Private Sub ShutDownRendering()
+        updateCancellationTokenSource.Cancel()
+        Task.WaitAll()
+        PanelTimer.Controls.Clear()
+
+        timerSurface.Dispose()
+
         Task.WaitAll()
     End Sub
     Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
@@ -205,7 +233,7 @@ Public Class FormMain
 
         backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
 
-        stringFormat = New StringFormat
+        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
@@ -227,10 +255,6 @@ Public Class FormMain
 
         'renderer = New RendererManager(rendererInstance, context, timerSurface, False)
         Task.Factory.StartNew(Sub() FormMainProgressUpdateAsync(updateCancellationTokenSource.Token), updateCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
-        AddHandler timer.Started, AddressOf Timer_Started
-        AddHandler timer.Paused, AddressOf Timer_Paused
-        AddHandler timer.Expired, AddressOf Timer_Expired
-        AddHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
 
 
@@ -323,7 +347,7 @@ Public Class FormMain
     Public Sub ShowTimerDialog(editing As Boolean)
         DialogTimerSettings.Editing = editing
         If (DialogTimerSettings.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-            ShutDownRendering()
+            RemoveTimerHandlers()
             Dim alarm As Alarm = Nothing
             Try
                 alarm = New Alarm(Common.GetAlarmPath(Common.Time.AlarmPath), Common.Time.AlarmVolume, Common.Time.AlarmLoop)
@@ -337,11 +361,14 @@ Public Class FormMain
                 timer.Alarm = alarm
                 timer.AlarmEnabled = Common.Time.AlarmEnabled
             End If
+            timerObject.Timer = timer
+            noteObject.Text = Common.Time.Note
+            AddTimerHandlers()
+            HideNote()
             If Common.Time.AutoStart Then
                 SetTimerState(True)
             End If
             Me.UpdateIcons()
-            StartUpRendering(timer)
         End If
     End Sub
 
