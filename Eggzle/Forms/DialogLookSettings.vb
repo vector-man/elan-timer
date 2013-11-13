@@ -63,13 +63,13 @@ Public Class DialogLookSettings
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        ShutDownRendering()
         timer.Dispose()
         If (Not Me.DialogResult = Windows.Forms.DialogResult.OK) Then
             Common.Look.CancelEdit()
             FormMain.Opacity = Common.Look.Opacity / 100
         End If
         Common.Look.EndEdit()
+        ShutDownRendering()
     End Sub
 
     Private Sub DialogLookSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -98,6 +98,9 @@ Public Class DialogLookSettings
         Catch ex As Exception
 
         End Try
+    End Sub
+    Private Sub ShutDownRendering()
+        PanelRenderPreview.Controls.Clear()
     End Sub
 
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
