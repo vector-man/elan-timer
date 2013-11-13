@@ -9,7 +9,6 @@ Public Class DialogLookSettings
     Private stringFormat As New StringFormat
     Private timer As CodeIsle.Timers.AlarmTimer
     Private timerSurface As Rendering.Surface
-    Private Const renderRate As Integer = 1000 / 10
     Sub LoadSettings()
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
