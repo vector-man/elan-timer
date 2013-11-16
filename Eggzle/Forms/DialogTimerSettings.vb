@@ -20,6 +20,9 @@ Public Class DialogTimerSettings
         Me.CheckBoxLoop.Checked = Common.Time.AlarmLoop
         Me.NumericUpDownVolume.Value = Common.Time.AlarmVolume
 
+        If (Not Editing) Then
+            Common.Time.Note = String.Empty
+        End If
         Me.TextBoxNote.DataBindings.Clear()
         Me.TextBoxNote.DataBindings.Add("Text", Common.Time, "Note", True, DataSourceUpdateMode.OnPropertyChanged)
 
