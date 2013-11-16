@@ -190,7 +190,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 3</value>
+    <value>39, 3</value>
   </data>
   <data name="TextBoxNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 3, 3</value>
@@ -232,13 +232,13 @@
     <value>0, 4</value>
   </data>
   <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 0, 3</value>
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="Label1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 3, 3</value>
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 19</value>
+    <value>39, 19</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -262,13 +262,16 @@
     <value>Fill</value>
   </data>
   <data name="TableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 254</value>
+    <value>0, 245</value>
+  </data>
+  <data name="TableLayoutPanel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 28</value>
+    <value>359, 28</value>
   </data>
   <data name="TableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -340,7 +343,7 @@
     <value>0, 3, 3, 3</value>
   </data>
   <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 21</value>
+    <value>251, 21</value>
   </data>
   <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -378,7 +381,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonAlarmPlay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 3</value>
+    <value>315, 3</value>
   </data>
   <data name="ButtonAlarmPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -426,7 +429,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOpenAlarm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 3</value>
+    <value>337, 3</value>
   </data>
   <data name="ButtonOpenAlarm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -489,13 +492,16 @@
     <value>Fill</value>
   </data>
   <data name="TableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 190</value>
+    <value>0, 187</value>
+  </data>
+  <data name="TableLayoutPanel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 58</value>
+    <value>359, 58</value>
   </data>
   <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -528,7 +534,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>289, 13</value>
+    <value>286, 13</value>
   </data>
   <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 23</value>
@@ -558,7 +564,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 13</value>
+    <value>198, 13</value>
   </data>
   <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 23</value>
@@ -645,7 +651,7 @@
     <value>Fill</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 285</value>
+    <value>0, 273</value>
   </data>
   <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -654,7 +660,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 39</value>
+    <value>359, 39</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
@@ -1001,8 +1007,11 @@
   <data name="FlowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 16</value>
   </data>
+  <data name="FlowLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
   <data name="FlowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 162</value>
+    <value>347, 162</value>
   </data>
   <data name="FlowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1026,7 +1035,7 @@
     <value>3, 3</value>
   </data>
   <data name="GroupBoxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 181</value>
+    <value>353, 181</value>
   </data>
   <data name="GroupBoxDuration.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
@@ -1056,7 +1065,7 @@
     <value>4</value>
   </data>
   <data name="TableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 324</value>
+    <value>359, 312</value>
   </data>
   <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
