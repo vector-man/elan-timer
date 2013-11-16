@@ -39,7 +39,7 @@
       <Value Profile="(Default)">290, 145</Value>
     </Setting>
     <Setting Name="DefaultWindowSize" Type="System.Drawing.Size" Scope="Application">
-      <Value Profile="(Default)">290, 145</Value>
+      <Value Profile="(Default)">417, 208</Value>
     </Setting>
     <Setting Name="WindowMaximized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
