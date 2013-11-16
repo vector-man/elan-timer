@@ -112,7 +112,11 @@ Public Class FormMain
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
     Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemConfiguration.Click
-        Common.Settings_Click()
+        Try
+            FormConfiguration.ShowDialog(Me)
+        Catch ex As Exception
+            MessageBox.Show(ex.InnerException.ToString)
+        End Try
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExit.Click
