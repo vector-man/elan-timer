@@ -191,7 +191,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("290, 145")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("417, 208")>  _
         Public ReadOnly Property DefaultWindowSize() As Global.System.Drawing.Size
             Get
                 Return CType(Me("DefaultWindowSize"),Global.System.Drawing.Size)
