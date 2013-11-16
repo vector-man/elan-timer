@@ -77,8 +77,5 @@
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="DefaultPluginsFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Renderers</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
