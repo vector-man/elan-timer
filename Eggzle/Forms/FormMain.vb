@@ -3,7 +3,6 @@ Imports System.Threading
 Imports System.Text
 
 Public Class FormMain
-    'Private renderer As RendererManager
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
     Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
@@ -27,7 +26,6 @@ Public Class FormMain
     End Sub
     Public Sub Timer_Paused(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Paused)
-        ' TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused)
     End Sub
     Public Sub Timer_Restarted(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Restarted)
@@ -283,7 +281,6 @@ Public Class FormMain
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
 
-        'renderer = New RendererManager(rendererInstance, context, timerSurface, False)
         Task.Factory.StartNew(Sub() FormMainProgressUpdateAsync(updateCancellationTokenSource.Token), updateCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
     End Sub
 
