@@ -43,7 +43,8 @@ Public Class DialogLookSettings
             FormMain.Opacity = Me.NumericUpDownOpacityLevel.Value / 100
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
-
+            timerObject.Color = Common.Look.ForegroundColor
+            backgroundObject.Color = Common.Look.BackgroundColor
         Catch ex As Exception
 
         End Try
