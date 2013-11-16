@@ -285,7 +285,7 @@ Public Class FormMain
                                             ProgressBarMain.Value = currentProgressValue
                                             Dim sb = New StringBuilder
                                             If (Not timer.IsExpired) Then
-                                                sb.Append(String.Format(formatProvider, "{0:s}", timer.Current, "test"))
+                                                sb.Append(timerObject.Text)
                                             End If
                                             If (Not Common.Time.Note = String.Empty) Then
                                                 If (Not timer.IsExpired) Then
