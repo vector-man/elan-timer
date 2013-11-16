@@ -106,12 +106,15 @@ Public Class FormMain
         Catch ex As Exception
 
         End Try
+
         ' Create a new timer object.
         timer = TimerFactory.CreateInstance(Common.Time.Duration, Common.Time.CountUp, Common.Time.Restarts, alarm, Common.Time.AlarmEnabled)
+
         ' Start rendering.
         StartUpRendering(timer)
+        ' Add event handlers for the timer.
         AddTimerHandlers()
-
+        ' Add handler for UpdateUI
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
     Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemConfiguration.Click
@@ -129,6 +132,8 @@ Public Class FormMain
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemLook.Click
         Try
             DialogLookSettings.ShowDialog(Me)
+
+            ' Reassign various style values for the timer rendering.
             Dim timeVisible = timerObject.Visible
             timerObject.Visible = False
 
@@ -155,10 +160,12 @@ Public Class FormMain
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
+        ' Show the task dialog with current form as parent.
         DialogTaskSettings.ShowDialog(Me)
     End Sub
 
     Private Sub DefaultToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemDefault.Click
+        ' Set timer form to default size.
         My.Settings.WindowFullScreen = False
         My.Settings.WindowMaximized = False
         GoFullscreen(My.Settings.WindowFullScreen)
@@ -166,21 +173,27 @@ Public Class FormMain
     End Sub
 
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCompact.Click
+        ' Set timer form to 'compact' size.
         Me.Size = New Size(My.Settings.DefaultCompactWindowWidth, Me.Height - Me.ClientSize.Height + Me.ToolStrip1.Height)
     End Sub
 
     Private Sub TimerSurface_DoubleClick(sender As Object, e As EventArgs)
+        ' Show timer dialog without editing ('New Timer' mode).
         ShowTimerDialog(False)
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
+        '  If in fullscreen mode...
         If My.Settings.WindowFullScreen Then
+            ' Exit fullscreen mode (when the timer display area is clicked).
             ExitFullScreen()
         End If
     End Sub
-
+    ' Toggle timer between paused/not paused.
     Private Sub ToolStripButtonStartPause_Click(sender As Object, e As EventArgs) Handles ToolStripButtonStartPause.Click
+
         SetTimerState(Not timer.Enabled)
     End Sub
+    ' Set timer form to fullscreen.
     Private Sub FullScreenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemFullScreen.Click
         My.Settings.WindowFullScreen = True
         My.Settings.WindowMaximized = False
@@ -192,40 +205,49 @@ Public Class FormMain
 
 
 #Region "Helper Methods"
+    ' Hide the timer note and show the time.
     Private Sub HideNote()
         noteObject.Visible = False
         timerObject.Visible = True
     End Sub
-
+    ' Show the timer note and hide the time.
     Private Sub ShowNote()
         noteObject.Visible = True
         timerObject.Visible = False
     End Sub
+    ' Load the language settings.
     Private Sub LoadLanguage()
         Try
+            ' Try to set UI culture to the language fronm settings.
             Common.Languages.SetUICulture(My.Settings.Language)
         Catch ex As Exception
+            ' On failure, revert to the default language.
             My.Settings.Language = My.Settings.DefaultLanguage
         End Try
+        ' Set localization text.
         Common.SetStrings()
     End Sub
+    ' Exits fullscreen mode.
     Private Sub ExitFullScreen()
         My.Settings.WindowFullScreen = False
         My.Settings.WindowMaximized = False
         GoFullscreen(My.Settings.WindowFullScreen)
     End Sub
+    ' Removes the event handlers for the timer.
     Private Sub RemoveTimerHandlers()
         RemoveHandler timer.Started, AddressOf Timer_Started
         RemoveHandler timer.Paused, AddressOf Timer_Paused
         RemoveHandler timer.Expired, AddressOf Timer_Expired
         RemoveHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
+    ' Adds the event handlers for the timer.
     Private Sub AddTimerHandlers()
         AddHandler timer.Started, AddressOf Timer_Started
         AddHandler timer.Paused, AddressOf Timer_Paused
         AddHandler timer.Expired, AddressOf Timer_Expired
         AddHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
+    ' Shuts down rendering of the timer.
     Private Sub ShutDownRendering()
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
@@ -235,6 +257,7 @@ Public Class FormMain
 
         Task.WaitAll()
     End Sub
+    ' Starts up rendering of the timer.
     Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
@@ -300,10 +323,11 @@ Public Class FormMain
                                         End While
                                     End Function, token, TaskCreationOptions.None, uiScheduler)
     End Sub
-
+    ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
         ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play_green, My.Resources.pause_green)
     End Sub
+    ' Update the form user interface.
     Private Sub UpdateUI()
         ToolStripButtonStartPause.Enabled = Not timer.IsExpired
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
@@ -311,7 +335,7 @@ Public Class FormMain
     End Sub
 
     Private Sub LoadSettings()
-        ' Load setting files
+        ' Load setting files.
         Try
             Common.Look.Load()
             Common.Time.Load()
@@ -321,14 +345,14 @@ Public Class FormMain
             Environment.FailFast(ex.Message, ex)
         End Try
 
-        ' Fixes taskbar showing issue
+        ' Fixes taskbar showing issue.
         Me.ShowInTaskbar = False
         Me.ShowInTaskbar = True
 
 
         Me.ToolStripMenuItemAlwaysOnTop.Checked = My.Settings.AlwaysOnTop
         Me.TopMost = Me.ToolStripMenuItemAlwaysOnTop.Checked
-        ' Me.Opacity = Common.Look.Opacity / 100
+        ' Me.Opacity = Common.Look.Opacity / 100.
 
         Me.Size = My.Settings.WindowSize
         If My.Settings.WindowMaximized Then
@@ -343,7 +367,7 @@ Public Class FormMain
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
-
+    ' Shows the 'New Timer' or 'Edit Timer' dialogs.
     Public Sub ShowTimerDialog(editing As Boolean)
         DialogTimerSettings.Editing = editing
         If (DialogTimerSettings.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
@@ -371,7 +395,7 @@ Public Class FormMain
             Me.UpdateIcons()
         End If
     End Sub
-
+    ' Toggles timer between paused and not paused.
     Private Sub SetTimerState(enabled As Boolean)
         Try
             If enabled Then
@@ -388,6 +412,7 @@ Public Class FormMain
         End Try
         UpdateIcons()
     End Sub
+    ' Enter or exit fullscreen.
     Private Sub GoFullscreen(fullscreen As Boolean)
         If fullscreen Then
             Me.TopMost = True
@@ -404,18 +429,22 @@ Public Class FormMain
 #End Region
 
     Private Sub AboutEggzeyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutEggzle.Click
+        ' Show 'About' dialog with current form as parent.
         DialogAbout.ShowDialog(Me)
     End Sub
 
     Private Sub ToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemNewTimer.Click
+        ' Show 'New Timer' dialog.
         ShowTimerDialog(False)
     End Sub
 
     Private Sub ToolStripButtonNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripButtonNewTimer.Click
+        ' Show 'New Timer' dialog.
         ShowTimerDialog(False)
     End Sub
 
     Private Sub ToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditTimer.Click
+        ' Show 'Edit Timer' dialog.
         ShowTimerDialog(True)
     End Sub
 
