@@ -21,7 +21,6 @@ Public Class DialogLookSettings
         Catch ex As Exception
 
         End Try
-
         Me.ColorComboBoxForegrounColor.SelectedColor = Common.Look.ForegroundColor
         Me.ColorComboBoxBackgroundColor.SelectedColor = Common.Look.BackgroundColor
         Me.FontPickerFont.Value = Common.Look.Font
