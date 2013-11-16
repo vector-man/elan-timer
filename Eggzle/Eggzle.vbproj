@@ -89,7 +89,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>eggzle.ico</ApplicationIcon>
+    <ApplicationIcon>eggzle-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -344,6 +344,7 @@
     <None Include="Resources\play_green.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="eggzle-icon.ico" />
     <Content Include="eggzle.ico" />
     <None Include="Resources\arrow_redo.png" />
   </ItemGroup>
