@@ -91,21 +91,26 @@ Public Class FormMain
         End If
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Load the localization language.
         LoadLanguage()
 
         ' TaskbarManager.Instance.SetProgressValue(0, 100)
 
+        ' Load settings.
         LoadSettings()
 
+        ' Create a new alarm initialized to Nothing.
         Dim alarm As Alarm = Nothing
 
+        ' Try to assign alarm to a new Alarm object.
         Try
             alarm = New Alarm(Common.GetAlarmPath(Common.Time.AlarmPath), Common.Time.AlarmVolume, Common.Time.AlarmLoop)
         Catch ex As Exception
 
         End Try
-
+        ' Create a new timer object.
         timer = TimerFactory.CreateInstance(Common.Time.Duration, Common.Time.CountUp, Common.Time.Restarts, alarm, Common.Time.AlarmEnabled)
+        ' Start rendering.
         StartUpRendering(timer)
         AddTimerHandlers()
 
