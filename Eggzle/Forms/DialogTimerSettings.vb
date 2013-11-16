@@ -89,9 +89,9 @@ Public Class DialogTimerSettings
 
 
     Private Sub DialogTimer_Load(sender As Object, e As EventArgs) Handles Me.Load
+        AddHandler Application.Idle, AddressOf UpdateUI
         Common.Time.BeginEdit()
         LoadSettings()
-        UpdateUI()
     End Sub
 
 
@@ -127,6 +127,7 @@ Public Class DialogTimerSettings
         End Try
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+        RemoveHandler Application.Idle, AddressOf UpdateUI
         SaveSettings()
         Common.Time.EndEdit()
     End Sub
@@ -160,7 +161,7 @@ Public Class DialogTimerSettings
             MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
         End Try
     End Sub
-    Private Sub UpdateUI()
+    Private Sub UpdateUI(sender As Object, e As EventArgs)
         Me.LabelHours.Enabled = (Not Editing)
         Me.NumericUpDownHours.Enabled = (Not Editing)
         Me.LabelMinutes.Enabled = (Not Editing)
@@ -173,6 +174,12 @@ Public Class DialogTimerSettings
         Me.ButtonImport.Enabled = (Not Editing)
         Me.Text = If(Editing, "Edit Timer", "New Timer")
         Me.CheckBoxCountUp.Enabled = (Not Editing)
+
+        Me.ComboBoxAlarmPath.Enabled = Me.CheckBoxAlarmSet.Checked
+        Me.CheckBoxLoop.Enabled = Me.ComboBoxAlarmPath.Enabled
+        Me.ButtonAlarmPlay.Enabled = Me.CheckBoxLoop.Enabled
+        Me.ButtonOpenAlarm.Enabled = Me.ButtonAlarmPlay.Enabled
+        Me.ButtonOK.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
 
     End Sub
 
