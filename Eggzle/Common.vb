@@ -35,14 +35,6 @@ Public Class Common
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
-    '("Standard", "h"}, {"Deciseconds", "d"}, {"Microseconds", "m"}, {"Verbal", "v"
-    Public Shared Sub Settings_Click()
-        Try
-            FormConfiguration.ShowDialog(FormMain)
-        Catch ex As Exception
-            MessageBox.Show(ex.InnerException.ToString)
-        End Try
-    End Sub
     ''' <summary>
     ''' Gets all alarms from the Alarms folder.
     ''' </summary>
