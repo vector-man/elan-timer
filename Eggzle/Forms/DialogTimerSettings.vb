@@ -4,12 +4,6 @@ Public Class DialogTimerSettings
     Dim alarmPlayer As Alarm
     Dim alarpPath As String
     Dim formLoaded As Boolean = False
-    Public Sub UpdateStates(sender As Object, e As EventArgs)
-        ComboBoxAlarmPath.Enabled = CheckBoxAlarmSet.Checked
-        CheckBoxLoop.Enabled = ComboBoxAlarmPath.Enabled
-        ButtonAlarmPlay.Enabled = CheckBoxLoop.Enabled
-        ButtonOpenAlarm.Enabled = ButtonAlarmPlay.Enabled
-    End Sub
 
     Private Sub LoadSettings()
         Dim duration = Common.Time.Duration
@@ -134,7 +128,6 @@ Public Class DialogTimerSettings
         End Try
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
-        RemoveHandler Application.Idle, AddressOf UpdateStates
         SaveSettings()
         Common.Time.EndEdit()
     End Sub
