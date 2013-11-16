@@ -94,8 +94,6 @@ Public Class FormMain
         ' Load the localization language.
         LoadLanguage()
 
-        ' TaskbarManager.Instance.SetProgressValue(0, 100)
-
         ' Load settings.
         LoadSettings()
 
