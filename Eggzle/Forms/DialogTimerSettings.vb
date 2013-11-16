@@ -42,24 +42,6 @@ Public Class DialogTimerSettings
 
             End Try
         End If
-
-
-        'Me.ComboBoxAlarmPath.DataSource = alarms
-
-        'ComboBoxAlarmPath.SelectedIndex = -1
-
-        'If alarms.Contains(New AlarmModel(System.IO.Path.GetFileNameWithoutExtension(Common.Time.AlarmPath), Common.Time.AlarmPath)) Then
-        '    Me.ComboBoxAlarmPath.SelectedValue = Common.Time.AlarmPath
-
-        'ElseIf My.Computer.FileSystem.FileExists(Common.Time.AlarmPath) Then
-        '    Me.ComboBoxAlarmPath.Text = Common.Time.AlarmPath
-        'Else
-        '    Try
-        '        ComboBoxAlarmPath.SelectedIndex = 0
-        '    Catch ex As Exception
-
-        '    End Try
-        'End If
     End Sub
     Private Sub SaveSettings()
         Common.Time.Duration = New TimeSpan(0, NumericUpDownHours.Value, NumericUpDownMinutes.Value, NumericUpDownSeconds.Value)
