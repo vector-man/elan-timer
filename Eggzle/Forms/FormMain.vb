@@ -290,15 +290,9 @@ Public Class FormMain
                                                 sb.Append(Common.Time.Note)
                                             End If
                                             Me.Text = sb.ToString
-                                            ' Me.Text = String.Concat("[", String.Format(New TimeFormat, "h", timer.Current), "] - ", If((Common.Time.Memo = String.Empty), String.Empty, String.Concat("""", Common.Time.Memo, """ - ")), My.Application.Info.AssemblyName)
                                             Await TaskEx.Delay(Common.Framerate)
                                         End While
                                     End Function, token, TaskCreationOptions.None, uiScheduler)
-
-
-
-
-
     End Sub
 
     Private Sub UpdateIcons()
