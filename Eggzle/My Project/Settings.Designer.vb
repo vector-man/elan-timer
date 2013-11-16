@@ -242,7 +242,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("White Rabbit, 35.9999962pt")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Calibri, 24pt, style=Bold")>  _
         Public ReadOnly Property DefaultFont() As Global.System.Drawing.Font
             Get
                 Return CType(Me("DefaultFont"),Global.System.Drawing.Font)
