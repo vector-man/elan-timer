@@ -89,7 +89,6 @@ Public Class DialogTimerSettings
 
 
     Private Sub DialogTimer_Load(sender As Object, e As EventArgs) Handles Me.Load
-        AddHandler Application.Idle, AddressOf UpdateStates
         Common.Time.BeginEdit()
         LoadSettings()
         UpdateUI()
