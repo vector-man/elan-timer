@@ -84,6 +84,7 @@ Public Class DialogLookSettings
         Try
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
+            stringFormat.FormatFlags = StringFormatFlags.NoWrap
             backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
             timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
