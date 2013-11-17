@@ -210,6 +210,10 @@ Public Class FormMain
     End Sub
     ' Show the timer note and hide the time.
     Private Sub ShowNote()
+        ' If the note text is empty, set it to "Expired."
+        If noteObject.Text = String.Empty Then
+            noteObject.Text = My.Resources.Strings.Expired
+        End If
         noteObject.Visible = True
         timerObject.Visible = False
     End Sub
