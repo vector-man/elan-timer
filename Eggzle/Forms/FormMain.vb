@@ -275,7 +275,6 @@ Public Class FormMain
 
         timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
         noteObject = New TextRenderObject(Common.Time.Note, Common.Look.Font, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, False)
-
         Dim objects As New List(Of IRenderObject)
 
         objects.Add(backgroundObject)
