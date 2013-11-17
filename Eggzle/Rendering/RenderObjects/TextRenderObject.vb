@@ -15,19 +15,21 @@
     Public Property Text As String
     Public Property Font As Font
     Public Property Color As Color
-
     Public Property StringFormat As StringFormat
+
     Public Overridable Sub Draw(args As IRenderArgs) Implements IRenderObject.Draw
         If (Visible) Then
-            Dim prefferedFontSize As Long
-            If (MyClass.SizeToFit) Then
-                prefferedFontSize = MaximumFontSize
+            Dim largestFontSize As Long
+
+            If (SizeToFit) Then
+                largestFontSize = MaximumFontSize
             Else
-                prefferedFontSize = MyClass.Font.Size
+                largestFontSize = Font.Size
             End If
-            Using textFont = AppropriateFont(args.Graphics, MyClass.Font.Size, prefferedFontSize, args.Rectangle.Size, MyClass.Text, MyClass.Font)
-                Using textBrush As New SolidBrush(MyClass.Color)
-                    args.Graphics.DrawString(MyClass.Text, textFont, textBrush, args.Rectangle, MyClass.StringFormat)
+
+            Using textFont = AppropriateFont(args.Graphics, Font.Size, largestFontSize, args.Rectangle.Size, Text, Font)
+                Using textBrush As New SolidBrush(Color)
+                    args.Graphics.DrawString(Text, textFont, textBrush, args.Rectangle, StringFormat)
                 End Using
             End Using
         End If
