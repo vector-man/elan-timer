@@ -173,10 +173,10 @@ Partial Class DialogLookSettings
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel2, 0, 6)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel3, 0, 1)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel7, 0, 5)
-        Me.TableLayoutPanel8.Controls.Add(Me.PanelRenderPreview, 0, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel6, 0, 4)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel4, 0, 2)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel5, 0, 3)
+        Me.TableLayoutPanel8.Controls.Add(Me.PanelRenderPreview, 0, 0)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         '
         'TableLayoutPanel2
