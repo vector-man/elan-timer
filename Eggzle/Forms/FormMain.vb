@@ -147,7 +147,7 @@ Public Class FormMain
 
             noteObject.Color = Common.Look.ForegroundColor
             noteObject.Font = Common.Look.Font
-
+            noteObject.SizeToFit = Common.Look.SizeToFit
 
             timerObject.Visible = timeVisible
             noteObject.Visible = noteVisible
