@@ -43,14 +43,10 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
                     sb.Append(ts.Minutes)
                     sb.Append(String.Format(" {0} ", minutesText))
                 End If
-
-
-                If ts.Milliseconds > 0 Or ts.Seconds > 0 Then
-                    sb.Append(ts.Seconds)
-                    sb.Append(String.Format(" {0} ", secondsText))
-                End If
+                sb.Append(ts.Seconds)
+                sb.Append(String.Format(" {0} ", secondsText))
         End Select
-        Return sb.ToString
+        Return sb.ToString.Trim
     End Function
 
     Public Function GetFormat(formatType As Type) As Object Implements IFormatProvider.GetFormat
