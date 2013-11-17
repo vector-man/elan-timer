@@ -316,11 +316,11 @@ Public Class FormMain
                                             Dim sb = New StringBuilder
                                             If (Not timer.IsExpired) Then
                                                 sb.Append(timerObject.Text)
+                                                sb.Append(" - ")
                                             End If
-                                            If (Not Common.Time.Note = String.Empty) Then
-                                                If (Not timer.IsExpired) Then
-                                                    sb.Append(" - ")
-                                                End If
+                                            If (Common.Time.Note = String.Empty) Then
+                                                sb.Append(assumblyName)
+                                            Else
                                                 sb.Append(Common.Time.Note)
                                             End If
                                             Me.Text = sb.ToString
