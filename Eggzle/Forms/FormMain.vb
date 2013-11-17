@@ -205,7 +205,9 @@ Public Class FormMain
 #Region "Helper Methods"
     ' Hide the timer note and show the time.
     Private Sub HideNote()
+        ' Hide the note.
         noteObject.Visible = False
+        ' Show the timer.
         timerObject.Visible = True
     End Sub
     ' Show the timer note and hide the time.
@@ -214,7 +216,9 @@ Public Class FormMain
         If noteObject.Text = String.Empty Then
             noteObject.Text = My.Resources.Strings.Expired
         End If
+        ' Show the note.
         noteObject.Visible = True
+        ' Hide the timer.
         timerObject.Visible = False
     End Sub
     ' Load the language settings.
