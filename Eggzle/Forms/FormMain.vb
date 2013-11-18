@@ -312,21 +312,27 @@ Public Class FormMain
                                                 TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                             End If
                                             ProgressBarMain.Value = currentProgressValue
+
                                             Dim sb = New StringBuilder
+
                                             If (Not timer.IsExpired) Then
                                                 sb.Append(timerObject.Text)
-                                                sb.Append(" - ")
+                                                If (Not Common.Time.Note = String.Empty) Then
+                                                    sb.Append(" - ")
+                                                End If
                                             End If
-                                            If (Common.Time.Note = String.Empty) Then
-                                                sb.Append(assumblyName)
-                                            Else
-                                                sb.Append(Common.Time.Note)
+                                            sb.Append(Common.Time.Note)
+
+                                            If (sb.Length = 0) Then
+                                                sb.Append(assemblyName)
                                             End If
+
                                             Me.Text = sb.ToString
+
                                             Await TaskEx.Delay(Common.Framerate)
                                         End While
-                                    End Function, token, TaskCreationOptions.None, uiScheduler)
-    End Sub
+                                    End Function, token, TaskCreationOptions.LongRunning, uiScheduler)
+    End Function
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
         ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play_green, My.Resources.pause_green)
