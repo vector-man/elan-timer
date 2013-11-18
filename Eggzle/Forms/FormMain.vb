@@ -263,7 +263,7 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     ' Starts up rendering of the timer.
-    Private Sub StartUpRendering(ByRef timer As Eggzle.CodeIsle.Timers.AlarmTimer)
+    Private Async Sub StartUpRendering(timer As Eggzle.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
         backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
