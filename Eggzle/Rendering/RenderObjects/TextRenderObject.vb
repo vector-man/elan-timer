@@ -12,7 +12,7 @@
 
     Public Property Visible As Boolean Implements IRenderObject.Visible
     Public Property SizeToFit As Boolean
-    Public Property Text As String
+    Public Overridable Property Text As String
     Public Property Font As Font
     Public Property Color As Color
     Public Property StringFormat As StringFormat
