@@ -287,7 +287,7 @@ Public Class FormMain
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
 
-        Task.Factory.StartNew(Sub() FormMainProgressUpdateAsync(updateCancellationTokenSource.Token), updateCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
+        Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
 
 
