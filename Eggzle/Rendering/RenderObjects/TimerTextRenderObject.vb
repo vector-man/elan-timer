@@ -13,7 +13,6 @@ Public Class TimerTextRenderObject
     Public Property FormatProvider As IFormatProvider
     Public Property Timer As TimerBase
     Overrides Sub Draw(args As IRenderArgs)
-        MyBase.Text = String.Format(FormatProvider, String.Concat("{0:", Me.Format, "}"), Me.Timer.Current)
         MyBase.Draw(args)
     End Sub
     Public Overrides Property Text As String
