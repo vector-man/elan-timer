@@ -83,9 +83,7 @@ Public Class FormMain
 
     Private Sub FormMain_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
         If e.KeyChar = EscapeKeyChar Then
-            If My.Settings.WindowFullScreen Then
-                ExitFullScreen()
-            End If
+            ExitFullScreen()
         End If
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -180,11 +178,8 @@ Public Class FormMain
         ShowTimerDialog(False)
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
-        '  If in fullscreen mode...
-        If My.Settings.WindowFullScreen Then
-            ' Exit fullscreen mode (when the timer display area is clicked).
-            ExitFullScreen()
-        End If
+        ' Exit fullscreen mode (when the timer display area is clicked).
+        ExitFullScreen()
     End Sub
     ' Toggle timer between paused/not paused.
     Private Sub ToolStripButtonStartPause_Click(sender As Object, e As EventArgs) Handles ToolStripButtonStartPause.Click
@@ -235,9 +230,13 @@ Public Class FormMain
     End Sub
     ' Exits fullscreen mode.
     Private Sub ExitFullScreen()
-        My.Settings.WindowFullScreen = False
-        My.Settings.WindowMaximized = False
-        GoFullscreen(My.Settings.WindowFullScreen)
+        '  If in fullscreen mode...
+        If My.Settings.WindowFullScreen Then
+            ' Exit fullscreen mode.
+            My.Settings.WindowFullScreen = False
+            My.Settings.WindowMaximized = False
+            GoFullscreen(My.Settings.WindowFullScreen)
+        End If
     End Sub
     ' Removes the event handlers for the timer.
     Private Sub RemoveTimerHandlers()
