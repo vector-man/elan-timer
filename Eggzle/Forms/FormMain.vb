@@ -302,8 +302,8 @@ Public Class FormMain
 #End If
     End Sub
 
-    Private Async Sub FormMainProgressUpdateAsync(token As System.Threading.CancellationToken)
-        Dim assumblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
+    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task
+        Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
         Await Task.Factory.StartNew(Async Function()
                                         While (Not token.IsCancellationRequested)
                                             Dim currentProgressValue As Long
