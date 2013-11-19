@@ -614,6 +614,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Timer has expired!.
+        '''</summary>
+        Public Shared ReadOnly Property TimerHasExpired() As String
+            Get
+                Return ResourceManager.GetString("TimerHasExpired", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Transparency level:.
         '''</summary>
         Public Shared ReadOnly Property TransparencyLevel() As String

@@ -300,6 +300,9 @@
   <data name="Tasks" xml:space="preserve">
     <value>Tasks</value>
   </data>
+  <data name="TimerHasExpired" xml:space="preserve">
+    <value>Timer has expired!</value>
+  </data>
   <data name="TransparencyLevel" xml:space="preserve">
     <value>Transparency level:</value>
   </data>
