@@ -213,7 +213,7 @@ Public Class FormMain
     Private Sub ShowNote()
         ' If the note text is empty, set it to "Expired."
         If noteObject.Text = String.Empty Then
-            noteObject.Text = My.Resources.Strings.Expired
+            noteObject.Text = My.Resources.Strings.TimerHasExpired
         End If
         ' Show the note.
         noteObject.Visible = True
@@ -223,7 +223,7 @@ Public Class FormMain
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
                                  If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
-                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.Expired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
 
