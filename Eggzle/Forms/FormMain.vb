@@ -112,7 +112,7 @@ Public Class FormMain
         ' Add handler for UpdateUI
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
-    Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemConfiguration.Click
+    Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
         Try
             FormSettings.ShowDialog(Me)
         Catch ex As Exception
