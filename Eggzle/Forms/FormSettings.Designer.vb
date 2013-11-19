@@ -38,55 +38,55 @@ Partial Class FormSettings
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.SuspendLayout()
+        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
+        Me.TableLayoutPanel1.SuspendLayout
+        Me.TableLayoutPanel2.SuspendLayout
+        Me.TableLayoutPanel3.SuspendLayout
+        Me.TableLayoutPanel4.SuspendLayout
+        Me.SuspendLayout
         '
         'Button1
         '
         resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = true
         '
         'Button2
         '
         resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = true
         '
         'Button3
         '
         resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.Name = "Button3"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = true
         '
         'Button4
         '
         resources.ApplyResources(Me.Button4, "Button4")
         Me.Button4.Name = "Button4"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.UseVisualStyleBackColor = true
         '
         'Button5
         '
         resources.ApplyResources(Me.Button5, "Button5")
         Me.Button5.Name = "Button5"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button5.UseVisualStyleBackColor = true
         '
         'Button6
         '
         resources.ApplyResources(Me.Button6, "Button6")
         Me.Button6.Name = "Button6"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.Button6.UseVisualStyleBackColor = true
         '
         'ComboBoxLanguage
         '
         resources.ApplyResources(Me.ComboBoxLanguage, "ComboBoxLanguage")
         Me.ComboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxLanguage.FormattingEnabled = True
+        Me.ComboBoxLanguage.FormattingEnabled = true
         Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
         '
         'TableLayoutPanel1
@@ -121,40 +121,40 @@ Partial Class FormSettings
         '
         resources.ApplyResources(Me.ButtonApply, "ButtonApply")
         Me.ButtonApply.Name = "ButtonApply"
-        Me.ButtonApply.UseVisualStyleBackColor = True
+        Me.ButtonApply.UseVisualStyleBackColor = true
         '
         'ButtonOK
         '
         resources.ApplyResources(Me.ButtonOK, "ButtonOK")
         Me.ButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.UseVisualStyleBackColor = True
+        Me.ButtonOK.UseVisualStyleBackColor = true
         '
         'ButtonCancel
         '
         resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
         Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.UseVisualStyleBackColor = True
+        Me.ButtonCancel.UseVisualStyleBackColor = true
         '
         'TableLayoutPanel4
         '
         resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBox2, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBox1, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 0)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         '
-        'CheckBox2
+        'CheckBoxShowNoteAlertWhenTimerExpires
         '
-        resources.ApplyResources(Me.CheckBox2, "CheckBox2")
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = true
         '
-        'CheckBox1
+        'CheckBoxCloseToSystemTray
         '
-        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxCloseToSystemTray, "CheckBoxCloseToSystemTray")
+        Me.CheckBoxCloseToSystemTray.Name = "CheckBoxCloseToSystemTray"
+        Me.CheckBoxCloseToSystemTray.UseVisualStyleBackColor = true
         '
         'FormSettings
         '
@@ -164,22 +164,22 @@ Partial Class FormSettings
         Me.CancelButton = Me.ButtonCancel
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
         Me.Name = "FormSettings"
-        Me.ShowInTaskbar = False
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ShowInTaskbar = false
+        Me.TableLayoutPanel1.ResumeLayout(false)
+        Me.TableLayoutPanel1.PerformLayout
+        Me.TableLayoutPanel2.ResumeLayout(false)
+        Me.TableLayoutPanel2.PerformLayout
+        Me.TableLayoutPanel3.ResumeLayout(false)
+        Me.TableLayoutPanel3.PerformLayout
+        Me.TableLayoutPanel4.ResumeLayout(false)
+        Me.TableLayoutPanel4.PerformLayout
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
@@ -195,6 +195,6 @@ Partial Class FormSettings
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
 End Class

@@ -38,6 +38,8 @@
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
         My.Settings.Language = CType(ComboBoxLanguage.SelectedItem, System.Globalization.CultureInfo).Name
+        My.Settings.ShowNoteAlertWhenTimerExpires = CheckBoxShowNoteAlertWhenTimerExpires.Checked
+        My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.Save()
         Common.Languages.SetUICulture(ComboBoxLanguage.SelectedItem)
         Common.SetStrings()
@@ -68,6 +70,8 @@
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            CheckBoxShowNoteAlertWhenTimerExpires.Checked = My.Settings.ShowNoteAlertWhenTimerExpires
+            CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             ComboBoxLanguage.SelectedItem = Common.Languages.Cultures.Where(Function(item) item.Name = My.Settings.Language).First
         Catch ex As Exception
 
