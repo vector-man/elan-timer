@@ -29,25 +29,21 @@ Partial Class FormSettings
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBoxLanguage = New System.Windows.Forms.ComboBox()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.LabelUpdateDescription = New System.Windows.Forms.Label()
-        Me.CheckBoxEnableAutomaticUpdateChecking = New System.Windows.Forms.CheckBox()
-        Me.LabelNumberOfDaysBetweenUpdateChecks = New System.Windows.Forms.Label()
-        Me.NumericUpDownNumberOfDaysBetweenUpdateChecks = New System.Windows.Forms.NumericUpDown()
-        Me.ButtonCheckForUpdatesNow = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonApply = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel3.SuspendLayout()
-        CType(Me.NumericUpDownNumberOfDaysBetweenUpdateChecks, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -86,11 +82,6 @@ Partial Class FormSettings
         Me.Button6.Name = "Button6"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Label4
-        '
-        resources.ApplyResources(Me.Label4, "Label4")
-        Me.Label4.Name = "Label4"
-        '
         'ComboBoxLanguage
         '
         resources.ApplyResources(Me.ComboBoxLanguage, "ComboBoxLanguage")
@@ -98,62 +89,24 @@ Partial Class FormSettings
         Me.ComboBoxLanguage.FormattingEnabled = True
         Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
         '
-        'FlowLayoutPanel3
-        '
-        resources.ApplyResources(Me.FlowLayoutPanel3, "FlowLayoutPanel3")
-        Me.FlowLayoutPanel3.Controls.Add(Me.LabelUpdateDescription)
-        Me.FlowLayoutPanel3.Controls.Add(Me.CheckBoxEnableAutomaticUpdateChecking)
-        Me.FlowLayoutPanel3.Controls.Add(Me.LabelNumberOfDaysBetweenUpdateChecks)
-        Me.FlowLayoutPanel3.Controls.Add(Me.NumericUpDownNumberOfDaysBetweenUpdateChecks)
-        Me.FlowLayoutPanel3.Controls.Add(Me.ButtonCheckForUpdatesNow)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        '
-        'LabelUpdateDescription
-        '
-        resources.ApplyResources(Me.LabelUpdateDescription, "LabelUpdateDescription")
-        Me.FlowLayoutPanel3.SetFlowBreak(Me.LabelUpdateDescription, True)
-        Me.LabelUpdateDescription.Name = "LabelUpdateDescription"
-        '
-        'CheckBoxEnableAutomaticUpdateChecking
-        '
-        resources.ApplyResources(Me.CheckBoxEnableAutomaticUpdateChecking, "CheckBoxEnableAutomaticUpdateChecking")
-        Me.FlowLayoutPanel3.SetFlowBreak(Me.CheckBoxEnableAutomaticUpdateChecking, True)
-        Me.CheckBoxEnableAutomaticUpdateChecking.Name = "CheckBoxEnableAutomaticUpdateChecking"
-        Me.CheckBoxEnableAutomaticUpdateChecking.UseVisualStyleBackColor = True
-        '
-        'LabelNumberOfDaysBetweenUpdateChecks
-        '
-        resources.ApplyResources(Me.LabelNumberOfDaysBetweenUpdateChecks, "LabelNumberOfDaysBetweenUpdateChecks")
-        Me.LabelNumberOfDaysBetweenUpdateChecks.Name = "LabelNumberOfDaysBetweenUpdateChecks"
-        '
-        'NumericUpDownNumberOfDaysBetweenUpdateChecks
-        '
-        resources.ApplyResources(Me.NumericUpDownNumberOfDaysBetweenUpdateChecks, "NumericUpDownNumberOfDaysBetweenUpdateChecks")
-        Me.FlowLayoutPanel3.SetFlowBreak(Me.NumericUpDownNumberOfDaysBetweenUpdateChecks, True)
-        Me.NumericUpDownNumberOfDaysBetweenUpdateChecks.Maximum = New Decimal(New Integer() {999, 0, 0, 0})
-        Me.NumericUpDownNumberOfDaysBetweenUpdateChecks.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.NumericUpDownNumberOfDaysBetweenUpdateChecks.Name = "NumericUpDownNumberOfDaysBetweenUpdateChecks"
-        Me.NumericUpDownNumberOfDaysBetweenUpdateChecks.Value = New Decimal(New Integer() {100, 0, 0, 0})
-        '
-        'ButtonCheckForUpdatesNow
-        '
-        resources.ApplyResources(Me.ButtonCheckForUpdatesNow, "ButtonCheckForUpdatesNow")
-        Me.ButtonCheckForUpdatesNow.Name = "ButtonCheckForUpdatesNow"
-        Me.ButtonCheckForUpdatesNow.UseVisualStyleBackColor = True
-        '
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxLanguage, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxLanguage, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
         '
         'TableLayoutPanel2
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel3, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 1)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'TableLayoutPanel3
@@ -184,6 +137,25 @@ Partial Class FormSettings
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
+        'TableLayoutPanel4
+        '
+        resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBox2, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBox1, 0, 0)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        '
+        'CheckBox2
+        '
+        resources.ApplyResources(Me.CheckBox2, "CheckBox2")
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'FormSettings
         '
         Me.AcceptButton = Me.ButtonOK
@@ -196,15 +168,14 @@ Partial Class FormSettings
         Me.MinimizeBox = False
         Me.Name = "FormSettings"
         Me.ShowInTaskbar = False
-        Me.FlowLayoutPanel3.ResumeLayout(False)
-        Me.FlowLayoutPanel3.PerformLayout()
-        CType(Me.NumericUpDownNumberOfDaysBetweenUpdateChecks, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -215,18 +186,15 @@ Partial Class FormSettings
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ComboBoxLanguage As System.Windows.Forms.ComboBox
-    Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents LabelUpdateDescription As System.Windows.Forms.Label
-    Friend WithEvents LabelNumberOfDaysBetweenUpdateChecks As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDownNumberOfDaysBetweenUpdateChecks As System.Windows.Forms.NumericUpDown
-    Friend WithEvents CheckBoxEnableAutomaticUpdateChecking As System.Windows.Forms.CheckBox
-    Friend WithEvents ButtonCheckForUpdatesNow As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ButtonApply As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

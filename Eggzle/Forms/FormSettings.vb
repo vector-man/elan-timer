@@ -54,8 +54,6 @@
 
         applicationBindingSource.DataSource = My.Settings
         'End Using
-        NumericUpDownNumberOfDaysBetweenUpdateChecks.DataBindings.Add("Value", applicationBindingSource, "NumberOfDaysBetweenUpdateChecks")
-        CheckBoxEnableAutomaticUpdateChecking.DataBindings.Add("Checked", applicationBindingSource, "EnableAutomaticUpdateChecking")
 
 
         ComboBoxLanguage.DisplayMember = "NativeName"
