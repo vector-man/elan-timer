@@ -408,12 +408,12 @@ Public Class FormMain
             End If
             timerObject.Timer = timer
             noteObject.Text = Common.Time.Note
-            AddTimerHandlers()
             HideNote()
             If Common.Time.AutoStart Then
                 SetTimerState(True)
             End If
             Me.UpdateIcons()
+            AddTimerHandlers()
         End If
     End Sub
     ' Toggles timer between paused and not paused.
