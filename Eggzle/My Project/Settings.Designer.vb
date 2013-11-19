@@ -114,14 +114,14 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("100")> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("100")>  _
         Public Property OpacityLevel() As Integer
             Get
-                Return CType(Me("OpacityLevel"), Integer)
+                Return CType(Me("OpacityLevel"),Integer)
             End Get
-            Set(value As Integer)
+            Set
                 Me("OpacityLevel") = value
             End Set
         End Property
@@ -327,6 +327,30 @@ Namespace My
             End Get
             Set
                 Me("Language") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property CloseToSystemTray() As Boolean
+            Get
+                Return CType(Me("CloseToSystemTray"),Boolean)
+            End Get
+            Set
+                Me("CloseToSystemTray") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property ShowNoteAlertWhenTimerExpires() As Boolean
+            Get
+                Return CType(Me("ShowNoteAlertWhenTimerExpires"),Boolean)
+            End Get
+            Set
+                Me("ShowNoteAlertWhenTimerExpires") = value
             End Set
         End Property
     End Class
