@@ -184,7 +184,7 @@ Partial Class FormSettings
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'FormConfiguration
+        'FormSettings
         '
         Me.AcceptButton = Me.ButtonOK
         resources.ApplyResources(Me, "$this")
@@ -194,7 +194,7 @@ Partial Class FormSettings
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FormConfiguration"
+        Me.Name = "FormSettings"
         Me.ShowInTaskbar = False
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
