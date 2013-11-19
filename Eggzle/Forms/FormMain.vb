@@ -5,7 +5,6 @@ Imports System.Text
 Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
-    Private uiScheduler As TaskScheduler = TaskScheduler.FromCurrentSynchronizationContext()
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
@@ -331,7 +330,7 @@ Public Class FormMain
 
                                             Await TaskEx.Delay(Common.Framerate)
                                         End While
-                                    End Function, token, TaskCreationOptions.LongRunning, uiScheduler)
+                                    End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
     End Function
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
