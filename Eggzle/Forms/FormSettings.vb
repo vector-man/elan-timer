@@ -40,6 +40,7 @@
         My.Settings.Language = CType(ComboBoxLanguage.SelectedItem, System.Globalization.CultureInfo).Name
         My.Settings.ShowNoteAlertWhenTimerExpires = CheckBoxShowNoteAlertWhenTimerExpires.Checked
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
+        My.Settings.ShowInSystemTray = CheckBoxShowInSystemTray.Checked
         My.Settings.Save()
         Common.Languages.SetUICulture(ComboBoxLanguage.SelectedItem)
         Common.SetStrings()
@@ -72,10 +73,16 @@
         Try
             CheckBoxShowNoteAlertWhenTimerExpires.Checked = My.Settings.ShowNoteAlertWhenTimerExpires
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
+            CheckBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             ComboBoxLanguage.SelectedItem = Common.Languages.Cultures.Where(Function(item) item.Name = My.Settings.Language).First
+            CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub CheckBoxShowInSystemTray_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxShowInSystemTray.CheckedChanged
+        CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
     End Sub
 End Class
 

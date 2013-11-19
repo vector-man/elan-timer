@@ -353,6 +353,18 @@ Namespace My
                 Me("ShowNoteAlertWhenTimerExpires") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property ShowInSystemTray() As String
+            Get
+                Return CType(Me("ShowInSystemTray"),String)
+            End Get
+            Set
+                Me("ShowInSystemTray") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
