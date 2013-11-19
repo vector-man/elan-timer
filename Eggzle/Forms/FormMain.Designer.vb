@@ -22,6 +22,7 @@ Partial Class FormMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSplitButtonSettings = New System.Windows.Forms.ToolStripDropDownButton()
@@ -51,6 +52,7 @@ Partial Class FormMain
         Me.ToolStripButtonReset = New System.Windows.Forms.ToolStripButton()
         Me.PanelTimer = New System.Windows.Forms.Panel()
         Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
+        Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -209,6 +211,10 @@ Partial Class FormMain
         Me.ProgressBarMain.Maximum = 1000
         Me.ProgressBarMain.Name = "ProgressBarMain"
         '
+        'NotifyIconMain
+        '
+        resources.ApplyResources(Me.NotifyIconMain, "NotifyIconMain")
+        '
         'FormMain
         '
         resources.ApplyResources(Me, "$this")
@@ -251,5 +257,6 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItemExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemEditTimer As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProgressBarMain As System.Windows.Forms.ProgressBar
+    Friend WithEvents NotifyIconMain As System.Windows.Forms.NotifyIcon
 
 End Class
