@@ -187,10 +187,14 @@ Public Class FormMain
     End Sub
     ' Set timer form to fullscreen.
     Private Sub FullScreenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemFullScreen.Click
-        My.Settings.WindowFullScreen = True
-        My.Settings.WindowMaximized = False
-        GoFullscreen(My.Settings.WindowFullScreen)
-        Me.Focus()
+        If My.Settings.WindowFullScreen Then
+            ExitFullScreen()
+        Else
+            My.Settings.WindowFullScreen = True
+            My.Settings.WindowMaximized = False
+            GoFullscreen(My.Settings.WindowFullScreen)
+            Me.Focus()
+        End If
     End Sub
 #End Region
 
