@@ -21,7 +21,7 @@ Public Class Common
     ' The path to the default look data file.
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
     ' The settings object for Look.
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.FromArgb(255, 255, 80, 0), Color.Black, 100, String.Empty, "s"), False)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "s"), False)
     ' The folder where all alarm sound files are stored.
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     ' The object for language settings, set with the default language.
