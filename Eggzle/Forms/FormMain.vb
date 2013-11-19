@@ -220,9 +220,12 @@ Public Class FormMain
         timerObject.Visible = False
     End Sub
     Private Sub TryShowNoteAlert()
-        If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
-            MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.Expired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
+        Me.Invoke(New Action(Sub()
+                                 If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
+                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.Expired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                 End If
+                             End Sub))
+
     End Sub
     ' Load the language settings.
     Private Sub LoadLanguage()
