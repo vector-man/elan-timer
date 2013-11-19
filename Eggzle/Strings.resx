@@ -222,9 +222,6 @@
   <data name="MenuCompact" xml:space="preserve">
     <value>Compact</value>
   </data>
-  <data name="MenuConfiguration" xml:space="preserve">
-    <value>Configuration...</value>
-  </data>
   <data name="MenuDefault" xml:space="preserve">
     <value>Default</value>
   </data>
@@ -248,6 +245,9 @@
   </data>
   <data name="MenuNewTimer" xml:space="preserve">
     <value>New Timer...</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>Settings...</value>
   </data>
   <data name="MenuTasks" xml:space="preserve">
     <value>Tasks...</value>

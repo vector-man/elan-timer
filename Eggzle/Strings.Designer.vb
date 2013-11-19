@@ -380,15 +380,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Configuration....
-        '''</summary>
-        Public Shared ReadOnly Property MenuConfiguration() As String
-            Get
-                Return ResourceManager.GetString("MenuConfiguration", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Default.
         '''</summary>
         Public Shared ReadOnly Property MenuDefault() As String
@@ -457,6 +448,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property MenuNewTimer() As String
             Get
                 Return ResourceManager.GetString("MenuNewTimer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Settings....
+        '''</summary>
+        Public Shared ReadOnly Property MenuSettings() As String
+            Get
+                Return ResourceManager.GetString("MenuSettings", resourceCulture)
             End Get
         End Property
         
