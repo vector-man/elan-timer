@@ -524,15 +524,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Opacity level:.
-        '''</summary>
-        Public Shared ReadOnly Property OpacityLevel() As String
-            Get
-                Return ResourceManager.GetString("OpacityLevel", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Pause.
         '''</summary>
         Public Shared ReadOnly Property Pause() As String
@@ -619,6 +610,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Tasks() As String
             Get
                 Return ResourceManager.GetString("Tasks", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Transparency level:.
+        '''</summary>
+        Public Shared ReadOnly Property TransparencyLevel() As String
+            Get
+                Return ResourceManager.GetString("TransparencyLevel", resourceCulture)
             End Get
         End Property
     End Class

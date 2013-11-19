@@ -114,14 +114,14 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("100")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("100")> _
         Public Property OpacityLevel() As Integer
             Get
-                Return CType(Me("OpacityLevel"),Integer)
+                Return CType(Me("OpacityLevel"), Integer)
             End Get
-            Set
+            Set(value As Integer)
                 Me("OpacityLevel") = value
             End Set
         End Property

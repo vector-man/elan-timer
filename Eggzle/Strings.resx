@@ -270,9 +270,6 @@
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
   </data>
-  <data name="OpacityLevel" xml:space="preserve">
-    <value>Opacity level:</value>
-  </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
   </data>
@@ -302,5 +299,8 @@
   </data>
   <data name="Tasks" xml:space="preserve">
     <value>Tasks</value>
+  </data>
+  <data name="TransparencyLevel" xml:space="preserve">
+    <value>Transparency level:</value>
   </data>
 </root>

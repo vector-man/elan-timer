@@ -25,7 +25,7 @@ Public Class DialogLookSettings
         Me.ColorComboBoxBackgroundColor.SelectedColor = Common.Look.BackgroundColor
         Me.FontPickerFont.Value = Common.Look.Font
         Me.CheckBoxSizeToFit.Checked = Common.Look.SizeToFit
-        Me.NumericUpDownOpacityLevel.Value = Common.Look.Opacity
+        Me.NumericUpDownTransparencyLevel.Value = (100 - Common.Look.Opacity)
 
     End Sub
     Sub SaveSettings()
@@ -34,13 +34,13 @@ Public Class DialogLookSettings
         Common.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
         Common.Look.Font = Me.FontPickerFont.Value
         Common.Look.SizeToFit = Me.CheckBoxSizeToFit.Checked
-        Common.Look.Opacity = Me.NumericUpDownOpacityLevel.Value
+        Common.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
         Common.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
     End Sub
     Sub UpdateUI()
         Try
-            FormMain.Opacity = Me.NumericUpDownOpacityLevel.Value / 100
+            FormMain.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value) / 100
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
             timerObject.Color = Common.Look.ForegroundColor
@@ -91,10 +91,10 @@ Public Class DialogLookSettings
             objects.Add(backgroundObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
-            timerSurface = New PreviewSurface(renderer, NumericUpDownOpacityLevel.Value / 100, Common.Framerate)
+            timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
-            CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100
+            CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
         Catch ex As Exception
 
         End Try
@@ -135,9 +135,9 @@ Public Class DialogLookSettings
         End Try
     End Sub
 
-    Private Sub NumericUpDownOpacityLevel_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownOpacityLevel.ValueChanged
+    Private Sub NumericUpDownOpacityLevel_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTransparencyLevel.ValueChanged
         Try
-            CType(timerSurface, PreviewSurface).Opacity = NumericUpDownOpacityLevel.Value / 100
+            CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
         Catch ex As Exception
 
         End Try
