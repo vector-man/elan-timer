@@ -219,6 +219,11 @@ Public Class FormMain
         ' Hide the timer.
         timerObject.Visible = False
     End Sub
+    Private Sub TryShowAlert()
+        If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
+            MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.Expired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
     ' Load the language settings.
     Private Sub LoadLanguage()
         Try
