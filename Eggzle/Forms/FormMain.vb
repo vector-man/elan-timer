@@ -33,6 +33,7 @@ Public Class FormMain
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
         ExecuteActions(Settings.Models.TimerEvent.Expired)
         ShowNote()
+        TryShowNoteAlert()
     End Sub
     Public Sub ExecuteActions(e As Settings.Models.TimerEvent)
         TaskEx.Run(Sub()
