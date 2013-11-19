@@ -1,4 +1,4 @@
-﻿Public Class FormConfiguration
+﻿Public Class FormSettings
 
     Private applicationBindingSource As BindingSource
     'Public odb As NDatabase.Odb.IOdb

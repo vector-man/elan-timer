@@ -73,7 +73,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        FormConfiguration.ShowDialog()
+        FormSettings.ShowDialog()
     End Sub
 
     Private Sub ToolStrip1_MouseEnter(sender As Object, e As EventArgs) Handles ToolStrip1.MouseEnter
@@ -114,7 +114,7 @@ Public Class FormMain
     End Sub
     Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemConfiguration.Click
         Try
-            FormConfiguration.ShowDialog(Me)
+            FormSettings.ShowDialog(Me)
         Catch ex As Exception
             MessageBox.Show(ex.InnerException.ToString)
         End Try
