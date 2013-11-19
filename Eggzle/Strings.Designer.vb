@@ -614,7 +614,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Timer has expired!.
+        '''  Looks up a localized string similar to Timer has expired..
         '''</summary>
         Public Shared ReadOnly Property TimerHasExpired() As String
             Get
