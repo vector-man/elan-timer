@@ -41,6 +41,7 @@ Partial Class FormSettings
         Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
         Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -159,10 +160,17 @@ Partial Class FormSettings
         'TableLayoutPanel4
         '
         resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 2)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowInSystemTray, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 2)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        '
+        'CheckBoxClickingTrayIconStopsAlarm
+        '
+        resources.ApplyResources(Me.CheckBoxClickingTrayIconStopsAlarm, "CheckBoxClickingTrayIconStopsAlarm")
+        Me.CheckBoxClickingTrayIconStopsAlarm.Name = "CheckBoxClickingTrayIconStopsAlarm"
+        Me.CheckBoxClickingTrayIconStopsAlarm.UseVisualStyleBackColor = True
         '
         'FormSettings
         '
@@ -206,4 +214,5 @@ End Sub
     Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxShowInSystemTray As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
 End Class
