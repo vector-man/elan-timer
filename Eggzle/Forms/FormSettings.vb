@@ -41,6 +41,7 @@
         My.Settings.ShowNoteAlertWhenTimerExpires = CheckBoxShowNoteAlertWhenTimerExpires.Checked
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckBoxShowInSystemTray.Checked
+        My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
         My.Settings.Save()
         Common.Languages.SetUICulture(ComboBoxLanguage.SelectedItem)
         Common.SetStrings()
@@ -74,8 +75,10 @@
             CheckBoxShowNoteAlertWhenTimerExpires.Checked = My.Settings.ShowNoteAlertWhenTimerExpires
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
+            CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
             ComboBoxLanguage.SelectedItem = Common.Languages.Cultures.Where(Function(item) item.Name = My.Settings.Language).First
             CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
+            CheckBoxClickingTrayIconStopsAlarm.Enabled = CheckBoxShowInSystemTray.Checked
         Catch ex As Exception
 
         End Try
@@ -83,4 +86,6 @@
 
     Private Sub CheckBoxShowInSystemTray_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxShowInSystemTray.CheckedChanged
         CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
+        CheckBoxClickingTrayIconStopsAlarm.Enabled = CheckBoxShowInSystemTray.Checked
     End Sub
+End Class
