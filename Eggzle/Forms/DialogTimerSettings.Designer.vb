@@ -27,7 +27,7 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TextBoxNote = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelNote = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
@@ -79,7 +79,7 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.TableLayoutPanel5, "TableLayoutPanel5")
         Me.TableLayoutPanel5.Controls.Add(Me.TextBoxNote, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.LabelNote, 0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         '
         'TextBoxNote
@@ -87,10 +87,10 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
         Me.TextBoxNote.Name = "TextBoxNote"
         '
-        'Label1
+        'LabelNote
         '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
+        resources.ApplyResources(Me.LabelNote, "LabelNote")
+        Me.LabelNote.Name = "LabelNote"
         '
         'TableLayoutPanel4
         '
@@ -298,7 +298,7 @@ Partial Class DialogTimerSettings
     Friend WithEvents NumericUpDownVolume As System.Windows.Forms.NumericUpDown
     Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TextBoxNote As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents LabelNote As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBoxAlarmPath As System.Windows.Forms.ComboBox
