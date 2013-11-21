@@ -577,4 +577,9 @@ Public Class FormMain
     Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
         Me.Show()
     End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        ' Show the Settings dialog.
+        ShowSettingsDialog()
+    End Sub
 End Class
