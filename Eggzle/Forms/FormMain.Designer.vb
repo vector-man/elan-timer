@@ -53,6 +53,7 @@ Partial Class FormMain
         Me.PanelTimer = New System.Windows.Forms.Panel()
         Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
         Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStripMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -215,6 +216,11 @@ Partial Class FormMain
         '
         resources.ApplyResources(Me.NotifyIconMain, "NotifyIconMain")
         '
+        'ContextMenuStripMain
+        '
+        Me.ContextMenuStripMain.Name = "ContextMenuStripMain"
+        resources.ApplyResources(Me.ContextMenuStripMain, "ContextMenuStripMain")
+        '
         'FormMain
         '
         resources.ApplyResources(Me, "$this")
@@ -258,5 +264,6 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItemEditTimer As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProgressBarMain As System.Windows.Forms.ProgressBar
     Friend WithEvents NotifyIconMain As System.Windows.Forms.NotifyIcon
+    Friend WithEvents ContextMenuStripMain As System.Windows.Forms.ContextMenuStrip
 
 End Class
