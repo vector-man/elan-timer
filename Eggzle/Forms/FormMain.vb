@@ -161,7 +161,7 @@ Public Class FormMain
     End Sub
     ' Toggle timer between paused/not paused.
     Private Sub ToolStripButtonStartPause_Click(sender As Object, e As EventArgs) Handles ToolStripButtonStartPause.Click
-
+        ' Set timer state to the opposite of its current state (toggle start/pause). 
         SetTimerState(Not timer.Enabled)
     End Sub
     ' Set timer form to fullscreen.
