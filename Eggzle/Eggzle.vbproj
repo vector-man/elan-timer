@@ -263,7 +263,6 @@
     <Compile Include="Timers\TimerBase.vb" />
     <Compile Include="Timers\TimerEventArgs.vb" />
     <Compile Include="Timers\TimerFactory.vb" />
-    <Compile Include="Utilities\ImageTransparency.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\DialogAbout.resx">
