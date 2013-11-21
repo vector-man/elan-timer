@@ -8,7 +8,7 @@ Public Class FormMain
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
-    Private backgroundObject As ClearRenderObject
+    Private backgroundObject As BackgroundRenderObject
     Private timerObject As TimerTextRenderObject
     Private noteObject As TextRenderObject
     Private stringFormat As New StringFormat
@@ -258,7 +258,7 @@ Public Class FormMain
     Private Async Sub StartUpRendering(timer As Eggzle.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
-        backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
+        backgroundObject = New BackgroundRenderObject(Common.Look.BackgroundColor, True)
 
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
         stringFormat.Alignment = StringAlignment.Center

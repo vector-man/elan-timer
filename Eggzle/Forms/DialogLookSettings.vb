@@ -4,7 +4,7 @@ Public Class DialogLookSettings
     Private argsBindingSource As BindingSource
 
     Private timerObject As TimerTextRenderObject
-    Private backgroundObject As ClearRenderObject
+    Private backgroundObject As BackgroundRenderObject
     Private renderer As Rendering.IRenderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timer As CodeIsle.Timers.AlarmTimer
@@ -85,7 +85,7 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            backgroundObject = New ClearRenderObject(Common.Look.BackgroundColor, True)
+            backgroundObject = New BackgroundRenderObject(Common.Look.BackgroundColor, True)
             timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(backgroundObject)
