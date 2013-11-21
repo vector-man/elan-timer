@@ -330,9 +330,6 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="TableLayoutPanel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="TableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -348,6 +345,24 @@
   <data name="TableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
+  <data name="ButtonApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="ButtonApply.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 3</value>
+  </data>
+  <data name="ButtonApply.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonApply.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ButtonApply.Text" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="&gt;&gt;ButtonApply.Name" xml:space="preserve">
     <value>ButtonApply</value>
   </data>
@@ -360,6 +375,24 @@
   <data name="&gt;&gt;ButtonApply.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="ButtonOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 3</value>
+  </data>
+  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ButtonOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
     <value>ButtonOK</value>
   </data>
@@ -371,6 +404,24 @@
   </data>
   <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="ButtonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 3</value>
+  </data>
+  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ButtonCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
     <value>ButtonCancel</value>
@@ -388,13 +439,16 @@
     <value>Top</value>
   </data>
   <data name="TableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 124</value>
+    <value>0, 121</value>
+  </data>
+  <data name="TableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>297, 29</value>
+    <value>303, 29</value>
   </data>
   <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -420,24 +474,6 @@
   <data name="TableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 49</value>
-  </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 17</value>
-  </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Text" xml:space="preserve">
-    <value>Show note alert when timer expires</value>
-  </data>
   <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.Name" xml:space="preserve">
     <value>CheckBoxShowNoteAlertWhenTimerExpires</value>
   </data>
@@ -450,24 +486,6 @@
   <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="CheckBoxCloseToSystemTray.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxCloseToSystemTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CheckBoxCloseToSystemTray.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 26</value>
-  </data>
-  <data name="CheckBoxCloseToSystemTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 17</value>
-  </data>
-  <data name="CheckBoxCloseToSystemTray.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="CheckBoxCloseToSystemTray.Text" xml:space="preserve">
-    <value>Close to system tray</value>
-  </data>
   <data name="&gt;&gt;CheckBoxCloseToSystemTray.Name" xml:space="preserve">
     <value>CheckBoxCloseToSystemTray</value>
   </data>
@@ -479,21 +497,6 @@
   </data>
   <data name="&gt;&gt;CheckBoxCloseToSystemTray.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="CheckBoxShowInSystemTray.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxShowInSystemTray.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="CheckBoxShowInSystemTray.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 17</value>
-  </data>
-  <data name="CheckBoxShowInSystemTray.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="CheckBoxShowInSystemTray.Text" xml:space="preserve">
-    <value>Show in system tray</value>
   </data>
   <data name="&gt;&gt;CheckBoxShowInSystemTray.Name" xml:space="preserve">
     <value>CheckBoxShowInSystemTray</value>
@@ -538,13 +541,16 @@
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CheckBoxShowNoteAlertWhenTimerExpires" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxCloseToSystemTray" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxShowInSystemTray" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 15</value>
+    <value>12, 12</value>
+  </data>
+  <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 156</value>
+    <value>303, 150</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -564,95 +570,95 @@
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel3" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel4" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="ButtonApply.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="ButtonApply.AutoSize" type="System.Boolean, mscorlib">
+  <data name="CheckBoxShowInSystemTray.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>219, 3</value>
+  <data name="CheckBoxShowInSystemTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="ButtonApply.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="CheckBoxShowInSystemTray.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="ButtonApply.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="CheckBoxShowInSystemTray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 17</value>
   </data>
-  <data name="ButtonApply.Text" xml:space="preserve">
-    <value>Apply</value>
+  <data name="CheckBoxShowInSystemTray.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;ButtonApply.Name" xml:space="preserve">
-    <value>ButtonApply</value>
+  <data name="CheckBoxShowInSystemTray.Text" xml:space="preserve">
+    <value>Show in system tray</value>
   </data>
-  <data name="&gt;&gt;ButtonApply.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;CheckBoxShowInSystemTray.Name" xml:space="preserve">
+    <value>CheckBoxShowInSystemTray</value>
   </data>
-  <data name="&gt;&gt;ButtonApply.Parent" xml:space="preserve">
-    <value>TableLayoutPanel3</value>
+  <data name="&gt;&gt;CheckBoxShowInSystemTray.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonApply.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxShowInSystemTray.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxShowInSystemTray.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CheckBoxCloseToSystemTray.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CheckBoxCloseToSystemTray.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CheckBoxCloseToSystemTray.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 26</value>
+  </data>
+  <data name="CheckBoxCloseToSystemTray.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 17</value>
+  </data>
+  <data name="CheckBoxCloseToSystemTray.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="ButtonOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="CheckBoxCloseToSystemTray.Text" xml:space="preserve">
+    <value>Close to system tray</value>
   </data>
-  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;CheckBoxCloseToSystemTray.Name" xml:space="preserve">
+    <value>CheckBoxCloseToSystemTray</value>
   </data>
-  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>37, 3</value>
+  <data name="&gt;&gt;CheckBoxCloseToSystemTray.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="&gt;&gt;CheckBoxCloseToSystemTray.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
   </data>
-  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ButtonOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
-    <value>ButtonOK</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
-    <value>TableLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxCloseToSystemTray.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>128, 3</value>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 49</value>
   </data>
-  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 17</value>
   </data>
-  <data name="ButtonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
-    <value>ButtonCancel</value>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Text" xml:space="preserve">
+    <value>Show note alert when timer expires</value>
   </data>
-  <data name="&gt;&gt;ButtonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.Name" xml:space="preserve">
+    <value>CheckBoxShowNoteAlertWhenTimerExpires</value>
   </data>
-  <data name="&gt;&gt;ButtonCancel.Parent" xml:space="preserve">
-    <value>TableLayoutPanel3</value>
+  <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -664,7 +670,7 @@
     <value>True</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>311, 170</value>
+    <value>315, 165</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 12, 12, 12</value>
