@@ -228,10 +228,10 @@
     <Compile Include="Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSettings.Designer.vb">
-      <DependentUpon>FormSettings.vb</DependentUpon>
+    <Compile Include="Forms\DialogSettings.Designer.vb">
+      <DependentUpon>DialogSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSettings.vb">
+    <Compile Include="Forms\DialogSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -256,12 +256,10 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Timers\AlarmTimer.vb" />
-    <Compile Include="Timers\AlarmTimerContext.vb" />
     <Compile Include="Timers\RoundedTimeSpan.vb" />
     <Compile Include="Timers\CountDownAlarmTimer.vb" />
     <Compile Include="Timers\CountUpAlarmTimer.vb" />
     <Compile Include="Timers\TimeFormat.vb" />
-    <Compile Include="Timers\TimeParser.vb" />
     <Compile Include="Timers\TimerBase.vb" />
     <Compile Include="Timers\TimerEventArgs.vb" />
     <Compile Include="Timers\TimerFactory.vb" />
@@ -284,8 +282,8 @@
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSettings.resx">
-      <DependentUpon>FormSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\DialogSettings.resx">
+      <DependentUpon>DialogSettings.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
