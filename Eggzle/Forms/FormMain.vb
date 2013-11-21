@@ -395,11 +395,11 @@ Public Class FormMain
             timerObject.Timer = timer
             noteObject.Text = Common.Time.Note
             HideNote()
+            AddTimerHandlers()
             If Common.Time.AutoStart Then
                 SetTimerState(True)
             End If
             Me.UpdateIcons()
-            AddTimerHandlers()
         End If
         ContextMenuStripMain.Enabled = True
     End Sub
