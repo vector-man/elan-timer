@@ -21,7 +21,7 @@ Public Class Common
     ' The path to the default look data file.
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
     ' The settings object for Look.
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "s"), False)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), False)
     ' The folder where all alarm sound files are stored.
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     ' The object for language settings, set with the default language.
@@ -30,8 +30,7 @@ Public Class Common
     Public Const Framerate As Integer = 1000 / 10
     ' The object for all of the supported display formats for the timer (these appear in the 'Look' settings dialog).
     Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
-        {New KeyValuePair(Of String, String)("Standard", "s")},
-        {New KeyValuePair(Of String, String)("Deciseconds", "d")},
+        {New KeyValuePair(Of String, String)("Standard", "d")},
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
