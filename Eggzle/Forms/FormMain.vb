@@ -531,7 +531,7 @@ Public Class FormMain
 
     Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
         ' If the icon is shown in the system tray and clicking the icon should turn the alarm off...
-        If (My.Settings.ShowInSystemTray And My.Settings.ClickingTrayIconStopsAlarm) Then
+        If (My.Settings.ShowInSystemTray And My.Settings.ClickingTrayIconStopsAlarm And timerObject.Timer.IsExpired) Then
             Try
                 ' Try to stop the alarm. 
                 CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm.Stop()
