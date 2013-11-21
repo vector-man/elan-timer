@@ -331,7 +331,9 @@ Public Class FormMain
     ' Update the form user interface.
     Private Sub UpdateUI()
         ToolStripButtonStartPause.Enabled = Not timer.IsExpired
+        PauseTimerToolStripMenuItem.Enabled = ToolStripButtonStartPause.Enabled
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
+        PauseTimerToolStripMenuItem.Text = ToolStripButtonStartPause.Text
         Me.Opacity = Common.Look.Opacity / 100
     End Sub
 
