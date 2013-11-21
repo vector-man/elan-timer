@@ -65,11 +65,6 @@
         ComboBoxLanguage.DataSource = Common.Languages.Cultures
     End Sub
 
-    Private Sub ButtonApply_Click(sender As Object, e As EventArgs) Handles ButtonApply.Click
-        Common.Languages.SetUICulture(ComboBoxLanguage.SelectedItem)
-        Common.SetStrings()
-    End Sub
-
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             CheckBoxShowNoteAlertWhenTimerExpires.Checked = My.Settings.ShowNoteAlertWhenTimerExpires
