@@ -54,9 +54,8 @@ Public Class FormMain
 #End Region
 #Region "Form Event Handelers"
     Private Sub ToolStripButtonReset_Click(sender As Object, e As EventArgs) Handles ToolStripButtonReset.Click
-        timer.Reset()
-        HideNote()
-        UpdateIcons()
+        ' Reset the timer.
+        ResetTimer()
     End Sub
 
     Private Sub AlwaysOnTopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAlwaysOnTop.Click
@@ -120,47 +119,18 @@ Public Class FormMain
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
     Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
-        Try
-            FormSettings.ShowDialog(Me)
-        Catch ex As Exception
-            MessageBox.Show(ex.InnerException.ToString)
-        End Try
-        NotifyIconMain.Visible = My.Settings.ShowInSystemTray
+        ' Show the Settings dialog.
+        ShowSettingsDialog()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExit.Click
-        forceClose = True
-        Me.Close()
+        ' Exit the application, forcing it to close.
+        ExitApplication()
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemLook.Click
-        Try
-            DialogLookSettings.ShowDialog(Me)
-
-            ' Reassign various style values for the timer rendering.
-            Dim timeVisible = timerObject.Visible
-            timerObject.Visible = False
-
-            Dim noteVisible = noteObject.Visible
-            noteObject.Visible = False
-
-            backgroundObject.Color = Common.Look.BackgroundColor
-            timerObject.Color = Common.Look.ForegroundColor
-            timerObject.Font = Common.Look.Font
-            timerObject.Format = Common.Look.DisplayFormat
-            timerObject.SizeToFit = Common.Look.SizeToFit
-
-
-            noteObject.Color = Common.Look.ForegroundColor
-            noteObject.Font = Common.Look.Font
-            noteObject.SizeToFit = Common.Look.SizeToFit
-
-            timerObject.Visible = timeVisible
-            noteObject.Visible = noteVisible
-
-        Catch ex As Exception
-
-        End Try
+        ' Show the Look Dialog.
+        ShowLookDialog()
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
@@ -427,6 +397,70 @@ Public Class FormMain
             AddTimerHandlers()
         End If
     End Sub
+
+    Private Sub ResetTimer()
+        timer.Reset()
+        HideNote()
+        UpdateIcons()
+    End Sub
+
+    Private Sub ShowLookDialog()
+        Try
+            DialogLookSettings.ShowDialog(Me)
+
+            ' Reassign various style values for the timer rendering.
+            Dim timeVisible = timerObject.Visible
+            timerObject.Visible = False
+
+            Dim noteVisible = noteObject.Visible
+            noteObject.Visible = False
+
+            backgroundObject.Color = Common.Look.BackgroundColor
+            timerObject.Color = Common.Look.ForegroundColor
+            timerObject.Font = Common.Look.Font
+            timerObject.Format = Common.Look.DisplayFormat
+            timerObject.SizeToFit = Common.Look.SizeToFit
+
+
+            noteObject.Color = Common.Look.ForegroundColor
+            noteObject.Font = Common.Look.Font
+            noteObject.SizeToFit = Common.Look.SizeToFit
+
+            timerObject.Visible = timeVisible
+            noteObject.Visible = noteVisible
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ShowSettingsDialog()
+        Try
+            FormSettings.ShowDialog(Me)
+        Catch ex As Exception
+            MessageBox.Show(ex.InnerException.ToString)
+        End Try
+        NotifyIconMain.Visible = My.Settings.ShowInSystemTray
+    End Sub
+
+    Private Sub ExitApplication()
+        forceClose = True
+        Me.Close()
+    End Sub
+
+    Private Sub SaveSettings()
+        ' Save setting files
+        Try
+            Common.Look.Save()
+            Common.Time.Save()
+            Common.Tasks.Save()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+            If MessageBox.Show("Eggzle failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Eggzle will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                SaveSettings()
+            End If
+        End Try
+    End Sub
     ' Toggles timer between paused and not paused.
     Private Sub SetTimerState(enabled As Boolean)
         Try
@@ -485,21 +519,44 @@ Public Class FormMain
         ShowTimerDialog(True)
     End Sub
 
-    Private Sub SaveSettings()
-        ' Save setting files
-        Try
-            Common.Look.Save()
-            Common.Time.Save()
-            Common.Tasks.Save()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-            If MessageBox.Show("Eggzle failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Eggzle will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                SaveSettings()
-            End If
-        End Try
-    End Sub
 
     Private Sub NotifyIconMain_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIconMain.MouseDoubleClick
         Me.Show()
+    End Sub
+
+    Private Sub NewTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewTimerToolStripMenuItem.Click
+        ' Show 'New Timer' dialog.
+        ShowTimerDialog(False)
+    End Sub
+
+    Private Sub EditTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditTimerToolStripMenuItem.Click
+        ' Show 'Edit Timer' dialog.
+        ShowTimerDialog(True)
+    End Sub
+
+    Private Sub PuseTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PauseTimerToolStripMenuItem.Click
+        ' Set timer state to the opposite of its current state (toggle start/pause). 
+        SetTimerState(Not timer.Enabled)
+    End Sub
+
+
+    Private Sub TasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TasksToolStripMenuItem.Click
+        ' Show the task dialog with current form as parent.
+        DialogTaskSettings.ShowDialog(Me)
+    End Sub
+
+    Private Sub LookToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LookToolStripMenuItem.Click
+        ' Show the Look Dialog.
+        ShowLookDialog()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        ' Exit the application, forcing it to close.
+        ExitApplication()
+    End Sub
+
+    Private Sub ResetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem.Click
+        ' Reset the timer.
+        ResetTimer()
     End Sub
 End Class
