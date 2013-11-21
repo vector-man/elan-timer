@@ -126,8 +126,9 @@
     <Reference Include="ObjectListView">
       <HintPath>..\packages\Unofficial.ObjectListView.2.6.0\lib\net20\ObjectListView.dll</HintPath>
     </Reference>
-    <Reference Include="Picker">
-      <HintPath>..\..\..\..\..\Libraries\Picker\Picker.dll</HintPath>
+    <Reference Include="Picker, Version=1.0.4836.37702, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libraries\Picker.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
