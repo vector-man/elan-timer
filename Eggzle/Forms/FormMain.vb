@@ -521,6 +521,18 @@ Public Class FormMain
         ShowTimerDialog(True)
     End Sub
 
+    Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
+        ' If the icon is shown in the system tray and clicking the icon should turn the alarm off...
+        If (My.Settings.ShowInSystemTray And My.Settings.ClickingTrayIconStopsAlarm) Then
+            Try
+                ' Try to stop the alarm. 
+                CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm.Stop()
+            Catch ex As Exception
+                ' If the alarm is null, catch the error and ignore.
+            End Try
+        End If
+    End Sub
+
 
     Private Sub NotifyIconMain_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIconMain.MouseDoubleClick
         Me.Show()
