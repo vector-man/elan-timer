@@ -135,7 +135,9 @@ Public Class FormMain
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
         ' Show the task dialog with current form as parent.
+        ContextMenuStripMain.Enabled = False
         DialogTaskSettings.ShowDialog(Me)
+        ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub DefaultToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemDefault.Click
@@ -373,6 +375,7 @@ Public Class FormMain
     End Sub
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
     Public Sub ShowTimerDialog(editing As Boolean)
+        ContextMenuStripMain.Enabled = False
         DialogTimerSettings.Editing = editing
         If (DialogTimerSettings.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
             RemoveTimerHandlers()
@@ -398,6 +401,7 @@ Public Class FormMain
             Me.UpdateIcons()
             AddTimerHandlers()
         End If
+        ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub ResetTimer()
@@ -407,6 +411,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowLookDialog()
+        ContextMenuStripMain.Enabled = False
         Try
             DialogLookSettings.ShowDialog(Me)
 
@@ -434,15 +439,18 @@ Public Class FormMain
         Catch ex As Exception
 
         End Try
+        ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub ShowSettingsDialog()
+        ContextMenuStripMain.Enabled = False
         Try
             DialogSettings.ShowDialog(Me)
         Catch ex As Exception
             MessageBox.Show(ex.InnerException.ToString)
         End Try
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
+        ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub ExitApplication()
@@ -556,7 +564,9 @@ Public Class FormMain
 
     Private Sub TasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TasksToolStripMenuItem.Click
         ' Show the task dialog with current form as parent.
+        ContextMenuStripMain.Enabled = False
         DialogTaskSettings.ShowDialog(Me)
+        ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub LookToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LookToolStripMenuItem.Click
