@@ -14,6 +14,9 @@
             If load Then
                 MyClass.Load()
             End If
+            If (_tasks Is Nothing) Then
+                _tasks = defaultModel
+            End If
         End Sub
 
         Public Property Tasks As List(Of Models.TaskModel)
