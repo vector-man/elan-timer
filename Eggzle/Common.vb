@@ -31,6 +31,7 @@ Public Class Common
     ' The object for all of the supported display formats for the timer (these appear in the 'Look' settings dialog).
     Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
         {New KeyValuePair(Of String, String)("Standard", "d")},
+        {New KeyValuePair(Of String, String)("No Deciseconds", "s")},
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
