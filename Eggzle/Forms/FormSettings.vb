@@ -84,16 +84,3 @@
     Private Sub CheckBoxShowInSystemTray_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxShowInSystemTray.CheckedChanged
         CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
     End Sub
-End Class
-
-'Class test
-'    Sub New(enabled As Boolean, text As String, text1 As String)
-'        MyClass.Text = text
-'        MyClass.Text1 = text1
-'        MyClass.Enabled = enabled
-
-'    End Sub
-'    Public Property Text As String
-'    Public Property Text1 As String
-'    Public Property Enabled As Boolean
-'End Class
