@@ -13,6 +13,7 @@ Public Class FormMain
     Private noteObject As TextRenderObject
     Private stringFormat As New StringFormat
     Private renderer As Rendering.IRenderer
+    Private forceClose As Boolean = False
 #If DEBUG Then
     Private sw As New Stopwatch ' Used for benchmark and testing.
 #End If
@@ -64,6 +65,11 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        If ((Not forceClose) And My.Settings.CloseToSystemTray And My.Settings.ShowInSystemTray) Then
+            e.Cancel = True
+            CloseToSystemTray()
+            Return
+        End If
         ShutDownRendering()
         If Not My.Settings.WindowFullScreen Then
             My.Settings.WindowMaximized = (Me.WindowState = FormWindowState.Maximized)
@@ -119,9 +125,11 @@ Public Class FormMain
         Catch ex As Exception
             MessageBox.Show(ex.InnerException.ToString)
         End Try
+        NotifyIconMain.Visible = My.Settings.ShowInSystemTray
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExit.Click
+        forceClose = True
         Me.Close()
     End Sub
 
@@ -340,6 +348,7 @@ Public Class FormMain
                                             End If
 
                                             Me.Text = sb.ToString
+                                            NotifyIconMain.Text = Me.Text
 
                                             Await TaskEx.Delay(Common.Framerate)
                                         End While
@@ -386,6 +395,7 @@ Public Class FormMain
 
         Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
 
+        NotifyIconMain.Visible = My.Settings.ShowInSystemTray
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
@@ -448,6 +458,11 @@ Public Class FormMain
             Me.CenterToScreen()
         End If
     End Sub
+    Private Sub CloseToSystemTray()
+        Me.Hide()
+        ' timerSurface.Enabled = False
+        NotifyIconMain.Visible = True
+    End Sub
 #End Region
 
     Private Sub AboutEggzeyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutEggzle.Click
@@ -482,5 +497,9 @@ Public Class FormMain
                 SaveSettings()
             End If
         End Try
+    End Sub
+
+    Private Sub NotifyIconMain_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIconMain.MouseDoubleClick
+        Me.Show()
     End Sub
 End Class
