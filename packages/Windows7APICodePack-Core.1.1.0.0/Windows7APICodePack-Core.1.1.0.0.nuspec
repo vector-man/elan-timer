@@ -11,9 +11,6 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Core library for Windows 7 API Code Pack</description>
     <summary>Windows API Code Pack for Microsoft. NET Framework provides a source code library that can be used to access some features of Windows 7 and Windows Vista from managed code.</summary>
-    <releaseNotes />
-    <copyright />
-    <language />
     <tags>WindowsAPICodePack</tags>
   </metadata>
 </package>

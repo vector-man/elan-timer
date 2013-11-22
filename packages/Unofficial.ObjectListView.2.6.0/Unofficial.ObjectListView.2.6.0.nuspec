@@ -11,9 +11,7 @@
     <iconUrl>http://objectlistview.sourceforge.net/cs/_static/index-icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>ObjectListView is a C# convenience wrapper around .NET's ListView. It makes the ListView much easier to use by supporting automatic sorting, grouping, cell editing, data binding, reporting, and column sizing. Unofficial package by Richard Dingwall.</description>
-    <releaseNotes />
     <copyright>Copyright Phillip Piper 2012</copyright>
-    <language />
     <tags>ObjectListView WinForms ListView Grid TreeView TreeListView DataGrid Unofficial</tags>
   </metadata>
 </package>
