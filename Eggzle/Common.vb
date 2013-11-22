@@ -16,7 +16,7 @@ Public Class Common
     ' The path to the default tasks data file.
     Private Shared ReadOnly DefaultTasksPath As String = Path.Combine(TasksPath, My.Settings.DefaultTaskFile)
     ' The settings object for Tasks.
-    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), True, IsSingleInstance)
+    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), True, Not IsSingleInstance())
     ' The folder where all look setting files are stored.
     Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.LookFolder)).FullName)
     ' The path to the default look data file.
