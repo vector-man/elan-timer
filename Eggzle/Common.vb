@@ -35,6 +35,8 @@ Public Class Common
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
+    Private applicationMutex As Mutex
+    Private singleInstance As Boolean = IsSingleInstance()
     ''' <summary>
     ''' Gets all alarms from the Alarms folder.
     ''' </summary>
@@ -159,6 +161,21 @@ Public Class Common
         DialogTimerSettings.ResumeLayout()
 
     End Sub
+    Private Function IsSingleInstance() As Boolean
+        Dim assembly As System.Reflection.Assembly = System.Reflection.Assembly.GetExecutingAssembly()
+        Dim mutexId As String = assembly.GetType.GUID.ToString()
+        Try
+            ' Try to open existing mutex.
+            Mutex.OpenExisting(mutexId)
+        Catch
+            ' If exception occurred, there is no such mutex.
+            applicationMutex = New Mutex(True, mutexId)
+            ' Only one instance.
+            Return True
+        End Try
+        ' More than one instance.
+        Return False
+    End Function
 End Class
 
 
