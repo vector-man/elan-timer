@@ -76,6 +76,8 @@ Public Class FormMain
             My.Settings.WindowSize = Me.Size
         End If
         SaveSettings()
+        ' Dispose of the application mutex.
+        Common.ApplicationMutex.Dispose()
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
