@@ -2,7 +2,7 @@
 Imports System.Threading
 
 Public Class Common
-    Private Shared applicationMutex As Mutex
+    Public Shared ApplicationMutex As Mutex
     Private Shared ReadOnly singleInstance As Boolean = IsSingleInstance()
 
     ' Root path can be set to application folder, or the My Documents folder, depending on the setting of 'EnableDocumentsDataFolder'.
