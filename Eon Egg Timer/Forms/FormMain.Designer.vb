@@ -224,6 +224,7 @@ Partial Class FormMain
         resources.ApplyResources(Me.ProgressBarMain, "ProgressBarMain")
         Me.ProgressBarMain.Maximum = 1000
         Me.ProgressBarMain.Name = "ProgressBarMain"
+        Me.ProgressBarMain.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         '
         'NotifyIconMain
         '
