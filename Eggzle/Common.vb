@@ -9,19 +9,19 @@ Public Class Common
     ' The path to the default time data file.
     Private Shared ReadOnly DefaultTimePath As String = Path.Combine(TimePath, My.Settings.DefaultTimeFile)
     ' The settings object for Time.
-    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), False)
+    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), True)
     ' The folder where all task setting files are stored.
     Public Shared ReadOnly TasksPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.TaskFolder)).FullName)
     ' The path to the default tasks data file.
     Private Shared ReadOnly DefaultTasksPath As String = Path.Combine(TasksPath, My.Settings.DefaultTaskFile)
     ' The settings object for Tasks.
-    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), False)
+    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), True)
     ' The folder where all look setting files are stored.
     Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.LookFolder)).FullName)
     ' The path to the default look data file.
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
     ' The settings object for Look.
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), False)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), True)
     ' The folder where all alarm sound files are stored.
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     ' The object for language settings, set with the default language.
