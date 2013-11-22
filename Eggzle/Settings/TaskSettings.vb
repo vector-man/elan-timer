@@ -8,7 +8,7 @@
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
-        Sub New(path As String, Optional defaultModel As List(Of Models.TaskModel) = Nothing, Optional load As Boolean = True)
+        Sub New(path As String, defaultModel As List(Of Models.TaskModel), load As Boolean)
             MyClass.New()
             _path = path
             If load Then

@@ -9,13 +9,15 @@ Namespace Settings
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
-        Sub New(path As String, Optional defaultModel As Models.TimeModel = Nothing, Optional load As Boolean = True)
+        Sub New(path As String, defaultModel As Models.TimeModel, load As Boolean)
             MyClass.New()
             _path = path
             _defaultModel = defaultModel
-            _time = New Models.TimeModel
             If load Then
                 MyClass.Load()
+            End If
+            If (_time Is Nothing) Then
+                _time = defaultModel
             End If
         End Sub
 

@@ -8,14 +8,16 @@
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
-        Sub New(path As String, Optional defaultModel As Models.LookModel = Nothing, Optional load As Boolean = True)
+        Sub New(path As String, defaultModel As Models.LookModel, load As Boolean)
             MyClass.New()
             _defaultModel = defaultModel
             _path = path
             If load Then
                 MyClass.Load()
             End If
-
+            If (_look Is Nothing) Then
+                _look = defaultModel
+            End If
         End Sub
         Public Property Renderer As String
             Get
