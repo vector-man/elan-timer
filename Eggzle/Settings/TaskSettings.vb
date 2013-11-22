@@ -8,7 +8,7 @@
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
-        Sub New(path As String, defaultModel As List(Of Models.TaskModel), load As Boolean)
+        Sub New(path As String, defaultModel As List(Of Models.TaskModel), load As Boolean, disable As Boolean)
             MyClass.New()
             _path = path
             If load Then
@@ -16,6 +16,11 @@
             End If
             If (_tasks Is Nothing) Then
                 _tasks = defaultModel
+            End If
+            If (disable) Then
+                For Each item In _tasks
+                    item.Enabled = False
+                Next
             End If
         End Sub
 
