@@ -203,7 +203,7 @@
     <Compile Include="Rendering\PreviewSurface.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Rendering\RenderObjects\FillRectangleRenderObject.vb" />
+    <Compile Include="Rendering\RenderObjects\BackgroundRenderObject.vb" />
     <Compile Include="Rendering\RenderObjects\RenderArgs.vb" />
     <Compile Include="Rendering\RenderObjects\TextRenderObject.vb" />
     <Compile Include="Rendering\RenderObjects\TimerTextRenderObject.vb" />
