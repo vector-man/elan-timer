@@ -2,6 +2,9 @@
 Imports System.Threading
 
 Public Class Common
+    Private Shared applicationMutex As Mutex
+    Private Shared ReadOnly singleInstance As Boolean = IsSingleInstance()
+
     ' Root path can be set to application folder, or the My Documents folder, depending on the setting of 'EnableDocumentsDataFolder'.
     Private Shared ReadOnly RootPath As String = If(My.Settings.EnableDocumentsDataFolder, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), My.Application.Info.AssemblyName), My.Application.Info.DirectoryPath)
     ' The folder where all time setting files are stored.
@@ -9,19 +12,19 @@ Public Class Common
     ' The path to the default time data file.
     Private Shared ReadOnly DefaultTimePath As String = Path.Combine(TimePath, My.Settings.DefaultTimeFile)
     ' The settings object for Time.
-    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), True)
+    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), singleInstance)
     ' The folder where all task setting files are stored.
     Public Shared ReadOnly TasksPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.TaskFolder)).FullName)
     ' The path to the default tasks data file.
     Private Shared ReadOnly DefaultTasksPath As String = Path.Combine(TasksPath, My.Settings.DefaultTaskFile)
     ' The settings object for Tasks.
-    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), True)
+    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), singleInstance)
     ' The folder where all look setting files are stored.
     Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(RootPath, My.Settings.LookFolder)).FullName)
     ' The path to the default look data file.
     Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
     ' The settings object for Look.
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), True)
+    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), singleInstance)
     ' The folder where all alarm sound files are stored.
     Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(RootPath, My.Settings.AlarmFolder)).FullName
     ' The object for language settings, set with the default language.
@@ -35,8 +38,6 @@ Public Class Common
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
-    Private applicationMutex As Mutex
-    Private singleInstance As Boolean = IsSingleInstance()
     ''' <summary>
     ''' Gets all alarms from the Alarms folder.
     ''' </summary>
@@ -161,20 +162,19 @@ Public Class Common
         DialogTimerSettings.ResumeLayout()
 
     End Sub
-    Private Function IsSingleInstance() As Boolean
+    Private Shared Function IsSingleInstance() As Boolean
         Dim assembly As System.Reflection.Assembly = System.Reflection.Assembly.GetExecutingAssembly()
-        Dim mutexId As String = assembly.GetType.GUID.ToString()
+        Dim appGuid As String = assembly.GetType.GUID.ToString()
+        applicationMutex = New Mutex(False, appGuid)
         Try
-            ' Try to open existing mutex.
-            Mutex.OpenExisting(mutexId)
-        Catch
-            ' If exception occurred, there is no such mutex.
-            applicationMutex = New Mutex(True, mutexId)
-            ' Only one instance.
-            Return True
+            If (applicationMutex.WaitOne(0, False)) Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            Return False
         End Try
-        ' More than one instance.
-        Return False
     End Function
 End Class
 
