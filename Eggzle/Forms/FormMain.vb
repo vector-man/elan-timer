@@ -340,16 +340,6 @@ Public Class FormMain
     End Sub
 
     Private Sub LoadSettings()
-        ' Load setting files.
-        Try
-            Common.Look.Load()
-            Common.Time.Load()
-            Common.Tasks.Load()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-            Environment.FailFast(ex.Message, ex)
-        End Try
-
         ' Fixes taskbar showing issue.
         Me.ShowInTaskbar = False
         Me.ShowInTaskbar = True
