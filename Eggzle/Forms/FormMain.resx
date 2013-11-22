@@ -117,14 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ToolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ToolStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>106, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKGSURBVDhPfVNNS2phED74A9z7E/oVbly41IIIXJkGCpkt
+        1QglDSRq0yIQS4rQRLNQKPGjjpX5VSfxo0isFpkcFHLlVufOvJ1udLk1IMfzvjPP88wzc7if4ubmxnB9
+        fc3n83n+/PzcIB3/Ho1GY6JUKskBQFYsFvvdbhfe3t7g8PCw73Q6Zaenp/Kjo6MJKf17VKtVP8/zo0ql
+        Il5cXCguLy/Fl5cXeH5+huPjYzEWiykQSDw4OBjt7e35pbKPwOKlp6cneH9/h3a7DVg8RMbxw8MDNJtN
+        oP9YPMS2QBRFSCaTsLa2tiSVc1y5XF6mJAKhglarxYA+Aei9Xq8DAWCLYLfbx4uLi8tS+UegYauUfHt7
+        CwgI6XQatre3AeWSIigUCoCtMXav17sqlXEcIgpXV1edTCYzeHx8BEEQIJvNwsrKSsFms6lQmWp9fb2A
+        OQyI7vF94PF4OpgjcGRcr9djcon57u4OgsEguN1ulcTB+Xw+FXoAOFKmjNSQuUqlcsQAXl9fWY90QQzx
+        eBw2Nzf/AmxtbanC4TBTQC3kcjmWzwB2d3eFjY2Nzs7OzgCnwUDIh0AgUCBmAqIWqH9qLZVKgV6vH0xP
+        T3empqYEiYPjUOIqGsmMoicuEkQiEcC5szPcRjg5OWFnZrP5y0SKaDTKxnh/f8+KaVy1Wo15QkCkiM7P
+        zs7Y3cLCwnhubu5rjPv7+0skjzYvFArR4rBFItOob4vFMjaZTEO6o95dLhdMTk5+LRIFHvrJFKPRKDoc
+        DgVOQSQ2UjA7OyvqdDrFzMyMSDlqtfr7Kn+G1WqdQDY5ssvw1yfJiUQCsJh9TPiUazSa/39M/8b8/LwB
+        GXmtVsuj3B8+Z477A5ykGua7KkF4AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 22</value>
+  </data>
+  <data name="ToolStripSplitButtonSettings.Text" xml:space="preserve">
+    <value>Customize and control Eggzle</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbaNNQHMYPivjikyCKMm9DhwoTZQpOvD34
+        oAhecRYvMCfWC2xSLwx06+alqNVJt67b1NnWTcWhuM1uPk2LdMNNJ455aZl3O22XpGmTxqRrms8kBhz4
+        wZ/88z/n9x3OlxBNsJJxfAepSPrIAOcjfUonmagvjBHfRqZq6+q+3sQTkmOMVbiBTIg9JJfjL03hUfoZ
+        hBc7o3zD7IBcfNQvHjnMiOaDjFS03x93znwuvDpA/35fysQekF7mEcnSDSL3yOl4797hVKQDXKCAjV2f
+        zgv28+AaroFtrgfbVIeE6wq4cydAX5kkcG8sAv/m+EjkDunXDiff3aSM6y9lfvkL2C+1M9KJWzXgWu8i
+        5bBBsRyGUnwA0qUyJO57wdSfxIfmJZnwW5f8q3VBKHxTvcqn62TVZ9f4UFB1T9yqhtDiQbLpJqTwd6RT
+        o5ClFMRvX8E7qiA01iBSW4Bww2TpU824159dRhbccZM9abeCe3QHyUYXNMmyDIqi9F6TkskgYbuAeNMN
+        0JZCsGtWXNBhTfJRsz9RXwXJVobfH78YCOB2u5FKpfS+q6sL7OsBiEeKwNgqEV+a7zdwQrSk2dt1UPab
+        kBlN64Amq9WKtrY2lJeXo6+vDzzDQlmbD6ruGqKLlzAGrhrs2cOwXheUgs1Ii5IOi6IIu92uw4ODg/os
+        EaGgrMrDiEs1yB5jIO3b549XX4JUcgix/gF9czqdRk9PD3ie19+1TKJPuyHu2gaq8gzo+bljrmAyVXBl
+        pWDuesCeOoGMnNGhsdJmjNmMn+5G0IWFYOYsqDBwQoTt2/OELVvfxaovI+a4qpsk3wehKIpeyWAIMUsJ
+        Ri7aQNnOqnDOOyorJ8/A/0rYuMkctVgEymHHz2YPxCITlA35UNYvh7h7G354PBh2OhDcYRKorHlmA/un
+        QCCwTgurt+upTJcUgz5vxUhtlV6U9QyGS47B19qqPG5vV7q7u1cb2F91dnZO8fl8/NDQkPbZGHbZysp4
+        7jK/lnQ0O5eh5y70M7NyKjra27lQKASv15tWmWwDJ6SlpWWSx+MJOp3OlPpcZIz/k/pjzVbhuFrDaj+N
+        EEL+AC2UcyiGpqGbAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
+    <value>New timer...</value>
+  </data>
+  <data name="ToolStripButtonStartPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonStartPause.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonStartPause.Text" xml:space="preserve">
+    <value>Start/Pause</value>
+  </data>
+  <data name="ToolStripButtonReset.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ToolStripButtonReset.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="ToolStripButtonReset.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ToolStripMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ToolStripMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 25</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ToolStripMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ToolStripMain.Text" xml:space="preserve">
+    <value>ToolStrip1</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMain.Name" xml:space="preserve">
+    <value>ToolStripMain</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMain.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ToolStripMenuItemNewTimer.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+N</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ToolStripMenuItemNewTimer.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
@@ -176,6 +277,12 @@
   <data name="ToolStripMenuItemAlwaysOnTop.Text" xml:space="preserve">
     <value>Always On Top</value>
   </data>
+  <data name="ToolStripMenuItemWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemWindow.Text" xml:space="preserve">
+    <value>Window</value>
+  </data>
   <data name="ToolStripMenuItemDefault.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+D</value>
   </data>
@@ -203,14 +310,14 @@
   <data name="ToolStripMenuItemFullScreen.Text" xml:space="preserve">
     <value>Full Screen</value>
   </data>
-  <data name="ToolStripMenuItemWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemWindow.Text" xml:space="preserve">
-    <value>Window</value>
-  </data>
   <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="ToolStripMenuItemHelpOnline.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F1</value>
@@ -236,12 +343,6 @@
   <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
     <value>Check for Updates</value>
   </data>
-  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
-  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <data name="ToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 6</value>
   </data>
@@ -250,107 +351,6 @@
   </data>
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKGSURBVDhPfVNNS2phED74A9z7E/oVbly41IIIXJkGCpkt
-        1QglDSRq0yIQS4rQRLNQKPGjjpX5VSfxo0isFpkcFHLlVufOvJ1udLk1IMfzvjPP88wzc7if4ubmxnB9
-        fc3n83n+/PzcIB3/Ho1GY6JUKskBQFYsFvvdbhfe3t7g8PCw73Q6Zaenp/Kjo6MJKf17VKtVP8/zo0ql
-        Il5cXCguLy/Fl5cXeH5+huPjYzEWiykQSDw4OBjt7e35pbKPwOKlp6cneH9/h3a7DVg8RMbxw8MDNJtN
-        oP9YPMS2QBRFSCaTsLa2tiSVc1y5XF6mJAKhglarxYA+Aei9Xq8DAWCLYLfbx4uLi8tS+UegYauUfHt7
-        CwgI6XQatre3AeWSIigUCoCtMXav17sqlXEcIgpXV1edTCYzeHx8BEEQIJvNwsrKSsFms6lQmWp9fb2A
-        OQyI7vF94PF4OpgjcGRcr9djcon57u4OgsEguN1ulcTB+Xw+FXoAOFKmjNSQuUqlcsQAXl9fWY90QQzx
-        eBw2Nzf/AmxtbanC4TBTQC3kcjmWzwB2d3eFjY2Nzs7OzgCnwUDIh0AgUCBmAqIWqH9qLZVKgV6vH0xP
-        T3empqYEiYPjUOIqGsmMoicuEkQiEcC5szPcRjg5OWFnZrP5y0SKaDTKxnh/f8+KaVy1Wo15QkCkiM7P
-        zs7Y3cLCwnhubu5rjPv7+0skjzYvFArR4rBFItOob4vFMjaZTEO6o95dLhdMTk5+LRIFHvrJFKPRKDoc
-        DgVOQSQ2UjA7OyvqdDrFzMyMSDlqtfr7Kn+G1WqdQDY5ssvw1yfJiUQCsJh9TPiUazSa/39M/8b8/LwB
-        GXmtVsuj3B8+Z477A5ykGua7KkF4AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 22</value>
-  </data>
-  <data name="ToolStripSplitButtonSettings.Text" xml:space="preserve">
-    <value>Customize and control Eggzle</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVDhPZZJbaNNQHMYPivjikyCKMm9DhwoTZQpOvD34
-        oAhecRYvMCfWC2xSLwx06+alqNVJt67b1Nl2m4pD0Wo3n6ZFuuGmE8dUWubdVdsladqkMema5jOJAQd+
-        8Cf//M/5fYfzJUQTrGQc30GqUn4ywPlJn9JJJuoLY8T7yFRtXd3Xm3xK8oyxCjeRCfEH5HLilWl4lH4O
-        4eXOGN80OyiXHg2IRw4zovkgI5XsDyScM18Irw/Qvz+UM/H7pJd5SHJ0g+hdcjrRuzeSjnaACxax8evT
-        ecF+HlzTNbBtjWBbG5B0XQF37gToK5ME7q1F4N8eH4neJv3a4eS7m1Rw/eXMr0AR+6V+RiZ5qw7coztI
-        O2xQLIehlB6AdKkCyXteMI0nEWpbko28a5B/PVoQHr6pXuXTdbLqs2t8OKS6J2/VQmj3INV6E9Lwd2TS
-        o5ClNMRvX8E7aiA01yFaX4ThpsnSp7pxbz67jCy44yZ7ym4F9/A2Us0uaJJlGRRF6b0mJZtF0nYBidYb
-        oC3FYNesuKDDmuSj5kCysQaSrQK/P34xEMDtdiOdTut9V1cX2DcDEI+UgLFVI7G0MGDghGhJsy0NUPab
-        kB3N6IAmq9UKn8+HyspK9PX1gWdYKGsLQTVcQ2zxEsbAVYM9exjW64JStBkZUdJhURRht9t1eHBwUJ8l
-        oxSUVQUYcakGuWMMpH37AonaS5DKDiHeP6BvzmQy6OnpAc/z+ruWSexZN8Rd20BVnwE9P3/MFUymKq6i
-        HMwdD9hTJ5CVszo0VtqMMZvx090MurgYzJwFVQZOiLB9e4GwZev7eO1lxB1XdZPUhxAURdErFQojbinD
-        yEUbKNtZFc57T+XkFRj4XwkbN5ljFotAOez42eaBWGKCsqEQyvrlEHdvww+PBxGnA6EdJoHKmWc2sH8K
-        BoPrtLB6u57JdFkp6PNWjNTX6EVZzyBSdgwdPp/if/JE6e7uXm1gf9XZ2TnF7/fzQ0ND2mdj2GUrqxP5
-        ywJa0rHcfIaeuzDAzMqr6nj8mAuHw2hpacmoTK6BE9Le3j7J4/GEnE5nWn0uMsb/Sf2xZnu93oRaEbWf
-        RgghfwA7NHM0D77ergAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
-    <value>New timer...</value>
-  </data>
-  <data name="ToolStripButtonStartPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonStartPause.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonStartPause.Text" xml:space="preserve">
-    <value>Start/Pause</value>
-  </data>
-  <data name="ToolStripButtonReset.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonReset.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="ToolStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ToolStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>401, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ToolStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="ToolStrip1.Text" xml:space="preserve">
-    <value>ToolStrip1</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip1.Name" xml:space="preserve">
-    <value>ToolStrip1</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip1.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="PanelTimer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -409,71 +409,8 @@
   <metadata name="ContextMenuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>349, 17</value>
   </metadata>
-  <data name="NewTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="NewTimerToolStripMenuItem.Text" xml:space="preserve">
-    <value>New Timer...</value>
-  </data>
-  <data name="EditTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="EditTimerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit Timer...</value>
-  </data>
-  <data name="PauseTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="PauseTimerToolStripMenuItem.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="ResetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="ResetToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="TasksToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="TasksToolStripMenuItem.Text" xml:space="preserve">
-    <value>Tasks...</value>
-  </data>
-  <data name="LookToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="LookToolStripMenuItem.Text" xml:space="preserve">
-    <value>Look...</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Settings...</value>
-  </data>
-  <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="ShowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="ShowToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show</value>
-  </data>
-  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
   <data name="ContextMenuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 242</value>
+    <value>142, 220</value>
   </data>
   <data name="&gt;&gt;ContextMenuStripMain.Name" xml:space="preserve">
     <value>ContextMenuStripMain</value>
@@ -646,6 +583,69 @@
         AAAAPwAA/gAAAAB/AAD/AAAAAP8AAP+AAAAB/wAA/8AAAAP/AAD/8AAAD/8AAP/8AAA//wAA//+AAf//
         AAA=
 </value>
+  </data>
+  <data name="NewTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="NewTimerToolStripMenuItem.Text" xml:space="preserve">
+    <value>New Timer...</value>
+  </data>
+  <data name="EditTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="EditTimerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit Timer...</value>
+  </data>
+  <data name="PauseTimerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="PauseTimerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="ResetToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="ResetToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="TasksToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="TasksToolStripMenuItem.Text" xml:space="preserve">
+    <value>Tasks...</value>
+  </data>
+  <data name="LookToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="LookToolStripMenuItem.Text" xml:space="preserve">
+    <value>Look...</value>
+  </data>
+  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 6</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Settings...</value>
+  </data>
+  <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 6</value>
+  </data>
+  <data name="ShowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="ShowToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 6</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 22</value>
+  </data>
+  <data name="ExitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

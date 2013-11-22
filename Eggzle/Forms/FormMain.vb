@@ -82,7 +82,7 @@ Public Class FormMain
         DialogSettings.ShowDialog()
     End Sub
 
-    Private Sub ToolStrip1_MouseEnter(sender As Object, e As EventArgs) Handles ToolStrip1.MouseEnter
+    Private Sub ToolStrip1_MouseEnter(sender As Object, e As EventArgs) Handles ToolStripMain.MouseEnter
         Me.Focus()
     End Sub
 
@@ -150,7 +150,7 @@ Public Class FormMain
 
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCompact.Click
         ' Set timer form to 'compact' size.
-        Me.Size = New Size(My.Settings.DefaultCompactWindowWidth, Me.Height - Me.ClientSize.Height + Me.ToolStrip1.Height)
+        Me.Size = New Size(My.Settings.DefaultCompactWindowWidth, Me.Height - Me.ClientSize.Height + Me.ToolStripMain.Height)
     End Sub
 
     Private Sub TimerSurface_DoubleClick(sender As Object, e As EventArgs)

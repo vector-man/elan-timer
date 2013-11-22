@@ -24,7 +24,7 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripMain = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSplitButtonSettings = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,17 +66,17 @@ Partial Class FormMain
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStrip1.SuspendLayout()
+        Me.ToolStripMain.SuspendLayout()
         Me.ContextMenuStripMain.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ToolStrip1
+        'ToolStripMain
         '
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset})
-        resources.ApplyResources(Me.ToolStrip1, "ToolStrip1")
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.TabStop = True
+        Me.ToolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset})
+        resources.ApplyResources(Me.ToolStripMain, "ToolStripMain")
+        Me.ToolStripMain.Name = "ToolStripMain"
+        Me.ToolStripMain.TabStop = True
         '
         'ToolStripSplitButtonSettings
         '
@@ -302,16 +302,16 @@ Partial Class FormMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ProgressBarMain)
         Me.Controls.Add(Me.PanelTimer)
-        Me.Controls.Add(Me.ToolStrip1)
+        Me.Controls.Add(Me.ToolStripMain)
         Me.Name = "FormMain"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
+        Me.ToolStripMain.ResumeLayout(False)
+        Me.ToolStripMain.PerformLayout()
         Me.ContextMenuStripMain.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripMain As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButtonStartPause As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButtonReset As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButtonNewTimer As System.Windows.Forms.ToolStripButton
