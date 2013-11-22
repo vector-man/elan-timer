@@ -3,8 +3,6 @@ Imports System.Threading
 
 Public Class Common
     Public Shared ApplicationMutex As Mutex
-    Private Shared ReadOnly singleInstance As Boolean = IsSingleInstance()
-
     ' Root path can be set to application folder, or the My Documents folder, depending on the setting of 'EnableDocumentsDataFolder'.
     Private Shared ReadOnly RootPath As String = If(My.Settings.EnableDocumentsDataFolder, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), My.Application.Info.AssemblyName), My.Application.Info.DirectoryPath)
     ' The folder where all time setting files are stored.
