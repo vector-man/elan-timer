@@ -10,6 +10,7 @@
             MyBase.New()
             Me.SetStyle(ControlStyles.OptimizedDoubleBuffer, True)
             Me.SetStyle(ControlStyles.ResizeRedraw, True)
+            Me.SetStyle(ControlStyles.SupportsTransparentBackColor, True)
             _renderer = renderer
             MyClass.framerate = framerate
             renderArgs = New RenderArgs
