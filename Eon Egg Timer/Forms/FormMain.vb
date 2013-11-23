@@ -281,7 +281,7 @@ Public Class FormMain
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
 
-        Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
+        AddHandler timerSurface.Paint, AddressOf FormMainProgressUpdate
     End Sub
 
 
