@@ -296,38 +296,31 @@ Public Class FormMain
 #End If
     End Sub
 
-    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task
+    Private Sub FormMainProgressUpdate()
         Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
-        Await Task.Factory.StartNew(Async Function()
-                                        While (Not token.IsCancellationRequested)
-                                            Dim currentProgressValue As Long
-                                            currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
-                                            If TaskbarManager.IsPlatformSupported Then
-                                                TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
-                                            End If
-                                            ProgressBarMain.Value = currentProgressValue
+        Dim currentProgressValue As Long = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
+        If TaskbarManager.IsPlatformSupported Then
+            TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
+        End If
+        ProgressBarMain.Value = currentProgressValue
 
-                                            Dim sb = New StringBuilder
+        Dim sb = New StringBuilder
 
-                                            If (Not timer.IsExpired) Then
-                                                sb.Append(timerObject.Text)
-                                                If (Not Common.Time.Note = String.Empty) Then
-                                                    sb.Append(" - ")
-                                                End If
-                                            End If
-                                            sb.Append(Common.Time.Note)
+        If (Not timer.IsExpired) Then
+            sb.Append(timerObject.Text)
+            If (Not Common.Time.Note = String.Empty) Then
+                sb.Append(" - ")
+            End If
+        End If
+        sb.Append(Common.Time.Note)
 
-                                            If (sb.Length = 0) Then
-                                                sb.Append(assemblyName)
-                                            End If
+        If (sb.Length = 0) Then
+            sb.Append(assemblyName)
+        End If
 
-                                            Me.Text = sb.ToString
-                                            NotifyIconMain.Text = Me.Text
-
-                                            Await TaskEx.Delay(Common.Framerate)
-                                        End While
-                                    End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
-    End Function
+        Me.Text = sb.ToString
+        NotifyIconMain.Text = Me.Text
+    End Sub
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
         ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play_green, My.Resources.pause_green)
