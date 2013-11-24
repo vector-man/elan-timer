@@ -8,7 +8,6 @@ Public Class FormMain
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
-    Private backgroundObject As Panel
     Private timerObject As TimerTextRenderObject
     Private noteObject As TextRenderObject
     Private stringFormat As New StringFormat
@@ -257,11 +256,8 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     ' Starts up rendering of the timer.
-    Private Async Sub StartUpRendering(timer As EonEggTimer.CodeIsle.Timers.AlarmTimer)
+    Private Sub StartUpRendering(timer As EonEggTimer.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
-
-        backgroundObject = New Panel
-        backgroundObject.BackColor = Common.Look.BackgroundColor
 
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
         stringFormat.Alignment = StringAlignment.Center
@@ -273,17 +269,17 @@ Public Class FormMain
 
         objects.Add(timerObject)
         objects.Add(noteObject)
+
         renderer = New Renderer(objects)
         timerSurface = Rendering.SurfaceFactory.CreateInstance(renderer, Common.Framerate)
         timerSurface.BackColor = Color.Transparent
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        backgroundObject.Controls.Add(timerSurface)
-        timerSurface.Dock = DockStyle.Fill
+        timerSurface.BackColor = Common.Look.BackgroundColor
 
-        PanelTimer.Controls.Add(backgroundObject)
-        backgroundObject.Dock = DockStyle.Fill
+        timerSurface.Dock = DockStyle.Fill
+        PanelTimer.Controls.Add(timerSurface)
 
         AddHandler timerSurface.Paint, AddressOf FormMainProgressUpdate
     End Sub
@@ -411,7 +407,7 @@ Public Class FormMain
             Dim noteVisible = noteObject.Visible
             noteObject.Visible = False
 
-            backgroundObject.BackColor = Common.Look.BackgroundColor
+            timerSurface.BackColor = Common.Look.BackgroundColor
             timerObject.Color = Common.Look.ForegroundColor
             timerObject.Font = Common.Look.Font
             timerObject.Format = Common.Look.DisplayFormat
