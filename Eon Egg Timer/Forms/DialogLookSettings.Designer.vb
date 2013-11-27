@@ -33,7 +33,7 @@ Partial Class DialogLookSettings
         Me.LabelFont = New System.Windows.Forms.Label()
         Me.FontPickerFont = New Com.Windows.Forms.FontPicker()
         Me.CheckBoxSizeToFit = New System.Windows.Forms.CheckBox()
-        Me.LabelTransparencyLevel = New System.Windows.Forms.Label()
+        Me.LabelTransparency = New System.Windows.Forms.Label()
         Me.NumericUpDownTransparencyLevel = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
@@ -119,10 +119,10 @@ Partial Class DialogLookSettings
         Me.CheckBoxSizeToFit.Name = "CheckBoxSizeToFit"
         Me.CheckBoxSizeToFit.UseVisualStyleBackColor = True
         '
-        'LabelTransparencyLevel
+        'LabelTransparency
         '
-        resources.ApplyResources(Me.LabelTransparencyLevel, "LabelTransparencyLevel")
-        Me.LabelTransparencyLevel.Name = "LabelTransparencyLevel"
+        resources.ApplyResources(Me.LabelTransparency, "LabelTransparency")
+        Me.LabelTransparency.Name = "LabelTransparency"
         '
         'NumericUpDownTransparencyLevel
         '
@@ -163,7 +163,7 @@ Partial Class DialogLookSettings
         'TableLayoutPanel7
         '
         resources.ApplyResources(Me.TableLayoutPanel7, "TableLayoutPanel7")
-        Me.TableLayoutPanel7.Controls.Add(Me.LabelTransparencyLevel, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.LabelTransparency, 0, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.NumericUpDownTransparencyLevel, 1, 0)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         '
@@ -263,7 +263,7 @@ Partial Class DialogLookSettings
     Friend WithEvents LabelFont As System.Windows.Forms.Label
     Friend WithEvents FontPickerFont As Com.Windows.Forms.FontPicker
     Friend WithEvents CheckBoxSizeToFit As System.Windows.Forms.CheckBox
-    Friend WithEvents LabelTransparencyLevel As System.Windows.Forms.Label
+    Friend WithEvents LabelTransparency As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownTransparencyLevel As System.Windows.Forms.NumericUpDown
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel

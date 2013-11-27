@@ -623,11 +623,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Transparency level:.
+        '''  Looks up a localized string similar to Transparency:.
         '''</summary>
-        Public Shared ReadOnly Property TransparencyLevel() As String
+        Public Shared ReadOnly Property Transparency() As String
             Get
-                Return ResourceManager.GetString("TransparencyLevel", resourceCulture)
+                Return ResourceManager.GetString("Transparency", resourceCulture)
             End Get
         End Property
     End Class
