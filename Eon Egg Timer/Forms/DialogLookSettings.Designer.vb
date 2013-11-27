@@ -32,7 +32,7 @@ Partial Class DialogLookSettings
         Me.ColorComboBoxBackgroundColor = New ColorComboTestApp.ColorComboBox()
         Me.LabelFont = New System.Windows.Forms.Label()
         Me.FontPickerFont = New Com.Windows.Forms.FontPicker()
-        Me.CheckBoxSizeToFit = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxGrowToFit = New System.Windows.Forms.CheckBox()
         Me.LabelTransparency = New System.Windows.Forms.Label()
         Me.NumericUpDownTransparencyLevel = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
@@ -113,11 +113,11 @@ Partial Class DialogLookSettings
         Me.FontPickerFont.ReadOnly = False
         Me.FontPickerFont.Value = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         '
-        'CheckBoxSizeToFit
+        'CheckBoxGrowToFit
         '
-        resources.ApplyResources(Me.CheckBoxSizeToFit, "CheckBoxSizeToFit")
-        Me.CheckBoxSizeToFit.Name = "CheckBoxSizeToFit"
-        Me.CheckBoxSizeToFit.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxGrowToFit, "CheckBoxGrowToFit")
+        Me.CheckBoxGrowToFit.Name = "CheckBoxGrowToFit"
+        Me.CheckBoxGrowToFit.UseVisualStyleBackColor = True
         '
         'LabelTransparency
         '
@@ -157,7 +157,7 @@ Partial Class DialogLookSettings
         resources.ApplyResources(Me.TableLayoutPanel6, "TableLayoutPanel6")
         Me.TableLayoutPanel6.Controls.Add(Me.LabelFont, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.FontPickerFont, 1, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.CheckBoxSizeToFit, 1, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.CheckBoxGrowToFit, 1, 1)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         '
         'TableLayoutPanel7
@@ -262,7 +262,7 @@ Partial Class DialogLookSettings
     Friend WithEvents ColorComboBoxBackgroundColor As ColorComboTestApp.ColorComboBox
     Friend WithEvents LabelFont As System.Windows.Forms.Label
     Friend WithEvents FontPickerFont As Com.Windows.Forms.FontPicker
-    Friend WithEvents CheckBoxSizeToFit As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxGrowToFit As System.Windows.Forms.CheckBox
     Friend WithEvents LabelTransparency As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownTransparencyLevel As System.Windows.Forms.NumericUpDown
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel

@@ -227,6 +227,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Grow to fit.
+        '''</summary>
+        Public Shared ReadOnly Property GrowToFit() As String
+            Get
+                Return ResourceManager.GetString("GrowToFit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Arguments.
         '''</summary>
         Public Shared ReadOnly Property HeaderArguments() As String
@@ -565,15 +574,6 @@ Namespace My.Resources
         Public Shared ReadOnly Property Seconds() As String
             Get
                 Return ResourceManager.GetString("Seconds", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Size to fit.
-        '''</summary>
-        Public Shared ReadOnly Property SizeToFit() As String
-            Get
-                Return ResourceManager.GetString("SizeToFit", resourceCulture)
             End Get
         End Property
         

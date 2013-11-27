@@ -171,6 +171,9 @@
   <data name="ForegroundColor" xml:space="preserve">
     <value>Foreground color:</value>
   </data>
+  <data name="GrowToFit" xml:space="preserve">
+    <value>Grow to fit</value>
+  </data>
   <data name="HeaderArguments" xml:space="preserve">
     <value>Arguments</value>
   </data>
@@ -284,9 +287,6 @@
   </data>
   <data name="Seconds" xml:space="preserve">
     <value>Seconds</value>
-  </data>
-  <data name="SizeToFit" xml:space="preserve">
-    <value>Size to fit</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>

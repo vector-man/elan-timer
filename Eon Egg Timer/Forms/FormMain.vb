@@ -270,8 +270,8 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderObject(Common.Time.Note, Common.Look.Font, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, False)
+        timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.GrowToFit, Common.Look.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderObject(Common.Time.Note, Common.Look.Font, Common.Look.GrowToFit, Common.Look.ForegroundColor, stringFormat, False)
         Dim objects As New List(Of IRenderObject)
 
         objects.Add(timerObject)
@@ -425,12 +425,12 @@ Public Class FormMain
             timerObject.Color = Common.Look.ForegroundColor
             timerObject.Font = Common.Look.Font
             timerObject.Format = Common.Look.DisplayFormat
-            timerObject.SizeToFit = Common.Look.SizeToFit
+            timerObject.SizeToFit = Common.Look.GrowToFit
 
 
             noteObject.Color = Common.Look.ForegroundColor
             noteObject.Font = Common.Look.Font
-            noteObject.SizeToFit = Common.Look.SizeToFit
+            noteObject.SizeToFit = Common.Look.GrowToFit
 
             timerObject.Visible = timeVisible
             noteObject.Visible = noteVisible

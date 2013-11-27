@@ -113,7 +113,7 @@ Public Class Common
         DialogLookSettings.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
         DialogLookSettings.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
         DialogLookSettings.LabelFont.Text = My.Resources.Strings.Font
-        DialogLookSettings.CheckBoxSizeToFit.Text = My.Resources.Strings.SizeToFit
+        DialogLookSettings.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
         DialogLookSettings.LabelTransparency.Text = My.Resources.Strings.Transparency
         DialogLookSettings.ButtonImport.Text = My.Resources.Strings.Import
         DialogLookSettings.ButtonExport.Text = My.Resources.Strings.Export

@@ -45,12 +45,12 @@
             End Set
         End Property
 
-        Public Property SizeToFit As Boolean
+        Public Property GrowToFit As Boolean
             Get
-                Return _look.SizeToFit
+                Return _look.GrowToFit
             End Get
             Set(value As Boolean)
-                _look.SizeToFit = value
+                _look.GrowToFit = value
             End Set
         End Property
         Public Property Font As Font
@@ -97,7 +97,7 @@
         End Sub
 
         Private Function Clone(look As Models.LookModel)
-            Return New Models.LookModel(look.Font, look.SizeToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
+            Return New Models.LookModel(look.Font, look.GrowToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit

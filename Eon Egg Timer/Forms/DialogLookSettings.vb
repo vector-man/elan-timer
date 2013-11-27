@@ -24,7 +24,7 @@ Public Class DialogLookSettings
         Me.ColorComboBoxForegrounColor.SelectedColor = Common.Look.ForegroundColor
         Me.ColorComboBoxBackgroundColor.SelectedColor = Common.Look.BackgroundColor
         Me.FontPickerFont.Value = Common.Look.Font
-        Me.CheckBoxSizeToFit.Checked = Common.Look.SizeToFit
+        Me.CheckBoxGrowToFit.Checked = Common.Look.GrowToFit
         Me.NumericUpDownTransparencyLevel.Value = (100 - Common.Look.Opacity)
 
     End Sub
@@ -33,7 +33,7 @@ Public Class DialogLookSettings
         Common.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
         Common.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
         Common.Look.Font = Me.FontPickerFont.Value
-        Common.Look.SizeToFit = Me.CheckBoxSizeToFit.Checked
+        Common.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
         Common.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
         Common.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
@@ -86,7 +86,7 @@ Public Class DialogLookSettings
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
             backgroundObject = New BackgroundRenderObject(Common.Look.BackgroundColor, True)
-            timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.SizeToFit, Common.Look.ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.GrowToFit, Common.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(backgroundObject)
             objects.Add(timerObject)
@@ -127,9 +127,9 @@ Public Class DialogLookSettings
         End Try
     End Sub
 
-    Private Sub CheckBoxSizeToFit_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSizeToFit.CheckedChanged
+    Private Sub CheckBoxSizeToFit_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxGrowToFit.CheckedChanged
         Try
-            timerObject.SizeToFit = CheckBoxSizeToFit.Checked
+            timerObject.SizeToFit = CheckBoxGrowToFit.Checked
         Catch ex As Exception
 
         End Try
