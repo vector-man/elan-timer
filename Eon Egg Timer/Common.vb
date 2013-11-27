@@ -147,7 +147,7 @@ Public Class Common
         DialogTimerSettings.GroupBoxDuration.Text = My.Resources.Strings.Duration
         DialogTimerSettings.LabelRestarts.Text = My.Resources.Strings.Restarts
         DialogTimerSettings.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
-        DialogTimerSettings.CheckBoxAutoStart.Text = My.Resources.Strings.AutoStart
+        DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
         DialogTimerSettings.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
         DialogTimerSettings.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         DialogTimerSettings.LabelNote.Text = My.Resources.Strings.Note

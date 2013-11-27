@@ -72,7 +72,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("About", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Add.
         '''</summary>
@@ -81,7 +81,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Add", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Alarm:.
         '''</summary>
@@ -90,16 +90,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Alarm", resourceCulture)
             End Get
         End Property
-
-        '''<summary>
-        '''  Looks up a localized string similar to Auto start.
-        '''</summary>
-        Public Shared ReadOnly Property AutoStart() As String
-            Get
-                Return ResourceManager.GetString("AutoStart", resourceCulture)
-            End Get
-        End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Background color:.
         '''</summary>
@@ -108,7 +99,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("BackgroundColor", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Browse for folder....
         '''</summary>
@@ -117,7 +108,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("BrowseForFolder", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Cancel.
         '''</summary>
@@ -126,7 +117,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Cancel", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Count up.
         '''</summary>
@@ -135,7 +126,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("CountUp", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Customize and control Eggzle.
         '''</summary>
@@ -592,6 +583,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Start() As String
             Get
                 Return ResourceManager.GetString("Start", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Start immediately.
+        '''</summary>
+        Public Shared ReadOnly Property StartImmediately() As String
+            Get
+                Return ResourceManager.GetString("StartImmediately", resourceCulture)
             End Get
         End Property
         

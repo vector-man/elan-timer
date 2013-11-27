@@ -51,7 +51,7 @@ Partial Class DialogTimerSettings
         Me.LabelRestarts = New System.Windows.Forms.Label()
         Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
         Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxAutoStart = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxStartImmediately = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
@@ -195,7 +195,7 @@ Partial Class DialogTimerSettings
         Me.FlowLayoutPanel1.Controls.Add(Me.LabelRestarts)
         Me.FlowLayoutPanel1.Controls.Add(Me.NumericUpDownRestarts)
         Me.FlowLayoutPanel1.Controls.Add(Me.CheckBoxCountUp)
-        Me.FlowLayoutPanel1.Controls.Add(Me.CheckBoxAutoStart)
+        Me.FlowLayoutPanel1.Controls.Add(Me.CheckBoxStartImmediately)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         '
         'LabelHours
@@ -253,11 +253,11 @@ Partial Class DialogTimerSettings
         Me.CheckBoxCountUp.Name = "CheckBoxCountUp"
         Me.CheckBoxCountUp.UseVisualStyleBackColor = True
         '
-        'CheckBoxAutoStart
+        'CheckBoxStartImmediately
         '
-        resources.ApplyResources(Me.CheckBoxAutoStart, "CheckBoxAutoStart")
-        Me.CheckBoxAutoStart.Name = "CheckBoxAutoStart"
-        Me.CheckBoxAutoStart.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxStartImmediately, "CheckBoxStartImmediately")
+        Me.CheckBoxStartImmediately.Name = "CheckBoxStartImmediately"
+        Me.CheckBoxStartImmediately.UseVisualStyleBackColor = True
         '
         'DialogTimerSettings
         '
@@ -322,6 +322,6 @@ Partial Class DialogTimerSettings
     Friend WithEvents LabelRestarts As System.Windows.Forms.Label
     Friend WithEvents NumericUpDownRestarts As System.Windows.Forms.NumericUpDown
     Friend WithEvents CheckBoxCountUp As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxAutoStart As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxStartImmediately As System.Windows.Forms.CheckBox
 
 End Class

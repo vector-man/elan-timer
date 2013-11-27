@@ -38,12 +38,12 @@ Namespace Settings
                 _time.CountUp = value
             End Set
         End Property
-        Public Property AutoStart As Boolean
+        Public Property StartImmediately As Boolean
             Get
-                Return _time.AutoStart
+                Return _time.StartImmediately
             End Get
             Set(value As Boolean)
-                _time.AutoStart = value
+                _time.StartImmediately = value
             End Set
         End Property
         Public Property Restarts As Integer
@@ -127,7 +127,7 @@ Namespace Settings
         '    '_time.Restarts = backupTime.Restarts
         'End Sub
         Private Function Clone(time As Models.TimeModel)
-            Return New Models.TimeModel(time.Duration, time.CountUp, time.AutoStart, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note)
+            Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit

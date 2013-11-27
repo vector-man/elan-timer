@@ -965,40 +965,40 @@
   <data name="&gt;&gt;CheckBoxCountUp.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="CheckBoxAutoStart.AutoSize" type="System.Boolean, mscorlib">
+  <data name="CheckBoxStartImmediately.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="CheckBoxAutoStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="CheckBoxStartImmediately.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="CheckBoxAutoStart.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="CheckBoxStartImmediately.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 136</value>
   </data>
-  <data name="CheckBoxAutoStart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="CheckBoxStartImmediately.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 3, 3</value>
   </data>
-  <data name="CheckBoxAutoStart.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="CheckBoxStartImmediately.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 3, 3, 3</value>
   </data>
-  <data name="CheckBoxAutoStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 23</value>
+  <data name="CheckBoxStartImmediately.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 23</value>
   </data>
-  <data name="CheckBoxAutoStart.TabIndex" type="System.Int32, mscorlib">
+  <data name="CheckBoxStartImmediately.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="CheckBoxAutoStart.Text" xml:space="preserve">
-    <value>Auto start</value>
+  <data name="CheckBoxStartImmediately.Text" xml:space="preserve">
+    <value>Start immediately</value>
   </data>
-  <data name="&gt;&gt;CheckBoxAutoStart.Name" xml:space="preserve">
-    <value>CheckBoxAutoStart</value>
+  <data name="&gt;&gt;CheckBoxStartImmediately.Name" xml:space="preserve">
+    <value>CheckBoxStartImmediately</value>
   </data>
-  <data name="&gt;&gt;CheckBoxAutoStart.Type" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxStartImmediately.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CheckBoxAutoStart.Parent" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxStartImmediately.Parent" xml:space="preserve">
     <value>FlowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;CheckBoxAutoStart.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxStartImmediately.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="FlowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">

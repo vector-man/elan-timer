@@ -395,7 +395,7 @@ Public Class FormMain
             noteObject.Text = Common.Time.Note
             HideNote()
             AddTimerHandlers()
-            If Common.Time.AutoStart Then
+            If Common.Time.StartImmediately Then
                 SetTimerState(True)
             End If
             Me.UpdateIcons()
