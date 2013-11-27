@@ -201,6 +201,13 @@ Public Class FormMain
         ' Hide the timer.
         timerObject.Visible = False
     End Sub
+    Private Function LimitTextLength(text As String, maximumLength As Long)
+        If (text.Length > maximumLength) Then
+            Return text.Substring(0, (maximumLength - 3)) & "..."
+        Else
+            Return text
+        End If
+    End Function
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
                                  If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
