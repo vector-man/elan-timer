@@ -16,6 +16,8 @@ Namespace CodeIsle.Timers
         Private restartCount As Integer
         ' Holders total restarts.
         Private _restarts As Integer
+        ' Holds the time in milliseconds to poll for expiration.
+        Private _expirationPollRate As Integer = 1
 #Region "Events"
         ''' <summary>
         ''' Event fires when the timer is started.
@@ -117,6 +119,20 @@ Namespace CodeIsle.Timers
             _duration = duration
             MyClass.Restarts = restarts
             timerStopwatch = New Stopwatch
+        End Sub
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time.
+        ''' </summary>
+        ''' <param name="duration"></param>
+        ''' <param name="restarts"></param>
+        ''' <param name="expirationPollRate"></param>
+        ''' <remarks></remarks>
+        Sub New(duration As TimeSpan, restarts As Integer, expirationPollRate As Integer)
+            _isExpired = False
+            _duration = duration
+            MyClass.Restarts = restarts
+            timerStopwatch = New Stopwatch
+            _expirationPollRate = expirationPollRate
         End Sub
 
         ''' <summary>
@@ -293,7 +309,7 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Private Async Sub ExpiredPollAsync(token As Threading.CancellationToken)
             While Not token.IsCancellationRequested Or Enabled
-                Await TaskEx.Delay(1)
+                Await TaskEx.Delay(_expirationPollRate)
                 If Remaining.TotalMilliseconds <= 0 Then
                     If restartCount > 0 Then
                         restartCount -= 1

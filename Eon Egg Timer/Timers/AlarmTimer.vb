@@ -16,7 +16,10 @@
             MyClass.New(duration, alarm, alarmEnabled, 0)
         End Sub
         Sub New(duration As TimeSpan, alarm As Alarm, alarmEnabled As Boolean, restarts As Integer)
-            MyBase.New(duration, restarts)
+            MyClass.New(duration, alarm, alarmEnabled, restarts, 1)
+        End Sub
+        Sub New(duration As TimeSpan, alarm As Alarm, alarmEnabled As Boolean, restarts As Integer, expirationPollRate As Integer)
+            MyBase.New(duration, restarts, expirationPollRate)
             MyClass.Alarm = alarm
             MyClass.AlarmEnabled = alarmEnabled
         End Sub
