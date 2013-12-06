@@ -377,6 +377,18 @@ Namespace My
                 Me("ClickingTrayIconStopsAlarm") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data")>  _
+        Public Property DataFolder() As String
+            Get
+                Return CType(Me("DataFolder"),String)
+            End Get
+            Set
+                Me("DataFolder") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

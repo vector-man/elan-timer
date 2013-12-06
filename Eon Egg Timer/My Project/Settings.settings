@@ -89,7 +89,7 @@
     <Setting Name="ClickingTrayIconStopsAlarm" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DataDirectory" Type="System.String" Scope="User">
+    <Setting Name="DataFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data</Value>
     </Setting>
   </Settings>
