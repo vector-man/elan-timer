@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("data")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("_tasks")>  _
         Public Property DefaultTaskFile() As String
             Get
                 Return CType(Me("DefaultTaskFile"),String)
@@ -128,7 +128,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("data")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("_look")>  _
         Public Property DefaultLookFile() As String
             Get
                 Return CType(Me("DefaultLookFile"),String)
@@ -140,7 +140,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("data")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("_timer")>  _
         Public Property DefaultTimeFile() As String
             Get
                 Return CType(Me("DefaultTimeFile"),String)
@@ -263,7 +263,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Tasks")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property TaskFolder() As String
             Get
                 Return CType(Me("TaskFolder"),String)

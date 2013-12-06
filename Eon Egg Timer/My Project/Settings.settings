@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DefaultTaskFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">data</Value>
+      <Value Profile="(Default)">_tasks</Value>
     </Setting>
     <Setting Name="AlwaysOnTop" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -21,10 +21,10 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="DefaultLookFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">data</Value>
+      <Value Profile="(Default)">_look</Value>
     </Setting>
     <Setting Name="DefaultTimeFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">data</Value>
+      <Value Profile="(Default)">_timer</Value>
     </Setting>
     <Setting Name="TimeDialogFilter" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Time Files (*.time)|*.time</Value>
@@ -60,7 +60,7 @@
       <Value Profile="(Default)">Looks</Value>
     </Setting>
     <Setting Name="TaskFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Tasks</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="TimeFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Timers</Value>
