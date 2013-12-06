@@ -21,6 +21,7 @@ Public Class FormMain
 
 #Region "Timer Event Handelers"
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
+        ' sw.Start()
         ExecuteActions(Settings.Models.TimerEvent.Started)
     End Sub
     Public Sub Timer_Paused(sender As Object, e As TimerEventArgs)
@@ -31,6 +32,8 @@ Public Class FormMain
         HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
+        ' sw.Stop()
+        ' MessageBox.Show(sw.Elapsed.TotalMilliseconds)
         ExecuteActions(Settings.Models.TimerEvent.Expired)
         ShowNote()
         TryShowNoteAlert()
