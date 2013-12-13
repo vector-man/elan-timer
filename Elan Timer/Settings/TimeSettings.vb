@@ -95,6 +95,14 @@ Namespace Settings
                 _time.Note = value
             End Set
         End Property
+        Public Property HasNote As Boolean
+            Get
+                Return _time.HasNote
+            End Get
+            Set(value As Boolean)
+                _time.HasNote = value
+            End Set
+        End Property
         Public Sub ExportTo(path As String) Implements ISettings.ExportTo
             jsonDatabase.Save(path, _time)
         End Sub

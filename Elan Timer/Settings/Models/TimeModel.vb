@@ -1,6 +1,6 @@
 ﻿Namespace Settings.Models
     Public Class TimeModel
-        Sub New(duration As TimeSpan, countUp As Boolean, startImmediately As Boolean, restarts As Integer, alarmEnabled As Boolean, alarmPath As String, alarmLoop As Boolean, alarmVolume As Integer, memo As String)
+        Sub New(duration As TimeSpan, countUp As Boolean, startImmediately As Boolean, restarts As Integer, alarmEnabled As Boolean, alarmPath As String, alarmLoop As Boolean, alarmVolume As Integer, memo As String, hasNote As Boolean)
             MyClass.Duration = duration
             MyClass.CountUp = countUp
             MyClass.StartImmediately = startImmediately
@@ -10,6 +10,7 @@
             MyClass.AlarmLoop = alarmLoop
             MyClass.AlarmVolume = alarmVolume
             MyClass.Note = memo
+            MyClass.HasNote = hasNote
         End Sub
         Sub New()
 
@@ -22,6 +23,7 @@
         Public Property AlarmPath As String
         Public Property AlarmLoop As Boolean
         Public Property AlarmVolume As Integer
+        Public Property HasNote As Boolean
         Public Property Note As String
     End Class
 End Namespace
