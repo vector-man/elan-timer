@@ -11,7 +11,7 @@ Public Class Common
     ' The path to the default time data file.
     Private Shared ReadOnly DefaultTimePath As String = Path.Combine(TimePath, My.Settings.DefaultTimeFile)
     ' The settings object for Time.
-    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty), True)
+    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty, False), True)
     ' The folder where all task setting files are stored.
     Public Shared ReadOnly TasksPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.TaskFolder)).FullName)
     ' The path to the default tasks data file.

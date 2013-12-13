@@ -19,7 +19,7 @@ Public Class DialogTimerSettings
         Me.CheckBoxAlarmSet.Checked = Common.Time.AlarmEnabled
         Me.CheckBoxLoop.Checked = Common.Time.AlarmLoop
         Me.NumericUpDownVolume.Value = Common.Time.AlarmVolume
-
+        Me.CheckBoxNote.Checked = Common.Time.HasNote
         If (Not Editing) Then
             Common.Time.Note = String.Empty
         End If
@@ -56,6 +56,7 @@ Public Class DialogTimerSettings
         Common.Time.AlarmLoop = Me.CheckBoxLoop.Checked
         Common.Time.AlarmVolume = Me.NumericUpDownVolume.Value
         Common.Time.Note = Me.TextBoxNote.Text.Trim
+        Common.Time.HasNote = Me.CheckBoxNote.Checked
         UpdateAlarmPath()
     End Sub
 
@@ -155,7 +156,7 @@ Public Class DialogTimerSettings
         Me.NumericUpDownSeconds.Enabled = (Not Editing)
         Me.LabelRestarts.Enabled = (Not Editing)
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
-
+        Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
         Me.ButtonImport.Enabled = (Not Editing)
         Me.Text = If(Editing, "Edit Timer", "New Timer")
         Me.CheckBoxCountUp.Enabled = (Not Editing)

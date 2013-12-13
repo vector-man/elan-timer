@@ -214,7 +214,7 @@ Public Class FormMain
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
                                  If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
-                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                     MessageBox.Show(Me, If(Not Common.Time.HasNote Or (noteObject.Text = String.Empty), My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
 
@@ -325,7 +325,9 @@ Public Class FormMain
                                                     sb.Append(" - ")
                                                 End If
                                             End If
-                                            sb.Append(Common.Time.Note)
+                                            If (Common.Time.HasNote) Then
+                                                sb.Append(Common.Time.Note)
+                                            End If
 
                                             If (sb.Length = 0) Then
                                                 sb.Append(assemblyName)

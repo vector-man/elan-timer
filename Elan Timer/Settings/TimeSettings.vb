@@ -135,7 +135,7 @@ Namespace Settings
         '    '_time.Restarts = backupTime.Restarts
         'End Sub
         Private Function Clone(time As Models.TimeModel)
-            Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note)
+            Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note, _time.HasNote)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit
