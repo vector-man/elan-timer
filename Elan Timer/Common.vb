@@ -151,7 +151,7 @@ Public Class Common
         DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
         DialogTimerSettings.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
         DialogTimerSettings.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
-        DialogTimerSettings.LabelNote.Text = My.Resources.Strings.Note
+        DialogTimerSettings.CheckBoxNote.Text = My.Resources.Strings.Note
 
         DialogTimerSettings.ButtonImport.Text = My.Resources.Strings.Import
         DialogTimerSettings.ButtonExport.Text = My.Resources.Strings.Export

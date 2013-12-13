@@ -190,7 +190,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 3</value>
+    <value>58, 3</value>
   </data>
   <data name="TextBoxNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 3, 3</value>
@@ -219,43 +219,40 @@
   <data name="&gt;&gt;TextBoxNote.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="LabelNote.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="CheckBoxNote.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="LabelNote.AutoSize" type="System.Boolean, mscorlib">
+  <data name="CheckBoxNote.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="LabelNote.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="CheckBoxNote.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 2</value>
   </data>
-  <data name="LabelNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 4</value>
-  </data>
-  <data name="LabelNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="CheckBoxNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="LabelNote.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="CheckBoxNote.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="LabelNote.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 19</value>
+  <data name="CheckBoxNote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 23</value>
   </data>
-  <data name="LabelNote.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
+  <data name="CheckBoxNote.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
   </data>
-  <data name="LabelNote.Text" xml:space="preserve">
+  <data name="CheckBoxNote.Text" xml:space="preserve">
     <value>Note:</value>
   </data>
-  <data name="&gt;&gt;LabelNote.Name" xml:space="preserve">
-    <value>LabelNote</value>
+  <data name="&gt;&gt;CheckBoxNote.Name" xml:space="preserve">
+    <value>CheckBoxNote</value>
   </data>
-  <data name="&gt;&gt;LabelNote.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;CheckBoxNote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LabelNote.Parent" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxNote.Parent" xml:space="preserve">
     <value>TableLayoutPanel5</value>
   </data>
-  <data name="&gt;&gt;LabelNote.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CheckBoxNote.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -271,7 +268,7 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 28</value>
+    <value>378, 28</value>
   </data>
   <data name="TableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -289,7 +286,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TextBoxNote" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelNote" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TextBoxNote" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxNote" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
     <value>4</value>
@@ -343,7 +340,7 @@
     <value>0, 3, 3, 3</value>
   </data>
   <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 21</value>
+    <value>270, 21</value>
   </data>
   <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -381,7 +378,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonAlarmPlay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 3</value>
+    <value>334, 3</value>
   </data>
   <data name="ButtonAlarmPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -429,7 +426,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOpenAlarm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>337, 3</value>
+    <value>356, 3</value>
   </data>
   <data name="ButtonOpenAlarm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -501,7 +498,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 58</value>
+    <value>378, 58</value>
   </data>
   <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -534,7 +531,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>286, 13</value>
+    <value>305, 13</value>
   </data>
   <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 23</value>
@@ -564,7 +561,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 13</value>
+    <value>217, 13</value>
   </data>
   <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 23</value>
@@ -660,7 +657,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 39</value>
+    <value>378, 39</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
@@ -1011,7 +1008,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="FlowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>347, 162</value>
+    <value>366, 162</value>
   </data>
   <data name="FlowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1035,7 +1032,7 @@
     <value>3, 3</value>
   </data>
   <data name="GroupBoxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 181</value>
+    <value>372, 181</value>
   </data>
   <data name="GroupBoxDuration.TabIndex" type="System.Int32, mscorlib">
     <value>51</value>
@@ -1065,7 +1062,7 @@
     <value>4</value>
   </data>
   <data name="TableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 312</value>
+    <value>378, 312</value>
   </data>
   <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
