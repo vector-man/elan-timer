@@ -84,7 +84,7 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.GrowToFit, Common.Look.ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, New Font(Common.Look.Font.FontFamily, 1, Common.Look.Font.Style), Common.Look.DisplayFormat, New TimeFormat, True, Common.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
@@ -119,15 +119,8 @@ Public Class DialogLookSettings
 
     Private Sub FontPickerFont_ValueChanged(sender As Object, e As EventArgs) Handles FontPickerFont.ValueChanged
         Try
-            timerObject.Font = FontPickerFont.Value
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub CheckBoxSizeToFit_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxGrowToFit.CheckedChanged
-        Try
-            timerObject.SizeToFit = CheckBoxGrowToFit.Checked
+            Dim pickedFont As Font = FontPickerFont.Value
+            timerObject.Font = New Font(pickedFont.FontFamily, 1, pickedFont.Style)
         Catch ex As Exception
 
         End Try
