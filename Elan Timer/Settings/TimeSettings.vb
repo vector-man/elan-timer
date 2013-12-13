@@ -103,6 +103,14 @@ Namespace Settings
                 _time.HasNote = value
             End Set
         End Property
+        Public Property HasNoteAlert As Boolean
+            Get
+                Return _time.HasNoteAlert
+            End Get
+            Set(value As Boolean)
+                _time.HasNoteAlert = value
+            End Set
+        End Property
         Public Sub ExportTo(path As String) Implements ISettings.ExportTo
             jsonDatabase.Save(path, _time)
         End Sub
@@ -135,7 +143,7 @@ Namespace Settings
         '    '_time.Restarts = backupTime.Restarts
         'End Sub
         Private Function Clone(time As Models.TimeModel)
-            Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note, _time.HasNote)
+            Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note, _time.HasNote, time.HasNoteAlert)
         End Function
 
         Public Sub BeginEdit() Implements ISettings.BeginEdit
