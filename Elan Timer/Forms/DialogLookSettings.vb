@@ -8,6 +8,8 @@ Public Class DialogLookSettings
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timer As CodeIsle.Timers.AlarmTimer
     Private timerSurface As Rendering.Surface
+    ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
+    Private Const PreviewTime As Long = 5588
     Sub LoadSettings()
         Dim rendererList As New List(Of Settings.Models.RendererModel)
 
@@ -73,7 +75,7 @@ Public Class DialogLookSettings
     Private Sub DialogLookSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Common.Look.BeginEdit()
         Dim rand As New Random
-        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, 30), Common.Time.CountUp, Integer.MaxValue, Nothing, False)
+        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), Common.Time.CountUp, Integer.MaxValue, Nothing, False)
         StartUpRendering(timer)
         LoadSettings()
         timer.Start()
