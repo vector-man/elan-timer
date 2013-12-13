@@ -1,0 +1,21 @@
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.vbproj.App.config
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.DialogAbout.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.DialogLookSettings.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.DialogTaskSettings.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.DialogTimerSettings.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.FormMain.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.DialogSettings.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.Resources.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.Strings.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\ElanTimer.Strings.es-ES.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.vbproj.GenerateResource.Cache
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\bin\Debug\Elan Timer.exe.config
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\bin\Debug\Elan Timer.exe
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\bin\Debug\Elan Timer.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\bin\Debug\Elan Timer.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\bin\Debug\es-ES\Elan Timer.resources.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\es-ES\Elan Timer.resources.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.exe
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan Timer\obj\Debug\Elan Timer.vbprojResolveAssemblyReference.cache
