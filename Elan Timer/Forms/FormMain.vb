@@ -214,6 +214,7 @@ Public Class FormMain
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
                                  If (Common.Time.HasNoteAlert) Then
+                                     MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
 
