@@ -35,12 +35,11 @@ Partial Class DialogSettings
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonOK = New System.Windows.Forms.Button()
+        Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
         Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
         Me.CheckBoxShowInSystemTray = New System.Windows.Forms.CheckBox()
         Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
-        Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -124,20 +123,20 @@ Partial Class DialogSettings
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.UseVisualStyleBackColor = True
         '
+        'ButtonCancel
+        '
+        resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
+        Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ButtonCancel.Name = "ButtonCancel"
+        Me.ButtonCancel.UseVisualStyleBackColor = True
+        '
         'TableLayoutPanel4
         '
         resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 1)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowInSystemTray, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 2)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        '
-        'CheckBoxShowNoteAlertWhenTimerExpires
-        '
-        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
         '
         'CheckBoxCloseToSystemTray
         '
@@ -156,13 +155,6 @@ Partial Class DialogSettings
         resources.ApplyResources(Me.CheckBoxClickingTrayIconStopsAlarm, "CheckBoxClickingTrayIconStopsAlarm")
         Me.CheckBoxClickingTrayIconStopsAlarm.Name = "CheckBoxClickingTrayIconStopsAlarm"
         Me.CheckBoxClickingTrayIconStopsAlarm.UseVisualStyleBackColor = True
-        '
-        'ButtonCancel
-        '
-        resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
-        Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'DialogSettings
         '
@@ -201,7 +193,6 @@ Partial Class DialogSettings
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxShowInSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox

@@ -213,8 +213,7 @@ Public Class FormMain
     End Function
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
-                                 If (My.Settings.ShowNoteAlertWhenTimerExpires) Then
-                                     MessageBox.Show(Me, If(Not Common.Time.HasNote Or (noteObject.Text = String.Empty), My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                 If (Common.Time.HasNoteAlert) Then
                                  End If
                              End Sub))
 

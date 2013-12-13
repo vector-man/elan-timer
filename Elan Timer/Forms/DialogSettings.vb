@@ -38,7 +38,6 @@
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
         My.Settings.Language = CType(ComboBoxLanguage.SelectedItem, System.Globalization.CultureInfo).Name
-        My.Settings.ShowNoteAlertWhenTimerExpires = CheckBoxShowNoteAlertWhenTimerExpires.Checked
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckBoxShowInSystemTray.Checked
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
@@ -67,7 +66,6 @@
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            CheckBoxShowNoteAlertWhenTimerExpires.Checked = My.Settings.ShowNoteAlertWhenTimerExpires
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
