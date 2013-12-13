@@ -4,7 +4,6 @@ Public Class DialogLookSettings
     Private argsBindingSource As BindingSource
 
     Private timerObject As TimerTextRenderObject
-    Private backgroundObject As BackgroundRenderObject
     Private renderer As Rendering.IRenderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timer As CodeIsle.Timers.AlarmTimer
@@ -44,7 +43,7 @@ Public Class DialogLookSettings
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
             timerObject.Color = Common.Look.ForegroundColor
-            backgroundObject.Color = Common.Look.BackgroundColor
+            timerSurface.BackColor = Common.Look.BackgroundColor
         Catch ex As Exception
 
         End Try
@@ -85,13 +84,12 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            backgroundObject = New BackgroundRenderObject(Common.Look.BackgroundColor, True)
             timerObject = New TimerTextRenderObject(timer, Common.Look.Font, Common.Look.DisplayFormat, New TimeFormat, Common.Look.GrowToFit, Common.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
-            objects.Add(backgroundObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
             timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
+            timerSurface.BackColor = Common.Look.BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
@@ -113,7 +111,7 @@ Public Class DialogLookSettings
 
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
         Try
-            backgroundObject.Color = e.color
+            timerSurface.BackColor = e.color
         Catch ex As Exception
 
         End Try
