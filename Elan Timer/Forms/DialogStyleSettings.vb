@@ -141,7 +141,7 @@ Public Class DialogStyleSettings
         Using dialogOpen As New OpenFileDialog
             dialogOpen.InitialDirectory = Preferences.StylePath
             dialogOpen.CheckFileExists = True
-            dialogOpen.Filter = My.Settings.LookDialogFilter
+            dialogOpen.Filter = My.Settings.StyleDialogFilter
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
                     Preferences.Style.ImportFrom(dialogOpen.FileName)
@@ -158,7 +158,7 @@ Public Class DialogStyleSettings
         Using dialogSave As New SaveFileDialog
             dialogSave.InitialDirectory = Preferences.StylePath
             dialogSave.CheckPathExists = True
-            dialogSave.Filter = My.Settings.LookDialogFilter
+            dialogSave.Filter = My.Settings.StyleDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
                     SaveSettings()

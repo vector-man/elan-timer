@@ -17,7 +17,7 @@ Namespace Prefs
         ' The settings object for Tasks.
         Public Shared ReadOnly Tasks As New TaskPreferences(DefaultTasksPath, New List(Of Models.TaskModel), True, Not Common.IsSingleInstance())
         ' The folder where all look setting files are stored.
-        Public Shared ReadOnly StylePath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.LookFolder)).FullName)
+        Public Shared ReadOnly StylePath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.StyleFolder)).FullName)
         ' The path to the default look data file.
         Private Shared ReadOnly DefaultStylePath As String = Path.Combine(StylePath, My.Settings.DefaultStyleFile)
         ' The settings object for Style.
