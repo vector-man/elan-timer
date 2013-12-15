@@ -1,6 +1,6 @@
 ﻿Imports Newtonsoft
-Namespace Settings
-    Public Class TimeSettings : Implements ISettings
+Namespace Prefs
+    Public Class TimeSettings : Implements IPreferences
         Private _time As Models.TimeModel
         Private backupTime As Models.TimeModel
         Private _path As String
@@ -111,22 +111,22 @@ Namespace Settings
                 _time.HasNoteAlert = value
             End Set
         End Property
-        Public Sub ExportTo(path As String) Implements ISettings.ExportTo
+        Public Sub ExportTo(path As String) Implements IPreferences.ExportTo
             jsonDatabase.Save(path, _time)
         End Sub
 
-        Public Sub ImportFrom(path As String) Implements ISettings.ImportFrom
+        Public Sub ImportFrom(path As String) Implements IPreferences.ImportFrom
             _time = jsonDatabase.Load(path, GetType(Models.TimeModel))
             If (_time Is Nothing) Then
                 _time = _defaultModel
             End If
         End Sub
 
-        Public Sub Load() Implements ISettings.Load
+        Public Sub Load() Implements IPreferences.Load
             ImportFrom(_path)
         End Sub
 
-        Public Sub Save() Implements ISettings.Save
+        Public Sub Save() Implements IPreferences.Save
             ExportTo(_path)
         End Sub
 
@@ -146,15 +146,15 @@ Namespace Settings
             Return New Models.TimeModel(time.Duration, time.CountUp, time.StartImmediately, time.Restarts, time.AlarmEnabled, time.AlarmPath, time.AlarmLoop, time.AlarmVolume, time.Note, _time.HasNote, time.HasNoteAlert)
         End Function
 
-        Public Sub BeginEdit() Implements ISettings.BeginEdit
+        Public Sub BeginEdit() Implements IPreferences.BeginEdit
             backupTime = Clone(_time)
         End Sub
 
-        Public Sub CancelEdit() Implements ISettings.CancelEdit
+        Public Sub CancelEdit() Implements IPreferences.CancelEdit
             _time = Clone(backupTime)
         End Sub
 
-        Public Sub EndEdit() Implements ISettings.EndEdit
+        Public Sub EndEdit() Implements IPreferences.EndEdit
             backupTime = Nothing
         End Sub
     End Class

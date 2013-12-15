@@ -1,4 +1,4 @@
-﻿Namespace Settings.Models
+﻿Namespace Prefs.Models
     Public Class TimeModel
         Sub New(duration As TimeSpan, countUp As Boolean, startImmediately As Boolean, restarts As Integer, alarmEnabled As Boolean, alarmPath As String, alarmLoop As Boolean, alarmVolume As Integer, memo As String, hasNote As Boolean, hasNoteAlert As Boolean)
             MyClass.Duration = duration

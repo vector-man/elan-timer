@@ -1,5 +1,5 @@
-﻿Namespace Settings
-    Public Class LookSettings : Implements ISettings
+﻿Namespace Prefs
+    Public Class LookPreferences : Implements IPreferences
         Private _path As String
         Private jsonDatabase As JsonDatabase
         Private _look As Models.LookModel
@@ -77,22 +77,22 @@
                 _look.DisplayFormat = value
             End Set
         End Property
-        Public Sub ExportTo(path As String) Implements ISettings.ExportTo
+        Public Sub ExportTo(path As String) Implements IPreferences.ExportTo
             jsonDatabase.Save(path, _look)
         End Sub
 
-        Public Sub ImportFrom(path As String) Implements ISettings.ImportFrom
+        Public Sub ImportFrom(path As String) Implements IPreferences.ImportFrom
             _look = jsonDatabase.Load(path, GetType(Models.LookModel))
             If _look Is Nothing Then
                 _look = _defaultModel
             End If
         End Sub
 
-        Public Sub Load() Implements ISettings.Load
+        Public Sub Load() Implements IPreferences.Load
             ImportFrom(_path)
         End Sub
 
-        Public Sub Save() Implements ISettings.Save
+        Public Sub Save() Implements IPreferences.Save
             ExportTo(_path)
         End Sub
 
@@ -100,15 +100,15 @@
             Return New Models.LookModel(look.Font, look.GrowToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
         End Function
 
-        Public Sub BeginEdit() Implements ISettings.BeginEdit
+        Public Sub BeginEdit() Implements IPreferences.BeginEdit
             backupLook = Clone(_look)
         End Sub
 
-        Public Sub CancelEdit() Implements ISettings.CancelEdit
+        Public Sub CancelEdit() Implements IPreferences.CancelEdit
             _look = Clone(backupLook)
         End Sub
 
-        Public Sub EndEdit() Implements ISettings.EndEdit
+        Public Sub EndEdit() Implements IPreferences.EndEdit
             backupLook = Nothing
         End Sub
     End Class

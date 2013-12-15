@@ -1,4 +1,4 @@
-﻿Namespace Settings.Models
+﻿Namespace Prefs.Models
     Public Class LookModel
         Sub New()
 

@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
-Imports ElanTimer.Settings.Models
+Imports ElanTimer.Prefs.Models
+Imports ElanTimer.Prefs
 Public Class DialogTaskSettings
 
     Private actionsData As List(Of TaskModel)
@@ -25,7 +26,7 @@ Public Class DialogTaskSettings
         Return actions.ConvertAll(Function(action) New TaskModel(action.Event, action.Name, action.Command, action.Arguments, action.UseScript, action.Script, action.Enabled))
     End Function
     Private Sub LoadSettings()
-        actionsData = CloneActions(ElanTimer.Settings.Settings.Tasks.Tasks)
+        actionsData = CloneActions(Preferences.Tasks.Tasks)
 
         actionsBindingSource = New BindingSource()
         actionsBindingSource.DataSource = actionsData
@@ -49,8 +50,8 @@ Public Class DialogTaskSettings
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
 
-        ElanTimer.Settings.Settings.Tasks.Tasks.Clear()
-        ElanTimer.Settings.Settings.Tasks.Tasks.AddRange(actionsData)
+        Preferences.Tasks.Tasks.Clear()
+        Preferences.Tasks.Tasks.AddRange(actionsData)
         actionsData = Nothing
         actionsBindingSource.Dispose()
 
@@ -61,7 +62,7 @@ Public Class DialogTaskSettings
         LoadSettings()
     End Sub
 
- 
+
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
     End Sub
@@ -69,12 +70,12 @@ Public Class DialogTaskSettings
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
         Try
             Using saveDialog As New SaveFileDialog
-                saveDialog.InitialDirectory = ElanTimer.Settings.Settings.TasksPath
+                saveDialog.InitialDirectory = Preferences.TasksPath
                 saveDialog.Filter = My.Settings.TaskDialogFilter
                 saveDialog.OverwritePrompt = True
                 If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim taskSetings As New Settings.TaskSettings()
-                    Dim tasksToExport As New List(Of Settings.Models.TaskModel)
+                    Dim taskSetings As New Prefs.TaskPreferences()
+                    Dim tasksToExport As New List(Of Prefs.Models.TaskModel)
                     Dim objects As Object = Nothing
                     If exportSelected Then
                         objects = DataListViewActions.SelectedObjects
@@ -96,11 +97,11 @@ Public Class DialogTaskSettings
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Try
             Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = ElanTimer.Settings.Settings.TasksPath
+                openDialog.InitialDirectory = Preferences.TasksPath
                 openDialog.Filter = My.Settings.TaskDialogFilter
                 openDialog.CheckFileExists = True
                 If openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim taskSetings As New Settings.TaskSettings()
+                    Dim taskSetings As New Prefs.TaskPreferences()
                     taskSetings.ImportFrom(openDialog.FileName)
                     For Each item In taskSetings.Tasks
                         actionsBindingSource.Add(item)

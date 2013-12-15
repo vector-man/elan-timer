@@ -216,17 +216,17 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Rendering\SurfaceFactory.vb" />
-    <Compile Include="Settings\ISettings.vb" />
-    <Compile Include="Settings\JsonDatabase.vb" />
-    <Compile Include="Settings\LookSettings.vb" />
-    <Compile Include="Settings\Models\AlarmModel.vb" />
-    <Compile Include="Settings\Models\LookModel.vb" />
-    <Compile Include="Settings\Models\TimeModel.vb" />
-    <Compile Include="Settings\Models\RendererModel.vb" />
-    <Compile Include="Settings\Settings.vb" />
-    <Compile Include="Settings\TaskSettings.vb" />
-    <Compile Include="Settings\TimeSettings.vb" />
-    <Compile Include="Settings\Models\TaskModel.vb" />
+    <Compile Include="Preferences\IPreferences.vb" />
+    <Compile Include="Preferences\JsonDatabase.vb" />
+    <Compile Include="Preferences\LookPreferences.vb" />
+    <Compile Include="Preferences\Models\AlarmModel.vb" />
+    <Compile Include="Preferences\Models\LookModel.vb" />
+    <Compile Include="Preferences\Models\TimeModel.vb" />
+    <Compile Include="Preferences\Models\RendererModel.vb" />
+    <Compile Include="Preferences\Preferences.vb" />
+    <Compile Include="Preferences\TaskPreferences.vb" />
+    <Compile Include="Preferences\TimePreferences.vb" />
+    <Compile Include="Preferences\Models\TaskModel.vb" />
     <Compile Include="Locale\Languages.vb" />
     <Compile Include="Common.vb" />
     <Compile Include="Forms\FormMain.Designer.vb">

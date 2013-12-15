@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+Imports ElanTimer.Prefs
 Public Class DialogLookSettings
     Private lookBindingSource As BindingSource
     Private argsBindingSource As BindingSource
@@ -11,32 +12,32 @@ Public Class DialogLookSettings
     ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
     Private Const PreviewTime As Long = 5588
     Sub LoadSettings()
-        Dim rendererList As New List(Of Settings.Models.RendererModel)
+        Dim rendererList As New List(Of Prefs.Models.RendererModel)
 
         ComboBoxDisplayFormat.DisplayMember = "Key"
         ComboBoxDisplayFormat.ValueMember = "Value"
         ComboBoxDisplayFormat.DataSource = Common.DisplayFormats
         Try
             Me.ComboBoxDisplayFormat.SelectedIndex = 0
-            Me.ComboBoxDisplayFormat.SelectedValue = ElanTimer.Settings.Settings.Look.DisplayFormat
+            Me.ComboBoxDisplayFormat.SelectedValue = Preferences.Look.DisplayFormat
         Catch ex As Exception
 
         End Try
-        Me.ColorComboBoxForegrounColor.SelectedColor = ElanTimer.Settings.Settings.Look.ForegroundColor
-        Me.ColorComboBoxBackgroundColor.SelectedColor = ElanTimer.Settings.Settings.Look.BackgroundColor
-        Me.FontPickerFont.Value = ElanTimer.Settings.Settings.Look.Font
-        Me.CheckBoxGrowToFit.Checked = ElanTimer.Settings.Settings.Look.GrowToFit
-        Me.NumericUpDownTransparencyLevel.Value = (100 - ElanTimer.Settings.Settings.Look.Opacity)
+        Me.ColorComboBoxForegrounColor.SelectedColor = Preferences.Look.ForegroundColor
+        Me.ColorComboBoxBackgroundColor.SelectedColor = Preferences.Look.BackgroundColor
+        Me.FontPickerFont.Value = Preferences.Look.Font
+        Me.CheckBoxGrowToFit.Checked = Preferences.Look.GrowToFit
+        Me.NumericUpDownTransparencyLevel.Value = (100 - Preferences.Look.Opacity)
 
     End Sub
     Sub SaveSettings()
-        ElanTimer.Settings.Settings.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
-        ElanTimer.Settings.Settings.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
-        ElanTimer.Settings.Settings.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
-        ElanTimer.Settings.Settings.Look.Font = Me.FontPickerFont.Value
-        ElanTimer.Settings.Settings.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
-        ElanTimer.Settings.Settings.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
-        ElanTimer.Settings.Settings.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
+        Preferences.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
+        Preferences.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
+        Preferences.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
+        Preferences.Look.Font = Me.FontPickerFont.Value
+        Preferences.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
+        Preferences.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
+        Preferences.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
     End Sub
     Sub UpdateUI()
@@ -44,8 +45,8 @@ Public Class DialogLookSettings
             FormMain.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value) / 100
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
-            timerObject.Color = ElanTimer.Settings.Settings.Look.ForegroundColor
-            timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
+            timerObject.Color = Preferences.Look.ForegroundColor
+            timerSurface.BackColor = Preferences.Look.BackgroundColor
         Catch ex As Exception
 
         End Try
@@ -65,17 +66,17 @@ Public Class DialogLookSettings
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         timer.Dispose()
         If (Not Me.DialogResult = Windows.Forms.DialogResult.OK) Then
-            ElanTimer.Settings.Settings.Look.CancelEdit()
-            FormMain.Opacity = ElanTimer.Settings.Settings.Look.Opacity / 100
+            Preferences.Look.CancelEdit()
+            FormMain.Opacity = Preferences.Look.Opacity / 100
         End If
-        ElanTimer.Settings.Settings.Look.EndEdit()
+        Preferences.Look.EndEdit()
         ShutDownRendering()
     End Sub
 
     Private Sub DialogLookSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        ElanTimer.Settings.Settings.Look.BeginEdit()
+        Preferences.Look.BeginEdit()
         Dim rand As New Random
-        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), ElanTimer.Settings.Settings.Time.CountUp, Integer.MaxValue, Nothing, False)
+        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), Preferences.Time.CountUp, Integer.MaxValue, Nothing, False)
         StartUpRendering(timer)
         LoadSettings()
         timer.Start()
@@ -86,12 +87,12 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            timerObject = New TimerTextRenderObject(timer, New Font(ElanTimer.Settings.Settings.Look.Font.FontFamily, 1, ElanTimer.Settings.Settings.Look.Font.Style), ElanTimer.Settings.Settings.Look.DisplayFormat, New TimeFormat, True, ElanTimer.Settings.Settings.Look.ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, New Font(Preferences.Look.Font.FontFamily, 1, Preferences.Look.Font.Style), Preferences.Look.DisplayFormat, New TimeFormat, True, Preferences.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
             timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
-            timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
+            timerSurface.BackColor = Preferences.Look.BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
@@ -138,12 +139,12 @@ Public Class DialogLookSettings
 
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Using dialogOpen As New OpenFileDialog
-            dialogOpen.InitialDirectory = ElanTimer.Settings.Settings.LookPath
+            dialogOpen.InitialDirectory = Preferences.LookPath
             dialogOpen.CheckFileExists = True
             dialogOpen.Filter = My.Settings.LookDialogFilter
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
-                    ElanTimer.Settings.Settings.Look.ImportFrom(dialogOpen.FileName)
+                    Preferences.Look.ImportFrom(dialogOpen.FileName)
                     LoadSettings()
                     UpdateUI()
                 Catch ex As Exception
@@ -155,13 +156,13 @@ Public Class DialogLookSettings
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         Using dialogSave As New SaveFileDialog
-            dialogSave.InitialDirectory = ElanTimer.Settings.Settings.LookPath
+            dialogSave.InitialDirectory = Preferences.LookPath
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.LookDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
                     SaveSettings()
-                    ElanTimer.Settings.Settings.Look.ExportTo(dialogSave.FileName)
+                    Preferences.Look.ExportTo(dialogSave.FileName)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
                 End Try

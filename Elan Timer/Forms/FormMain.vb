@@ -1,7 +1,7 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Imports System.Threading
 Imports System.Text
-
+Imports ElanTimer.Prefs
 Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
@@ -22,26 +22,26 @@ Public Class FormMain
 #Region "Timer Event Handelers"
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
         ' sw.Start()
-        ExecuteActions(Settings.Models.TimerEvent.Started)
+        ExecuteActions(Prefs.Models.TimerEvent.Started)
     End Sub
     Public Sub Timer_Paused(sender As Object, e As TimerEventArgs)
-        ExecuteActions(Settings.Models.TimerEvent.Paused)
+        ExecuteActions(Prefs.Models.TimerEvent.Paused)
     End Sub
     Public Sub Timer_Restarted(sender As Object, e As TimerEventArgs)
-        ExecuteActions(Settings.Models.TimerEvent.Restarted)
+        ExecuteActions(Prefs.Models.TimerEvent.Restarted)
         HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
         ' sw.Stop()
         ' MessageBox.Show(sw.Elapsed.TotalMilliseconds)
-        ExecuteActions(Settings.Models.TimerEvent.Expired)
+        ExecuteActions(Prefs.Models.TimerEvent.Expired)
         ShowNote()
         TryShowNoteAlert()
     End Sub
-    Public Sub ExecuteActions(e As Settings.Models.TimerEvent)
+    Public Sub ExecuteActions(e As Prefs.Models.TimerEvent)
         TaskEx.Run(Sub()
 
-                       Dim actions = From action In ElanTimer.Settings.Settings.Tasks.Tasks
+                       Dim actions = From action In Preferences.Tasks.Tasks
                                      Where action.Enabled.Equals(True) And action.Event.Equals(e)
                                      Select action
                        For Each action In actions
@@ -107,13 +107,13 @@ Public Class FormMain
 
         ' Try to assign alarm to a new Alarm object.
         Try
-            alarm = New Alarm(Common.GetAlarmPath(ElanTimer.Settings.Settings.Time.AlarmPath), ElanTimer.Settings.Settings.Time.AlarmVolume, ElanTimer.Settings.Settings.Time.AlarmLoop)
+            alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
         Catch ex As Exception
 
         End Try
 
         ' Create a new timer object.
-        timer = TimerFactory.CreateInstance(ElanTimer.Settings.Settings.Time.Duration, ElanTimer.Settings.Settings.Time.CountUp, ElanTimer.Settings.Settings.Time.Restarts, alarm, ElanTimer.Settings.Settings.Time.AlarmEnabled)
+        timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
 
         ' Start rendering.
         StartUpRendering(timer)
@@ -213,7 +213,7 @@ Public Class FormMain
     End Function
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
-                                 If (ElanTimer.Settings.Settings.Time.HasNote And ElanTimer.Settings.Settings.Time.HasNoteAlert) Then
+                                 If (Preferences.Time.HasNote And Preferences.Time.HasNoteAlert) Then
                                      MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
@@ -273,8 +273,8 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderObject(timer, ElanTimer.Settings.Settings.Look.Font, ElanTimer.Settings.Settings.Look.DisplayFormat, New TimeFormat, ElanTimer.Settings.Settings.Look.GrowToFit, ElanTimer.Settings.Settings.Look.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderObject(ElanTimer.Settings.Settings.Time.Note, ElanTimer.Settings.Settings.Look.Font, ElanTimer.Settings.Settings.Look.GrowToFit, ElanTimer.Settings.Settings.Look.ForegroundColor, stringFormat, False)
+        timerObject = New TimerTextRenderObject(timer, Preferences.Look.Font, Preferences.Look.DisplayFormat, New TimeFormat, Preferences.Look.GrowToFit, Preferences.Look.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderObject(Preferences.Time.Note, Preferences.Look.Font, Preferences.Look.GrowToFit, Preferences.Look.ForegroundColor, stringFormat, False)
         Dim objects As New List(Of IRenderObject)
 
         objects.Add(timerObject)
@@ -286,7 +286,7 @@ Public Class FormMain
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
+        timerSurface.BackColor = Preferences.Look.BackgroundColor
 
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
@@ -321,12 +321,12 @@ Public Class FormMain
 
                                             If (Not timer.IsExpired) Then
                                                 sb.Append(timerObject.Text)
-                                                If (Not ElanTimer.Settings.Settings.Time.Note = String.Empty) Then
+                                                If (Not Preferences.Time.Note = String.Empty) Then
                                                     sb.Append(" - ")
                                                 End If
                                             End If
-                                            If (ElanTimer.Settings.Settings.Time.HasNote) Then
-                                                sb.Append(ElanTimer.Settings.Settings.Time.Note)
+                                            If (Preferences.Time.HasNote) Then
+                                                sb.Append(Preferences.Time.Note)
                                             End If
 
                                             If (sb.Length = 0) Then
@@ -350,7 +350,7 @@ Public Class FormMain
         PauseTimerToolStripMenuItem.Enabled = ToolStripButtonStartPause.Enabled
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
         PauseTimerToolStripMenuItem.Text = ToolStripButtonStartPause.Text
-        Me.Opacity = ElanTimer.Settings.Settings.Look.Opacity / 100
+        Me.Opacity = Preferences.Look.Opacity / 100
     End Sub
 
     Private Sub LoadSettings()
@@ -385,22 +385,22 @@ Public Class FormMain
             RemoveTimerHandlers()
             Dim alarm As Alarm = Nothing
             Try
-                alarm = New Alarm(Common.GetAlarmPath(ElanTimer.Settings.Settings.Time.AlarmPath), ElanTimer.Settings.Settings.Time.AlarmVolume, ElanTimer.Settings.Settings.Time.AlarmLoop)
+                alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
             Catch ex As Exception
 
             End Try
             If (Not editing) Then
                 timer.Dispose()
-                timer = TimerFactory.CreateInstance(ElanTimer.Settings.Settings.Time.Duration, ElanTimer.Settings.Settings.Time.CountUp, ElanTimer.Settings.Settings.Time.Restarts, alarm, ElanTimer.Settings.Settings.Time.AlarmEnabled)
+                timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
             Else
                 timer.Alarm = alarm
-                timer.AlarmEnabled = ElanTimer.Settings.Settings.Time.AlarmEnabled
+                timer.AlarmEnabled = Preferences.Time.AlarmEnabled
             End If
             timerObject.Timer = timer
-            noteObject.Text = ElanTimer.Settings.Settings.Time.Note
+            noteObject.Text = Preferences.Time.Note
             HideNote()
             AddTimerHandlers()
-            If ElanTimer.Settings.Settings.Time.StartImmediately Then
+            If Preferences.Time.StartImmediately Then
                 SetTimerState(True)
             End If
             Me.UpdateIcons()
@@ -426,16 +426,16 @@ Public Class FormMain
             Dim noteVisible = noteObject.Visible
             noteObject.Visible = False
 
-            timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
-            timerObject.Color = ElanTimer.Settings.Settings.Look.ForegroundColor
-            timerObject.Font = ElanTimer.Settings.Settings.Look.Font
-            timerObject.Format = ElanTimer.Settings.Settings.Look.DisplayFormat
-            timerObject.SizeToFit = ElanTimer.Settings.Settings.Look.GrowToFit
+            timerSurface.BackColor = Preferences.Look.BackgroundColor
+            timerObject.Color = Preferences.Look.ForegroundColor
+            timerObject.Font = Preferences.Look.Font
+            timerObject.Format = Preferences.Look.DisplayFormat
+            timerObject.SizeToFit = Preferences.Look.GrowToFit
 
 
-            noteObject.Color = ElanTimer.Settings.Settings.Look.ForegroundColor
-            noteObject.Font = ElanTimer.Settings.Settings.Look.Font
-            noteObject.SizeToFit = ElanTimer.Settings.Settings.Look.GrowToFit
+            noteObject.Color = Preferences.Look.ForegroundColor
+            noteObject.Font = Preferences.Look.Font
+            noteObject.SizeToFit = Preferences.Look.GrowToFit
 
             timerObject.Visible = timeVisible
             noteObject.Visible = noteVisible
@@ -465,9 +465,9 @@ Public Class FormMain
     Private Sub SaveSettings()
         ' Save setting files
         Try
-            ElanTimer.Settings.Settings.Look.Save()
-            ElanTimer.Settings.Settings.Time.Save()
-            ElanTimer.Settings.Settings.Tasks.Save()
+            Preferences.Look.Save()
+            Preferences.Time.Save()
+            Preferences.Tasks.Save()
         Catch ex As Exception
             MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
             If MessageBox.Show("Elan Timer failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Elan Timer will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then

@@ -1,5 +1,5 @@
-﻿Namespace Settings
-    Public Class TaskSettings : Implements ISettings
+﻿Namespace Prefs
+    Public Class TaskPreferences : Implements IPreferences
 
         Private _tasks As List(Of Models.TaskModel)
         Private backupTasks As List(Of Models.TaskModel)
@@ -33,11 +33,11 @@
             End Set
         End Property
 
-        Public Sub ExportTo(path As String) Implements ISettings.ExportTo
+        Public Sub ExportTo(path As String) Implements IPreferences.ExportTo
             jsonDatabase.Save(path, _tasks)
         End Sub
 
-        Public Sub ImportFrom(path As String) Implements ISettings.ImportFrom
+        Public Sub ImportFrom(path As String) Implements IPreferences.ImportFrom
             Dim data As List(Of Models.TaskModel) = jsonDatabase.Load(path, GetType(List(Of Models.TaskModel)))
             If data IsNot Nothing Then
                 If _tasks Is Nothing Then
@@ -47,7 +47,7 @@
             End If
         End Sub
 
-        Public Sub Load() Implements ISettings.Load
+        Public Sub Load() Implements IPreferences.Load
             Dim data As List(Of Models.TaskModel) = jsonDatabase.Load(_path, GetType(List(Of Models.TaskModel)))
             If data IsNot Nothing Then
                 If _tasks Is Nothing Then
@@ -58,7 +58,7 @@
             End If
         End Sub
 
-        Public Sub Save() Implements ISettings.Save
+        Public Sub Save() Implements IPreferences.Save
             ExportTo(_path)
         End Sub
 
@@ -66,15 +66,15 @@
             Return tasks.ConvertAll(Function(item) New Models.TaskModel(item.Event, item.Name, item.Command, item.Arguments, item.UseScript, item.Script, item.Enabled))
         End Function
 
-        Public Sub BeginEdit() Implements ISettings.BeginEdit
+        Public Sub BeginEdit() Implements IPreferences.BeginEdit
             backupTasks = Clone(_tasks)
         End Sub
 
-        Public Sub CancelEdit() Implements ISettings.CancelEdit
+        Public Sub CancelEdit() Implements IPreferences.CancelEdit
             _tasks = Clone(backupTasks)
         End Sub
 
-        Public Sub EndEdit() Implements ISettings.EndEdit
+        Public Sub EndEdit() Implements IPreferences.EndEdit
             backupTasks = Nothing
         End Sub
     End Class

@@ -1,5 +1,5 @@
-﻿Namespace Settings
-    Public Interface ISettings
+﻿Namespace Prefs
+    Public Interface IPreferences
         Sub Load()
         Sub Save()
         Sub ExportTo(path As String)

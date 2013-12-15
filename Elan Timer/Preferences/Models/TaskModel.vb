@@ -1,4 +1,4 @@
-﻿Namespace Settings.Models
+﻿Namespace Prefs.Models
     Public Enum TimerEvent
         Expired
         Paused ' Same as Enabled = False, or calling Stop()

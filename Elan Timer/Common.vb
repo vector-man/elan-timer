@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Threading
+Imports ElanTimer.Prefs
 Public Class Common
     Public Shared ApplicationMutex As Mutex
     ' Framerate constant. This is equal to 10 frames per second.
@@ -20,7 +21,7 @@ Public Class Common
     ''' <remarks></remarks>
     Public Shared Function GetAlarms() As List(Of AlarmModel)
         Dim alarms As New List(Of AlarmModel)
-        For Each file In My.Computer.FileSystem.GetFiles(ElanTimer.Settings.Settings.AlarmsPath)
+        For Each file In My.Computer.FileSystem.GetFiles(Preferences.AlarmsPath)
             alarms.Add(New AlarmModel(System.IO.Path.GetFileNameWithoutExtension(file), System.IO.Path.GetFileName(file)))
         Next
         Return alarms
@@ -33,7 +34,7 @@ Public Class Common
     ''' <remarks></remarks>
     Public Shared Function GetAlarmPath(fileName As String) As String
         Try
-            Dim fullPath As String = System.IO.Path.Combine(ElanTimer.Settings.Settings.AlarmsPath, fileName)
+            Dim fullPath As String = System.IO.Path.Combine(Preferences.AlarmsPath, fileName)
             If My.Computer.FileSystem.FileExists(fullPath) Then
                 Return fullPath
             ElseIf My.Computer.FileSystem.FileExists(fileName) Then
@@ -137,7 +138,7 @@ Public Class Common
         DialogTimerSettings.ResumeLayout()
 
     End Sub
-    Private Shared Function IsSingleInstance() As Boolean
+    Public Shared Function IsSingleInstance() As Boolean
         Dim assembly As System.Reflection.Assembly = System.Reflection.Assembly.GetExecutingAssembly()
         Dim appGuid As String = assembly.GetType.GUID.ToString()
         applicationMutex = New Mutex(False, appGuid)

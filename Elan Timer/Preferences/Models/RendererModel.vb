@@ -1,4 +1,4 @@
-﻿Namespace Settings.Models
+﻿Namespace Prefs.Models
     Public Class RendererModel
         Sub New(id As String, name As String)
             MyClass.Id = id

@@ -27,6 +27,8 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TextBoxNote = New System.Windows.Forms.TextBox()
+        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
@@ -51,8 +53,6 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
         Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStartImmediately = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
@@ -88,6 +88,18 @@ Partial Class DialogTimerSettings
         '
         resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
         Me.TextBoxNote.Name = "TextBoxNote"
+        '
+        'CheckBoxNote
+        '
+        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
+        Me.CheckBoxNote.Name = "CheckBoxNote"
+        Me.CheckBoxNote.UseVisualStyleBackColor = True
+        '
+        'CheckBoxShowNoteAlertWhenTimerExpires
+        '
+        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel4
         '
@@ -255,18 +267,6 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.CheckBoxStartImmediately, "CheckBoxStartImmediately")
         Me.CheckBoxStartImmediately.Name = "CheckBoxStartImmediately"
         Me.CheckBoxStartImmediately.UseVisualStyleBackColor = True
-        '
-        'CheckBoxNote
-        '
-        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
-        Me.CheckBoxNote.Name = "CheckBoxNote"
-        Me.CheckBoxNote.UseVisualStyleBackColor = True
-        '
-        'CheckBoxShowNoteAlertWhenTimerExpires
-        '
-        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
         '
         'DialogTimerSettings
         '
