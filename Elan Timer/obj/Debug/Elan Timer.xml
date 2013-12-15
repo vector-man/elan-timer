@@ -343,10 +343,6 @@ ElanTimer
 	<summary>
   Looks up a localized string similar to License.
 </summary>
-</member><member name="P:ElanTimer.My.Resources.Strings.Look">
-	<summary>
-  Looks up a localized string similar to Look.
-</summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.LoopAlarm">
 	<summary>
   Looks up a localized string similar to Loop.
@@ -387,10 +383,6 @@ ElanTimer
 	<summary>
   Looks up a localized string similar to Help Online.
 </summary>
-</member><member name="P:ElanTimer.My.Resources.Strings.MenuLook">
-	<summary>
-  Looks up a localized string similar to Look....
-</summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.MenuNewTimer">
 	<summary>
   Looks up a localized string similar to New Timer....
@@ -398,6 +390,10 @@ ElanTimer
 </member><member name="P:ElanTimer.My.Resources.Strings.MenuSettings">
 	<summary>
   Looks up a localized string similar to Settings....
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.MenuStyle">
+	<summary>
+  Looks up a localized string similar to Style....
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.MenuTasks">
 	<summary>
@@ -462,6 +458,10 @@ ElanTimer
 </member><member name="P:ElanTimer.My.Resources.Strings.StopAlarm">
 	<summary>
   Looks up a localized string similar to Stop.
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.Style">
+	<summary>
+  Looks up a localized string similar to Style.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Tasks">
 	<summary>

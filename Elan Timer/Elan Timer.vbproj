@@ -173,10 +173,10 @@
     <Compile Include="Forms\DialogAbout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DialogLookSettings.Designer.vb">
-      <DependentUpon>DialogLookSettings.vb</DependentUpon>
+    <Compile Include="Forms\DialogStyleSettings.Designer.vb">
+      <DependentUpon>DialogStyleSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogLookSettings.vb">
+    <Compile Include="Forms\DialogStyleSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\DialogTaskSettings.Designer.vb">
@@ -218,9 +218,9 @@
     <Compile Include="Rendering\SurfaceFactory.vb" />
     <Compile Include="Preferences\IPreferences.vb" />
     <Compile Include="Preferences\JsonDatabase.vb" />
-    <Compile Include="Preferences\LookPreferences.vb" />
+    <Compile Include="Preferences\StylePreferences.vb" />
     <Compile Include="Preferences\Models\AlarmModel.vb" />
-    <Compile Include="Preferences\Models\LookModel.vb" />
+    <Compile Include="Preferences\Models\StyleModel.vb" />
     <Compile Include="Preferences\Models\TimeModel.vb" />
     <Compile Include="Preferences\Models\RendererModel.vb" />
     <Compile Include="Preferences\Preferences.vb" />
@@ -270,8 +270,8 @@
     <EmbeddedResource Include="Forms\DialogAbout.resx">
       <DependentUpon>DialogAbout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DialogLookSettings.resx">
-      <DependentUpon>DialogLookSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\DialogStyleSettings.resx">
+      <DependentUpon>DialogStyleSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DialogTaskSettings.resx">
       <DependentUpon>DialogTaskSettings.vb</DependentUpon>

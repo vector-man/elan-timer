@@ -149,14 +149,14 @@
   <data name="ToolStripMenuItemTasks.Text" xml:space="preserve">
     <value>Tasks...</value>
   </data>
-  <data name="ToolStripMenuItemLook.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+  <data name="ToolStripMenuItemStyle.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+L</value>
   </data>
-  <data name="ToolStripMenuItemLook.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripMenuItemStyle.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
-  <data name="ToolStripMenuItemLook.Text" xml:space="preserve">
-    <value>Look...</value>
+  <data name="ToolStripMenuItemStyle.Text" xml:space="preserve">
+    <value>Style...</value>
   </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 6</value>
@@ -216,22 +216,22 @@
     <value>F1</value>
   </data>
   <data name="ToolStripMenuItemHelpOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="ToolStripMenuItemHelpOnline.Text" xml:space="preserve">
     <value>Help Online</value>
   </data>
   <data name="ToolStripMenuItemAboutElanTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="ToolStripMenuItemAboutElanTimer.Text" xml:space="preserve">
     <value>About Elan Timer</value>
   </data>
   <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 6</value>
+    <value>168, 6</value>
   </data>
   <data name="ToolStripMenuItemCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>171, 22</value>
   </data>
   <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
     <value>Check for Updates</value>
@@ -283,21 +283,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJ9SBNhHMcfiuif/gqiKOxNSiowCgsyevuj
-        P4qgV7LRC5jRegGN9YJQOu1lVCtjOqdWti2tSAqbTfvLGjElLSOxZMPe09q8u912t+tu7nbf7q6DhL7w
-        4373fZ7P9+H53RFNsJIJfDupSPpJP+cnvUoHmawvjBPvI9O1dXVfT+IZyTFsFW4gk2KPydX4a9PwGP0C
-        wqvdUb5hblAuPh4Qjx1lRPNhRio6GIg7Z78U3hyifw+WMrFHpIdpJVl6QOQBORvv2T+SirSDCxawsZsz
-        ecF+EVzDDbDN9WCb6pBwXQN34RToa1ME7p1F4N+dHI3cI33a4eS7m5RxfaXMr0AB+6V2Vjpxpwbck/tI
-        OWxQLEehFB+CdKUMiYdeMPWnMdi8LPPjfa3868mi8PBt9SqfbpI1n10TwyE1PXGnGkKLB8mm25CGvyOd
-        GoMspSB++wreUQWhsQaR2gIMN0yVPtVMePvZZcyCO2myJ+1WcK33kGx0QZMsy6AoSu81KZkMErZLiDfd
-        Am0pBLtu1SUd1iQfNwcS9VWQbGX4/fGLgQButxupVErvOzs7wb7th3isCIytEvHl+QEDJ0SbNHu3DspB
-        EzJjaR3QZLVa4fP5UF5ejt7eXvAMC2V9Pqi6G4guXcYYuBqwbx/Del1QCrYiLUo6LIoi7Ha7Dg8MDOhe
-        IkJBWZOHUZcakD0uQDpwIBCvvgKp5Ahiff365nQ6je7ubvA8r79rM4k+74K4ZweoynOgF+aOu4LJVMGV
-        lYK57wF75hQyckaHxkvzGLMZP92NoAsLwcxbVGHghAg7d+YJ27Z/iFVfRcxxXQ9JDoagKIpeyVAYMUsJ
-        Ri/bQNnOq3DOByorJ8/A/0rYvMUctVgEymHHz2YPxCITlE35UDauhLh3B354PBhxOhDaZRKorAVmA/un
-        YDC4QRtWT+dzmS4pBn3RitHaKr0o6zmMlJzA09ZWpc3nU7q6utYa2F91dHRM8/v9/NDQkPbZGHbF6sp4
-        7oqANulodi5Dz18cYObkVLS3tXHhcBgejyetMtkGTkhLS8sU1Qw5nc6U+lxi2P9J/bHmer3euFojaj+D
-        EEL+AB/0cxxiaRVwAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM0SURBVDhPZZJrSBRrHMZfOkRf+nQgisJuUlKBUViQ0e1D
+        H4qgK9nSBcxos0BjsxBKV7ss1Zaxuq5a2e6mdThyTrmy2idriVXSMhJTdrGrae06Mzu7MzvNrDs7TzPT
+        wBHOA3/mP//3/T0v7zNDNMFKZvCdpCrpJ4Ocn/QrXWSWvjBNvI/M1dbVfX2JZyTHGKtwE5kZ+5fcjL82
+        jU/RLyC8OhjlmxYH5ZIzAfF0MSOaTzJS0fFA3LnwpfDmBP1zpJyJ/UP6mKckSzeI/EUuxvuOTqQineCC
+        BWzs7nxesF8F13QHbGsj2JYGJFy3wF0pA31rtsC9swj8u3OTkUdkQDucjLlJBTdQzvwIFLCf6xekEw/q
+        wLU/Rsphg2IphlJyAtKNCiT+9oJpPI/h1jWZsfdO+Uf7ivD4ffUqH++STZ9cf4RDqnviQS2ENg+SLfch
+        jY8hnZqCLKUgfv0C3lEDobkOkfoCjDf9KX2sm/H2k8vIgjtnsiftVnBPHyHZ7IImWZZBUZTea1IyGSRs
+        1xBvuQfaUgh2y4ZrOqxJPmMOJBprINkq8PPDZwMB3G43UqmU3nd3d4N9OwjxdBEYWzXia/MDBk6IljT7
+        sAHKcRMyU2kd0GS1WuHz+VBZWYn+/n7wDAtlaz6ohjuIrl7DGLhqcOQIw3pdUAp2Iy1KOiyKIux2uw4P
+        DQ3ps0SEgrIpD5Mu1SB7moF07FggXnsDUukpxAYG9c3pdBq9vb3geV5/1zKJPu+BeGgfqOpLoJfnTruC
+        yVTFVZSDeewBe6EMGTmjQ9OlzRizGd/dzaALC8EsWVFl4IQI+/fnCXv2DsdqbyLmuK2bJEdCUBRFr2Qo
+        jJilFJPXbaBsl1U4Z5jKyskz8N8Sdu4yRy0WgXLY8b3VA7HIBGVHPpTt6yEe3odvHg8mnA6EDpgEKmuZ
+        2cD+UzAY3KaF1df9XKZLS0BftWKyvkYvynoJE6Vn0fHkieJrb1d6eno2G9hvdXV1zfH7/fzo6Kj22Rh2
+        3cbqeO66gJZ0NDuXoZeuDDCLcqo6Ozq4cDis/R9plck2cELa2tpmezyekNPpTKnPVcb4f1LBxV6vN67W
+        hNrPI4SQXxJUcxAg9fO2AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -401,7 +401,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ProgressBarMain.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="NotifyIconMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>213, 17</value>
@@ -1812,10 +1812,10 @@
   <data name="&gt;&gt;ToolStripMenuItemTasks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemLook.Name" xml:space="preserve">
-    <value>ToolStripMenuItemLook</value>
+  <data name="&gt;&gt;ToolStripMenuItemStyle.Name" xml:space="preserve">
+    <value>ToolStripMenuItemStyle</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemLook.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolStripMenuItemStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">

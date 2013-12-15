@@ -1,14 +1,14 @@
 ﻿Namespace Prefs
-    Public Class LookPreferences : Implements IPreferences
+    Public Class StylePreferences : Implements IPreferences
         Private _path As String
         Private jsonDatabase As JsonDatabase
-        Private _look As Models.LookModel
-        Private backupLook As Models.LookModel
+        Private _look As Models.StyleModel
+        Private backupLook As Models.StyleModel
         Private _defaultModel As Object
         Sub New()
             jsonDatabase = New JsonDatabase
         End Sub
-        Sub New(path As String, defaultModel As Models.LookModel, load As Boolean)
+        Sub New(path As String, defaultModel As Models.StyleModel, load As Boolean)
             MyClass.New()
             _defaultModel = defaultModel
             _path = path
@@ -82,7 +82,7 @@
         End Sub
 
         Public Sub ImportFrom(path As String) Implements IPreferences.ImportFrom
-            _look = jsonDatabase.Load(path, GetType(Models.LookModel))
+            _look = jsonDatabase.Load(path, GetType(Models.StyleModel))
             If _look Is Nothing Then
                 _look = _defaultModel
             End If
@@ -96,8 +96,8 @@
             ExportTo(_path)
         End Sub
 
-        Private Function Clone(look As Models.LookModel)
-            Return New Models.LookModel(look.Font, look.GrowToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
+        Private Function Clone(look As Models.StyleModel)
+            Return New Models.StyleModel(look.Font, look.GrowToFit, look.BackgroundColor, look.ForegroundColor, look.Opacity, look.Renderer, look.DisplayFormat)
         End Function
 
         Public Sub BeginEdit() Implements IPreferences.BeginEdit

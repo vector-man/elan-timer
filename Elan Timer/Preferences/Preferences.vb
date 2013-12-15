@@ -17,11 +17,11 @@ Namespace Prefs
         ' The settings object for Tasks.
         Public Shared ReadOnly Tasks As New TaskPreferences(DefaultTasksPath, New List(Of Models.TaskModel), True, Not Common.IsSingleInstance())
         ' The folder where all look setting files are stored.
-        Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.LookFolder)).FullName)
+        Public Shared ReadOnly StylePath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.LookFolder)).FullName)
         ' The path to the default look data file.
-        Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
-        ' The settings object for Look.
-        Public Shared ReadOnly Look As New LookPreferences(DefaultLookPath, New Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), True)
+        Private Shared ReadOnly DefaultStylePath As String = Path.Combine(StylePath, My.Settings.DefaultStyleFile)
+        ' The settings object for Style.
+        Public Shared ReadOnly Style As New StylePreferences(DefaultStylePath, New Models.StyleModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), True)
         ' The folder where all alarm sound files are stored.
         Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(DataPath, My.Settings.AlarmFolder)).FullName
     End Class

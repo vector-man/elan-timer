@@ -1,5 +1,5 @@
 ﻿Namespace Prefs.Models
-    Public Class LookModel
+    Public Class StyleModel
         Sub New()
 
         End Sub

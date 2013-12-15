@@ -132,7 +132,7 @@ Public Class FormMain
         ExitApplication()
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemLook.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
         ShowLookDialog()
     End Sub
@@ -273,8 +273,8 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderObject(timer, Preferences.Look.Font, Preferences.Look.DisplayFormat, New TimeFormat, Preferences.Look.GrowToFit, Preferences.Look.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderObject(Preferences.Time.Note, Preferences.Look.Font, Preferences.Look.GrowToFit, Preferences.Look.ForegroundColor, stringFormat, False)
+        timerObject = New TimerTextRenderObject(timer, Preferences.Style.Font, Preferences.Style.DisplayFormat, New TimeFormat, Preferences.Style.GrowToFit, Preferences.Style.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderObject(Preferences.Time.Note, Preferences.Style.Font, Preferences.Style.GrowToFit, Preferences.Style.ForegroundColor, stringFormat, False)
         Dim objects As New List(Of IRenderObject)
 
         objects.Add(timerObject)
@@ -286,7 +286,7 @@ Public Class FormMain
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        timerSurface.BackColor = Preferences.Look.BackgroundColor
+        timerSurface.BackColor = Preferences.Style.BackgroundColor
 
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
@@ -350,7 +350,7 @@ Public Class FormMain
         PauseTimerToolStripMenuItem.Enabled = ToolStripButtonStartPause.Enabled
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
         PauseTimerToolStripMenuItem.Text = ToolStripButtonStartPause.Text
-        Me.Opacity = Preferences.Look.Opacity / 100
+        Me.Opacity = Preferences.Style.Opacity / 100
     End Sub
 
     Private Sub LoadSettings()
@@ -417,7 +417,7 @@ Public Class FormMain
     Private Sub ShowLookDialog()
         ContextMenuStripMain.Enabled = False
         Try
-            DialogLookSettings.ShowDialog(Me)
+            DialogStyleSettings.ShowDialog(Me)
 
             ' Reassign various style values for the timer rendering.
             Dim timeVisible = timerObject.Visible
@@ -426,16 +426,16 @@ Public Class FormMain
             Dim noteVisible = noteObject.Visible
             noteObject.Visible = False
 
-            timerSurface.BackColor = Preferences.Look.BackgroundColor
-            timerObject.Color = Preferences.Look.ForegroundColor
-            timerObject.Font = Preferences.Look.Font
-            timerObject.Format = Preferences.Look.DisplayFormat
-            timerObject.SizeToFit = Preferences.Look.GrowToFit
+            timerSurface.BackColor = Preferences.Style.BackgroundColor
+            timerObject.Color = Preferences.Style.ForegroundColor
+            timerObject.Font = Preferences.Style.Font
+            timerObject.Format = Preferences.Style.DisplayFormat
+            timerObject.SizeToFit = Preferences.Style.GrowToFit
 
 
-            noteObject.Color = Preferences.Look.ForegroundColor
-            noteObject.Font = Preferences.Look.Font
-            noteObject.SizeToFit = Preferences.Look.GrowToFit
+            noteObject.Color = Preferences.Style.ForegroundColor
+            noteObject.Font = Preferences.Style.Font
+            noteObject.SizeToFit = Preferences.Style.GrowToFit
 
             timerObject.Visible = timeVisible
             noteObject.Visible = noteVisible
@@ -465,7 +465,7 @@ Public Class FormMain
     Private Sub SaveSettings()
         ' Save setting files
         Try
-            Preferences.Look.Save()
+            Preferences.Style.Save()
             Preferences.Time.Save()
             Preferences.Tasks.Save()
         Catch ex As Exception

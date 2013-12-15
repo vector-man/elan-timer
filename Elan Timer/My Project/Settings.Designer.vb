@@ -126,138 +126,138 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("_look")>  _
-        Public Property DefaultLookFile() As String
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("_style")> _
+        Public Property DefaultStyleFile() As String
             Get
-                Return CType(Me("DefaultLookFile"),String)
+                Return CType(Me("DefaultStyleFile"), String)
             End Get
-            Set
-                Me("DefaultLookFile") = value
+            Set(value As String)
+                Me("DefaultStyleFile") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("_timer")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("_timer")> _
         Public Property DefaultTimeFile() As String
             Get
-                Return CType(Me("DefaultTimeFile"),String)
+                Return CType(Me("DefaultTimeFile"), String)
             End Get
-            Set
+            Set(value As String)
                 Me("DefaultTimeFile") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Time Files (*.time)|*.time")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Time Files (*.time)|*.time")> _
         Public ReadOnly Property TimeDialogFilter() As String
             Get
-                Return CType(Me("TimeDialogFilter"),String)
+                Return CType(Me("TimeDialogFilter"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Task Files (*.task)|*.task")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Task Files (*.task)|*.task")> _
         Public ReadOnly Property TaskDialogFilter() As String
             Get
-                Return CType(Me("TaskDialogFilter"),String)
+                Return CType(Me("TaskDialogFilter"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Audio Files (*.wav; *.wave)|*.wav; *.wave")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Audio Files (*.wav; *.wave)|*.wav; *.wave")> _
         Public ReadOnly Property AlarmDialogFilter() As String
             Get
-                Return CType(Me("AlarmDialogFilter"),String)
+                Return CType(Me("AlarmDialogFilter"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("290, 145")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("290, 145")> _
         Public Property WindowSize() As Global.System.Drawing.Size
             Get
-                Return CType(Me("WindowSize"),Global.System.Drawing.Size)
+                Return CType(Me("WindowSize"), Global.System.Drawing.Size)
             End Get
-            Set
+            Set(value As Global.System.Drawing.Size)
                 Me("WindowSize") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("417, 208")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("417, 208")> _
         Public ReadOnly Property DefaultWindowSize() As Global.System.Drawing.Size
             Get
-                Return CType(Me("DefaultWindowSize"),Global.System.Drawing.Size)
+                Return CType(Me("DefaultWindowSize"), Global.System.Drawing.Size)
             End Get
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
         Public Property WindowMaximized() As Boolean
             Get
-                Return CType(Me("WindowMaximized"),Boolean)
+                Return CType(Me("WindowMaximized"), Boolean)
             End Get
-            Set
+            Set(value As Boolean)
                 Me("WindowMaximized") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
         Public Property WindowFullScreen() As Boolean
             Get
-                Return CType(Me("WindowFullScreen"),Boolean)
+                Return CType(Me("WindowFullScreen"), Boolean)
             End Get
-            Set
+            Set(value As Boolean)
                 Me("WindowFullScreen") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("290")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("290")> _
         Public ReadOnly Property DefaultCompactWindowWidth() As Integer
             Get
-                Return CType(Me("DefaultCompactWindowWidth"),Integer)
+                Return CType(Me("DefaultCompactWindowWidth"), Integer)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Look Files (*.look)|*.look")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Style Files (*.look)|*.look")> _
         Public ReadOnly Property LookDialogFilter() As String
             Get
-                Return CType(Me("LookDialogFilter"),String)
+                Return CType(Me("LookDialogFilter"), String)
             End Get
         End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Calibri, 24pt, style=Bold")>  _
+
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Calibri, 24pt, style=Bold")> _
         Public ReadOnly Property DefaultFont() As Global.System.Drawing.Font
             Get
-                Return CType(Me("DefaultFont"),Global.System.Drawing.Font)
+                Return CType(Me("DefaultFont"), Global.System.Drawing.Font)
             End Get
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Looks")>  _
+
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.Configuration.DefaultSettingValueAttribute("Styles")> _
         Public Property LookFolder() As String
             Get
-                Return CType(Me("LookFolder"),String)
+                Return CType(Me("LookFolder"), String)
             End Get
-            Set
-                Me("LookFolder") = value
+            Set(value As String)
+                Me("LookFolder") = Value
             End Set
         End Property
         

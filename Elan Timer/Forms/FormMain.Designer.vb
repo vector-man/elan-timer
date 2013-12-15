@@ -29,7 +29,7 @@ Partial Class FormMain
         Me.ToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItemLook = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
@@ -81,7 +81,7 @@ Partial Class FormMain
         'ToolStripSplitButtonSettings
         '
         Me.ToolStripSplitButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemLook, Me.ToolStripSeparator2, Me.ToolStripMenuItemSettings, Me.ToolStripMenuItem2, Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
+        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripSeparator2, Me.ToolStripMenuItemSettings, Me.ToolStripMenuItem2, Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
         resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
         Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
         '
@@ -100,10 +100,10 @@ Partial Class FormMain
         Me.ToolStripMenuItemTasks.Name = "ToolStripMenuItemTasks"
         resources.ApplyResources(Me.ToolStripMenuItemTasks, "ToolStripMenuItemTasks")
         '
-        'ToolStripMenuItemLook
+        'ToolStripMenuItemStyle
         '
-        Me.ToolStripMenuItemLook.Name = "ToolStripMenuItemLook"
-        resources.ApplyResources(Me.ToolStripMenuItemLook, "ToolStripMenuItemLook")
+        Me.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle"
+        resources.ApplyResources(Me.ToolStripMenuItemStyle, "ToolStripMenuItemStyle")
         '
         'ToolStripSeparator2
         '
@@ -321,7 +321,7 @@ Partial Class FormMain
     Friend WithEvents ToolStripSplitButtonSettings As System.Windows.Forms.ToolStripDropDownButton
     Friend WithEvents ToolStripMenuItemNewTimer As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemTasks As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItemLook As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItemStyle As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItemSettings As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator

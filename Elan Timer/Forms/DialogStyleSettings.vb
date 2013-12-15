@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports ElanTimer.Prefs
-Public Class DialogLookSettings
+Public Class DialogStyleSettings
     Private lookBindingSource As BindingSource
     Private argsBindingSource As BindingSource
 
@@ -19,25 +19,25 @@ Public Class DialogLookSettings
         ComboBoxDisplayFormat.DataSource = Common.DisplayFormats
         Try
             Me.ComboBoxDisplayFormat.SelectedIndex = 0
-            Me.ComboBoxDisplayFormat.SelectedValue = Preferences.Look.DisplayFormat
+            Me.ComboBoxDisplayFormat.SelectedValue = Preferences.Style.DisplayFormat
         Catch ex As Exception
 
         End Try
-        Me.ColorComboBoxForegrounColor.SelectedColor = Preferences.Look.ForegroundColor
-        Me.ColorComboBoxBackgroundColor.SelectedColor = Preferences.Look.BackgroundColor
-        Me.FontPickerFont.Value = Preferences.Look.Font
-        Me.CheckBoxGrowToFit.Checked = Preferences.Look.GrowToFit
-        Me.NumericUpDownTransparencyLevel.Value = (100 - Preferences.Look.Opacity)
+        Me.ColorComboBoxForegrounColor.SelectedColor = Preferences.Style.ForegroundColor
+        Me.ColorComboBoxBackgroundColor.SelectedColor = Preferences.Style.BackgroundColor
+        Me.FontPickerFont.Value = Preferences.Style.Font
+        Me.CheckBoxGrowToFit.Checked = Preferences.Style.GrowToFit
+        Me.NumericUpDownTransparencyLevel.Value = (100 - Preferences.Style.Opacity)
 
     End Sub
     Sub SaveSettings()
-        Preferences.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
-        Preferences.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
-        Preferences.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
-        Preferences.Look.Font = Me.FontPickerFont.Value
-        Preferences.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
-        Preferences.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
-        Preferences.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
+        Preferences.Style.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
+        Preferences.Style.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
+        Preferences.Style.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
+        Preferences.Style.Font = Me.FontPickerFont.Value
+        Preferences.Style.GrowToFit = Me.CheckBoxGrowToFit.Checked
+        Preferences.Style.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
+        Preferences.Style.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
     End Sub
     Sub UpdateUI()
@@ -45,8 +45,8 @@ Public Class DialogLookSettings
             FormMain.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value) / 100
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
-            timerObject.Color = Preferences.Look.ForegroundColor
-            timerSurface.BackColor = Preferences.Look.BackgroundColor
+            timerObject.Color = Preferences.Style.ForegroundColor
+            timerSurface.BackColor = Preferences.Style.BackgroundColor
         Catch ex As Exception
 
         End Try
@@ -66,15 +66,15 @@ Public Class DialogLookSettings
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         timer.Dispose()
         If (Not Me.DialogResult = Windows.Forms.DialogResult.OK) Then
-            Preferences.Look.CancelEdit()
-            FormMain.Opacity = Preferences.Look.Opacity / 100
+            Preferences.Style.CancelEdit()
+            FormMain.Opacity = Preferences.Style.Opacity / 100
         End If
-        Preferences.Look.EndEdit()
+        Preferences.Style.EndEdit()
         ShutDownRendering()
     End Sub
 
     Private Sub DialogLookSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Preferences.Look.BeginEdit()
+        Preferences.Style.BeginEdit()
         Dim rand As New Random
         timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), Preferences.Time.CountUp, Integer.MaxValue, Nothing, False)
         StartUpRendering(timer)
@@ -87,12 +87,12 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            timerObject = New TimerTextRenderObject(timer, New Font(Preferences.Look.Font.FontFamily, 1, Preferences.Look.Font.Style), Preferences.Look.DisplayFormat, New TimeFormat, True, Preferences.Look.ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, New Font(Preferences.Style.Font.FontFamily, 1, Preferences.Style.Font.Style), Preferences.Style.DisplayFormat, New TimeFormat, True, Preferences.Style.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
             timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
-            timerSurface.BackColor = Preferences.Look.BackgroundColor
+            timerSurface.BackColor = Preferences.Style.BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
@@ -139,12 +139,12 @@ Public Class DialogLookSettings
 
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Using dialogOpen As New OpenFileDialog
-            dialogOpen.InitialDirectory = Preferences.LookPath
+            dialogOpen.InitialDirectory = Preferences.StylePath
             dialogOpen.CheckFileExists = True
             dialogOpen.Filter = My.Settings.LookDialogFilter
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
-                    Preferences.Look.ImportFrom(dialogOpen.FileName)
+                    Preferences.Style.ImportFrom(dialogOpen.FileName)
                     LoadSettings()
                     UpdateUI()
                 Catch ex As Exception
@@ -156,13 +156,13 @@ Public Class DialogLookSettings
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         Using dialogSave As New SaveFileDialog
-            dialogSave.InitialDirectory = Preferences.LookPath
+            dialogSave.InitialDirectory = Preferences.StylePath
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.LookDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
                     SaveSettings()
-                    Preferences.Look.ExportTo(dialogSave.FileName)
+                    Preferences.Style.ExportTo(dialogSave.FileName)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
                 End Try

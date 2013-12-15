@@ -57,7 +57,7 @@ Public Class Common
         FormMain.ToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
         FormMain.ToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
         FormMain.ToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
-        FormMain.ToolStripMenuItemLook.Text = My.Resources.Strings.MenuLook
+        FormMain.ToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
         FormMain.ToolStripMenuItemSettings.Text = My.Resources.Strings.MenuSettings
         FormMain.ToolStripMenuItemAlwaysOnTop.Text = My.Resources.Strings.MenuAlwaysOnTop
         FormMain.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
@@ -84,21 +84,21 @@ Public Class Common
         DialogAbout.ResumeLayout()
 
         ' DialogLookSettings.
-        DialogLookSettings.SuspendLayout()
+        DialogStyleSettings.SuspendLayout()
 
-        DialogLookSettings.Text = My.Resources.Strings.Look
-        DialogLookSettings.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
-        DialogLookSettings.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
-        DialogLookSettings.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
-        DialogLookSettings.LabelFont.Text = My.Resources.Strings.Font
-        DialogLookSettings.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
-        DialogLookSettings.LabelTransparency.Text = My.Resources.Strings.Transparency
-        DialogLookSettings.ButtonImport.Text = My.Resources.Strings.Import
-        DialogLookSettings.ButtonExport.Text = My.Resources.Strings.Export
-        DialogLookSettings.ButtonOK.Text = My.Resources.Strings.Ok
-        DialogLookSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
+        DialogStyleSettings.Text = My.Resources.Strings.Style
+        DialogStyleSettings.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
+        DialogStyleSettings.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
+        DialogStyleSettings.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
+        DialogStyleSettings.LabelFont.Text = My.Resources.Strings.Font
+        DialogStyleSettings.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
+        DialogStyleSettings.LabelTransparency.Text = My.Resources.Strings.Transparency
+        DialogStyleSettings.ButtonImport.Text = My.Resources.Strings.Import
+        DialogStyleSettings.ButtonExport.Text = My.Resources.Strings.Export
+        DialogStyleSettings.ButtonOK.Text = My.Resources.Strings.Ok
+        DialogStyleSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
 
-        DialogLookSettings.ResumeLayout()
+        DialogStyleSettings.ResumeLayout()
 
         ' DialogTaskSettings.
         DialogTaskSettings.SuspendLayout()

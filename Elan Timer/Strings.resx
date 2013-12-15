@@ -207,9 +207,6 @@
   <data name="License" xml:space="preserve">
     <value>License</value>
   </data>
-  <data name="Look" xml:space="preserve">
-    <value>Look</value>
-  </data>
   <data name="LoopAlarm" xml:space="preserve">
     <value>Loop</value>
   </data>
@@ -240,14 +237,14 @@
   <data name="MenuHelpOnline" xml:space="preserve">
     <value>Help Online</value>
   </data>
-  <data name="MenuLook" xml:space="preserve">
-    <value>Look...</value>
-  </data>
   <data name="MenuNewTimer" xml:space="preserve">
     <value>New Timer...</value>
   </data>
   <data name="MenuSettings" xml:space="preserve">
     <value>Settings...</value>
+  </data>
+  <data name="MenuStyle" xml:space="preserve">
+    <value>Style...</value>
   </data>
   <data name="MenuTasks" xml:space="preserve">
     <value>Tasks...</value>
@@ -296,6 +293,9 @@
   </data>
   <data name="StopAlarm" xml:space="preserve">
     <value>Stop</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Style</value>
   </data>
   <data name="Tasks" xml:space="preserve">
     <value>Tasks</value>

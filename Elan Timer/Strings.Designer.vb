@@ -335,15 +335,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Look.
-        '''</summary>
-        Public Shared ReadOnly Property Look() As String
-            Get
-                Return ResourceManager.GetString("Look", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Loop.
         '''</summary>
         Public Shared ReadOnly Property LoopAlarm() As String
@@ -434,15 +425,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Look....
-        '''</summary>
-        Public Shared ReadOnly Property MenuLook() As String
-            Get
-                Return ResourceManager.GetString("MenuLook", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to New Timer....
         '''</summary>
         Public Shared ReadOnly Property MenuNewTimer() As String
@@ -457,6 +439,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property MenuSettings() As String
             Get
                 Return ResourceManager.GetString("MenuSettings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Style....
+        '''</summary>
+        Public Shared ReadOnly Property MenuStyle() As String
+            Get
+                Return ResourceManager.GetString("MenuStyle", resourceCulture)
             End Get
         End Property
         
@@ -601,6 +592,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property StopAlarm() As String
             Get
                 Return ResourceManager.GetString("StopAlarm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Style.
+        '''</summary>
+        Public Shared ReadOnly Property Style() As String
+            Get
+                Return ResourceManager.GetString("Style", resourceCulture)
             End Get
         End Property
         
