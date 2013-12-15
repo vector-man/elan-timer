@@ -1,33 +1,7 @@
 ﻿Imports System.IO
 Imports System.Threading
-
 Public Class Common
     Public Shared ApplicationMutex As Mutex
-    ' Root path can be set to application folder, or the My Documents folder, depending on the setting of 'EnableDocumentsDataFolder'.
-    Private Shared ReadOnly RootPath As String = If(My.Settings.EnableDocumentsDataFolder, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), My.Application.Info.AssemblyName), My.Application.Info.DirectoryPath)
-    Private Shared ReadOnly DataPath As String = Path.Combine(RootPath, My.Settings.DataFolder)
-    ' The folder where all time setting files are stored.
-    Public Shared ReadOnly TimePath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.TimeFolder)).FullName)
-    ' The path to the default time data file.
-    Private Shared ReadOnly DefaultTimePath As String = Path.Combine(TimePath, My.Settings.DefaultTimeFile)
-    ' The settings object for Time.
-    Public Shared ReadOnly Time As New Settings.TimeSettings(DefaultTimePath, New Settings.Models.TimeModel(New TimeSpan(0, 5, 0), False, False, 0, True, String.Empty, False, 100, String.Empty, False, False), True)
-    ' The folder where all task setting files are stored.
-    Public Shared ReadOnly TasksPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.TaskFolder)).FullName)
-    ' The path to the default tasks data file.
-    Private Shared ReadOnly DefaultTasksPath As String = Path.Combine(TasksPath, My.Settings.DefaultTaskFile)
-    ' The settings object for Tasks.
-    Public Shared ReadOnly Tasks As New Settings.TaskSettings(DefaultTasksPath, New List(Of Settings.Models.TaskModel), True, Not IsSingleInstance())
-    ' The folder where all look setting files are stored.
-    Public Shared ReadOnly LookPath As String = Path.Combine(Directory.CreateDirectory(Path.Combine(DataPath, My.Settings.LookFolder)).FullName)
-    ' The path to the default look data file.
-    Private Shared ReadOnly DefaultLookPath As String = Path.Combine(LookPath, My.Settings.DefaultLookFile)
-    ' The settings object for Look.
-    Public Shared ReadOnly Look As New Settings.LookSettings(DefaultLookPath, New Settings.Models.LookModel(My.Settings.DefaultFont, True, Color.White, Color.Silver, 100, String.Empty, "d"), True)
-    ' The folder where all alarm sound files are stored.
-    Public Shared ReadOnly AlarmsPath As String = Directory.CreateDirectory(System.IO.Path.Combine(DataPath, My.Settings.AlarmFolder)).FullName
-    ' The object for language settings, set with the default language.
-    Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     ' Framerate constant. This is equal to 10 frames per second.
     Public Const Framerate As Integer = 1000 / 10
     ' The object for all of the supported display formats for the timer (these appear in the 'Look' settings dialog).
@@ -37,6 +11,8 @@ Public Class Common
         {New KeyValuePair(Of String, String)("Total Seconds", "S")},
         {New KeyValuePair(Of String, String)("Verbal", "v")}
         }
+    ' The object for language settings, set with the default language.
+    Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     ''' <summary>
     ''' Gets all alarms from the Alarms folder.
     ''' </summary>
@@ -44,7 +20,7 @@ Public Class Common
     ''' <remarks></remarks>
     Public Shared Function GetAlarms() As List(Of AlarmModel)
         Dim alarms As New List(Of AlarmModel)
-        For Each file In My.Computer.FileSystem.GetFiles(AlarmsPath)
+        For Each file In My.Computer.FileSystem.GetFiles(ElanTimer.Settings.Settings.AlarmsPath)
             alarms.Add(New AlarmModel(System.IO.Path.GetFileNameWithoutExtension(file), System.IO.Path.GetFileName(file)))
         Next
         Return alarms
@@ -57,7 +33,7 @@ Public Class Common
     ''' <remarks></remarks>
     Public Shared Function GetAlarmPath(fileName As String) As String
         Try
-            Dim fullPath As String = System.IO.Path.Combine(AlarmsPath, fileName)
+            Dim fullPath As String = System.IO.Path.Combine(ElanTimer.Settings.Settings.AlarmsPath, fileName)
             If My.Computer.FileSystem.FileExists(fullPath) Then
                 Return fullPath
             ElseIf My.Computer.FileSystem.FileExists(fileName) Then

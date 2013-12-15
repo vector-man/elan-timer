@@ -223,6 +223,7 @@
     <Compile Include="Settings\Models\LookModel.vb" />
     <Compile Include="Settings\Models\TimeModel.vb" />
     <Compile Include="Settings\Models\RendererModel.vb" />
+    <Compile Include="Settings\Settings.vb" />
     <Compile Include="Settings\TaskSettings.vb" />
     <Compile Include="Settings\TimeSettings.vb" />
     <Compile Include="Settings\Models\TaskModel.vb" />

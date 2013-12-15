@@ -25,7 +25,7 @@ Public Class DialogTaskSettings
         Return actions.ConvertAll(Function(action) New TaskModel(action.Event, action.Name, action.Command, action.Arguments, action.UseScript, action.Script, action.Enabled))
     End Function
     Private Sub LoadSettings()
-        actionsData = CloneActions(Common.Tasks.Tasks)
+        actionsData = CloneActions(ElanTimer.Settings.Settings.Tasks.Tasks)
 
         actionsBindingSource = New BindingSource()
         actionsBindingSource.DataSource = actionsData
@@ -49,8 +49,8 @@ Public Class DialogTaskSettings
     End Sub
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
 
-        Common.Tasks.Tasks.Clear()
-        Common.Tasks.Tasks.AddRange(actionsData)
+        ElanTimer.Settings.Settings.Tasks.Tasks.Clear()
+        ElanTimer.Settings.Settings.Tasks.Tasks.AddRange(actionsData)
         actionsData = Nothing
         actionsBindingSource.Dispose()
 
@@ -69,7 +69,7 @@ Public Class DialogTaskSettings
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
         Try
             Using saveDialog As New SaveFileDialog
-                saveDialog.InitialDirectory = Common.TasksPath
+                saveDialog.InitialDirectory = ElanTimer.Settings.Settings.TasksPath
                 saveDialog.Filter = My.Settings.TaskDialogFilter
                 saveDialog.OverwritePrompt = True
                 If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
@@ -96,7 +96,7 @@ Public Class DialogTaskSettings
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Try
             Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = Common.TasksPath
+                openDialog.InitialDirectory = ElanTimer.Settings.Settings.TasksPath
                 openDialog.Filter = My.Settings.TaskDialogFilter
                 openDialog.CheckFileExists = True
                 If openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then

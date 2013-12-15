@@ -18,25 +18,25 @@ Public Class DialogLookSettings
         ComboBoxDisplayFormat.DataSource = Common.DisplayFormats
         Try
             Me.ComboBoxDisplayFormat.SelectedIndex = 0
-            Me.ComboBoxDisplayFormat.SelectedValue = Common.Look.DisplayFormat
+            Me.ComboBoxDisplayFormat.SelectedValue = ElanTimer.Settings.Settings.Look.DisplayFormat
         Catch ex As Exception
 
         End Try
-        Me.ColorComboBoxForegrounColor.SelectedColor = Common.Look.ForegroundColor
-        Me.ColorComboBoxBackgroundColor.SelectedColor = Common.Look.BackgroundColor
-        Me.FontPickerFont.Value = Common.Look.Font
-        Me.CheckBoxGrowToFit.Checked = Common.Look.GrowToFit
-        Me.NumericUpDownTransparencyLevel.Value = (100 - Common.Look.Opacity)
+        Me.ColorComboBoxForegrounColor.SelectedColor = ElanTimer.Settings.Settings.Look.ForegroundColor
+        Me.ColorComboBoxBackgroundColor.SelectedColor = ElanTimer.Settings.Settings.Look.BackgroundColor
+        Me.FontPickerFont.Value = ElanTimer.Settings.Settings.Look.Font
+        Me.CheckBoxGrowToFit.Checked = ElanTimer.Settings.Settings.Look.GrowToFit
+        Me.NumericUpDownTransparencyLevel.Value = (100 - ElanTimer.Settings.Settings.Look.Opacity)
 
     End Sub
     Sub SaveSettings()
-        Common.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
-        Common.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
-        Common.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
-        Common.Look.Font = Me.FontPickerFont.Value
-        Common.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
-        Common.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
-        Common.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
+        ElanTimer.Settings.Settings.Look.Renderer = Me.ComboBoxDisplayFormat.SelectedValue
+        ElanTimer.Settings.Settings.Look.ForegroundColor = Me.ColorComboBoxForegrounColor.SelectedColor
+        ElanTimer.Settings.Settings.Look.BackgroundColor = Me.ColorComboBoxBackgroundColor.SelectedColor
+        ElanTimer.Settings.Settings.Look.Font = Me.FontPickerFont.Value
+        ElanTimer.Settings.Settings.Look.GrowToFit = Me.CheckBoxGrowToFit.Checked
+        ElanTimer.Settings.Settings.Look.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value)
+        ElanTimer.Settings.Settings.Look.DisplayFormat = Me.ComboBoxDisplayFormat.SelectedValue
         UpdateUI()
     End Sub
     Sub UpdateUI()
@@ -44,8 +44,8 @@ Public Class DialogLookSettings
             FormMain.Opacity = (100 - Me.NumericUpDownTransparencyLevel.Value) / 100
             Me.ColorComboBoxBackgroundColor.Refresh()
             Me.ColorComboBoxForegrounColor.Refresh()
-            timerObject.Color = Common.Look.ForegroundColor
-            timerSurface.BackColor = Common.Look.BackgroundColor
+            timerObject.Color = ElanTimer.Settings.Settings.Look.ForegroundColor
+            timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
         Catch ex As Exception
 
         End Try
@@ -65,17 +65,17 @@ Public Class DialogLookSettings
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         timer.Dispose()
         If (Not Me.DialogResult = Windows.Forms.DialogResult.OK) Then
-            Common.Look.CancelEdit()
-            FormMain.Opacity = Common.Look.Opacity / 100
+            ElanTimer.Settings.Settings.Look.CancelEdit()
+            FormMain.Opacity = ElanTimer.Settings.Settings.Look.Opacity / 100
         End If
-        Common.Look.EndEdit()
+        ElanTimer.Settings.Settings.Look.EndEdit()
         ShutDownRendering()
     End Sub
 
     Private Sub DialogLookSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Common.Look.BeginEdit()
+        ElanTimer.Settings.Settings.Look.BeginEdit()
         Dim rand As New Random
-        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), Common.Time.CountUp, Integer.MaxValue, Nothing, False)
+        timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), ElanTimer.Settings.Settings.Time.CountUp, Integer.MaxValue, Nothing, False)
         StartUpRendering(timer)
         LoadSettings()
         timer.Start()
@@ -86,12 +86,12 @@ Public Class DialogLookSettings
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
             stringFormat.FormatFlags = StringFormatFlags.NoWrap
-            timerObject = New TimerTextRenderObject(timer, New Font(Common.Look.Font.FontFamily, 1, Common.Look.Font.Style), Common.Look.DisplayFormat, New TimeFormat, True, Common.Look.ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, New Font(ElanTimer.Settings.Settings.Look.Font.FontFamily, 1, ElanTimer.Settings.Settings.Look.Font.Style), ElanTimer.Settings.Settings.Look.DisplayFormat, New TimeFormat, True, ElanTimer.Settings.Settings.Look.ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
             timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
-            timerSurface.BackColor = Common.Look.BackgroundColor
+            timerSurface.BackColor = ElanTimer.Settings.Settings.Look.BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
             CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
@@ -138,12 +138,12 @@ Public Class DialogLookSettings
 
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Using dialogOpen As New OpenFileDialog
-            dialogOpen.InitialDirectory = Common.LookPath
+            dialogOpen.InitialDirectory = ElanTimer.Settings.Settings.LookPath
             dialogOpen.CheckFileExists = True
             dialogOpen.Filter = My.Settings.LookDialogFilter
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
-                    Common.Look.ImportFrom(dialogOpen.FileName)
+                    ElanTimer.Settings.Settings.Look.ImportFrom(dialogOpen.FileName)
                     LoadSettings()
                     UpdateUI()
                 Catch ex As Exception
@@ -155,13 +155,13 @@ Public Class DialogLookSettings
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         Using dialogSave As New SaveFileDialog
-            dialogSave.InitialDirectory = Common.LookPath
+            dialogSave.InitialDirectory = ElanTimer.Settings.Settings.LookPath
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.LookDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Try
                     SaveSettings()
-                    Common.Look.ExportTo(dialogSave.FileName)
+                    ElanTimer.Settings.Settings.Look.ExportTo(dialogSave.FileName)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
                 End Try
