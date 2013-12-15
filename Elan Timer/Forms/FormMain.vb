@@ -354,6 +354,30 @@ Public Class FormMain
     End Sub
 
     Private Sub LoadSettings()
+
+        Try
+            Dim args = My.Application.CommandLineArgs
+            If args.Count > 0 Then
+                Dim pref = args(0)
+                If (System.IO.File.Exists(pref)) Then
+
+                    Select Case System.IO.Path.GetExtension(pref)
+
+                        Case My.Settings.StyleFileExtension
+                            Preferences.Style.ImportFrom(pref)
+                        Case My.Settings.TaskFileExtension
+                            Preferences.Tasks.ImportFrom(pref)
+                        Case My.Settings.TimeFileExtension
+                            Preferences.Time.ImportFrom(pref)
+                    End Select
+
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+
+
         ' Fixes taskbar showing issue.
         Me.ShowInTaskbar = False
         Me.ShowInTaskbar = True
