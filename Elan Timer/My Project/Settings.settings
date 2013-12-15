@@ -92,5 +92,14 @@
     <Setting Name="DataFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data</Value>
     </Setting>
+    <Setting Name="TimeFileExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.time</Value>
+    </Setting>
+    <Setting Name="TaskFileExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.task</Value>
+    </Setting>
+    <Setting Name="StyleFileExtension" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.look</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
