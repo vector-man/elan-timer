@@ -64,6 +64,30 @@ Public Class FormMain
         Me.TopMost = CType(sender, ToolStripMenuItem).Checked
         My.Settings.AlwaysOnTop = Me.ToolStripMenuItemAlwaysOnTop.Checked
     End Sub
+    Private Delegate Sub DelegateOpenFile(s As String)
+    Private _DelegateOpenFile As DelegateOpenFile
+    Private Sub FormMain_DragDrop(sender As Object, e As DragEventArgs) Handles Me.DragDrop
+        Try
+            Dim data As Array = e.Data.GetData(DataFormats.FileDrop)
+            If (data IsNot Nothing) Then
+                Dim file = data.GetValue(0).ToString
+
+                Me.BeginInvoke(_DelegateOpenFile, New Object() {file})
+
+                Me.Activate()
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub FormMain_DragEnter(sender As Object, e As DragEventArgs) Handles Me.DragEnter
+        If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
+            e.Effect = DragDropEffects.Copy
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
 
     Private Sub FormMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If ((Not forceClose) And My.Settings.CloseToSystemTray And My.Settings.ShowInSystemTray) Then
@@ -352,25 +376,26 @@ Public Class FormMain
         PauseTimerToolStripMenuItem.Text = ToolStripButtonStartPause.Text
         Me.Opacity = Preferences.Style.Opacity / 100
     End Sub
-
+    Private Sub OpenFile(file As String)
+        Select Case System.IO.Path.GetExtension(file)
+            Case My.Settings.StyleFileExtension
+                Preferences.Style.ImportFrom(file)
+                UpdateStyle()
+            Case My.Settings.TaskFileExtension
+                Preferences.Tasks.ImportFrom(file)
+            Case My.Settings.TimeFileExtension
+                Preferences.Time.ImportFrom(file)
+                UpdateTimer(False)
+        End Select
+    End Sub
     Private Sub LoadSettings()
-
+        _DelegateOpenFile = New DelegateOpenFile(AddressOf OpenFile)
         Try
             Dim args = My.Application.CommandLineArgs
             If args.Count > 0 Then
                 Dim pref = args(0)
                 If (System.IO.File.Exists(pref)) Then
-
-                    Select Case System.IO.Path.GetExtension(pref)
-
-                        Case My.Settings.StyleFileExtension
-                            Preferences.Style.ImportFrom(pref)
-                        Case My.Settings.TaskFileExtension
-                            Preferences.Tasks.ImportFrom(pref)
-                        Case My.Settings.TimeFileExtension
-                            Preferences.Time.ImportFrom(pref)
-                    End Select
-
+                    OpenFile(pref)
                 End If
             End If
         Catch ex As Exception
@@ -406,32 +431,34 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = False
         DialogTimerSettings.Editing = editing
         If (DialogTimerSettings.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-            RemoveTimerHandlers()
-            Dim alarm As Alarm = Nothing
-            Try
-                alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
-            Catch ex As Exception
-
-            End Try
-            If (Not editing) Then
-                timer.Dispose()
-                timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
-            Else
-                timer.Alarm = alarm
-                timer.AlarmEnabled = Preferences.Time.AlarmEnabled
-            End If
-            timerObject.Timer = timer
-            noteObject.Text = Preferences.Time.Note
-            HideNote()
-            AddTimerHandlers()
-            If Preferences.Time.StartImmediately Then
-                SetTimerState(True)
-            End If
-            Me.UpdateIcons()
+            UpdateTimer(editing)
         End If
         ContextMenuStripMain.Enabled = True
     End Sub
+    Private Sub UpdateTimer(editing)
+        RemoveTimerHandlers()
+        Dim alarm As Alarm = Nothing
+        Try
+            alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
+        Catch ex As Exception
 
+        End Try
+        If (Not editing) Then
+            timer.Dispose()
+            timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
+        Else
+            timer.Alarm = alarm
+            timer.AlarmEnabled = Preferences.Time.AlarmEnabled
+        End If
+        timerObject.Timer = timer
+        noteObject.Text = Preferences.Time.Note
+        HideNote()
+        AddTimerHandlers()
+        If Preferences.Time.StartImmediately Then
+            SetTimerState(True)
+        End If
+        Me.UpdateIcons()
+    End Sub
     Private Sub ResetTimer()
         timer.Reset()
         HideNote()
@@ -442,34 +469,36 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = False
         Try
             DialogStyleSettings.ShowDialog(Me)
-
-            ' Reassign various style values for the timer rendering.
-            Dim timeVisible = timerObject.Visible
-            timerObject.Visible = False
-
-            Dim noteVisible = noteObject.Visible
-            noteObject.Visible = False
-
-            timerSurface.BackColor = Preferences.Style.BackgroundColor
-            timerObject.Color = Preferences.Style.ForegroundColor
-            timerObject.Font = Preferences.Style.Font
-            timerObject.Format = Preferences.Style.DisplayFormat
-            timerObject.SizeToFit = Preferences.Style.GrowToFit
-
-
-            noteObject.Color = Preferences.Style.ForegroundColor
-            noteObject.Font = Preferences.Style.Font
-            noteObject.SizeToFit = Preferences.Style.GrowToFit
-
-            timerObject.Visible = timeVisible
-            noteObject.Visible = noteVisible
-
+            UpdateStyle()
         Catch ex As Exception
 
         End Try
         ContextMenuStripMain.Enabled = True
     End Sub
+    Private Sub UpdateStyle()
+        ' Reassign various style values for the timer rendering.
+        Dim timeVisible = timerObject.Visible
+        timerObject.Visible = False
 
+        Dim noteVisible = noteObject.Visible
+        noteObject.Visible = False
+
+        timerSurface.BackColor = Preferences.Style.BackgroundColor
+        timerObject.Color = Preferences.Style.ForegroundColor
+        timerObject.Font = Preferences.Style.Font
+        timerObject.Format = Preferences.Style.DisplayFormat
+        timerObject.SizeToFit = Preferences.Style.GrowToFit
+
+
+        noteObject.Color = Preferences.Style.ForegroundColor
+        noteObject.Font = Preferences.Style.Font
+        noteObject.SizeToFit = Preferences.Style.GrowToFit
+
+        timerObject.Visible = timeVisible
+        noteObject.Visible = noteVisible
+
+        Me.Opacity = Preferences.Style.Opacity / 100
+    End Sub
     Private Sub ShowSettingsDialog()
         ContextMenuStripMain.Enabled = False
         Try
