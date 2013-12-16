@@ -261,6 +261,7 @@
     <Compile Include="Timers\RoundedTimeSpan.vb" />
     <Compile Include="Timers\CountDownAlarmTimer.vb" />
     <Compile Include="Timers\CountUpAlarmTimer.vb" />
+    <Compile Include="Timers\Stopwatch.vb" />
     <Compile Include="Timers\TimeFormat.vb" />
     <Compile Include="Timers\TimerBase.vb" />
     <Compile Include="Timers\TimerEventArgs.vb" />
