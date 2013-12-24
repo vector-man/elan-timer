@@ -6,7 +6,19 @@ Public Class DialogTaskSettings
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource
     Public Sub UpdateStates(sender As Object, e As EventArgs)
-        TableLayoutPanelActions.Enabled = (DataListViewActions.SelectedObjects.Count = 1)
+        Dim enabled As Boolean = (DataListViewActions.SelectedObjects.Count = 1)
+        LabelEvent.Enabled = enabled
+        ComboBoxEvent.Enabled = enabled
+        LabelName.Enabled = enabled
+        TextBoxName.Enabled = enabled
+        LabelCommand.Enabled = enabled
+        TextBoxCommand.Enabled = enabled
+        ButtonBrowseForFolder.Enabled = enabled
+        LabelArguments.Enabled = enabled
+        TextBoxArguments.Enabled = enabled
+        ButtonMoveUp.Enabled = enabled
+        ButtonMoveDown.Enabled = enabled
+
         ButtonRemove.Enabled = (DataListViewActions.SelectedObjects.Count > 0)
         ButtonExport.Enabled = (DataListViewActions.GetItemCount > 0)
     End Sub
@@ -119,5 +131,25 @@ Public Class DialogTaskSettings
 
     Private Sub MenuItemExportAll_Click(sender As Object, e As EventArgs) Handles MenuItemExportAll.Click
         ExportTasks(False)
+    End Sub
+
+    Private Sub ButtonMoveUp_Click(sender As Object, e As EventArgs) Handles ButtonMoveUp.Click
+        Dim position = actionsBindingSource.Position
+        If (Not position = 0) Then
+            Dim item = actionsBindingSource.Current
+            actionsBindingSource.Remove(item)
+            actionsBindingSource.Insert(position - 1, item)
+            actionsBindingSource.Position = position - 1
+        End If
+    End Sub
+
+    Private Sub ButtonMoveDown_Click(sender As Object, e As EventArgs) Handles ButtonMoveDown.Click
+        Dim position = actionsBindingSource.Position
+        If (position < actionsBindingSource.Count - 1) Then
+            Dim item = actionsBindingSource.Current
+            actionsBindingSource.Remove(item)
+            actionsBindingSource.Insert(position + 1, item)
+            actionsBindingSource.Position = position + 1
+        End If
     End Sub
 End Class
