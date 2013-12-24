@@ -103,8 +103,8 @@ Public Class Common
         ' DialogTaskSettings.
         DialogTaskSettings.SuspendLayout()
 
-        DialogTaskSettings.ButtonAdd.Text = My.Resources.Strings.Add
-        DialogTaskSettings.ButtonRemove.Text = My.Resources.Strings.Remove
+        '  DialogTaskSettings.ButtonAdd.Text = My.Resources.Strings.Add
+        ' DialogTaskSettings.ButtonRemove.Text = My.Resources.Strings.Remove
         DialogTaskSettings.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
         DialogTaskSettings.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
         DialogTaskSettings.OlvColumnName.Text = My.Resources.Strings.HeaderName
