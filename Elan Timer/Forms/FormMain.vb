@@ -122,7 +122,7 @@ Public Class FormMain
         ' Add handler for UpdateUI
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
-    Private Sub GlobalSettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
+    Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
         ShowSettingsDialog()
     End Sub
@@ -132,7 +132,7 @@ Public Class FormMain
         ExitApplication()
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
+    Private Sub ToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
         ShowLookDialog()
     End Sub
@@ -537,7 +537,7 @@ Public Class FormMain
     End Sub
 #End Region
 
-    Private Sub AboutEggzeyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutElanTimer.Click
+    Private Sub ToolStripMenuItemAboutElanTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutElanTimer.Click
         ' Show 'About' dialog with current form as parent.
         DialogAbout.ShowDialog(Me)
     End Sub
@@ -574,49 +574,49 @@ Public Class FormMain
         Me.Show()
     End Sub
 
-    Private Sub NewTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewTimerToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemNewTimer.Click
         ' Show 'New Timer' dialog.
         ShowTimerDialog(False)
     End Sub
 
-    Private Sub EditTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditTimerToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemEditTimer.Click
         ' Show 'Edit Timer' dialog.
         ShowTimerDialog(True)
     End Sub
 
-    Private Sub PuseTimerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PauseTimerToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemStartTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStartTimer.Click
         ' Set timer state to the opposite of its current state (toggle start/pause). 
         SetTimerState(Not timer.Enabled)
     End Sub
 
 
-    Private Sub TasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TasksToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemTasks_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemTasks.Click
         ' Show the task dialog with current form as parent.
         ContextMenuStripMain.Enabled = False
         DialogTaskSettings.ShowDialog(Me)
         ContextMenuStripMain.Enabled = True
     End Sub
 
-    Private Sub LookToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LookToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
         ShowLookDialog()
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemExit_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemExit.Click
         ' Exit the application, forcing it to close.
         ExitApplication()
     End Sub
 
-    Private Sub ResetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem.Click
+    Private Sub ToolNotifyIconStripMenuItemResetTimer_Click(sender As Object, e As EventArgs) Handles ToolNotifyIconStripMenuItemResetTimer.Click
         ' Reset the timer.
         ResetTimer()
     End Sub
 
-    Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemShow_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemShow.Click
         Me.Show()
     End Sub
 
-    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+    Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
         ShowSettingsDialog()
     End Sub
