@@ -124,7 +124,7 @@ Public Class FormMain
     End Sub
     Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
-        ShowSettingsDialog()
+        ShowSettingsDialog(Me)
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExit.Click
@@ -134,13 +134,13 @@ Public Class FormMain
 
     Private Sub ToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
-        ShowLookDialog()
+        ShowLookDialog(Me)
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
         ' Show the task dialog with current form as parent.
         ContextMenuStripMain.Enabled = False
-        DialogTaskSettings.ShowDialog(Me)
+        ShowTaskDialog(Me)
         ContextMenuStripMain.Enabled = True
     End Sub
 
@@ -159,7 +159,7 @@ Public Class FormMain
 
     Private Sub TimerSurface_DoubleClick(sender As Object, e As EventArgs)
         ' Show timer dialog without editing ('New Timer' mode).
-        ShowTimerDialog(False)
+        ShowTimerDialog(Me, False)
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
         ' Exit fullscreen mode (when the timer display area is clicked).
@@ -347,9 +347,9 @@ Public Class FormMain
     ' Update the form user interface.
     Private Sub UpdateUI()
         ToolStripButtonStartPause.Enabled = Not timer.IsExpired
-        PauseTimerToolStripMenuItem.Enabled = ToolStripButtonStartPause.Enabled
+        NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
-        PauseTimerToolStripMenuItem.Text = ToolStripButtonStartPause.Text
+        NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
         Me.Opacity = Preferences.Style.Opacity / 100
     End Sub
 
@@ -401,11 +401,25 @@ Public Class FormMain
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
+
+    Private Sub ResetTimer()
+        timer.Reset()
+        HideNote()
+        UpdateIcons()
+    End Sub
+
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
-    Public Sub ShowTimerDialog(editing As Boolean)
+    Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
+        If (owner IsNot Nothing) Then
+            DialogTimerSettings.StartPosition = FormStartPosition.CenterParent
+        Else
+            DialogTimerSettings.StartPosition = FormStartPosition.CenterScreen
+        End If
+        DialogTimerSettings.TopMost = (owner Is Nothing)
+
         ContextMenuStripMain.Enabled = False
         DialogTimerSettings.Editing = editing
-        If (DialogTimerSettings.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+        If (DialogTimerSettings.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
             RemoveTimerHandlers()
             Dim alarm As Alarm = Nothing
             Try
@@ -432,13 +446,14 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = True
     End Sub
 
-    Private Sub ResetTimer()
-        timer.Reset()
-        HideNote()
-        UpdateIcons()
-    End Sub
+    Private Sub ShowLookDialog(owner As Form)
+        If (owner IsNot Nothing) Then
+            DialogStyleSettings.StartPosition = FormStartPosition.CenterParent
+        Else
+            DialogStyleSettings.StartPosition = FormStartPosition.CenterScreen
+        End If
+        DialogStyleSettings.TopMost = (owner Is Nothing)
 
-    Private Sub ShowLookDialog()
         ContextMenuStripMain.Enabled = False
         Try
             DialogStyleSettings.ShowDialog(Me)
@@ -470,10 +485,17 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = True
     End Sub
 
-    Private Sub ShowSettingsDialog()
+    Private Sub ShowSettingsDialog(owner As Form)
+        If (owner IsNot Nothing) Then
+            DialogSettings.StartPosition = FormStartPosition.CenterParent
+        Else
+            DialogSettings.StartPosition = FormStartPosition.CenterScreen
+        End If
+        DialogSettings.TopMost = (owner Is Nothing)
+
         ContextMenuStripMain.Enabled = False
         Try
-            DialogSettings.ShowDialog(Me)
+            DialogSettings.ShowDialog(owner)
         Catch ex As Exception
             MessageBox.Show(ex.InnerException.ToString)
         End Try
@@ -481,6 +503,15 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = True
     End Sub
 
+    Private Sub ShowTaskDialog(owner As Form)
+        If (owner IsNot Nothing) Then
+            DialogTaskSettings.StartPosition = FormStartPosition.CenterParent
+        Else
+            DialogTaskSettings.StartPosition = FormStartPosition.CenterScreen
+        End If
+        DialogTaskSettings.TopMost = (owner Is Nothing)
+        DialogTaskSettings.ShowDialog(owner)
+    End Sub
     Private Sub ExitApplication()
         forceClose = True
         Me.Close()
@@ -544,17 +575,17 @@ Public Class FormMain
 
     Private Sub ToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemNewTimer.Click
         ' Show 'New Timer' dialog.
-        ShowTimerDialog(False)
+        ShowTimerDialog(Me, False)
     End Sub
 
     Private Sub ToolStripButtonNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripButtonNewTimer.Click
         ' Show 'New Timer' dialog.
-        ShowTimerDialog(False)
+        ShowTimerDialog(Me, False)
     End Sub
 
     Private Sub ToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditTimer.Click
         ' Show 'Edit Timer' dialog.
-        ShowTimerDialog(True)
+        ShowTimerDialog(Me, True)
     End Sub
 
     Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
@@ -576,12 +607,12 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemNewTimer.Click
         ' Show 'New Timer' dialog.
-        ShowTimerDialog(False)
+        ShowTimerDialog(Nothing, False)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemEditTimer.Click
         ' Show 'Edit Timer' dialog.
-        ShowTimerDialog(True)
+        ShowTimerDialog(Nothing, True)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemStartTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStartTimer.Click
@@ -593,13 +624,13 @@ Public Class FormMain
     Private Sub NotifyIconToolStripMenuItemTasks_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemTasks.Click
         ' Show the task dialog with current form as parent.
         ContextMenuStripMain.Enabled = False
-        DialogTaskSettings.ShowDialog(Me)
+        ShowTaskDialog(Nothing)
         ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
-        ShowLookDialog()
+        ShowLookDialog(Nothing)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemExit_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemExit.Click
@@ -618,6 +649,6 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
-        ShowSettingsDialog()
+        ShowSettingsDialog(Nothing)
     End Sub
 End Class
