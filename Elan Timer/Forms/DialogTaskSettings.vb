@@ -152,4 +152,12 @@ Public Class DialogTaskSettings
             actionsBindingSource.Position = position + 1
         End If
     End Sub
+
+    Private Sub ButtonBrowseForFile_Click(sender As Object, e As EventArgs) Handles ButtonBrowseForFile.Click
+        Using dialog As New OpenFileDialog
+            If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                TextBoxCommand.Text = dialog.FileName
+            End If
+        End Using
+    End Sub
 End Class
