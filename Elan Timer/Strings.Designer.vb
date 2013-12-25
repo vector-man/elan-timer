@@ -488,6 +488,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Move down.
+        '''</summary>
+        Public Shared ReadOnly Property MoveDown() As String
+            Get
+                Return ResourceManager.GetString("MoveDown", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Move up.
+        '''</summary>
+        Public Shared ReadOnly Property MoveUp() As String
+            Get
+                Return ResourceManager.GetString("MoveUp", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to New Timer.
         '''</summary>
         Public Shared ReadOnly Property NewTimer() As String
