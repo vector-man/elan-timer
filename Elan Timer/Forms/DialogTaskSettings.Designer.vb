@@ -37,7 +37,7 @@ Partial Class DialogTaskSettings
         Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnCommand = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnArguments = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
-        Me.ButtonBrowseForFolder = New System.Windows.Forms.Button()
+        Me.ButtonBrowseForFile = New System.Windows.Forms.Button()
         Me.TextBoxArguments = New System.Windows.Forms.TextBox()
         Me.LabelArguments = New System.Windows.Forms.Label()
         Me.TextBoxCommand = New System.Windows.Forms.TextBox()
@@ -116,7 +116,7 @@ Partial Class DialogTaskSettings
         resources.ApplyResources(Me.TableLayoutPanelActions, "TableLayoutPanelActions")
         Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewActions, 0, 0)
         Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFolder, 2, 7)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 7)
         Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 8)
         Me.TableLayoutPanelActions.Controls.Add(Me.LabelArguments, 0, 8)
         Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxCommand, 1, 7)
@@ -178,11 +178,11 @@ Partial Class DialogTaskSettings
         Me.OlvColumnArguments.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnArguments, "OlvColumnArguments")
         '
-        'ButtonBrowseForFolder
+        'ButtonBrowseForFile
         '
-        resources.ApplyResources(Me.ButtonBrowseForFolder, "ButtonBrowseForFolder")
-        Me.ButtonBrowseForFolder.Name = "ButtonBrowseForFolder"
-        Me.ButtonBrowseForFolder.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonBrowseForFile, "ButtonBrowseForFile")
+        Me.ButtonBrowseForFile.Name = "ButtonBrowseForFile"
+        Me.ButtonBrowseForFile.UseVisualStyleBackColor = True
         '
         'TextBoxArguments
         '
@@ -292,7 +292,7 @@ Partial Class DialogTaskSettings
     Friend WithEvents OlvColumnEvent As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumnCommand As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumnArguments As BrightIdeasSoftware.OLVColumn
-    Friend WithEvents ButtonBrowseForFolder As System.Windows.Forms.Button
+    Friend WithEvents ButtonBrowseForFile As System.Windows.Forms.Button
     Friend WithEvents TextBoxArguments As System.Windows.Forms.TextBox
     Friend WithEvents LabelArguments As System.Windows.Forms.Label
     Friend WithEvents TextBoxCommand As System.Windows.Forms.TextBox
