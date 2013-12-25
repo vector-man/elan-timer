@@ -38,8 +38,8 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
-        Me.ButtonExport = New System.Windows.Forms.Button()
-        Me.ButtonImport = New System.Windows.Forms.Button()
+        Me.ButtonSaveAs = New System.Windows.Forms.Button()
+        Me.ButtonLoad = New System.Windows.Forms.Button()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBoxDuration = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -146,8 +146,8 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 6, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 4, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonExport, 2, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonImport, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonSaveAs, 2, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonLoad, 0, 1)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'ButtonCancel
@@ -164,17 +164,17 @@ Partial Class DialogTimerSettings
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.UseVisualStyleBackColor = True
         '
-        'ButtonExport
+        'ButtonSaveAs
         '
-        resources.ApplyResources(Me.ButtonExport, "ButtonExport")
-        Me.ButtonExport.Name = "ButtonExport"
-        Me.ButtonExport.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonSaveAs, "ButtonSaveAs")
+        Me.ButtonSaveAs.Name = "ButtonSaveAs"
+        Me.ButtonSaveAs.UseVisualStyleBackColor = True
         '
-        'ButtonImport
+        'ButtonLoad
         '
-        resources.ApplyResources(Me.ButtonImport, "ButtonImport")
-        Me.ButtonImport.Name = "ButtonImport"
-        Me.ButtonImport.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonLoad, "ButtonLoad")
+        Me.ButtonLoad.Name = "ButtonLoad"
+        Me.ButtonLoad.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel3
         '
@@ -316,8 +316,8 @@ Partial Class DialogTimerSettings
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
-    Friend WithEvents ButtonExport As System.Windows.Forms.Button
-    Friend WithEvents ButtonImport As System.Windows.Forms.Button
+    Friend WithEvents ButtonSaveAs As System.Windows.Forms.Button
+    Friend WithEvents ButtonLoad As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents GroupBoxDuration As System.Windows.Forms.GroupBox
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel

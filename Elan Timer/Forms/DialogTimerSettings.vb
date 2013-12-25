@@ -84,7 +84,7 @@ Public Class DialogTimerSettings
     End Sub
 
 
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
+    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonLoad.Click
         Try
             Using openDialog As New OpenFileDialog
                 openDialog.InitialDirectory = Preferences.TimePath
@@ -100,7 +100,7 @@ Public Class DialogTimerSettings
         End Try
     End Sub
 
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonSaveAs.Click
         Try
             Using saveDialog As New SaveFileDialog
                 saveDialog.InitialDirectory = Preferences.TimePath
@@ -161,7 +161,7 @@ Public Class DialogTimerSettings
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
         Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Enabled = Me.CheckBoxNote.Checked
-        Me.ButtonImport.Enabled = (Not Editing)
+        Me.ButtonLoad.Enabled = (Not Editing)
         Me.Text = If(Editing, "Edit Timer", "New Timer")
         Me.CheckBoxCountUp.Enabled = (Not Editing)
 

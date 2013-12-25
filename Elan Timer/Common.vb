@@ -94,8 +94,8 @@ Public Class Common
         DialogStyleSettings.LabelFont.Text = My.Resources.Strings.Font
         DialogStyleSettings.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
         DialogStyleSettings.LabelTransparency.Text = My.Resources.Strings.Transparency
-        DialogStyleSettings.ButtonImport.Text = My.Resources.Strings.Import
-        DialogStyleSettings.ButtonExport.Text = My.Resources.Strings.Export
+        DialogStyleSettings.ButtonLoad.Text = My.Resources.Strings.Load
+        DialogStyleSettings.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
         DialogStyleSettings.ButtonOK.Text = My.Resources.Strings.Ok
         DialogStyleSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
 
@@ -133,8 +133,8 @@ Public Class Common
         DialogTimerSettings.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         DialogTimerSettings.CheckBoxNote.Text = My.Resources.Strings.Note
 
-        DialogTimerSettings.ButtonImport.Text = My.Resources.Strings.Import
-        DialogTimerSettings.ButtonExport.Text = My.Resources.Strings.Export
+        DialogTimerSettings.ButtonLoad.Text = My.Resources.Strings.Load
+        DialogTimerSettings.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
         DialogTimerSettings.ButtonOK.Text = My.Resources.Strings.Ok
         DialogTimerSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
 

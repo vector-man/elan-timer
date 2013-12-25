@@ -614,64 +614,64 @@
   <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonExport.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ButtonSaveAs.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonExport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ButtonSaveAs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonExport.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ButtonSaveAs.Location" type="System.Drawing.Point, System.Drawing">
     <value>94, 13</value>
   </data>
-  <data name="ButtonExport.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 23</value>
   </data>
-  <data name="ButtonExport.TabIndex" type="System.Int32, mscorlib">
+  <data name="ButtonSaveAs.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="ButtonExport.Text" xml:space="preserve">
-    <value>Export...</value>
+  <data name="ButtonSaveAs.Text" xml:space="preserve">
+    <value>Save as...</value>
   </data>
-  <data name="&gt;&gt;ButtonExport.Name" xml:space="preserve">
-    <value>ButtonExport</value>
+  <data name="&gt;&gt;ButtonSaveAs.Name" xml:space="preserve">
+    <value>ButtonSaveAs</value>
   </data>
-  <data name="&gt;&gt;ButtonExport.Type" xml:space="preserve">
+  <data name="&gt;&gt;ButtonSaveAs.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonExport.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ButtonSaveAs.Parent" xml:space="preserve">
     <value>TableLayoutPanel2</value>
   </data>
-  <data name="&gt;&gt;ButtonExport.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ButtonSaveAs.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="ButtonImport.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ButtonLoad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonImport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ButtonLoad.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonImport.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ButtonLoad.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 13</value>
   </data>
-  <data name="ButtonImport.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ButtonLoad.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="ButtonImport.TabIndex" type="System.Int32, mscorlib">
+  <data name="ButtonLoad.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="ButtonImport.Text" xml:space="preserve">
-    <value>Import...</value>
+  <data name="ButtonLoad.Text" xml:space="preserve">
+    <value>Load...</value>
   </data>
-  <data name="&gt;&gt;ButtonImport.Name" xml:space="preserve">
-    <value>ButtonImport</value>
+  <data name="&gt;&gt;ButtonLoad.Name" xml:space="preserve">
+    <value>ButtonLoad</value>
   </data>
-  <data name="&gt;&gt;ButtonImport.Type" xml:space="preserve">
+  <data name="&gt;&gt;ButtonLoad.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonImport.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ButtonLoad.Parent" xml:space="preserve">
     <value>TableLayoutPanel2</value>
   </data>
-  <data name="&gt;&gt;ButtonImport.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ButtonLoad.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="TableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -705,7 +705,7 @@
     <value>0</value>
   </data>
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonCancel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonExport" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonImport" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,10,AutoSize,0,Percent,100,AutoSize,0,Absolute,10,AutoSize,0" /&gt;&lt;Rows Styles="Absolute,10,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonCancel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonSaveAs" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonLoad" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,10,AutoSize,0,Percent,100,AutoSize,0,Absolute,10,AutoSize,0" /&gt;&lt;Rows Styles="Absolute,10,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="TableLayoutPanel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

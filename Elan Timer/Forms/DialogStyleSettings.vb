@@ -137,7 +137,7 @@ Public Class DialogStyleSettings
         End Try
     End Sub
 
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
+    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonLoad.Click
         Using dialogOpen As New OpenFileDialog
             dialogOpen.InitialDirectory = Preferences.StylePath
             dialogOpen.CheckFileExists = True
@@ -154,7 +154,7 @@ Public Class DialogStyleSettings
         End Using
     End Sub
 
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonSaveAs.Click
         Using dialogSave As New SaveFileDialog
             dialogSave.InitialDirectory = Preferences.StylePath
             dialogSave.CheckPathExists = True
