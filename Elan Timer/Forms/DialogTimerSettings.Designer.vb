@@ -33,6 +33,7 @@ Partial Class DialogTimerSettings
         Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         Me.ButtonOpenAlarm = New System.Windows.Forms.Button()
         Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
+        Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
@@ -51,9 +52,10 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
         Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStartImmediately = New System.Windows.Forms.CheckBox()
-        Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
+        CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBoxDuration.SuspendLayout()
@@ -62,7 +64,6 @@ Partial Class DialogTimerSettings
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -95,9 +96,11 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxAlarmSet, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ComboBoxAlarmPath, 1, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.ButtonAlarmPlay, 2, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.ButtonOpenAlarm, 3, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxLoop, 1, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.ButtonAlarmPlay, 4, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.ButtonOpenAlarm, 5, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.NumericUpDownVolume, 2, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxLoop, 3, 1)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         '
         'CheckBoxAlarmSet
@@ -108,6 +111,7 @@ Partial Class DialogTimerSettings
         '
         'ComboBoxAlarmPath
         '
+        Me.TableLayoutPanel4.SetColumnSpan(Me.ComboBoxAlarmPath, 3)
         resources.ApplyResources(Me.ComboBoxAlarmPath, "ComboBoxAlarmPath")
         Me.ComboBoxAlarmPath.FormattingEnabled = True
         Me.ComboBoxAlarmPath.Name = "ComboBoxAlarmPath"
@@ -129,6 +133,12 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.CheckBoxLoop, "CheckBoxLoop")
         Me.CheckBoxLoop.Name = "CheckBoxLoop"
         Me.CheckBoxLoop.UseVisualStyleBackColor = True
+        '
+        'NumericUpDownVolume
+        '
+        resources.ApplyResources(Me.NumericUpDownVolume, "NumericUpDownVolume")
+        Me.NumericUpDownVolume.Name = "NumericUpDownVolume"
+        Me.NumericUpDownVolume.Value = New Decimal(New Integer() {100, 0, 0, 0})
         '
         'TableLayoutPanel2
         '
@@ -257,10 +267,10 @@ Partial Class DialogTimerSettings
         Me.CheckBoxStartImmediately.Name = "CheckBoxStartImmediately"
         Me.CheckBoxStartImmediately.UseVisualStyleBackColor = True
         '
-        'NumericUpDownVolume
+        'Label1
         '
-        resources.ApplyResources(Me.NumericUpDownVolume, "NumericUpDownVolume")
-        Me.NumericUpDownVolume.Name = "NumericUpDownVolume"
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
         '
         'DialogTimerSettings
         '
@@ -269,7 +279,6 @@ Partial Class DialogTimerSettings
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonCancel
         Me.Controls.Add(Me.TableLayoutPanel3)
-        Me.Controls.Add(Me.NumericUpDownVolume)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -279,6 +288,7 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel5.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
+        CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
@@ -291,7 +301,6 @@ Partial Class DialogTimerSettings
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -325,5 +334,6 @@ End Sub
     Friend WithEvents CheckBoxNote As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
     Friend WithEvents NumericUpDownVolume As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class
