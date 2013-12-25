@@ -13,7 +13,7 @@ Public Class DialogTaskSettings
         TextBoxName.Enabled = enabled
         LabelCommand.Enabled = enabled
         TextBoxCommand.Enabled = enabled
-        ButtonBrowseForFolder.Enabled = enabled
+        ButtonBrowseForFile.Enabled = enabled
         LabelArguments.Enabled = enabled
         TextBoxArguments.Enabled = enabled
         ButtonMoveUp.Enabled = enabled
