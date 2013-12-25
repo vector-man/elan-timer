@@ -3,6 +3,7 @@ Imports System.Threading
 Imports ElanTimer.Prefs
 Public Class Common
     Public Shared ApplicationMutex As Mutex
+    Private Shared toolTipMain As New ToolTip
     ' Framerate constant. This is equal to 10 frames per second.
     Public Const Framerate As Integer = 1000 / 10
     ' The object for all of the supported display formats for the timer (these appear in the 'Look' settings dialog).
@@ -103,8 +104,10 @@ Public Class Common
         ' DialogTaskSettings.
         DialogTaskSettings.SuspendLayout()
 
-        '  DialogTaskSettings.ButtonAdd.Text = My.Resources.Strings.Add
-        ' DialogTaskSettings.ButtonRemove.Text = My.Resources.Strings.Remove
+        toolTipMain.SetToolTip(DialogTaskSettings.ButtonAdd, My.Resources.Strings.Add)
+        toolTipMain.SetToolTip(DialogTaskSettings.ButtonRemove, My.Resources.Strings.Remove)
+        toolTipMain.SetToolTip(DialogTaskSettings.ButtonMoveUp, My.Resources.Strings.MoveUp)
+        toolTipMain.SetToolTip(DialogTaskSettings.ButtonMoveDown, My.Resources.Strings.MoveDown)
         DialogTaskSettings.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
         DialogTaskSettings.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
         DialogTaskSettings.OlvColumnName.Text = My.Resources.Strings.HeaderName
