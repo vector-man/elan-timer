@@ -23,10 +23,6 @@ Partial Class DialogTimerSettings
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DialogTimerSettings))
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TextBoxNote = New System.Windows.Forms.TextBox()
-        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
@@ -53,7 +49,9 @@ Partial Class DialogTimerSettings
         Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStartImmediately = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel5.SuspendLayout()
+        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
+        Me.TextBoxNote = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel4.SuspendLayout()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -66,35 +64,13 @@ Partial Class DialogTimerSettings
         CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TableLayoutPanel5
-        '
-        resources.ApplyResources(Me.TableLayoutPanel5, "TableLayoutPanel5")
-        Me.TableLayoutPanel5.Controls.Add(Me.TextBoxNote, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.CheckBoxNote, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 1, 1)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        '
-        'TextBoxNote
-        '
-        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
-        Me.TextBoxNote.Name = "TextBoxNote"
-        '
-        'CheckBoxNote
-        '
-        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
-        Me.CheckBoxNote.Name = "CheckBoxNote"
-        Me.CheckBoxNote.UseVisualStyleBackColor = True
-        '
-        'CheckBoxShowNoteAlertWhenTimerExpires
-        '
-        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
-        '
         'TableLayoutPanel4
         '
         resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 1, 4)
+        Me.TableLayoutPanel4.Controls.Add(Me.TextBoxNote, 1, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxAlarmSet, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxNote, 0, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.ComboBoxAlarmPath, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ButtonAlarmPlay, 4, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ButtonOpenAlarm, 5, 0)
@@ -180,7 +156,6 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.TableLayoutPanel3, "TableLayoutPanel3")
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel2, 0, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel5, 0, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.GroupBoxDuration, 0, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
@@ -272,6 +247,25 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
+        'CheckBoxNote
+        '
+        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
+        Me.CheckBoxNote.Name = "CheckBoxNote"
+        Me.CheckBoxNote.UseVisualStyleBackColor = True
+        '
+        'CheckBoxShowNoteAlertWhenTimerExpires
+        '
+        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
+        Me.TableLayoutPanel4.SetColumnSpan(Me.CheckBoxShowNoteAlertWhenTimerExpires, 5)
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
+        '
+        'TextBoxNote
+        '
+        Me.TableLayoutPanel4.SetColumnSpan(Me.TextBoxNote, 5)
+        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
+        Me.TextBoxNote.Name = "TextBoxNote"
+        '
         'DialogTimerSettings
         '
         Me.AcceptButton = Me.ButtonOK
@@ -284,8 +278,6 @@ Partial Class DialogTimerSettings
         Me.MinimizeBox = False
         Me.Name = "DialogTimerSettings"
         Me.ShowInTaskbar = False
-        Me.TableLayoutPanel5.ResumeLayout(False)
-        Me.TableLayoutPanel5.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).EndInit()
@@ -305,8 +297,6 @@ Partial Class DialogTimerSettings
         Me.PerformLayout
 
 End Sub
-    Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TextBoxNote As System.Windows.Forms.TextBox
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBoxAlarmPath As System.Windows.Forms.ComboBox
@@ -331,9 +321,10 @@ End Sub
     Friend WithEvents NumericUpDownRestarts As System.Windows.Forms.NumericUpDown
     Friend WithEvents CheckBoxCountUp As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxStartImmediately As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxNote As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
     Friend WithEvents NumericUpDownVolume As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents CheckBoxShowNoteAlertWhenTimerExpires As System.Windows.Forms.CheckBox
+    Friend WithEvents TextBoxNote As System.Windows.Forms.TextBox
+    Friend WithEvents CheckBoxNote As System.Windows.Forms.CheckBox
 
 End Class
