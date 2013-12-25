@@ -207,6 +207,9 @@
   <data name="License" xml:space="preserve">
     <value>License</value>
   </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load...</value>
+  </data>
   <data name="LoopAlarm" xml:space="preserve">
     <value>Loop</value>
   </data>
@@ -287,6 +290,9 @@
   </data>
   <data name="Restarts" xml:space="preserve">
     <value>Restarts:</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save as...</value>
   </data>
   <data name="Seconds" xml:space="preserve">
     <value>Seconds</value>

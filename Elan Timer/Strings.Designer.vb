@@ -335,6 +335,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Load....
+        '''</summary>
+        Public Shared ReadOnly Property Load() As String
+            Get
+                Return ResourceManager.GetString("Load", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Loop.
         '''</summary>
         Public Shared ReadOnly Property LoopAlarm() As String
@@ -574,6 +583,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Restarts() As String
             Get
                 Return ResourceManager.GetString("Restarts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Save as....
+        '''</summary>
+        Public Shared ReadOnly Property SaveAs() As String
+            Get
+                Return ResourceManager.GetString("SaveAs", resourceCulture)
             End Get
         End Property
         
