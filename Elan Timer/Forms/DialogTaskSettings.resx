@@ -439,13 +439,13 @@
   <data name="&gt;&gt;DataListViewActions.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ButtonBrowseForFolder.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ButtonBrowseForFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonBrowseForFolder.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+  <data name="ButtonBrowseForFile.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="ButtonBrowseForFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ButtonBrowseForFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKlSURBVDhPhZLdSxRRGIf3NuhPqatyuymI6KIbCbK1
@@ -463,28 +463,28 @@
         RU5ErkJggg==
 </value>
   </data>
-  <data name="ButtonBrowseForFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ButtonBrowseForFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonBrowseForFolder.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ButtonBrowseForFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>451, 162</value>
   </data>
-  <data name="ButtonBrowseForFolder.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ButtonBrowseForFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
   </data>
-  <data name="ButtonBrowseForFolder.TabIndex" type="System.Int32, mscorlib">
+  <data name="ButtonBrowseForFile.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;ButtonBrowseForFolder.Name" xml:space="preserve">
-    <value>ButtonBrowseForFolder</value>
+  <data name="&gt;&gt;ButtonBrowseForFile.Name" xml:space="preserve">
+    <value>ButtonBrowseForFile</value>
   </data>
-  <data name="&gt;&gt;ButtonBrowseForFolder.Type" xml:space="preserve">
+  <data name="&gt;&gt;ButtonBrowseForFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonBrowseForFolder.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ButtonBrowseForFile.Parent" xml:space="preserve">
     <value>TableLayoutPanelActions</value>
   </data>
-  <data name="&gt;&gt;ButtonBrowseForFolder.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ButtonBrowseForFile.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="TextBoxArguments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
