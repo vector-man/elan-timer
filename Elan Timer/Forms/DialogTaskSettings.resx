@@ -356,7 +356,7 @@
     <value>Bottom</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 213</value>
+    <value>0, 222</value>
   </data>
   <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -422,7 +422,7 @@
     <value>3, 0, 0, 0</value>
   </data>
   <data name="DataListViewActions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 106</value>
+    <value>445, 115</value>
   </data>
   <data name="DataListViewActions.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -467,7 +467,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonBrowseForFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 162</value>
+    <value>451, 171</value>
   </data>
   <data name="ButtonBrowseForFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
@@ -491,7 +491,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 190</value>
+    <value>63, 199</value>
   </data>
   <data name="TextBoxArguments.Size" type="System.Drawing.Size, System.Drawing">
     <value>382, 20</value>
@@ -518,7 +518,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 193</value>
+    <value>0, 202</value>
   </data>
   <data name="LabelArguments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 6, 0, 6</value>
@@ -548,7 +548,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxCommand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 162</value>
+    <value>63, 171</value>
   </data>
   <data name="TextBoxCommand.Size" type="System.Drawing.Size, System.Drawing">
     <value>382, 20</value>
@@ -572,7 +572,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 136</value>
+    <value>63, 145</value>
   </data>
   <data name="TextBoxName.Size" type="System.Drawing.Size, System.Drawing">
     <value>382, 20</value>
@@ -599,7 +599,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 139</value>
+    <value>0, 148</value>
   </data>
   <data name="LabelName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 6, 0, 6</value>
@@ -626,7 +626,7 @@
     <value>7</value>
   </data>
   <data name="ComboBoxEvent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 109</value>
+    <value>63, 118</value>
   </data>
   <data name="ComboBoxEvent.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 21</value>
@@ -653,7 +653,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelCommand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 165</value>
+    <value>0, 174</value>
   </data>
   <data name="LabelCommand.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 6, 0, 6</value>
@@ -686,7 +686,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelEvent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 112</value>
+    <value>0, 121</value>
   </data>
   <data name="LabelEvent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 6, 0, 6</value>
@@ -731,7 +731,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonMoveDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 84</value>
+    <value>451, 93</value>
   </data>
   <data name="ButtonMoveDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 0</value>
@@ -773,7 +773,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 56</value>
+    <value>451, 65</value>
   </data>
   <data name="ButtonMoveUp.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
@@ -806,7 +806,7 @@
     <value>9</value>
   </data>
   <data name="TableLayoutPanelActions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 213</value>
+    <value>476, 222</value>
   </data>
   <data name="TableLayoutPanelActions.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -836,7 +836,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 246</value>
+    <value>476, 255</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
@@ -878,7 +878,7 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>492, 265</value>
+    <value>492, 287</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 12, 12, 12</value>
