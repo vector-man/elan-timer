@@ -24,12 +24,16 @@ Partial Class DialogTimerSettings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DialogTimerSettings))
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
+        Me.TextBoxNote = New System.Windows.Forms.TextBox()
         Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         Me.ButtonOpenAlarm = New System.Windows.Forms.Button()
-        Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.NumericUpDownVolume = New System.Windows.Forms.NumericUpDown()
+        Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
@@ -48,10 +52,6 @@ Partial Class DialogTimerSettings
         Me.NumericUpDownRestarts = New System.Windows.Forms.NumericUpDown()
         Me.CheckBoxCountUp = New System.Windows.Forms.CheckBox()
         Me.CheckBoxStartImmediately = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
-        Me.TextBoxNote = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel4.SuspendLayout()
         CType(Me.NumericUpDownVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -79,11 +79,30 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxLoop, 3, 1)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         '
+        'CheckBoxShowNoteAlertWhenTimerExpires
+        '
+        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
+        Me.TableLayoutPanel4.SetColumnSpan(Me.CheckBoxShowNoteAlertWhenTimerExpires, 5)
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
+        '
+        'TextBoxNote
+        '
+        Me.TableLayoutPanel4.SetColumnSpan(Me.TextBoxNote, 5)
+        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
+        Me.TextBoxNote.Name = "TextBoxNote"
+        '
         'CheckBoxAlarmSet
         '
         resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
         Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
         Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
+        '
+        'CheckBoxNote
+        '
+        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
+        Me.CheckBoxNote.Name = "CheckBoxNote"
+        Me.CheckBoxNote.UseVisualStyleBackColor = True
         '
         'ComboBoxAlarmPath
         '
@@ -104,17 +123,23 @@ Partial Class DialogTimerSettings
         Me.ButtonOpenAlarm.Name = "ButtonOpenAlarm"
         Me.ButtonOpenAlarm.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
+        '
+        'NumericUpDownVolume
+        '
+        resources.ApplyResources(Me.NumericUpDownVolume, "NumericUpDownVolume")
+        Me.NumericUpDownVolume.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDownVolume.Name = "NumericUpDownVolume"
+        Me.NumericUpDownVolume.Value = New Decimal(New Integer() {100, 0, 0, 0})
+        '
         'CheckBoxLoop
         '
         resources.ApplyResources(Me.CheckBoxLoop, "CheckBoxLoop")
         Me.CheckBoxLoop.Name = "CheckBoxLoop"
         Me.CheckBoxLoop.UseVisualStyleBackColor = True
-        '
-        'NumericUpDownVolume
-        '
-        resources.ApplyResources(Me.NumericUpDownVolume, "NumericUpDownVolume")
-        Me.NumericUpDownVolume.Name = "NumericUpDownVolume"
-        Me.NumericUpDownVolume.Value = New Decimal(New Integer() {100, 0, 0, 0})
         '
         'TableLayoutPanel2
         '
@@ -241,30 +266,6 @@ Partial Class DialogTimerSettings
         resources.ApplyResources(Me.CheckBoxStartImmediately, "CheckBoxStartImmediately")
         Me.CheckBoxStartImmediately.Name = "CheckBoxStartImmediately"
         Me.CheckBoxStartImmediately.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
-        'CheckBoxNote
-        '
-        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
-        Me.CheckBoxNote.Name = "CheckBoxNote"
-        Me.CheckBoxNote.UseVisualStyleBackColor = True
-        '
-        'CheckBoxShowNoteAlertWhenTimerExpires
-        '
-        resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
-        Me.TableLayoutPanel4.SetColumnSpan(Me.CheckBoxShowNoteAlertWhenTimerExpires, 5)
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
-        '
-        'TextBoxNote
-        '
-        Me.TableLayoutPanel4.SetColumnSpan(Me.TextBoxNote, 5)
-        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
-        Me.TextBoxNote.Name = "TextBoxNote"
         '
         'DialogTimerSettings
         '

@@ -191,4 +191,12 @@ Public Class DialogTimerSettings
             End Try
         End If
     End Sub
+
+    Private Sub NumericUpDownVolume_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownVolume.ValueChanged
+        Try
+            alarmPlayer.Volume = NumericUpDownVolume.Value
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
