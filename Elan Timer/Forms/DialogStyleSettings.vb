@@ -171,8 +171,6 @@ Public Class DialogStyleSettings
     End Sub
 
     Private Sub ComboBoxDisplayFormat_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedValueChanged
-
         timerObject.Format = ComboBoxDisplayFormat.SelectedValue
-
     End Sub
 End Class
