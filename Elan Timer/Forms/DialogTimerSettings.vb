@@ -15,7 +15,7 @@ Public Class DialogTimerSettings
 
 
         Me.CheckBoxCountUp.Checked = Preferences.Time.CountUp
-        Me.CheckBoxStartImmediately.Checked = Preferences.Time.StartImmediately
+        '  Me.CheckBoxStartImmediately.Checked = Preferences.Time.StartImmediately
         Me.NumericUpDownRestarts.Value = Preferences.Time.Restarts
         Me.CheckBoxAlarmSet.Checked = Preferences.Time.AlarmEnabled
         Me.CheckBoxLoop.Checked = Preferences.Time.AlarmLoop
@@ -51,7 +51,7 @@ Public Class DialogTimerSettings
     Private Sub SaveSettings()
         Preferences.Time.Duration = New TimeSpan(0, NumericUpDownHours.Value, NumericUpDownMinutes.Value, NumericUpDownSeconds.Value)
         Preferences.Time.CountUp = Me.CheckBoxCountUp.Checked
-        Preferences.Time.StartImmediately = Me.CheckBoxStartImmediately.Checked
+        '  Preferences.Time.StartImmediately = Me.CheckBoxStartImmediately.Checked
         Preferences.Time.Restarts = Me.NumericUpDownRestarts.Value
         Preferences.Time.AlarmEnabled = Me.CheckBoxAlarmSet.Checked
         Preferences.Time.AlarmPath = Me.ComboBoxAlarmPath.Text

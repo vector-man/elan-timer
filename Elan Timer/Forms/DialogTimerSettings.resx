@@ -121,9 +121,8 @@
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TableLayoutPanel2.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="TableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>6</value>
@@ -131,6 +130,7 @@
   <data name="TableLayoutPanel3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="TableLayoutPanel3.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
@@ -171,39 +171,6 @@
   <data name="&gt;&gt;ButtonLoad.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ButtonSaveAs.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonSaveAs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonSaveAs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 0</value>
-  </data>
-  <data name="ButtonSaveAs.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
-  </data>
-  <data name="ButtonSaveAs.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="ButtonSaveAs.Text" xml:space="preserve">
-    <value>Save as...</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Name" xml:space="preserve">
-    <value>ButtonSaveAs</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Parent" xml:space="preserve">
-    <value>TableLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -211,7 +178,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 0</value>
+    <value>272, 0</value>
   </data>
   <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -235,7 +202,7 @@
     <value>TableLayoutPanel3</value>
   </data>
   <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -244,7 +211,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 0</value>
+    <value>194, 0</value>
   </data>
   <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -268,19 +235,52 @@
     <value>TableLayoutPanel3</value>
   </data>
   <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ButtonSaveAs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonSaveAs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonSaveAs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 0</value>
+  </data>
+  <data name="ButtonSaveAs.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 23</value>
+  </data>
+  <data name="ButtonSaveAs.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="ButtonSaveAs.Text" xml:space="preserve">
+    <value>Save as...</value>
+  </data>
+  <data name="&gt;&gt;ButtonSaveAs.Name" xml:space="preserve">
+    <value>ButtonSaveAs</value>
+  </data>
+  <data name="&gt;&gt;ButtonSaveAs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonSaveAs.Parent" xml:space="preserve">
+    <value>TableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;ButtonSaveAs.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="TableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="TableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 288</value>
+    <value>3, 319</value>
   </data>
   <data name="TableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="TableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>306, 23</value>
+    <value>344, 23</value>
   </data>
   <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>58</value>
@@ -298,88 +298,13 @@
     <value>0</value>
   </data>
   <data name="TableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonLoad" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonSaveAs" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonCancel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonLoad" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonCancel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonSaveAs" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="CheckBoxStartImmediately.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxStartImmediately.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CheckBoxStartImmediately.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 259</value>
-  </data>
-  <data name="CheckBoxStartImmediately.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 3, 3</value>
-  </data>
-  <data name="CheckBoxStartImmediately.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="CheckBoxStartImmediately.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 23</value>
-  </data>
-  <data name="CheckBoxStartImmediately.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="CheckBoxStartImmediately.Text" xml:space="preserve">
-    <value>Start now</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxStartImmediately.Name" xml:space="preserve">
-    <value>CheckBoxStartImmediately</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxStartImmediately.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxStartImmediately.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxStartImmediately.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="CheckBoxAlarmSet.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxAlarmSet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 162</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 23</value>
-  </data>
-  <data name="CheckBoxAlarmSet.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="CheckBoxAlarmSet.Text" xml:space="preserve">
-    <value>Alarm:</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxAlarmSet.Name" xml:space="preserve">
-    <value>CheckBoxAlarmSet</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxAlarmSet.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxAlarmSet.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxAlarmSet.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="GroupBoxDuration.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="TableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="TableLayoutPanel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
   </data>
   <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
@@ -622,16 +547,16 @@
     <value>NoControl</value>
   </data>
   <data name="CheckBoxCountUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 107</value>
+    <value>6, 107</value>
   </data>
   <data name="CheckBoxCountUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 3, 3</value>
-  </data>
-  <data name="CheckBoxCountUp.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 3, 3, 3</value>
   </data>
+  <data name="CheckBoxCountUp.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
   <data name="CheckBoxCountUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 23</value>
+    <value>75, 23</value>
   </data>
   <data name="CheckBoxCountUp.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -658,7 +583,7 @@
     <value>5</value>
   </data>
   <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 133</value>
+    <value>332, 133</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -679,13 +604,13 @@
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="LabelHours" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelMinutes" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelSeconds" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelRestarts" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="NumericUpDownHours" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="NumericUpDownMinutes" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="NumericUpDownSeconds" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="NumericUpDownRestarts" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxCountUp" Row="4" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GroupBoxDuration.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+    <value>Fill</value>
   </data>
   <data name="GroupBoxDuration.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="GroupBoxDuration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>302, 154</value>
+    <value>344, 154</value>
   </data>
   <data name="GroupBoxDuration.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -703,133 +628,7 @@
     <value>TableLayoutPanel2</value>
   </data>
   <data name="&gt;&gt;GroupBoxDuration.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ComboBoxAlarmPath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ComboBoxAlarmPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 163</value>
-  </data>
-  <data name="ComboBoxAlarmPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 3, 3</value>
-  </data>
-  <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 21</value>
-  </data>
-  <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxAlarmPath.Name" xml:space="preserve">
-    <value>ComboBoxAlarmPath</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxAlarmPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxAlarmPath.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxAlarmPath.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 193</value>
-  </data>
-  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 3, 3</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Volume:</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="NumericUpDownVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="NumericUpDownVolume.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="NumericUpDownVolume.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 190</value>
-  </data>
-  <data name="NumericUpDownVolume.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 20</value>
-  </data>
-  <data name="NumericUpDownVolume.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="&gt;&gt;NumericUpDownVolume.Name" xml:space="preserve">
-    <value>NumericUpDownVolume</value>
-  </data>
-  <data name="&gt;&gt;NumericUpDownVolume.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;NumericUpDownVolume.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;NumericUpDownVolume.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="CheckBoxLoop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="CheckBoxLoop.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxLoop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CheckBoxLoop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>162, 191</value>
-  </data>
-  <data name="CheckBoxLoop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 3, 3, 3</value>
-  </data>
-  <data name="CheckBoxLoop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 17</value>
-  </data>
-  <data name="CheckBoxLoop.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="CheckBoxLoop.Text" xml:space="preserve">
-    <value>Loop</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxLoop.Name" xml:space="preserve">
-    <value>CheckBoxLoop</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxLoop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxLoop.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;CheckBoxLoop.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>1</value>
   </data>
   <data name="CheckBoxNote.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -841,7 +640,7 @@
     <value>NoControl</value>
   </data>
   <data name="CheckBoxNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 214</value>
+    <value>0, 161</value>
   </data>
   <data name="CheckBoxNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -868,13 +667,13 @@
     <value>TableLayoutPanel2</value>
   </data>
   <data name="&gt;&gt;CheckBoxNote.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>2</value>
   </data>
   <data name="TextBoxNote.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="TextBoxNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 216</value>
+    <value>58, 163</value>
   </data>
   <data name="TextBoxNote.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 0, 3</value>
@@ -886,7 +685,7 @@
     <value>True</value>
   </data>
   <data name="TextBoxNote.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 20</value>
+    <value>289, 20</value>
   </data>
   <data name="TextBoxNote.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
@@ -901,7 +700,115 @@
     <value>TableLayoutPanel2</value>
   </data>
   <data name="&gt;&gt;TextBoxNote.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="CheckedGroupBox1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="TableLayoutPanel4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="TableLayoutPanel4.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="TableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="CheckBoxLoop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="CheckBoxLoop.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CheckBoxLoop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CheckBoxLoop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 56</value>
+  </data>
+  <data name="CheckBoxLoop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 3, 3, 3</value>
+  </data>
+  <data name="CheckBoxLoop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 17</value>
+  </data>
+  <data name="CheckBoxLoop.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
+  </data>
+  <data name="CheckBoxLoop.Text" xml:space="preserve">
+    <value>Loop sound</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxLoop.Name" xml:space="preserve">
+    <value>CheckBoxLoop</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxLoop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxLoop.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxLoop.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 33</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Volume:</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="NumericUpDownVolume.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="NumericUpDownVolume.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="NumericUpDownVolume.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 30</value>
+  </data>
+  <data name="NumericUpDownVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 20</value>
+  </data>
+  <data name="NumericUpDownVolume.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="&gt;&gt;NumericUpDownVolume.Name" xml:space="preserve">
+    <value>NumericUpDownVolume</value>
+  </data>
+  <data name="&gt;&gt;NumericUpDownVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NumericUpDownVolume.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;NumericUpDownVolume.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="ButtonOpenAlarm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -925,10 +832,10 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonOpenAlarm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 162</value>
+    <value>279, 2</value>
   </data>
   <data name="ButtonOpenAlarm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+    <value>3, 0, 3, 0</value>
   </data>
   <data name="ButtonOpenAlarm.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 22</value>
@@ -943,10 +850,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ButtonOpenAlarm.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
+    <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;ButtonOpenAlarm.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>3</value>
   </data>
   <data name="ButtonAlarmPlay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -969,13 +876,13 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonAlarmPlay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>264, 162</value>
+    <value>306, 2</value>
   </data>
   <data name="ButtonAlarmPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="ButtonAlarmPlay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 22</value>
+    <value>22, 22</value>
   </data>
   <data name="ButtonAlarmPlay.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -987,19 +894,133 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ButtonAlarmPlay.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
+    <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;ButtonAlarmPlay.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>4</value>
+  </data>
+  <data name="ComboBoxAlarmPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 3</value>
+  </data>
+  <data name="ComboBoxAlarmPath.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 3, 3</value>
+  </data>
+  <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 21</value>
+  </data>
+  <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxAlarmPath.Name" xml:space="preserve">
+    <value>ComboBoxAlarmPath</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxAlarmPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxAlarmPath.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxAlarmPath.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 7</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Sound:</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="TableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="TableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 76</value>
+  </data>
+  <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel4.Name" xml:space="preserve">
+    <value>TableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel4.Parent" xml:space="preserve">
+    <value>CheckedGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CheckBoxLoop" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="Label1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="NumericUpDownVolume" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOpenAlarm" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAlarmPlay" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxAlarmPath" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="CheckedGroupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="CheckedGroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 212</value>
+  </data>
+  <data name="CheckedGroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>344, 101</value>
+  </data>
+  <data name="CheckedGroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="CheckedGroupBox1.Text" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="&gt;&gt;CheckedGroupBox1.Name" xml:space="preserve">
+    <value>CheckedGroupBox1</value>
+  </data>
+  <data name="&gt;&gt;CheckedGroupBox1.Type" xml:space="preserve">
+    <value>ElanTimer.CheckedGroupBox, Elan Timer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CheckedGroupBox1.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;CheckedGroupBox1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 15</value>
+    <value>7, 7</value>
+  </data>
+  <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 314</value>
+    <value>350, 345</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -1014,22 +1035,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel2.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel3" Row="6" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="CheckBoxStartImmediately" Row="5" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="CheckBoxAlarmSet" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="GroupBoxDuration" Row="0" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="ComboBoxAlarmPath" Row="1" RowSpan="1" Column="1" ColumnSpan="3" /&gt;&lt;Control Name="Label1" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxShowNoteAlertWhenTimerExpires" Row="4" RowSpan="1" Column="1" ColumnSpan="4" /&gt;&lt;Control Name="NumericUpDownVolume" Row="2" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxLoop" Row="2" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxNote" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxNote" Row="3" RowSpan="1" Column="1" ColumnSpan="5" /&gt;&lt;Control Name="ButtonOpenAlarm" Row="1" RowSpan="1" Column="5" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAlarmPlay" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel3" Row="5" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="GroupBoxDuration" Row="0" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="CheckBoxNote" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxNote" Row="1" RowSpan="1" Column="1" ColumnSpan="4" /&gt;&lt;Control Name="CheckedGroupBox1" Row="4" RowSpan="1" Column="0" ColumnSpan="6" /&gt;&lt;Control Name="CheckBoxShowNoteAlertWhenTimerExpires" Row="2" RowSpan="1" Column="0" ColumnSpan="4" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 239</value>
+    <value>0, 186</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
+  <data name="CheckBoxShowNoteAlertWhenTimerExpires.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 17</value>
+    <value>216, 23</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1047,7 +1071,49 @@
     <value>TableLayoutPanel2</value>
   </data>
   <data name="&gt;&gt;CheckBoxShowNoteAlertWhenTimerExpires.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="CheckBoxAlarmSet.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CheckBoxAlarmSet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-16, 352</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 23</value>
+  </data>
+  <data name="CheckBoxAlarmSet.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Text" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="CheckBoxAlarmSet.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxAlarmSet.Name" xml:space="preserve">
+    <value>CheckBoxAlarmSet</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxAlarmSet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxAlarmSet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxAlarmSet.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1058,11 +1124,17 @@
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>332, 328</value>
+    <value>362, 358</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>12, 12, 12, 12</value>
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
