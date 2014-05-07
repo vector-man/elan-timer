@@ -25,13 +25,12 @@ Partial Class DialogTaskSettings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DialogTaskSettings))
         Me.ButtonAdd = New System.Windows.Forms.Button()
         Me.ButtonRemove = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanelActions = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonExport = New System.Windows.Forms.Button()
         Me.ButtonImport = New System.Windows.Forms.Button()
-        Me.TableLayoutPanelActions = New System.Windows.Forms.TableLayoutPanel()
         Me.DataListViewActions = New BrightIdeasSoftware.DataListView()
         Me.OlvColumnName = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
@@ -51,9 +50,8 @@ Partial Class DialogTaskSettings
         Me.ContextMenuExport = New System.Windows.Forms.ContextMenu()
         Me.MenuItemExportSelected = New System.Windows.Forms.MenuItem()
         Me.MenuItemExportAll = New System.Windows.Forms.MenuItem()
-        Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanelActions.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.DataListViewActions, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -69,16 +67,30 @@ Partial Class DialogTaskSettings
         Me.ButtonRemove.Name = "ButtonRemove"
         Me.ButtonRemove.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel1
+        'TableLayoutPanelActions
         '
-        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanelActions, 0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        resources.ApplyResources(Me.TableLayoutPanelActions, "TableLayoutPanelActions")
+        Me.TableLayoutPanelActions.Controls.Add(Me.TableLayoutPanel2, 0, 9)
+        Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewActions, 0, 0)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 7)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 8)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelArguments, 0, 8)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxCommand, 1, 7)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxName, 1, 6)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelName, 0, 6)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ComboBoxEvent, 1, 5)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelCommand, 0, 7)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelEvent, 0, 5)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonAdd, 2, 0)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveDown, 2, 4)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveUp, 2, 3)
+        Me.TableLayoutPanelActions.Name = "TableLayoutPanelActions"
         '
         'TableLayoutPanel2
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
+        Me.TableLayoutPanelActions.SetColumnSpan(Me.TableLayoutPanel2, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 6, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 4, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonExport, 2, 1)
@@ -111,25 +123,6 @@ Partial Class DialogTaskSettings
         Me.ButtonImport.Name = "ButtonImport"
         Me.ButtonImport.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanelActions
-        '
-        resources.ApplyResources(Me.TableLayoutPanelActions, "TableLayoutPanelActions")
-        Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewActions, 0, 0)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 8)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelArguments, 0, 8)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxCommand, 1, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxName, 1, 6)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelName, 0, 6)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ComboBoxEvent, 1, 5)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelCommand, 0, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelEvent, 0, 5)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonAdd, 2, 0)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveDown, 2, 4)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveUp, 2, 3)
-        Me.TableLayoutPanelActions.Name = "TableLayoutPanelActions"
-        '
         'DataListViewActions
         '
         Me.DataListViewActions.AllColumns.Add(Me.OlvColumnName)
@@ -139,7 +132,7 @@ Partial Class DialogTaskSettings
         Me.DataListViewActions.AutoGenerateColumns = False
         Me.DataListViewActions.CheckBoxes = True
         Me.DataListViewActions.CheckedAspectName = "Enabled"
-        Me.DataListViewActions.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnName, Me.OlvColumnEvent, Me.OlvColumnCommand, Me.OlvColumnArguments})
+        Me.DataListViewActions.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnName, Me.OlvColumnEvent})
         Me.TableLayoutPanelActions.SetColumnSpan(Me.DataListViewActions, 2)
         Me.DataListViewActions.DataSource = Nothing
         resources.ApplyResources(Me.DataListViewActions, "DataListViewActions")
@@ -158,6 +151,7 @@ Partial Class DialogTaskSettings
         '
         Me.OlvColumnName.AspectName = "Name"
         Me.OlvColumnName.CellPadding = Nothing
+        Me.OlvColumnName.FillsFreeSpace = True
         resources.ApplyResources(Me.OlvColumnName, "OlvColumnName")
         '
         'OlvColumnEvent
@@ -171,12 +165,14 @@ Partial Class DialogTaskSettings
         Me.OlvColumnCommand.AspectName = "Command"
         Me.OlvColumnCommand.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnCommand, "OlvColumnCommand")
+        Me.OlvColumnCommand.IsVisible = False
         '
         'OlvColumnArguments
         '
         Me.OlvColumnArguments.AspectName = "Arguments"
         Me.OlvColumnArguments.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnArguments, "OlvColumnArguments")
+        Me.OlvColumnArguments.IsVisible = False
         '
         'ButtonBrowseForFile
         '
@@ -254,22 +250,18 @@ Partial Class DialogTaskSettings
         '
         'DialogTaskSettings
         '
-        Me.AcceptButton = Me.ButtonOK
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.ButtonCancel
-        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Controls.Add(Me.TableLayoutPanelActions)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "DialogTaskSettings"
         Me.ShowInTaskbar = False
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanelActions.ResumeLayout(False)
         Me.TableLayoutPanelActions.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         CType(Me.DataListViewActions, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -277,12 +269,6 @@ Partial Class DialogTaskSettings
     End Sub
     Friend WithEvents ButtonAdd As System.Windows.Forms.Button
     Friend WithEvents ButtonRemove As System.Windows.Forms.Button
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ButtonCancel As System.Windows.Forms.Button
-    Friend WithEvents ButtonOK As System.Windows.Forms.Button
-    Friend WithEvents ButtonExport As System.Windows.Forms.Button
-    Friend WithEvents ButtonImport As System.Windows.Forms.Button
     Friend WithEvents ContextMenuExport As System.Windows.Forms.ContextMenu
     Friend WithEvents MenuItemExportSelected As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItemExportAll As System.Windows.Forms.MenuItem
@@ -303,5 +289,10 @@ Partial Class DialogTaskSettings
     Friend WithEvents LabelEvent As System.Windows.Forms.Label
     Friend WithEvents ButtonMoveDown As System.Windows.Forms.Button
     Friend WithEvents ButtonMoveUp As System.Windows.Forms.Button
+    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ButtonCancel As System.Windows.Forms.Button
+    Friend WithEvents ButtonOK As System.Windows.Forms.Button
+    Friend WithEvents ButtonExport As System.Windows.Forms.Button
+    Friend WithEvents ButtonImport As System.Windows.Forms.Button
 
 End Class

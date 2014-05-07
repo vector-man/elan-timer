@@ -144,7 +144,7 @@
 </value>
   </data>
   <data name="ButtonAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 0</value>
+    <value>367, 0</value>
   </data>
   <data name="ButtonAdd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
@@ -168,7 +168,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ButtonAdd.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="ButtonRemove.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -194,7 +194,7 @@
 </value>
   </data>
   <data name="ButtonRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 28</value>
+    <value>367, 28</value>
   </data>
   <data name="ButtonRemove.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
@@ -215,40 +215,19 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ButtonRemove.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="TableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="TableLayoutPanelActions.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="TableLayoutPanel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="TableLayoutPanelActions.ColumnCount" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="TableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>401, 10</value>
-  </data>
-  <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="ButtonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
   </data>
   <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
     <value>ButtonCancel</value>
@@ -262,24 +241,6 @@
   <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 10</value>
-  </data>
-  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="ButtonOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
   <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
     <value>ButtonOK</value>
   </data>
@@ -292,24 +253,6 @@
   <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonExport.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonExport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 10</value>
-  </data>
-  <data name="ButtonExport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonExport.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="ButtonExport.Text" xml:space="preserve">
-    <value>Export...</value>
-  </data>
   <data name="&gt;&gt;ButtonExport.Name" xml:space="preserve">
     <value>ButtonExport</value>
   </data>
@@ -321,24 +264,6 @@
   </data>
   <data name="&gt;&gt;ButtonExport.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="ButtonImport.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonImport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
-  </data>
-  <data name="ButtonImport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonImport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonImport.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="ButtonImport.Text" xml:space="preserve">
-    <value>Import...</value>
   </data>
   <data name="&gt;&gt;ButtonImport.Name" xml:space="preserve">
     <value>ButtonImport</value>
@@ -353,7 +278,7 @@
     <value>3</value>
   </data>
   <data name="TableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+    <value>Fill</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 222</value>
@@ -365,10 +290,10 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 33</value>
+    <value>392, 33</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
+    <value>47</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel2.Name" xml:space="preserve">
     <value>TableLayoutPanel2</value>
@@ -377,40 +302,13 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel2.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+    <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonCancel" Row="1" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonExport" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonImport" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,10,AutoSize,0,Percent,100,AutoSize,0,Absolute,10,AutoSize,0" /&gt;&lt;Rows Styles="Absolute,10,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="TableLayoutPanelActions.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TableLayoutPanelActions.ColumnCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="OlvColumnName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="OlvColumnName.Width" type="System.Int32, mscorlib">
-    <value>140</value>
-  </data>
-  <data name="OlvColumnEvent.Text" xml:space="preserve">
-    <value>Event</value>
-  </data>
-  <data name="OlvColumnCommand.Text" xml:space="preserve">
-    <value>Command</value>
-  </data>
-  <data name="OlvColumnCommand.Width" type="System.Int32, mscorlib">
-    <value>130</value>
-  </data>
-  <data name="OlvColumnArguments.Text" xml:space="preserve">
-    <value>Arguments</value>
-  </data>
-  <data name="OlvColumnArguments.Width" type="System.Int32, mscorlib">
-    <value>90</value>
   </data>
   <data name="DataListViewActions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -422,7 +320,7 @@
     <value>3, 0, 0, 0</value>
   </data>
   <data name="DataListViewActions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>445, 115</value>
+    <value>361, 115</value>
   </data>
   <data name="DataListViewActions.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -437,7 +335,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;DataListViewActions.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="ButtonBrowseForFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -467,7 +365,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonBrowseForFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 171</value>
+    <value>367, 171</value>
   </data>
   <data name="ButtonBrowseForFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
@@ -485,7 +383,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ButtonBrowseForFile.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="TextBoxArguments.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -494,7 +392,7 @@
     <value>63, 199</value>
   </data>
   <data name="TextBoxArguments.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 20</value>
+    <value>298, 20</value>
   </data>
   <data name="TextBoxArguments.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -509,7 +407,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;TextBoxArguments.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="LabelArguments.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -542,7 +440,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;LabelArguments.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="TextBoxCommand.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -551,7 +449,7 @@
     <value>63, 171</value>
   </data>
   <data name="TextBoxCommand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 20</value>
+    <value>298, 20</value>
   </data>
   <data name="TextBoxCommand.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -566,7 +464,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;TextBoxCommand.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="TextBoxName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -575,7 +473,7 @@
     <value>63, 145</value>
   </data>
   <data name="TextBoxName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 20</value>
+    <value>298, 20</value>
   </data>
   <data name="TextBoxName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -590,7 +488,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;TextBoxName.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="LabelName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -623,7 +521,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;LabelName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="ComboBoxEvent.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 118</value>
@@ -644,7 +542,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ComboBoxEvent.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="LabelCommand.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -677,7 +575,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;LabelCommand.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="LabelEvent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -710,7 +608,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;LabelEvent.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="ButtonMoveDown.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -731,7 +629,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonMoveDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 93</value>
+    <value>367, 93</value>
   </data>
   <data name="ButtonMoveDown.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 0</value>
@@ -755,7 +653,7 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ButtonMoveDown.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="ButtonMoveUp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -773,7 +671,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>451, 65</value>
+    <value>367, 65</value>
   </data>
   <data name="ButtonMoveUp.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
@@ -794,19 +692,19 @@
     <value>TableLayoutPanelActions</value>
   </data>
   <data name="&gt;&gt;ButtonMoveUp.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="TableLayoutPanelActions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>7, 7</value>
   </data>
   <data name="TableLayoutPanelActions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="TableLayoutPanelActions.RowCount" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="TableLayoutPanelActions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 222</value>
+    <value>392, 255</value>
   </data>
   <data name="TableLayoutPanelActions.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -818,43 +716,172 @@
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanelActions.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanelActions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TableLayoutPanelActions.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="DataListViewActions" Row="0" RowSpan="5" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="ButtonRemove" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonBrowseForFile" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxArguments" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelArguments" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxCommand" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxName" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelName" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxEvent" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelCommand" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelEvent" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAdd" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveDown" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveUp" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="TableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 255</value>
-  </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TableLayoutPanelActions.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanelActions" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Absolute,476" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="TableLayoutPanelActions.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel2" Row="9" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="DataListViewActions" Row="0" RowSpan="5" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="ButtonRemove" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonBrowseForFile" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxArguments" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelArguments" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxCommand" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxName" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelName" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxEvent" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelCommand" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelEvent" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAdd" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveDown" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveUp" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>317, 10</value>
+  </data>
+  <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="ButtonCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
+    <value>ButtonCancel</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 10</value>
+  </data>
+  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ButtonOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
+    <value>ButtonOK</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ButtonExport.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonExport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 10</value>
+  </data>
+  <data name="ButtonExport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonExport.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="ButtonExport.Text" xml:space="preserve">
+    <value>Export...</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Name" xml:space="preserve">
+    <value>ButtonExport</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ButtonImport.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonImport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonImport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="ButtonImport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonImport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonImport.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="ButtonImport.Text" xml:space="preserve">
+    <value>Import...</value>
+  </data>
+  <data name="&gt;&gt;ButtonImport.Name" xml:space="preserve">
+    <value>ButtonImport</value>
+  </data>
+  <data name="&gt;&gt;ButtonImport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonImport.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonImport.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="OlvColumnName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="OlvColumnName.Width" type="System.Int32, mscorlib">
+    <value>140</value>
+  </data>
+  <data name="OlvColumnEvent.Text" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="OlvColumnCommand.DisplayIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="OlvColumnCommand.Text" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="OlvColumnCommand.Width" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
+  <data name="OlvColumnArguments.DisplayIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="OlvColumnArguments.Text" xml:space="preserve">
+    <value>Arguments</value>
+  </data>
+  <data name="OlvColumnArguments.Width" type="System.Int32, mscorlib">
+    <value>90</value>
   </data>
   <metadata name="ContextMenuExport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -878,10 +905,10 @@
     <value>GrowAndShrink</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>492, 287</value>
+    <value>408, 269</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>12, 12, 12, 12</value>
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

@@ -61,7 +61,7 @@ Public Class DialogTaskSettings
 
 
     End Sub
-    Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+    Private Sub ButtonOK_Click(sender As Object, e As EventArgs)
 
         Preferences.Tasks.Tasks.Clear()
         Preferences.Tasks.Tasks.AddRange(actionsData)
@@ -73,11 +73,6 @@ Public Class DialogTaskSettings
     Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         AddHandler Application.Idle, AddressOf UpdateStates
         LoadSettings()
-    End Sub
-
-
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
-        ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
     End Sub
 
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
@@ -101,24 +96,6 @@ Public Class DialogTaskSettings
                     Next
                     taskSetings.Tasks = tasksToExport
                     taskSetings.ExportTo(saveDialog.FileName)
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        End Try
-    End Sub
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
-        Try
-            Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = Preferences.TasksPath
-                openDialog.Filter = My.Settings.TaskDialogFilter
-                openDialog.CheckFileExists = True
-                If openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim taskSetings As New Prefs.TaskPreferences()
-                    taskSetings.ImportFrom(openDialog.FileName)
-                    For Each item In taskSetings.Tasks
-                        actionsBindingSource.Add(item)
-                    Next
                 End If
             End Using
         Catch ex As Exception
@@ -160,5 +137,28 @@ Public Class DialogTaskSettings
                 TextBoxCommand.Text = dialog.FileName
             End If
         End Using
+    End Sub
+
+    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
+        Try
+            Using openDialog As New OpenFileDialog
+                openDialog.InitialDirectory = Preferences.TasksPath
+                openDialog.Filter = My.Settings.TaskDialogFilter
+                openDialog.CheckFileExists = True
+                If openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                    Dim taskSetings As New Prefs.TaskPreferences()
+                    taskSetings.ImportFrom(openDialog.FileName)
+                    For Each item In taskSetings.Tasks
+                        actionsBindingSource.Add(item)
+                    Next
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+        End Try
+    End Sub
+
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
+        ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
     End Sub
 End Class
