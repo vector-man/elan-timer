@@ -167,6 +167,9 @@
   <ItemGroup>
     <Compile Include="Audio\Alarm.vb" />
     <Compile Include="Audio\LoopStream.vb" />
+    <Compile Include="CheckedGroupBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\DialogAbout.Designer.vb">
       <DependentUpon>DialogAbout.vb</DependentUpon>
     </Compile>
@@ -279,6 +282,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DialogTimerSettings.resx">
       <DependentUpon>DialogTimerSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
