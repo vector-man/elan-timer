@@ -283,21 +283,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMwSURBVDhPZZJ9SBNhHMcfiuif/gqiKOxNSiowCgsyevuj
-        P4qgV7LRC5jRegGN9YJQOu1lVCtjOqdWti2tSBKdTPvLGjElLSOxYsPe09q8u912t+tu7nbf7q6DhL7w
-        4373e57P9+H53hFNsJJJfCepSPrJIOcn/UoXmaovTBDvIzO1dXVfX+IpyTHGKtxApsRayfX4K9PIOP0c
-        wsu9Ub5hflAuPhkQTxxnRPNRRio6HIg7574QXh+hf38oZWJPSB/TRrJ0g8gjcj7ed3A0FekEFyxgY7dn
-        84L9MriGW2Cb68E21SHhugHu0hnQN6YJ3FuLwL89PRZ5QAa0w8l3NynjBkqZX4EC9kvtnHTiXg249odI
-        OWxQLMehFB+BdK0MicdeMPVn8a55Rebbuxr5V/uS8Mhd9SqfbpN1n12TwyHVPXGvGkKLB8mmu5BGviOd
-        GocspSB++wreUQWhsQaR2gKMNEyXPtVMevPZZWTBnTbZk3YruLYHSDa6oEmWZVAUpfealEwGCdsVxJvu
-        gLYUgt2w5ooOa5JPmgOJ+ipItjL8/vjFQAC3241UKqX33d3dYN8MQjxRBMZWifjK/ICBE6Ilzd6vg3LY
-        hMx4Wgc0Wa1W+Hw+lJeXo7+/HzzDQtmYD6ruFqLLVzAGrhocOMCwXheUgu1Ii5IOi6IIu92uw0NDQ/os
-        EaGgrMvDmEs1yJ5gIB06FIhXX4NUcgyxgUF9czqdRm9vL3ie19+1TKLPeiDu2wWq8gLoxbkTrmAyVXBl
-        pWAeesCeO4OMnNGhidJmjNmMn+5G0IWFYBYsqTBwQoTdu/OEHTvfx6qvI+a4qZskP4SgKIpeyVAYMUsJ
-        xq7aQNkuqnDOeyorJ8/A/0rYus0ctVgEymHHz2YPxCITlC35UDavhrh/F354PBh1OhDaYxKorEVmA/un
-        YDC4SQurr/uZTJcUg75sxVhtlV6U9QJGS07B19qqtLe1KT09PesN7K+6urpm+P1+fnh4WPtsDLtqbWU8
-        d1VASzqancvQC5cGmHk5FZ0dHVw4HNb+j7TKZBs4IS0tLdM8Hk/I6XSm1OcyY/yfVHC+1+uNqzWq9rMI
-        IeQPBZhzB0ogReEAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbSBRRHMYPRfTSUxBFYTcpqcAoLMjo9tBD
+        EXQlW7qAGW0X0NguCKWrXZZqy1hdV61sd9OKxFJjtSdriVXSMhIrdjGzi9auM7OzO7PTzLqz8zUzDST0
+        wZ/5z/+c33c43wzRBCuZxLeTsoSP9HM+0qt0kKn6wgTxbWSmtq7u64k/J1nGWIXryJToE3I99sY0Mk6/
+        hPB6b4Svmx+QC0/6xRPHGdF8lJEKDvtjzrmvhLdH6N+fiploM+lhWkiGbhB+RM7Heg6OJsPt4AJ5bPT2
+        bF6wXwZXdwtsYy3YhhrEXTfAXToD+sY0gXtvEfj3p8fCD0ifdjj57iYlXF8x88ufxw5Xz0nF71WBa32I
+        pMMGxXIcSuERSNdKEH/sBVN7FgONK9JfP1TKv1qXhEbuqlcZuk3WfXFNDgVV9/i9SghNHiQa7kIa+Y5U
+        chyylIT47St4RwWE+iqEq/MwUjddGqqa9O6Ly8iCO22yJ+xWcC0PkKh3QZMsy6AoSu81Kek04rYriDXc
+        AW3JB7thzRUd1iSfNPvjtRWQbCX4/XnYQAC3241kMqn3nZ2dYN/1QzxRAMZWjtjKXL+BE6Ilzd6vgXLY
+        hPR4Sgc0Wa1WtLW1obS0FL29veAZFsrGXFA1txBZvoIxcNXgwAGG9bqg5G1HSpR0WBRF2O12HR4YGNBn
+        8TAFZV0OxlyqQeYEA+nQIX+s8hqkomOI9vXrm1OpFLq7u8HzvP6uZRJ50QVx3y5Q5RdAL86ecAWTqYwr
+        KQbz0AP23Bmk5bQOTZQ2Y8xm/HTXg87PB7NgSZmBEyLs3p0j7Nj5MVp5HVHHTd0k8SkIRVH0SgRDiFqK
+        MHbVBsp2UYWzPlIZWTkG/lfC1m3miMUiUA47fjZ6IBaYoGzJhbJ5NcT9u/DD48Go04HgHpNAZSwyG9g/
+        BQKBTVpYPZ0vZLqoEPRlK8aqK/SirBcwWnQKrc3NSsvTp0pXV9d6A/urjo6OGT6fjx8cHNQ+G8OuWlse
+        y17l15KOZGYz9MKlfmZeVln7s2dcKBTS/o+UymQaOCFNTU3TPB5P0Ol0JtXnMmP8n1Rwvtfrjak1qvaz
+        CCHkD/jNcv4WfOSoAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -308,6 +308,10 @@
   </data>
   <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
     <value>New timer...</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ToolStripButtonNewTimer.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ToolStripButtonStartPause.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -333,7 +337,6 @@
   <data name="ToolStripMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>401, 25</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ToolStripMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -439,10 +442,10 @@
   <data name="NotifyIconToolStripMenuItemTasks.Text" xml:space="preserve">
     <value>Tasks...</value>
   </data>
-  <data name="NotifyIconToolStripMenuItemLook.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="NotifyIconToolStripMenuItemStyle.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 22</value>
   </data>
-  <data name="NotifyIconToolStripMenuItemLook.Text" xml:space="preserve">
+  <data name="NotifyIconToolStripMenuItemStyle.Text" xml:space="preserve">
     <value>Look...</value>
   </data>
   <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
@@ -1974,10 +1977,10 @@
   <data name="&gt;&gt;NotifyIconToolStripMenuItemTasks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;NotifyIconToolStripMenuItemLook.Name" xml:space="preserve">
-    <value>NotifyIconToolStripMenuItemLook</value>
+  <data name="&gt;&gt;NotifyIconToolStripMenuItemStyle.Name" xml:space="preserve">
+    <value>NotifyIconToolStripMenuItemStyle</value>
   </data>
-  <data name="&gt;&gt;NotifyIconToolStripMenuItemLook.Type" xml:space="preserve">
+  <data name="&gt;&gt;NotifyIconToolStripMenuItemStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">

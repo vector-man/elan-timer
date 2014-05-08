@@ -262,10 +262,10 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemTasks.Name = "NotifyIconToolStripMenuItemTasks"
         resources.ApplyResources(Me.NotifyIconToolStripMenuItemTasks, "NotifyIconToolStripMenuItemTasks")
         '
-        'NotifyIconToolStripMenuItemLook
+        'NotifyIconToolStripMenuItemStyle
         '
-        Me.NotifyIconToolStripMenuItemStyle.Name = "NotifyIconToolStripMenuItemLook"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStyle, "NotifyIconToolStripMenuItemLook")
+        Me.NotifyIconToolStripMenuItemStyle.Name = "NotifyIconToolStripMenuItemStyle"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStyle, "NotifyIconToolStripMenuItemStyle")
         '
         'ToolStripMenuItem1
         '
