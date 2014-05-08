@@ -415,8 +415,6 @@ Public Class FormMain
         Else
             DialogTimerSettings.StartPosition = FormStartPosition.CenterScreen
         End If
-        DialogTimerSettings.TopMost = (owner Is Nothing)
-
         ContextMenuStripMain.Enabled = False
         DialogTimerSettings.Editing = editing
         If (DialogTimerSettings.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
