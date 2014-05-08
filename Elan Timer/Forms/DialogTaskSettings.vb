@@ -61,13 +61,11 @@ Public Class DialogTaskSettings
 
 
     End Sub
-    Private Sub ButtonOK_Click(sender As Object, e As EventArgs)
-
+    Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
         Preferences.Tasks.Tasks.Clear()
         Preferences.Tasks.Tasks.AddRange(actionsData)
         actionsData = Nothing
         actionsBindingSource.Dispose()
-
     End Sub
 
     Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load

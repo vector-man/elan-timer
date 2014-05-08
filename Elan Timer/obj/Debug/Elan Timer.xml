@@ -343,6 +343,10 @@ ElanTimer
 	<summary>
   Looks up a localized string similar to License.
 </summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.Load">
+	<summary>
+  Looks up a localized string similar to Presets.
+</summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.LoopAlarm">
 	<summary>
   Looks up a localized string similar to Loop.
@@ -411,6 +415,14 @@ ElanTimer
 	<summary>
   Looks up a localized string similar to Minutes.
 </summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.MoveDown">
+	<summary>
+  Looks up a localized string similar to Move down.
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.MoveUp">
+	<summary>
+  Looks up a localized string similar to Move up.
+</summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.NewTimer">
 	<summary>
   Looks up a localized string similar to New Timer.
@@ -421,7 +433,7 @@ ElanTimer
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Ok">
 	<summary>
-  Looks up a localized string similar to OK.
+  Looks up a localized string similar to Start.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Pause">
 	<summary>
@@ -442,6 +454,10 @@ ElanTimer
 </member><member name="P:ElanTimer.My.Resources.Strings.Restarts">
 	<summary>
   Looks up a localized string similar to Restarts:.
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.SaveAs">
+	<summary>
+  Looks up a localized string similar to Set.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Seconds">
 	<summary>

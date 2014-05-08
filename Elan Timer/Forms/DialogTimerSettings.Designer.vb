@@ -169,8 +169,8 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonLoad, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 6, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonOK, 4, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSaveAs, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSaveAs, 4, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonOK, 2, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
         'ButtonLoad
