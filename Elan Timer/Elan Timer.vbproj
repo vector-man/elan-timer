@@ -117,10 +117,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Windows7APICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
-    <Reference Include="MsgPack, Version=0.1.4298.15470, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MsgPack.0.1.0.2011042300\lib\net40\MsgPack.dll</HintPath>
-    </Reference>
     <Reference Include="NAudio">
       <HintPath>..\packages\NAudio.1.7\lib\net35\NAudio.dll</HintPath>
     </Reference>
@@ -138,12 +134,6 @@
     <Reference Include="PropertyChanged">
       <HintPath>..\packages\PropertyChanged.Fody.1.48.2.0\Lib\NET35\PropertyChanged.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="Salar.Bois">
-      <HintPath>..\packages\Salar.Bois.1.7.0.0\lib\net20\Salar.Bois.dll</HintPath>
-    </Reference>
-    <Reference Include="ServiceStack.Text">
-      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -221,15 +211,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Settings\BoisTransporter.vb" />
     <Compile Include="Settings\JsonNetTransporter.vb" />
     <Compile Include="Models\StyleModel.vb" />
     <Compile Include="Models\TimeModel.vb" />
-    <Compile Include="Settings\ServiceStackJsonTransporter.vb" />
     <Compile Include="Settings\IExportable.vb" />
     <Compile Include="Settings\IImportable.vb" />
     <Compile Include="Settings\ITransporter.vb" />
-    <Compile Include="Settings\MessagePackTransporter.vb" />
     <Compile Include="Rendering\Renderer.vb" />
     <Compile Include="Rendering\IRenderer.vb" />
     <Compile Include="Rendering\RenderObjects\ClearRenderObject.vb" />
