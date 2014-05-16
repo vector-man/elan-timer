@@ -11,7 +11,6 @@ Namespace Settings
 
         <UserScopedSetting>
         <DefaultSettingValue("Calibri, 24pt, style=Bold")>
-        <BoisMember>
         Public Property DisplayFont As Font
             Get
                 Return Me("DisplayFont")

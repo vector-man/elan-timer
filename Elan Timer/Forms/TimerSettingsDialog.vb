@@ -4,7 +4,7 @@ Imports System.IO
 Imports PropertyChanged
 
 <ImplementPropertyChanged>
-Public Class DialogTimerSettings
+Public Class TimerSettingsDialog
 
     Dim _alarmsPath As String
 

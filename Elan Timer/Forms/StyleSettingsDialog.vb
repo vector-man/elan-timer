@@ -3,7 +3,7 @@ Imports ElanTimer.Prefs
 Imports ElanTimer.CodeIsle.Timers
 Imports System.IO
 
-Public Class DialogStyleSettings
+Public Class StyleSettingsDialog
     ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
     Private Const PreviewTime As Long = 5588
 

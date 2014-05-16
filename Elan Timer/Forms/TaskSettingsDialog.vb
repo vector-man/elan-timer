@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports System.IO
 
-Public Class DialogTaskSettings
+Public Class TaskSettingsDialog
 
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource

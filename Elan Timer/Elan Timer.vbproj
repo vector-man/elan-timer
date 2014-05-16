@@ -175,28 +175,28 @@
     <Compile Include="CheckedGroupBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\DialogAbout.Designer.vb">
-      <DependentUpon>DialogAbout.vb</DependentUpon>
+    <Compile Include="Forms\AboutDialog.Designer.vb">
+      <DependentUpon>AboutDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogAbout.vb">
+    <Compile Include="Forms\AboutDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DialogStyleSettings.Designer.vb">
-      <DependentUpon>DialogStyleSettings.vb</DependentUpon>
+    <Compile Include="Forms\StyleSettingsDialog.Designer.vb">
+      <DependentUpon>StyleSettingsDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogStyleSettings.vb">
+    <Compile Include="Forms\StyleSettingsDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DialogTaskSettings.Designer.vb">
-      <DependentUpon>DialogTaskSettings.vb</DependentUpon>
+    <Compile Include="Forms\TaskSettingsDialog.Designer.vb">
+      <DependentUpon>TaskSettingsDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogTaskSettings.vb">
+    <Compile Include="Forms\TaskSettingsDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DialogTimerSettings.Designer.vb">
-      <DependentUpon>DialogTimerSettings.vb</DependentUpon>
+    <Compile Include="Forms\TimerSettingsDialog.Designer.vb">
+      <DependentUpon>TimerSettingsDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogTimerSettings.vb">
+    <Compile Include="Forms\TimerSettingsDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Utils.vb" />
@@ -245,10 +245,10 @@
     <Compile Include="Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DialogSettings.Designer.vb">
-      <DependentUpon>DialogSettings.vb</DependentUpon>
+    <Compile Include="Forms\SettingsDialog.Designer.vb">
+      <DependentUpon>SettingsDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DialogSettings.vb">
+    <Compile Include="Forms\SettingsDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -279,26 +279,26 @@
     <Compile Include="Timers\TimerFactory.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\DialogAbout.resx">
-      <DependentUpon>DialogAbout.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\AboutDialog.resx">
+      <DependentUpon>AboutDialog.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DialogStyleSettings.resx">
-      <DependentUpon>DialogStyleSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\StyleSettingsDialog.resx">
+      <DependentUpon>StyleSettingsDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DialogTaskSettings.resx">
-      <DependentUpon>DialogTaskSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\TaskSettingsDialog.resx">
+      <DependentUpon>TaskSettingsDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DialogTimerSettings.resx">
-      <DependentUpon>DialogTimerSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\TimerSettingsDialog.resx">
+      <DependentUpon>TimerSettingsDialog.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DialogSettings.resx">
-      <DependentUpon>DialogSettings.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\SettingsDialog.resx">
+      <DependentUpon>SettingsDialog.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

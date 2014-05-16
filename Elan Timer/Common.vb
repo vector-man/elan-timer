@@ -65,69 +65,69 @@ Public Class Common
         FormMain.ResumeLayout()
 
         ' DialogAbout.
-        DialogAbout.SuspendLayout()
+        AboutDialog.SuspendLayout()
 
-        DialogAbout.Text = My.Resources.Strings.About
-        DialogAbout.LinkLabelLicense.Text = My.Resources.Strings.License
-        DialogAbout.ButtonOk.Text = My.Resources.Strings.Ok
+        AboutDialog.Text = My.Resources.Strings.About
+        AboutDialog.LinkLabelLicense.Text = My.Resources.Strings.License
+        AboutDialog.ButtonOk.Text = My.Resources.Strings.Ok
 
-        DialogAbout.ResumeLayout()
+        AboutDialog.ResumeLayout()
 
         ' DialogLookSettings.
-        DialogStyleSettings.SuspendLayout()
+        StyleSettingsDialog.SuspendLayout()
 
-        DialogStyleSettings.Text = My.Resources.Strings.Style
-        DialogStyleSettings.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
-        DialogStyleSettings.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
-        DialogStyleSettings.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
-        DialogStyleSettings.LabelFont.Text = My.Resources.Strings.Font
-        DialogStyleSettings.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
-        DialogStyleSettings.LabelTransparency.Text = My.Resources.Strings.Transparency
-        DialogStyleSettings.ButtonLoad.Text = My.Resources.Strings.Load
-        DialogStyleSettings.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
-        DialogStyleSettings.ButtonOK.Text = My.Resources.Strings.Ok
-        DialogStyleSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
+        StyleSettingsDialog.Text = My.Resources.Strings.Style
+        StyleSettingsDialog.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
+        StyleSettingsDialog.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
+        StyleSettingsDialog.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
+        StyleSettingsDialog.LabelFont.Text = My.Resources.Strings.Font
+        StyleSettingsDialog.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
+        StyleSettingsDialog.LabelTransparency.Text = My.Resources.Strings.Transparency
+        StyleSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Load
+        StyleSettingsDialog.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
+        StyleSettingsDialog.ButtonOK.Text = My.Resources.Strings.Ok
+        StyleSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
 
-        DialogStyleSettings.ResumeLayout()
+        StyleSettingsDialog.ResumeLayout()
 
         ' DialogTaskSettings.
-        DialogTaskSettings.SuspendLayout()
+        TaskSettingsDialog.SuspendLayout()
 
-        toolTipMain.SetToolTip(DialogTaskSettings.ButtonAdd, My.Resources.Strings.Add)
-        toolTipMain.SetToolTip(DialogTaskSettings.ButtonRemove, My.Resources.Strings.Remove)
-        toolTipMain.SetToolTip(DialogTaskSettings.ButtonMoveUp, My.Resources.Strings.MoveUp)
-        toolTipMain.SetToolTip(DialogTaskSettings.ButtonMoveDown, My.Resources.Strings.MoveDown)
-        DialogTaskSettings.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
-        DialogTaskSettings.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
-        DialogTaskSettings.OlvColumnName.Text = My.Resources.Strings.HeaderName
-        DialogTaskSettings.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
-        DialogTaskSettings.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
-        DialogTaskSettings.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
+        toolTipMain.SetToolTip(TaskSettingsDialog.ButtonAdd, My.Resources.Strings.Add)
+        toolTipMain.SetToolTip(TaskSettingsDialog.ButtonRemove, My.Resources.Strings.Remove)
+        toolTipMain.SetToolTip(TaskSettingsDialog.ButtonMoveUp, My.Resources.Strings.MoveUp)
+        toolTipMain.SetToolTip(TaskSettingsDialog.ButtonMoveDown, My.Resources.Strings.MoveDown)
+        TaskSettingsDialog.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
+        TaskSettingsDialog.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
+        TaskSettingsDialog.OlvColumnName.Text = My.Resources.Strings.HeaderName
+        TaskSettingsDialog.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
+        TaskSettingsDialog.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
+        TaskSettingsDialog.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
 
-        DialogTaskSettings.OlvColumnName.Text = My.Resources.Strings.HeaderName
-        DialogTaskSettings.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
-        DialogTaskSettings.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
-        DialogTaskSettings.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
+        TaskSettingsDialog.OlvColumnName.Text = My.Resources.Strings.HeaderName
+        TaskSettingsDialog.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
+        TaskSettingsDialog.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
+        TaskSettingsDialog.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
 
-        DialogTaskSettings.ResumeLayout()
+        TaskSettingsDialog.ResumeLayout()
 
         ' DialogTimerSettings.
-        DialogTimerSettings.SuspendLayout()
+        TimerSettingsDialog.SuspendLayout()
 
-        DialogTimerSettings.GroupBoxDuration.Text = My.Resources.Strings.Duration
-        DialogTimerSettings.LabelRestarts.Text = My.Resources.Strings.Restarts
-        DialogTimerSettings.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
+        TimerSettingsDialog.GroupBoxDuration.Text = My.Resources.Strings.Duration
+        TimerSettingsDialog.LabelRestarts.Text = My.Resources.Strings.Restarts
+        TimerSettingsDialog.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
         ' DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
-        DialogTimerSettings.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
-        DialogTimerSettings.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
-        DialogTimerSettings.CheckBoxNote.Text = My.Resources.Strings.Note
+        TimerSettingsDialog.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
+        TimerSettingsDialog.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
+        TimerSettingsDialog.CheckBoxNote.Text = My.Resources.Strings.Note
 
-        DialogTimerSettings.ButtonLoad.Text = My.Resources.Strings.Presets
-        DialogTimerSettings.ButtonSet.Text = My.Resources.Strings.Start
-        DialogTimerSettings.ButtonStart.Text = My.Resources.Strings.SetTimer
-        DialogTimerSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
+        TimerSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Presets
+        TimerSettingsDialog.ButtonSet.Text = My.Resources.Strings.Start
+        TimerSettingsDialog.ButtonStart.Text = My.Resources.Strings.SetTimer
+        TimerSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
 
-        DialogTimerSettings.ResumeLayout()
+        TimerSettingsDialog.ResumeLayout()
 
     End Sub
 End Class

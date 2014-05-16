@@ -1,4 +1,4 @@
-﻿Public NotInheritable Class DialogAbout
+﻿Public NotInheritable Class AboutDialog
 
     Private Sub DialogAbout_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Set the title of the form.

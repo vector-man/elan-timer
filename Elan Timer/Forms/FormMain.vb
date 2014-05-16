@@ -17,7 +17,7 @@ Public Class FormMain
     Private renderer As Rendering.IRenderer
     Private forceClose As Boolean = False
 
-    Private transporter As ITransporter = New ServiceStackJsonTransporter()
+    Private transporter As ITransporter = New JsonNetTransporter()
     Private timeSettings As TimeSettings = New TimeSettings()
     Private taskSettings As TaskSettings = New TaskSettings()
     Private styleSettings As StyleSettings = New StyleSettings()
@@ -92,7 +92,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        DialogSettings.ShowDialog()
+        SettingsDialog.ShowDialog()
     End Sub
 
     Private Sub ToolStrip1_MouseEnter(sender As Object, e As EventArgs) Handles ToolStripMain.MouseEnter
@@ -423,7 +423,7 @@ Public Class FormMain
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
     Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
         ContextMenuStripMain.Enabled = False
-        Using dialog = New DialogTimerSettings()
+        Using dialog = New TimerSettingsDialog()
             If (owner IsNot Nothing) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
@@ -483,7 +483,7 @@ Public Class FormMain
     Private Sub ShowLookDialog(owner As Form)
         ContextMenuStripMain.Enabled = False
 
-        Using dialog As New DialogStyleSettings
+        Using dialog As New StyleSettingsDialog
             'dialog.SaveAction = Sub(path As String)
             '                        Using output = File.OpenWrite(path)
             '                            styleSettings.Export(output)
@@ -546,15 +546,15 @@ Public Class FormMain
 
     Private Sub ShowSettingsDialog(owner As Form)
         If (owner IsNot Nothing) Then
-            DialogSettings.StartPosition = FormStartPosition.CenterParent
+            SettingsDialog.StartPosition = FormStartPosition.CenterParent
         Else
-            DialogSettings.StartPosition = FormStartPosition.CenterScreen
+            SettingsDialog.StartPosition = FormStartPosition.CenterScreen
         End If
-        DialogSettings.TopMost = (owner Is Nothing)
+        SettingsDialog.TopMost = (owner Is Nothing)
 
         ContextMenuStripMain.Enabled = False
         Try
-            DialogSettings.ShowDialog(owner)
+            SettingsDialog.ShowDialog(owner)
         Catch ex As Exception
             MessageBox.Show(ex.InnerException.ToString)
         End Try
@@ -563,7 +563,7 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
-        Using tasksDialog As New DialogTaskSettings
+        Using tasksDialog As New TaskSettingsDialog
             If (owner IsNot Nothing) Then
                 tasksDialog.StartPosition = FormStartPosition.CenterParent
             Else
@@ -635,7 +635,7 @@ Public Class FormMain
 
     Private Sub ToolStripMenuItemAboutElanTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutElanTimer.Click
         ' Show 'About' dialog with current form as parent.
-        DialogAbout.ShowDialog(Me)
+        AboutDialog.ShowDialog(Me)
     End Sub
 
     Private Sub ToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemNewTimer.Click
