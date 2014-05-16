@@ -254,18 +254,9 @@
   <data name="ToolStripSplitButtonSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKGSURBVDhPfVNNS2phED74A9z7E/oVbly41IIIXJkGCpkt
-        1QglDSRq0yIQS4rQRLNQKPGjjpX5VSfxo0isFpkcFHLlVufOvJ1udLk1IMfzvjPP88wzc7if4ubmxnB9
-        fc3n83n+/PzcIB3/Ho1GY6JUKskBQFYsFvvdbhfe3t7g8PCw73Q6Zaenp/Kjo6MJKf17VKtVP8/zo0ql
-        Il5cXCguLy/Fl5cXeH5+huPjYzEWiykQSDw4OBjt7e35pbKPwOKlp6cneH9/h3a7DVg8RMbxw8MDNJtN
-        oP9YPMS2QBRFSCaTsLa2tiSVc1y5XF6mJAKhglarxYA+Aei9Xq8DAWCLYLfbx4uLi8tS+UegYauUfHt7
-        CwgI6XQatre3AeWSIigUCoCtMXav17sqlXEcIgpXV1edTCYzeHx8BEEQIJvNwsrKSsFms6lQmWp9fb2A
-        OQyI7vF94PF4OpgjcGRcr9djcon57u4OgsEguN1ulcTB+Xw+FXoAOFKmjNSQuUqlcsQAXl9fWY90QQzx
-        eBw2Nzf/AmxtbanC4TBTQC3kcjmWzwB2d3eFjY2Nzs7OzgCnwUDIh0AgUCBmAqIWqH9qLZVKgV6vH0xP
-        T3empqYEiYPjUOIqGsmMoicuEkQiEcC5szPcRjg5OWFnZrP5y0SKaDTKxnh/f8+KaVy1Wo15QkCkiM7P
-        zs7Y3cLCwnhubu5rjPv7+0skjzYvFArR4rBFItOob4vFMjaZTEO6o95dLhdMTk5+LRIFHvrJFKPRKDoc
-        DgVOQSQ2UjA7OyvqdDrFzMyMSDlqtfr7Kn+G1WqdQDY5ssvw1yfJiUQCsJh9TPiUazSa/39M/8b8/LwB
-        GXmtVsuj3B8+Z477A5ykGua7KkF4AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVDhPYxg0gAWIjwPxfyIxSC0K4AZibArxYQxQBMSr
+        iMQgtdQHlkAcSiQGqUUB7ED8GIix+RUbBqlFARQbAAIUeYEqgKJopDghUZyUBwowMAAAySpdLZ/6uXEA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="ToolStripSplitButtonSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -283,21 +274,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbSBRRHMYPRfTSUxBFYTcpqcAoLMjo9tBD
-        EXQlW7qAGW0X0NguCKWrXZZqy1hdV61sd9OKxFJjtSdriVXSMhIrdjGzi9auM7OzO7PTzLqz8zUzDST0
-        wZ/5z/+c33c43wzRBCuZxLeTsoSP9HM+0qt0kKn6wgTxbWSmtq7u64k/J1nGWIXryJToE3I99sY0Mk6/
-        hPB6b4Svmx+QC0/6xRPHGdF8lJEKDvtjzrmvhLdH6N+fiploM+lhWkiGbhB+RM7Heg6OJsPt4AJ5bPT2
-        bF6wXwZXdwtsYy3YhhrEXTfAXToD+sY0gXtvEfj3p8fCD0ifdjj57iYlXF8x88ufxw5Xz0nF71WBa32I
-        pMMGxXIcSuERSNdKEH/sBVN7FgONK9JfP1TKv1qXhEbuqlcZuk3WfXFNDgVV9/i9SghNHiQa7kIa+Y5U
-        chyylIT47St4RwWE+iqEq/MwUjddGqqa9O6Ly8iCO22yJ+xWcC0PkKh3QZMsy6AoSu81Kek04rYriDXc
-        AW3JB7thzRUd1iSfNPvjtRWQbCX4/XnYQAC3241kMqn3nZ2dYN/1QzxRAMZWjtjKXL+BE6Ilzd6vgXLY
-        hPR4Sgc0Wa1WtLW1obS0FL29veAZFsrGXFA1txBZvoIxcNXgwAGG9bqg5G1HSpR0WBRF2O12HR4YGNBn
-        8TAFZV0OxlyqQeYEA+nQIX+s8hqkomOI9vXrm1OpFLq7u8HzvP6uZRJ50QVx3y5Q5RdAL86ecAWTqYwr
-        KQbz0AP23Bmk5bQOTZQ2Y8xm/HTXg87PB7NgSZmBEyLs3p0j7Nj5MVp5HVHHTd0k8SkIRVH0SgRDiFqK
-        MHbVBsp2UYWzPlIZWTkG/lfC1m3miMUiUA47fjZ6IBaYoGzJhbJ5NcT9u/DD48Go04HgHpNAZSwyG9g/
-        BQKBTVpYPZ0vZLqoEPRlK8aqK/SirBcwWnQKrc3NSsvTp0pXV9d6A/urjo6OGT6fjx8cHNQ+G8OuWlse
-        y17l15KOZGYz9MKlfmZeVln7s2dcKBTS/o+UymQaOCFNTU3TPB5P0Ol0JtXnMmP8n1Rwvtfrjak1qvaz
-        CCHkD/jNcv4WfOSoAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVDhPZZJbSBRRHMYPRfTSUxBFYTcpqcAoLMjo9tBD
+        EXQlW7qAGW0X0NguCKWrXZZqy1hdV61sd9OKLDNjtSdriVXSMjIrdrGyi9auM7OzO7PTzLqz8zUzDST0
+        wZ/5z/+c33c43wzRBCsZx7eRsoSP9HE+0qO0k4n6whjxrWSqtq7u644/JVnGWIXryIRoM7kce2UaGqWf
+        Q3i5M8LXzQ7IhUf94pHDjGg+yEgF+/0x58wXwusD9O+PxUz0IelmWkiGbhC+R07HuvcOJ8Nt4AJ5bPT6
+        dF6wnwdXdw1sYy3YhhrEXVfAnTsB+sokgXtrEfi3x0fCd0ivdjj57iYlXG8x88ufxw5Wz0jFb1WBe3wX
+        SYcNiuUwlMIDkC6VIH7fC6b2JN41LkkPvnfIvx4vCA3dVK/y+TpZ9cU1PhRU3eO3KiE0eZBouAlp6DtS
+        yVHIUhLit6/gHRUQ6qsQrs7DUN1k6XPVuDdfXEYW3HGTPWG3gmu5g0S9C5pkWQZFUXqvSUmnEbddQKzh
+        BmhLPtg1Ky7osCb5qNkfr62AZCvB70+DBgK43W4kk0m97+joAPumD+KRAjC2csSW5voNnBAtafZ2DZT9
+        JqRHUzqgyWq1orW1FaWlpejp6QHPsFDW5oKquYbI4iWMgasGe/YwrNcFJW8zUqKkw6Iowm6363B/f78+
+        i4cpKKtyMOJSDTLHGEj79vljlZcgFR1CtLdP35xKpdDV1QWe5/V3LZPIs06Iu7aBKj8Den72mCuYTGVc
+        STGYux6wp04gLad1aKy0GWM246e7HnR+Ppg5C8oMnBBh+/YcYcvWD9HKy4g6ruomiY9BKIqiVyIYQtRS
+        hJGLNlC2syqc9YHKyMox8L8SNm4yRywWgXLY8bPRA7HABGVDLpT1yyHu3oYfHg+GnQ4Ed5gEKmOe2cD+
+        KRAIrNPC6u54JtNFhaDPWzFSXaEXZT2D4aJjaHnwQHnU3Kx0dnauNrC/am9vn+Lz+fiBgQHtszHsspXl
+        sexlfi3pSGY2Q89d6GdmZZW1PXnChUIh7f9IqUymgRPS1NQ0yePxBJ1OZ1J9LjLG/0kFZ3u93phaw2o/
+        jRBC/gDsEXL1jOsX+AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
