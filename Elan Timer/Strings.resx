@@ -282,6 +282,9 @@
   <data name="PlayAlarm" xml:space="preserve">
     <value>Play</value>
   </data>
+  <data name="Presets" xml:space="preserve">
+    <value>Presets</value>
+  </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
   </data>
@@ -296,6 +299,9 @@
   </data>
   <data name="Seconds" xml:space="preserve">
     <value>Seconds</value>
+  </data>
+  <data name="SetTimer" xml:space="preserve">
+    <value>Set</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>

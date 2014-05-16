@@ -2,7 +2,7 @@
 Imports System.Threading
 Imports ElanTimer.Prefs
 Public Class Common
-    Public Shared ApplicationMutex As Mutex
+    ' Public Shared ApplicationMutex As Mutex
     Private Shared toolTipMain As New ToolTip
     ' Framerate constant. This is equal to 10 frames per second.
     Public Const Framerate As Integer = 1000 / 10
@@ -15,18 +15,7 @@ Public Class Common
         }
     ' The object for language settings, set with the default language.
     Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
-    ''' <summary>
-    ''' Gets all alarms from the Alarms folder.
-    ''' </summary>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public Shared Function GetAlarms() As List(Of AlarmModel)
-        Dim alarms As New List(Of AlarmModel)
-        For Each file In My.Computer.FileSystem.GetFiles(Preferences.AlarmsPath)
-            alarms.Add(New AlarmModel(System.IO.Path.GetFileNameWithoutExtension(file), System.IO.Path.GetFileName(file)))
-        Next
-        Return alarms
-    End Function
+    Public Shared ReadOnly AlarmsPath As String = Path.Combine(My.Computer.FileSystem.CurrentDirectory, My.Settings.DataFolder, My.Settings.AlarmFolder)
     ''' <summary>
     ''' Gets the full alarm path for a specified fileName.
     ''' </summary>
@@ -34,18 +23,18 @@ Public Class Common
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Shared Function GetAlarmPath(fileName As String) As String
-        Try
-            Dim fullPath As String = System.IO.Path.Combine(Preferences.AlarmsPath, fileName)
-            If My.Computer.FileSystem.FileExists(fullPath) Then
-                Return fullPath
-            ElseIf My.Computer.FileSystem.FileExists(fileName) Then
-                Return fileName
-            Else
-                Return String.Empty
-            End If
-        Catch ex As Exception
-            Return String.Empty
-        End Try
+        'Try
+        '    Dim fullPath As String = System.IO.Path.Combine(Preferences.AlarmsPath, fileName)
+        '    If My.Computer.FileSystem.FileExists(fullPath) Then
+        '        Return fullPath
+        '    ElseIf My.Computer.FileSystem.FileExists(fileName) Then
+        '        Return fileName
+        '    Else
+        '        Return String.Empty
+        '    End If
+        'Catch ex As Exception
+        '    Return String.Empty
+        'End Try
     End Function
     ''' <summary>
     ''' Sets strings for localization.
@@ -128,33 +117,19 @@ Public Class Common
         DialogTimerSettings.GroupBoxDuration.Text = My.Resources.Strings.Duration
         DialogTimerSettings.LabelRestarts.Text = My.Resources.Strings.Restarts
         DialogTimerSettings.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
-        DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
+        ' DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
         DialogTimerSettings.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
         DialogTimerSettings.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         DialogTimerSettings.CheckBoxNote.Text = My.Resources.Strings.Note
 
-        DialogTimerSettings.ButtonLoad.Text = My.Resources.Strings.Load
-        DialogTimerSettings.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
-        DialogTimerSettings.ButtonOK.Text = My.Resources.Strings.Ok
+        DialogTimerSettings.ButtonLoad.Text = My.Resources.Strings.Presets
+        DialogTimerSettings.ButtonSet.Text = My.Resources.Strings.Start
+        DialogTimerSettings.ButtonStart.Text = My.Resources.Strings.SetTimer
         DialogTimerSettings.ButtonCancel.Text = My.Resources.Strings.Cancel
 
         DialogTimerSettings.ResumeLayout()
 
     End Sub
-    Public Shared Function IsSingleInstance() As Boolean
-        Dim assembly As System.Reflection.Assembly = System.Reflection.Assembly.GetExecutingAssembly()
-        Dim appGuid As String = assembly.GetType.GUID.ToString()
-        applicationMutex = New Mutex(False, appGuid)
-        Try
-            If (applicationMutex.WaitOne(0, False)) Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            Return False
-        End Try
-    End Function
 End Class
 
 

@@ -40,8 +40,8 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonLoad = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.ButtonOK = New System.Windows.Forms.Button()
-        Me.ButtonSaveAs = New System.Windows.Forms.Button()
+        Me.ButtonStart = New System.Windows.Forms.Button()
+        Me.ButtonSet = New System.Windows.Forms.Button()
         Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
         Me.TextBoxNote = New System.Windows.Forms.TextBox()
         Me.CheckedGroupBox1 = New ElanTimer.CheckedGroupBox()
@@ -169,8 +169,8 @@ Partial Class DialogTimerSettings
         Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonLoad, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 6, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSaveAs, 4, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonOK, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonStart, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSet, 4, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
         'ButtonLoad
@@ -186,18 +186,18 @@ Partial Class DialogTimerSettings
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'ButtonOK
+        'ButtonStart
         '
-        resources.ApplyResources(Me.ButtonOK, "ButtonOK")
-        Me.ButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonStart, "ButtonStart")
+        Me.ButtonStart.Name = "ButtonStart"
+        Me.ButtonStart.UseVisualStyleBackColor = True
         '
-        'ButtonSaveAs
+        'ButtonSet
         '
-        resources.ApplyResources(Me.ButtonSaveAs, "ButtonSaveAs")
-        Me.ButtonSaveAs.Name = "ButtonSaveAs"
-        Me.ButtonSaveAs.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonSet, "ButtonSet")
+        Me.ButtonSet.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.ButtonSet.Name = "ButtonSet"
+        Me.ButtonSet.UseVisualStyleBackColor = True
         '
         'CheckBoxNote
         '
@@ -265,6 +265,7 @@ Partial Class DialogTimerSettings
         '
         'ComboBoxAlarmPath
         '
+        Me.ComboBoxAlarmPath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxAlarmPath.FormattingEnabled = True
         resources.ApplyResources(Me.ComboBoxAlarmPath, "ComboBoxAlarmPath")
         Me.ComboBoxAlarmPath.Name = "ComboBoxAlarmPath"
@@ -276,7 +277,7 @@ Partial Class DialogTimerSettings
         '
         'DialogTimerSettings
         '
-        Me.AcceptButton = Me.ButtonOK
+        Me.AcceptButton = Me.ButtonSet
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonCancel
@@ -308,7 +309,7 @@ Partial Class DialogTimerSettings
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBoxAlarmPath As System.Windows.Forms.ComboBox
     Friend WithEvents ButtonAlarmPlay As System.Windows.Forms.Button
@@ -337,7 +338,7 @@ End Sub
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ButtonLoad As System.Windows.Forms.Button
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
-    Friend WithEvents ButtonOK As System.Windows.Forms.Button
-    Friend WithEvents ButtonSaveAs As System.Windows.Forms.Button
+    Friend WithEvents ButtonSet As System.Windows.Forms.Button
+    Friend WithEvents ButtonStart As System.Windows.Forms.Button
 
 End Class

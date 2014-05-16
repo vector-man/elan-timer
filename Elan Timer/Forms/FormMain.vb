@@ -2,6 +2,9 @@
 Imports System.Threading
 Imports System.Text
 Imports ElanTimer.Prefs
+Imports ElanTimer.Settings
+Imports System.IO
+
 Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Rendering.Surface
@@ -13,6 +16,12 @@ Public Class FormMain
     Private stringFormat As New StringFormat
     Private renderer As Rendering.IRenderer
     Private forceClose As Boolean = False
+
+    Private transporter As ITransporter = New ServiceStackJsonTransporter()
+    Private timeSettings As TimeSettings = New TimeSettings()
+    Private taskSettings As TaskSettings = New TaskSettings()
+    Private styleSettings As StyleSettings = New StyleSettings()
+
 #If DEBUG Then
     Private sw As New Stopwatch ' Used for benchmark and testing.
 #End If
@@ -22,26 +31,26 @@ Public Class FormMain
 #Region "Timer Event Handelers"
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
         ' sw.Start()
-        ExecuteActions(Prefs.Models.TimerEvent.Started)
+        ExecuteActions(TimerEvent.Started)
     End Sub
     Public Sub Timer_Paused(sender As Object, e As TimerEventArgs)
-        ExecuteActions(Prefs.Models.TimerEvent.Paused)
+        ExecuteActions(TimerEvent.Paused)
     End Sub
     Public Sub Timer_Restarted(sender As Object, e As TimerEventArgs)
-        ExecuteActions(Prefs.Models.TimerEvent.Restarted)
+        ExecuteActions(TimerEvent.Restarted)
         HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
         ' sw.Stop()
         ' MessageBox.Show(sw.Elapsed.TotalMilliseconds)
-        ExecuteActions(Prefs.Models.TimerEvent.Expired)
+        ExecuteActions(TimerEvent.Expired)
         ShowNote()
         TryShowNoteAlert()
     End Sub
-    Public Sub ExecuteActions(e As Prefs.Models.TimerEvent)
+    Public Sub ExecuteActions(e As TimerEvent)
         TaskEx.Run(Sub()
 
-                       Dim actions = From action In Preferences.Tasks.Tasks
+                       Dim actions = From action In taskSettings.Tasks
                                      Where action.Enabled.Equals(True) And action.Event.Equals(e)
                                      Select action
                        For Each action In actions
@@ -79,7 +88,7 @@ Public Class FormMain
         End If
         SaveSettings()
         ' Dispose of the application mutex.
-        Common.ApplicationMutex.Dispose()
+        ' Common.ApplicationMutex.Dispose()
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -105,15 +114,17 @@ Public Class FormMain
         ' Create a new alarm initialized to Nothing.
         Dim alarm As Alarm = Nothing
 
+        timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName)), Utils.GetDefaultAlarm(Common.AlarmsPath), timeSettings.AlarmName)
+
         ' Try to assign alarm to a new Alarm object.
         Try
-            alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
+            alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
         Catch ex As Exception
 
         End Try
 
         ' Create a new timer object.
-        timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
+        timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
 
         ' Start rendering.
         StartUpRendering(timer)
@@ -213,7 +224,7 @@ Public Class FormMain
     End Function
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
-                                 If (Preferences.Time.HasNote And Preferences.Time.HasNoteAlert) Then
+                                 If (timeSettings.NoteEnabled And timeSettings.AlertEnabled) Then
                                      MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
@@ -273,8 +284,8 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderObject(timer, Preferences.Style.Font, Preferences.Style.DisplayFormat, New TimeFormat, Preferences.Style.GrowToFit, Preferences.Style.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderObject(Preferences.Time.Note, Preferences.Style.Font, Preferences.Style.GrowToFit, Preferences.Style.ForegroundColor, stringFormat, False)
+        timerObject = New TimerTextRenderObject(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderObject(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
         Dim objects As New List(Of IRenderObject)
 
         objects.Add(timerObject)
@@ -286,7 +297,7 @@ Public Class FormMain
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        timerSurface.BackColor = Preferences.Style.BackgroundColor
+        timerSurface.BackColor = styleSettings.BackgroundColor
 
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
@@ -306,7 +317,7 @@ Public Class FormMain
 #End If
     End Sub
 
-    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task
+    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
         Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
         Await Task.Factory.StartNew(Async Function()
                                         While (Not token.IsCancellationRequested)
@@ -321,12 +332,12 @@ Public Class FormMain
 
                                             If (Not timer.IsExpired) Then
                                                 sb.Append(timerObject.Text)
-                                                If (Not Preferences.Time.Note = String.Empty) Then
+                                                If (Not timeSettings.Note = String.Empty) Then
                                                     sb.Append(" - ")
                                                 End If
                                             End If
-                                            If (Preferences.Time.HasNote) Then
-                                                sb.Append(Preferences.Time.Note)
+                                            If (timeSettings.NoteEnabled) Then
+                                                sb.Append(timeSettings.Note)
                                             End If
 
                                             If (sb.Length = 0) Then
@@ -350,26 +361,27 @@ Public Class FormMain
         NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
         ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
         NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
-        Me.Opacity = Preferences.Style.Opacity / 100
+        Me.Opacity = styleSettings.Opacity / 100
     End Sub
 
     Private Sub LoadSettings()
-
         Try
             Dim args = My.Application.CommandLineArgs
             If args.Count > 0 Then
                 Dim pref = args(0)
                 If (System.IO.File.Exists(pref)) Then
+                    'TODO: Fix LoadSettongs()
+                    'Using stream As FileStream = File.OpenRead(pref)
+                    '    Select Case System.IO.Path.GetExtension(pref)
 
-                    Select Case System.IO.Path.GetExtension(pref)
-
-                        Case My.Settings.StyleFileExtension
-                            Preferences.Style.ImportFrom(pref)
-                        Case My.Settings.TaskFileExtension
-                            Preferences.Tasks.ImportFrom(pref)
-                        Case My.Settings.TimeFileExtension
-                            Preferences.Time.ImportFrom(pref)
-                    End Select
+                    '        Case My.Settings.StyleFileExtension
+                    '            styleSettings.Import(stream)
+                    '        Case My.Settings.TaskFileExtension
+                    '            taskSettings.Import(stream)
+                    '        Case My.Settings.TimeFileExtension
+                    '            timeSettings.Import(stream)
+                    '    End Select
+                    'End Using
 
                 End If
             End If
@@ -410,76 +422,125 @@ Public Class FormMain
 
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
     Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
-        If (owner IsNot Nothing) Then
-            DialogTimerSettings.StartPosition = FormStartPosition.CenterParent
-        Else
-            DialogTimerSettings.StartPosition = FormStartPosition.CenterScreen
-        End If
         ContextMenuStripMain.Enabled = False
-        DialogTimerSettings.Editing = editing
-        If (DialogTimerSettings.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
-            RemoveTimerHandlers()
-            Dim alarm As Alarm = Nothing
-            Try
-                alarm = New Alarm(Common.GetAlarmPath(Preferences.Time.AlarmPath), Preferences.Time.AlarmVolume, Preferences.Time.AlarmLoop)
-            Catch ex As Exception
-
-            End Try
-            If (Not editing) Then
-                timer.Dispose()
-                timer = TimerFactory.CreateInstance(Preferences.Time.Duration, Preferences.Time.CountUp, Preferences.Time.Restarts, alarm, Preferences.Time.AlarmEnabled)
+        Using dialog = New DialogTimerSettings()
+            If (owner IsNot Nothing) Then
+                dialog.StartPosition = FormStartPosition.CenterParent
             Else
-                timer.Alarm = alarm
-                timer.AlarmEnabled = Preferences.Time.AlarmEnabled
+                dialog.StartPosition = FormStartPosition.CenterScreen
             End If
-            timerObject.Timer = timer
-            noteObject.Text = Preferences.Time.Note
-            HideNote()
-            AddTimerHandlers()
-            If Preferences.Time.StartImmediately Then
-                SetTimerState(True)
+            dialog.AlarmsPath = Common.AlarmsPath
+            dialog.SelectedAlarm = timeSettings.AlarmName
+            dialog.AlarmEnabled = timeSettings.AlarmEnabled
+            dialog.AlarmRepeat = timeSettings.AlarmLoop
+            dialog.AlarmVolume = timeSettings.AlarmVolume
+
+            dialog.Duration = timeSettings.Duration
+            dialog.CountUp = timeSettings.CountUp
+            dialog.Restarts = timeSettings.Restarts
+            dialog.Note = timeSettings.Note
+            dialog.NoteEnabled = timeSettings.NoteEnabled
+            dialog.ShowAlertBoxOnTimerExpiration = timeSettings.AlertEnabled
+            Dim result As DialogResult = dialog.ShowDialog(owner)
+            If (Not result = Windows.Forms.DialogResult.Cancel) Then
+                timeSettings.Duration = dialog.Duration
+                timeSettings.CountUp = dialog.CountUp
+                timeSettings.Restarts = dialog.Restarts
+                timeSettings.AlarmEnabled = dialog.AlarmEnabled
+                timeSettings.AlarmName = dialog.SelectedAlarm
+                timeSettings.AlarmLoop = dialog.AlarmRepeat
+                timeSettings.AlarmVolume = dialog.AlarmVolume
+                timeSettings.Note = dialog.Note
+                timeSettings.NoteEnabled = dialog.NoteEnabled
+                timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
+                RemoveTimerHandlers()
+                Dim alarm As Alarm = Nothing
+                Try
+                    alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+                Catch ex As Exception
+
+                End Try
+                If (Not editing) Then
+                    timer.Dispose()
+                    timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
+                Else
+                    timer.Alarm = alarm
+                    timer.AlarmEnabled = timeSettings.AlarmEnabled
+                End If
+                timerObject.Timer = timer
+                noteObject.Text = timeSettings.Note
+                HideNote()
+                AddTimerHandlers()
+                If result = Windows.Forms.DialogResult.OK Then
+                    SetTimerState(True)
+                End If
+                Me.UpdateIcons()
             End If
-            Me.UpdateIcons()
-        End If
-        ContextMenuStripMain.Enabled = True
+            ContextMenuStripMain.Enabled = True
+        End Using
     End Sub
 
     Private Sub ShowLookDialog(owner As Form)
-        If (owner IsNot Nothing) Then
-            DialogStyleSettings.StartPosition = FormStartPosition.CenterParent
-        Else
-            DialogStyleSettings.StartPosition = FormStartPosition.CenterScreen
-        End If
-        DialogStyleSettings.TopMost = (owner Is Nothing)
-
         ContextMenuStripMain.Enabled = False
-        Try
-            DialogStyleSettings.ShowDialog(Me)
 
-            ' Reassign various style values for the timer rendering.
-            Dim timeVisible = timerObject.Visible
-            timerObject.Visible = False
+        Using dialog As New DialogStyleSettings
+            'dialog.SaveAction = Sub(path As String)
+            '                        Using output = File.OpenWrite(path)
+            '                            styleSettings.Export(output)
+            '                        End Using
+            '                    End Sub
+            'dialog.LoadAction = Sub(path As String)
+            '                        Using input = File.OpenRead(path)
+            '                            styleSettings.Import(input)
+            '                        End Using
+            '                    End Sub
+            If (owner IsNot Nothing) Then
+                dialog.StartPosition = FormStartPosition.CenterParent
+            Else
+                dialog.StartPosition = FormStartPosition.CenterScreen
+            End If
+            dialog.TopMost = (owner Is Nothing)
+            dialog.BackgroundColor = styleSettings.BackgroundColor
+            dialog.DisplayFont = styleSettings.DisplayFont
+            dialog.DisplayFormats = Common.DisplayFormats
+            dialog.DisplayFormat = styleSettings.DisplayFormat
+            dialog.ForegroundColor = styleSettings.ForegroundColor
+            dialog.Timer = timer
+            dialog.GrowToFit = styleSettings.GrowToFit
+            dialog.Transparency = 100 - styleSettings.Opacity
+            If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                Dim timeVisible = timerObject.Visible
+                timerObject.Visible = False
 
-            Dim noteVisible = noteObject.Visible
-            noteObject.Visible = False
+                Dim noteVisible = noteObject.Visible
+                noteObject.Visible = False
 
-            timerSurface.BackColor = Preferences.Style.BackgroundColor
-            timerObject.Color = Preferences.Style.ForegroundColor
-            timerObject.Font = Preferences.Style.Font
-            timerObject.Format = Preferences.Style.DisplayFormat
-            timerObject.SizeToFit = Preferences.Style.GrowToFit
+                styleSettings.BackgroundColor = dialog.BackgroundColor
+                styleSettings.DisplayFormat = dialog.DisplayFormat
+                styleSettings.DisplayFont = dialog.DisplayFont
+                styleSettings.ForegroundColor = dialog.ForegroundColor
+                styleSettings.GrowToFit = dialog.GrowToFit
+                styleSettings.Opacity = 100 - dialog.Transparency
 
 
-            noteObject.Color = Preferences.Style.ForegroundColor
-            noteObject.Font = Preferences.Style.Font
-            noteObject.SizeToFit = Preferences.Style.GrowToFit
+                timerSurface.BackColor = styleSettings.BackgroundColor
+                timerObject.Color = styleSettings.ForegroundColor
+                timerObject.Font = styleSettings.DisplayFont
+                timerObject.Format = styleSettings.DisplayFormat
+                timerObject.SizeToFit = styleSettings.GrowToFit
 
-            timerObject.Visible = timeVisible
-            noteObject.Visible = noteVisible
 
-        Catch ex As Exception
+                noteObject.Color = styleSettings.ForegroundColor
+                noteObject.Font = styleSettings.DisplayFont
+                noteObject.SizeToFit = styleSettings.GrowToFit
 
-        End Try
+                timerObject.Visible = timeVisible
+                noteObject.Visible = noteVisible
+
+                Me.Opacity = styleSettings.Opacity / 100
+            End If
+
+        End Using
         ContextMenuStripMain.Enabled = True
     End Sub
 
@@ -502,13 +563,19 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
-        If (owner IsNot Nothing) Then
-            DialogTaskSettings.StartPosition = FormStartPosition.CenterParent
-        Else
-            DialogTaskSettings.StartPosition = FormStartPosition.CenterScreen
-        End If
-        DialogTaskSettings.TopMost = (owner Is Nothing)
-        DialogTaskSettings.ShowDialog(owner)
+        Using tasksDialog As New DialogTaskSettings
+            If (owner IsNot Nothing) Then
+                tasksDialog.StartPosition = FormStartPosition.CenterParent
+            Else
+                tasksDialog.StartPosition = FormStartPosition.CenterScreen
+            End If
+
+            ' DialogTaskSettings.TopMost = True
+            tasksDialog.Tasks = New List(Of TaskModel)(taskSettings.Tasks)
+            If (tasksDialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
+                taskSettings.Tasks = tasksDialog.Tasks
+            End If
+        End Using
     End Sub
     Private Sub ExitApplication()
         forceClose = True
@@ -518,9 +585,9 @@ Public Class FormMain
     Private Sub SaveSettings()
         ' Save setting files
         Try
-            Preferences.Style.Save()
-            Preferences.Time.Save()
-            Preferences.Tasks.Save()
+            styleSettings.Save()
+            timeSettings.Save()
+            taskSettings.Save()
         Catch ex As Exception
             MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
             If MessageBox.Show("Elan Timer failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Elan Timer will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then

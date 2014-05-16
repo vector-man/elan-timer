@@ -204,70 +204,70 @@
   <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonSaveAs.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ButtonStart.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonSaveAs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ButtonStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonSaveAs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 0</value>
-  </data>
-  <data name="ButtonSaveAs.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonSaveAs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
-  </data>
-  <data name="ButtonSaveAs.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="ButtonSaveAs.Text" xml:space="preserve">
-    <value>Save as...</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Name" xml:space="preserve">
-    <value>ButtonSaveAs</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.Parent" xml:space="preserve">
-    <value>TableLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;ButtonSaveAs.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ButtonStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>116, 0</value>
   </data>
-  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="ButtonStart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ButtonStart.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 23</value>
   </data>
-  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="ButtonStart.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
-  <data name="ButtonOK.Text" xml:space="preserve">
-    <value>OK</value>
+  <data name="ButtonStart.Text" xml:space="preserve">
+    <value>Start</value>
   </data>
-  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
-    <value>ButtonOK</value>
+  <data name="&gt;&gt;ButtonStart.Name" xml:space="preserve">
+    <value>ButtonStart</value>
   </data>
-  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
+  <data name="&gt;&gt;ButtonStart.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ButtonStart.Parent" xml:space="preserve">
     <value>TableLayoutPanel3</value>
   </data>
-  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ButtonStart.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ButtonSet.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonSet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonSet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 0</value>
+  </data>
+  <data name="ButtonSet.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonSet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 23</value>
+  </data>
+  <data name="ButtonSet.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="ButtonSet.Text" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="&gt;&gt;ButtonSet.Name" xml:space="preserve">
+    <value>ButtonSet</value>
+  </data>
+  <data name="&gt;&gt;ButtonSet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonSet.Parent" xml:space="preserve">
+    <value>TableLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;ButtonSet.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="TableLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -298,7 +298,7 @@
     <value>0</value>
   </data>
   <data name="TableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonLoad" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonCancel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonSaveAs" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonLoad" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonCancel" Row="0" RowSpan="1" Column="6" ColumnSpan="1" /&gt;&lt;Control Name="ButtonStart" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonSet" Row="0" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0,Absolute,6,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="GroupBoxDuration.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>

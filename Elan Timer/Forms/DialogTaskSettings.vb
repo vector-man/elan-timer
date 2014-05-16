@@ -1,10 +1,28 @@
 ﻿Imports System.Windows.Forms
-Imports ElanTimer.Prefs.Models
-Imports ElanTimer.Prefs
+Imports System.IO
+
 Public Class DialogTaskSettings
 
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource
+    Private _transporter As ITransporter = New JsonNetTransporter()
+    Private _model As New TasksModel(_transporter)
+    Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+    End Sub
+    Private Property TasksPath As String
+    Private Property TasksFilter As String
+    Public Property Tasks As List(Of TaskModel)
+        Get
+            Return _model.Tasks
+        End Get
+        Set(value As List(Of TaskModel))
+            _model.Tasks = value
+        End Set
+    End Property
+
     Public Sub UpdateStates(sender As Object, e As EventArgs)
         Dim enabled As Boolean = (DataListViewActions.SelectedObjects.Count = 1)
         LabelEvent.Enabled = enabled
@@ -38,17 +56,13 @@ Public Class DialogTaskSettings
     Private Function CloneActions(actions As List(Of TaskModel))
         Return actions.ConvertAll(Function(action) New TaskModel(action.Event, action.Name, action.Command, action.Arguments, action.UseScript, action.Script, action.Enabled))
     End Function
-    Private Sub LoadSettings()
-        actionsData = CloneActions(Preferences.Tasks.Tasks)
-
+    Private Sub Initialize()
+        AddHandler Application.Idle, AddressOf UpdateStates
+        If _model.Tasks Is Nothing Then
+            _model.Tasks = New List(Of TaskModel)
+        End If
         actionsBindingSource = New BindingSource()
-        actionsBindingSource.DataSource = actionsData
-
-        ComboBoxEvent.DataBindings.Clear()
-        TextBoxName.DataBindings.Clear()
-        TextBoxCommand.DataBindings.Clear()
-        TextBoxArguments.DataBindings.Clear()
-
+        actionsBindingSource.DataSource = _model.Tasks
 
         ComboBoxEvent.DataSource = [Enum].GetValues(GetType(TimerEvent))
         ComboBoxEvent.DataBindings.Add("Text", actionsBindingSource, "Event", True, DataSourceUpdateMode.OnPropertyChanged)
@@ -56,44 +70,32 @@ Public Class DialogTaskSettings
         TextBoxCommand.DataBindings.Add("Text", actionsBindingSource, "Command", True, DataSourceUpdateMode.OnPropertyChanged)
         TextBoxArguments.DataBindings.Add("Text", actionsBindingSource, "Arguments", True, DataSourceUpdateMode.OnPropertyChanged)
 
-
         DataListViewActions.DataSource = actionsBindingSource
-
-
-    End Sub
-    Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
-        Preferences.Tasks.Tasks.Clear()
-        Preferences.Tasks.Tasks.AddRange(actionsData)
-        actionsData = Nothing
-        actionsBindingSource.Dispose()
-    End Sub
-
-    Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        AddHandler Application.Idle, AddressOf UpdateStates
-        LoadSettings()
     End Sub
 
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
         Try
             Using saveDialog As New SaveFileDialog
-                saveDialog.InitialDirectory = Preferences.TasksPath
-                saveDialog.Filter = My.Settings.TaskDialogFilter
+                saveDialog.InitialDirectory = TasksPath
+                saveDialog.Filter = TasksFilter
                 saveDialog.OverwritePrompt = True
                 If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim taskSetings As New Prefs.TaskPreferences()
-                    Dim tasksToExport As New List(Of Prefs.Models.TaskModel)
-                    Dim objects As Object = Nothing
+                    Dim tasksToExport As New List(Of TaskModel)
+                    Dim objects
                     If exportSelected Then
                         objects = DataListViewActions.SelectedObjects
                     Else
                         objects = DataListViewActions.Objects
                     End If
 
-                    For Each task In objects
-                        tasksToExport.Add(task)
+                    For Each obj In objects
+                        tasksToExport.Add(obj)
                     Next
-                    taskSetings.Tasks = tasksToExport
-                    taskSetings.ExportTo(saveDialog.FileName)
+                    Dim tsk As New TasksModel(_transporter)
+                    tsk.Tasks = tasksToExport
+                    Using output As FileStream = File.Create(saveDialog.FileName)
+                        tsk.Export(output)
+                    End Using
                 End If
             End Using
         Catch ex As Exception
@@ -140,15 +142,18 @@ Public Class DialogTaskSettings
     Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
         Try
             Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = Preferences.TasksPath
-                openDialog.Filter = My.Settings.TaskDialogFilter
+                openDialog.InitialDirectory = TasksPath
+                openDialog.Filter = TasksFilter
                 openDialog.CheckFileExists = True
-                If openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim taskSetings As New Prefs.TaskPreferences()
-                    taskSetings.ImportFrom(openDialog.FileName)
-                    For Each item In taskSetings.Tasks
-                        actionsBindingSource.Add(item)
-                    Next
+                If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                    Using input As FileStream = File.OpenRead(openDialog.FileName)
+                        _model.Import(input)
+                    End Using
+                    'actionsBindingSource.Clear()
+                    actionsBindingSource.ResetBindings(True)
+                    'For Each t In _model.Tasks
+                    '    actionsBindingSource.Add(t)
+                    'Next
                 End If
             End Using
         Catch ex As Exception
@@ -158,5 +163,10 @@ Public Class DialogTaskSettings
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
+    End Sub
+
+    Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' Add any initialization after the InitializeComponent() call
+        Initialize()
     End Sub
 End Class

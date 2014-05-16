@@ -6,7 +6,7 @@ ElanTimer
 </name>
 </assembly>
 <members>
-<member name="M:ElanTimer.Common.GetAlarms">
+<member name="M:ElanTimer.Utils.GetAlarms(System.String)">
 	<summary>
  Gets all alarms from the Alarms folder.
  </summary>
@@ -345,7 +345,7 @@ ElanTimer
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Load">
 	<summary>
-  Looks up a localized string similar to Presets.
+  Looks up a localized string similar to Load....
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.LoopAlarm">
 	<summary>
@@ -433,7 +433,7 @@ ElanTimer
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Ok">
 	<summary>
-  Looks up a localized string similar to Start.
+  Looks up a localized string similar to OK.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Pause">
 	<summary>
@@ -442,6 +442,10 @@ ElanTimer
 </member><member name="P:ElanTimer.My.Resources.Strings.PlayAlarm">
 	<summary>
   Looks up a localized string similar to Play.
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.Presets">
+	<summary>
+  Looks up a localized string similar to Presets.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Remove">
 	<summary>
@@ -457,11 +461,15 @@ ElanTimer
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.SaveAs">
 	<summary>
-  Looks up a localized string similar to Set.
+  Looks up a localized string similar to Save as....
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Seconds">
 	<summary>
   Looks up a localized string similar to Seconds.
+</summary>
+</member><member name="P:ElanTimer.My.Resources.Strings.SetTimer">
+	<summary>
+  Looks up a localized string similar to Set.
 </summary>
 </member><member name="P:ElanTimer.My.Resources.Strings.Start">
 	<summary>

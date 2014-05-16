@@ -28,6 +28,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>e508b18e</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -116,12 +117,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Windows7APICodePack-Shell.1.1.0.0\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="MsgPack, Version=0.1.4298.15470, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MsgPack.0.1.0.2011042300\lib\net40\MsgPack.dll</HintPath>
+    </Reference>
     <Reference Include="NAudio">
       <HintPath>..\packages\NAudio.1.7\lib\net35\NAudio.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="ObjectListView">
       <HintPath>..\packages\Unofficial.ObjectListView.2.6.0\lib\net20\ObjectListView.dll</HintPath>
@@ -129,6 +134,16 @@
     <Reference Include="Picker, Version=1.0.4836.37702, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libraries\Picker.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.48.2.0\Lib\NET35\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Salar.Bois">
+      <HintPath>..\packages\Salar.Bois.1.7.0.0\lib\net20\Salar.Bois.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.71\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -194,6 +209,9 @@
     <Compile Include="Forms\DialogTimerSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Utils.vb" />
+    <Compile Include="Models\TaskModel.vb" />
+    <Compile Include="Models\TasksModel.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -203,6 +221,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings\BoisTransporter.vb" />
+    <Compile Include="Settings\JsonNetTransporter.vb" />
+    <Compile Include="Models\StyleModel.vb" />
+    <Compile Include="Models\TimeModel.vb" />
+    <Compile Include="Settings\ServiceStackJsonTransporter.vb" />
+    <Compile Include="Settings\IExportable.vb" />
+    <Compile Include="Settings\IImportable.vb" />
+    <Compile Include="Settings\ITransporter.vb" />
+    <Compile Include="Settings\MessagePackTransporter.vb" />
     <Compile Include="Rendering\Renderer.vb" />
     <Compile Include="Rendering\IRenderer.vb" />
     <Compile Include="Rendering\RenderObjects\ClearRenderObject.vb" />
@@ -219,17 +246,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Rendering\SurfaceFactory.vb" />
-    <Compile Include="Preferences\IPreferences.vb" />
-    <Compile Include="Preferences\JsonDatabase.vb" />
-    <Compile Include="Preferences\StylePreferences.vb" />
-    <Compile Include="Preferences\Models\AlarmModel.vb" />
-    <Compile Include="Preferences\Models\StyleModel.vb" />
-    <Compile Include="Preferences\Models\TimeModel.vb" />
-    <Compile Include="Preferences\Models\RendererModel.vb" />
-    <Compile Include="Preferences\Preferences.vb" />
-    <Compile Include="Preferences\TaskPreferences.vb" />
-    <Compile Include="Preferences\TimePreferences.vb" />
-    <Compile Include="Preferences\Models\TaskModel.vb" />
+    <Compile Include="Settings\StyleSettings.vb" />
+    <Compile Include="Settings\TimeSettings.vb" />
+    <Compile Include="Settings\RendererModel.vb" />
+    <Compile Include="Settings\TaskSettings.vb" />
     <Compile Include="Locale\Languages.vb" />
     <Compile Include="Common.vb" />
     <Compile Include="Forms\FormMain.Designer.vb">
@@ -250,6 +270,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.vb" />
     <Compile Include="Strings.es-ES.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -273,6 +294,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\DialogAbout.resx">
       <DependentUpon>DialogAbout.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DialogStyleSettings.resx">
       <DependentUpon>DialogStyleSettings.vb</DependentUpon>
@@ -352,6 +374,7 @@
   <ItemGroup>
     <Content Include="eggzle-icon.ico" />
     <Content Include="eggzle.ico" />
+    <Content Include="FodyWeavers.xml" />
     <None Include="Resources\arrow_redo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
@@ -359,6 +382,13 @@
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
     <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\packages\Fody.1.23.2\build\Fody.targets" Condition="Exists('..\packages\Fody.1.23.2\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.23.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.23.2\build\Fody.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
