@@ -139,7 +139,20 @@ Public Class TaskSettingsDialog
         End Using
     End Sub
 
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonImport.Click
+    Private Sub ButtonImport_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
+        ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
+    End Sub
+
+    Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ' Add any initialization after the InitializeComponent() call
+        Initialize()
+    End Sub
+
+    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
         Try
             Using openDialog As New OpenFileDialog
                 openDialog.InitialDirectory = TasksPath
@@ -159,14 +172,5 @@ Public Class TaskSettingsDialog
         Catch ex As Exception
             MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
         End Try
-    End Sub
-
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
-        ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
-    End Sub
-
-    Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        ' Add any initialization after the InitializeComponent() call
-        Initialize()
     End Sub
 End Class

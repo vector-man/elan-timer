@@ -222,6 +222,7 @@ Public Class TimerSettingsDialog
         NumericUpDownVolume.DataBindings.Add("Value", time, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmRepeat")
 
+        ' ContextMenuStripSettings.DataBindings.Add("Visible", CheckBoxSettings, "Checked")
         ' ComboBoxAlarmPath.SelectedItem = alarms.Where(Function(i) i.Value = AlarmName)
         'Dim hoursBinding As New Binding("Value", time, "Duration")
         'AddHandler hoursBinding.Format, Sub(s, e)
@@ -241,50 +242,10 @@ Public Class TimerSettingsDialog
         '                                  End Sub
         'NumericUpDownMinutes.DataBindings.Add("Value", minutesBinding, "Duration")
     End Sub
-    ' TODO: Move code into the new preset load. Delete this.
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonLoad.Click
-        Try
-            Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = AlarmsPath
-                openDialog.Filter = AlarmFilter
-                openDialog.CheckFileExists = True
-                If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                    Using input As Stream = File.OpenRead(openDialog.FileName)
-                        time.Import(input)
-                    End Using
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        End Try
-    End Sub
 
     Private Sub ButtonStart_Click(sender As Object, e As EventArgs) Handles ButtonStart.Click
         DialogResult = Windows.Forms.DialogResult.Yes
     End Sub
-    ' TODO: Move code into the new preset save. Delete this.
-    'Private Sub ExportTimer()
-    '    Try
-    '        Using saveDialog As New SaveFileDialog
-    '            saveDialog.InitialDirectory = Preferences.TimePath
-    '            saveDialog.Filter = My.Settings.TimeDialogFilter
-    '            saveDialog.OverwritePrompt = True
-    '            If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-    '                SaveSettings()
-    '                Preferences.Time.ExportTo(saveDialog.FileName)
-    '            End If
-    '        End Using
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-    '    End Try
-    'End Sub
-    ' TODO: Remove commented code.
-    'Private Sub ButtonSet_Click(sender As Object, e As EventArgs) Handles ButtonSet.Click
-    '    RemoveHandler Application.Idle, AddressOf UpdateUI
-    ' SaveSettings()
-    ' Preferences.Time.EndEdit()
-    ' Me.DialogResult = Windows.Forms.DialogResult.Yes
-    'End Sub
 
     Private Sub ButtonAlarmPlay_Click(sender As Object, e As EventArgs) Handles ButtonAlarmPlay.Click
         Try
@@ -323,9 +284,9 @@ Public Class TimerSettingsDialog
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
         Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Enabled = Me.CheckBoxNote.Checked
-        Me.ButtonLoad.Enabled = (Not Editing)
         Me.Text = If(Editing, "Edit Timer", "New Timer")
         Me.CheckBoxCountUp.Enabled = (Not Editing)
+
 
         Me.ComboBoxAlarmPath.Enabled = Me.CheckedGroupBox1.Checked
         Me.CheckBoxLoop.Enabled = Me.ComboBoxAlarmPath.Enabled
@@ -333,6 +294,7 @@ Public Class TimerSettingsDialog
         Me.ButtonOpenAlarm.Enabled = Me.ButtonAlarmPlay.Enabled
         Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         Me.ButtonStart.Enabled = Me.ButtonSet.Enabled
+
     End Sub
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
@@ -349,15 +311,171 @@ Public Class TimerSettingsDialog
     End Sub
 
     Private Sub ButtonSet_Click(sender As Object, e As EventArgs) Handles ButtonSet.Click
-        DialogResult = Windows.Forms.DialogResult.OK
+
     End Sub
+
+    'Private Sub TimerSettingsDialog_Click(sender As Object, e As EventArgs) Handles Me.Click
+
+    'End Sub
+
+    'Private Sub TimerSettingsDialog_Enter(sender As Object, e As EventArgs) Handles Me.Enter
+    '    CheckBoxSettings.Checked = False
+    'End Sub
 
     Private Sub DialogTimerSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         RemoveHandler Application.Idle, AddressOf UpdateUI
     End Sub
 
+    Private Sub TimerSettingsDialog_Invalidated(sender As Object, e As InvalidateEventArgs) Handles Me.Invalidated
+
+    End Sub
+
     Private Sub DialogTimerSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Initialize()
         AddHandler Application.Idle, AddressOf UpdateUI
+    End Sub
+
+    'Private Sub CheckBoxSettings_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckBoxSettings.CheckStateChanged
+
+
+    'End Sub
+
+    'Private Sub ContextMenuStripSettings_Closed(sender As Object, e As ToolStripDropDownClosedEventArgs) Handles ContextMenuStripSettings.Closed
+    '    If mouseOver Then Return
+    '    If cancel Then Return
+    '    cancel = True
+    '    CheckBoxSettings.Checked = False
+    '    cancel = False
+    'End Sub
+    'Private Sub ContextMenuStripSettings_Closed(sender As Object, e As ToolStripDropDownClosedEventArgs) Handles ContextMenuStripSettings.Closed
+    '    CheckBoxSettings.Invalidate()
+    'End Sub
+
+    'Private mouseOver As Boolean
+    'Private cancel As Boolean
+
+    'Private Sub CheckBoxSettings_MouseEnter(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseEnter
+    '    mouseOver = True
+    'End Sub
+
+    'Private Sub CheckBoxSettings_MouseLeave(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseLeave
+    '    mouseOver = False
+    'End Sub
+
+    'Private Sub CheckBoxSettings_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSettings.CheckedChanged
+
+    'End Sub
+
+    'Private Sub ContextMenuStripSettings_VisibleChanged(sender As Object, e As EventArgs) Handles ContextMenuStripSettings.VisibleChanged
+
+    'End Sub
+
+    'Private mouseOver As Boolean
+    'Private cancel As Boolean
+    'Private forceClose As Boolean
+    'Private Sub CheckBoxSettings_MouseEnter(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseEnter
+    '    mouseOver = True
+    'End Sub
+
+    'Private Sub CheckBoxSettings_MouseLeave(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseLeave
+    '    mouseOver = False
+    'End Sub
+    'Private mouseOver As Boolean
+    'Private cancel As Boolean
+    'Private Sub CheckBoxSettings_MouseEnter(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseEnter
+    '    mouseOver = True
+    'End Sub
+
+    'Private Sub CheckBoxSettings_MouseLeave(sender As Object, e As EventArgs) Handles CheckBoxSettings.MouseLeave
+    '    mouseOver = False
+    'End Sub
+
+
+    'Private Sub CheckBoxSettings_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSettings.CheckedChanged
+    '    If cancel Then Return
+    '    If (CheckBoxSettings.Checked) Then
+    '        ContextMenuStripSettings.Visible = True
+    '        Utils.ShowContextMenuStrip(sender, ContextMenuStripSettings)
+    '    Else
+    '        If (ContextMenuStripSettings.Visible) Then
+    '            ContextMenuStripSettings.Close()
+    '        End If
+    '    End If
+    'End Sub
+
+    'Private buttonPressed As Boolean
+    'Private Sub CheckBoxSettings_Paint(sender As Object, e As PaintEventArgs) Handles CheckBoxSettings.Paint
+    '    If (ContextMenuStripSettings.Visible) Then
+    '        ButtonRenderer.DrawButton(e.Graphics, CheckBoxSettings.Bounds, VisualStyles.PushButtonState.Pressed)
+    '    Else
+    '        ButtonRenderer.DrawButton(e.Graphics, CheckBoxSettings.Bounds, VisualStyles.PushButtonState.Normal)
+    '    End If
+    'End Sub
+
+    'Private Sub CheckBoxSettings_Click(sender As Object, e As EventArgs) Handles CheckBoxSettings.Click
+    '    If (buttonPressed AndAlso Not ContextMenuStripSettings.Visible) Then
+    '        Utils.ShowContextMenuStrip(sender, ContextMenuStripSettings)
+    '        buttonPressed = True
+    '    End If
+
+    '    CheckBoxSettings.Invalidate()
+    'End Sub
+
+    'Private Sub CheckBoxSettings_MouseUp(sender As Object, e As MouseEventArgs) Handles CheckBoxSettings.MouseUp
+
+    'End Sub
+
+    'Private Sub CheckBoxSettings_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSettings.CheckedChanged
+    '    If (CheckBoxSettings.Checked) Then
+    '        Utils.ShowContextMenuStrip(sender, ContextMenuStripSettings)
+    '    Else
+    '        If cancel Then Return
+    '        ContextMenuStripSettings.Hide()
+    '    End If
+    'End Sub
+
+    'Private Sub ContextMenuStripSettings_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles ContextMenuStripSettings.Closing
+    '    e.Cancel = CheckBoxSettings.Checked And mouseOver
+    '    cancel = Not mouseOver
+    '    CheckBoxSettings.Checked = False
+    '    cancel = False
+    'End Sub
+
+    Private Sub ButtonOptions_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
+        ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
+    End Sub
+
+    Private Sub MenuItemLoadPreset_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
+        Try
+            Using openDialog As New OpenFileDialog
+                openDialog.InitialDirectory = ""
+                openDialog.Filter = AlarmFilter
+                openDialog.CheckFileExists = True
+                If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                    Using input As Stream = File.OpenRead(openDialog.FileName)
+                        time.Import(input)
+                    End Using
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+        End Try
+    End Sub
+
+    Private Sub MenuItemSavePresetAs_Click(sender As Object, e As EventArgs) Handles MenuItemSavePresetAs.Click
+        Try
+            Using saveDialog As New SaveFileDialog
+                saveDialog.InitialDirectory = ""
+                saveDialog.Filter = My.Settings.TimeDialogFilter
+                saveDialog.OverwritePrompt = True
+                If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                    Using output As Stream = File.OpenWrite(saveDialog.FileName)
+                        time.Export(output)
+                    End Using
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+        End Try
     End Sub
 End Class

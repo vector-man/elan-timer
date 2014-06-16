@@ -24,7 +24,6 @@ Partial Class TimerSettingsDialog
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TimerSettingsDialog))
         Me.CheckBoxShowNoteAlertWhenTimerExpires = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
         Me.LabelHours = New System.Windows.Forms.Label()
         Me.NumericUpDownHours = New System.Windows.Forms.NumericUpDown()
         Me.LabelMinutes = New System.Windows.Forms.Label()
@@ -38,7 +37,7 @@ Partial Class TimerSettingsDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ButtonLoad = New System.Windows.Forms.Button()
+        Me.ButtonOptions = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonStart = New System.Windows.Forms.Button()
         Me.ButtonSet = New System.Windows.Forms.Button()
@@ -53,6 +52,10 @@ Partial Class TimerSettingsDialog
         Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
+        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,12 +75,6 @@ Partial Class TimerSettingsDialog
         Me.TableLayoutPanel2.SetColumnSpan(Me.CheckBoxShowNoteAlertWhenTimerExpires, 4)
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
         Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
-        '
-        'CheckBoxAlarmSet
-        '
-        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
-        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
-        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
         '
         'LabelHours
         '
@@ -167,17 +164,17 @@ Partial Class TimerSettingsDialog
         '
         resources.ApplyResources(Me.TableLayoutPanel3, "TableLayoutPanel3")
         Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 6)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonLoad, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonOptions, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 6, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonStart, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonSet, 4, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
-        'ButtonLoad
+        'ButtonOptions
         '
-        resources.ApplyResources(Me.ButtonLoad, "ButtonLoad")
-        Me.ButtonLoad.Name = "ButtonLoad"
-        Me.ButtonLoad.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
+        Me.ButtonOptions.Name = "ButtonOptions"
+        Me.ButtonOptions.UseVisualStyleBackColor = True
         '
         'ButtonCancel
         '
@@ -275,7 +272,27 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
         '
-        'DialogTimerSettings
+        'CheckBoxAlarmSet
+        '
+        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
+        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
+        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
+        '
+        'ContextMenuOptions
+        '
+        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItemSavePresetAs})
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 0
+        resources.ApplyResources(Me.MenuItem1, "MenuItem1")
+        '
+        'MenuItemSavePresetAs
+        '
+        Me.MenuItemSavePresetAs.Index = 1
+        resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
+        '
+        'TimerSettingsDialog
         '
         Me.AcceptButton = Me.ButtonSet
         resources.ApplyResources(Me, "$this")
@@ -286,7 +303,7 @@ Partial Class TimerSettingsDialog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "DialogTimerSettings"
+        Me.Name = "TimerSettingsDialog"
         Me.ShowInTaskbar = False
         Me.TopMost = True
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).EndInit()
@@ -310,7 +327,6 @@ Partial Class TimerSettingsDialog
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
     Friend WithEvents ComboBoxAlarmPath As System.Windows.Forms.ComboBox
     Friend WithEvents ButtonAlarmPlay As System.Windows.Forms.Button
     Friend WithEvents ButtonOpenAlarm As System.Windows.Forms.Button
@@ -336,9 +352,13 @@ Partial Class TimerSettingsDialog
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents CheckedGroupBox1 As ElanTimer.CheckedGroupBox
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ButtonLoad As System.Windows.Forms.Button
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents ButtonSet As System.Windows.Forms.Button
     Friend WithEvents ButtonStart As System.Windows.Forms.Button
+    Friend WithEvents ButtonOptions As System.Windows.Forms.Button
+    Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
+    Friend WithEvents ContextMenuOptions As System.Windows.Forms.ContextMenu
+    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItemSavePresetAs As System.Windows.Forms.MenuItem
 
 End Class

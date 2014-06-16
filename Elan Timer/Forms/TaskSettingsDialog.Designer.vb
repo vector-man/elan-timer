@@ -30,7 +30,6 @@ Partial Class TaskSettingsDialog
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonExport = New System.Windows.Forms.Button()
-        Me.ButtonImport = New System.Windows.Forms.Button()
         Me.DataListViewActions = New BrightIdeasSoftware.DataListView()
         Me.OlvColumnName = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
@@ -48,6 +47,8 @@ Partial Class TaskSettingsDialog
         Me.ButtonMoveDown = New System.Windows.Forms.Button()
         Me.ButtonMoveUp = New System.Windows.Forms.Button()
         Me.ContextMenuExport = New System.Windows.Forms.ContextMenu()
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItem2 = New System.Windows.Forms.MenuItem()
         Me.MenuItemExportSelected = New System.Windows.Forms.MenuItem()
         Me.MenuItemExportAll = New System.Windows.Forms.MenuItem()
         Me.TableLayoutPanelActions.SuspendLayout()
@@ -91,10 +92,9 @@ Partial Class TaskSettingsDialog
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanelActions.SetColumnSpan(Me.TableLayoutPanel2, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 6, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 4, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonExport, 2, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonImport, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 4, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 2, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonExport, 0, 1)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'ButtonCancel
@@ -116,12 +116,6 @@ Partial Class TaskSettingsDialog
         resources.ApplyResources(Me.ButtonExport, "ButtonExport")
         Me.ButtonExport.Name = "ButtonExport"
         Me.ButtonExport.UseVisualStyleBackColor = True
-        '
-        'ButtonImport
-        '
-        resources.ApplyResources(Me.ButtonImport, "ButtonImport")
-        Me.ButtonImport.Name = "ButtonImport"
-        Me.ButtonImport.UseVisualStyleBackColor = True
         '
         'DataListViewActions
         '
@@ -236,19 +230,29 @@ Partial Class TaskSettingsDialog
         '
         'ContextMenuExport
         '
-        Me.ContextMenuExport.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItemExportSelected, Me.MenuItemExportAll})
+        Me.ContextMenuExport.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItem2, Me.MenuItemExportSelected, Me.MenuItemExportAll})
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 0
+        resources.ApplyResources(Me.MenuItem1, "MenuItem1")
+        '
+        'MenuItem2
+        '
+        Me.MenuItem2.Index = 1
+        resources.ApplyResources(Me.MenuItem2, "MenuItem2")
         '
         'MenuItemExportSelected
         '
-        Me.MenuItemExportSelected.Index = 0
+        Me.MenuItemExportSelected.Index = 2
         resources.ApplyResources(Me.MenuItemExportSelected, "MenuItemExportSelected")
         '
         'MenuItemExportAll
         '
-        Me.MenuItemExportAll.Index = 1
+        Me.MenuItemExportAll.Index = 3
         resources.ApplyResources(Me.MenuItemExportAll, "MenuItemExportAll")
         '
-        'DialogTaskSettings
+        'TaskSettingsDialog
         '
         Me.AcceptButton = Me.ButtonOK
         resources.ApplyResources(Me, "$this")
@@ -258,7 +262,7 @@ Partial Class TaskSettingsDialog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "DialogTaskSettings"
+        Me.Name = "TaskSettingsDialog"
         Me.ShowInTaskbar = False
         Me.TableLayoutPanelActions.ResumeLayout(False)
         Me.TableLayoutPanelActions.PerformLayout()
@@ -295,6 +299,7 @@ Partial Class TaskSettingsDialog
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
     Friend WithEvents ButtonExport As System.Windows.Forms.Button
-    Friend WithEvents ButtonImport As System.Windows.Forms.Button
+    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem2 As System.Windows.Forms.MenuItem
 
 End Class

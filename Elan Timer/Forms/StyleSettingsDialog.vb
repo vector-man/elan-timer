@@ -160,18 +160,8 @@ Public Class StyleSettingsDialog
         End Try
     End Sub
 
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs) Handles ButtonLoad.Click
-        Using dialogOpen As New OpenFileDialog()
-            dialogOpen.CheckPathExists = True
-            dialogOpen.Filter = My.Settings.StyleDialogFilter
-            If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
-                    style.Import(stream)
-                    UpdateUI()
-                End Using
-                ' LoadAction.DynamicInvoke(dialogOpen.FileName)
-            End If
-        End Using
+    Private Sub ButtonOptions_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
+        ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
         ' TODO: Fix code. Possibly replace with Import event handled in the owner form.
         'Using dialogOpen As New OpenFileDialog
         '    dialogOpen.InitialDirectory = Preferences.StylePath
@@ -189,7 +179,7 @@ Public Class StyleSettingsDialog
         'End Using
     End Sub
 
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonSaveAs.Click
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs)
         ' TODO: Fix code. Possibly replace with Export event handled in the owner form.
         Using dialogSave As New SaveFileDialog()
             '    dialogSave.InitialDirectory = Preferences.StylePath
@@ -230,5 +220,32 @@ Public Class StyleSettingsDialog
         Timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
         StartUpRendering(Timer)
         Timer.Start()
+    End Sub
+
+    Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
+        Using dialogOpen As New OpenFileDialog()
+            dialogOpen.CheckPathExists = True
+            dialogOpen.Filter = My.Settings.StyleDialogFilter
+            If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
+                    style.Import(stream)
+                    UpdateUI()
+                End Using
+            End If
+        End Using
+    End Sub
+
+    Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
+        ' TODO: Fix code. Possibly replace with Export event handled in the owner form.
+        Using dialogSave As New SaveFileDialog()
+            '    dialogSave.InitialDirectory = Preferences.StylePath
+            dialogSave.CheckPathExists = True
+            dialogSave.Filter = My.Settings.StyleDialogFilter
+            If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                Using stream As FileStream = File.Create(dialogSave.FileName)
+                    style.Export(stream)
+                End Using
+            End If
+        End Using
     End Sub
 End Class

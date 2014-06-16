@@ -39,9 +39,11 @@ Partial Class StyleSettingsDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.ButtonLoad = New System.Windows.Forms.Button()
-        Me.ButtonSaveAs = New System.Windows.Forms.Button()
+        Me.ButtonOptions = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
+        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
+        Me.MenuItemLoadStyle = New System.Windows.Forms.MenuItem()
+        Me.MenuItemSaveStyleAs = New System.Windows.Forms.MenuItem()
         CType(Me.NumericUpDownTransparencyLevel, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -151,10 +153,9 @@ Partial Class StyleSettingsDialog
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanel1.SetColumnSpan(Me.TableLayoutPanel2, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 6, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonLoad, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonSaveAs, 2, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 4, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 5, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOptions, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 3, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'ButtonCancel
@@ -164,17 +165,11 @@ Partial Class StyleSettingsDialog
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'ButtonLoad
+        'ButtonOptions
         '
-        resources.ApplyResources(Me.ButtonLoad, "ButtonLoad")
-        Me.ButtonLoad.Name = "ButtonLoad"
-        Me.ButtonLoad.UseVisualStyleBackColor = True
-        '
-        'ButtonSaveAs
-        '
-        resources.ApplyResources(Me.ButtonSaveAs, "ButtonSaveAs")
-        Me.ButtonSaveAs.Name = "ButtonSaveAs"
-        Me.ButtonSaveAs.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
+        Me.ButtonOptions.Name = "ButtonOptions"
+        Me.ButtonOptions.UseVisualStyleBackColor = True
         '
         'ButtonOK
         '
@@ -183,7 +178,21 @@ Partial Class StyleSettingsDialog
         Me.ButtonOK.Name = "ButtonOK"
         Me.ButtonOK.UseVisualStyleBackColor = True
         '
-        'DialogStyleSettings
+        'ContextMenuOptions
+        '
+        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItemLoadStyle, Me.MenuItemSaveStyleAs})
+        '
+        'MenuItemLoadStyle
+        '
+        Me.MenuItemLoadStyle.Index = 0
+        resources.ApplyResources(Me.MenuItemLoadStyle, "MenuItemLoadStyle")
+        '
+        'MenuItemSaveStyleAs
+        '
+        Me.MenuItemSaveStyleAs.Index = 1
+        resources.ApplyResources(Me.MenuItemSaveStyleAs, "MenuItemSaveStyleAs")
+        '
+        'StyleSettingsDialog
         '
         Me.AcceptButton = Me.ButtonOK
         resources.ApplyResources(Me, "$this")
@@ -194,8 +203,7 @@ Partial Class StyleSettingsDialog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "DialogStyleSettings"
-        Me.ShowInTaskbar = False
+        Me.Name = "StyleSettingsDialog"
         CType(Me.NumericUpDownTransparencyLevel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
@@ -221,8 +229,10 @@ Partial Class StyleSettingsDialog
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
-    Friend WithEvents ButtonLoad As System.Windows.Forms.Button
-    Friend WithEvents ButtonSaveAs As System.Windows.Forms.Button
+    Friend WithEvents ButtonOptions As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
+    Friend WithEvents ContextMenuOptions As System.Windows.Forms.ContextMenu
+    Friend WithEvents MenuItemLoadStyle As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItemSaveStyleAs As System.Windows.Forms.MenuItem
 
 End Class
