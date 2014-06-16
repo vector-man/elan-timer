@@ -471,7 +471,7 @@ Public Class FormMain
                 noteObject.Text = timeSettings.Note
                 HideNote()
                 AddTimerHandlers()
-                If result = Windows.Forms.DialogResult.OK Then
+                If result = Windows.Forms.DialogResult.Yes Then
                     SetTimerState(True)
                 End If
                 Me.UpdateIcons()
