@@ -13,7 +13,7 @@ Public Class TimeModel
 
     Public Property AlarmName As String
 
-    Public Property AlarmRepeat As Boolean
+    Public Property AlarmLoop As Boolean
 
     Public Property AlarmVolume As Integer
 
@@ -55,7 +55,7 @@ Public Class TimeModel
         Me.Restarts = model.Restarts
         Me.AlarmEnabled = model.AlarmEnabled
         Me.AlarmName = model.AlarmName
-        Me.AlarmRepeat = model.AlarmRepeat
+        Me.AlarmLoop = model.AlarmLoop
         Me.AlarmVolume = model.AlarmVolume
         Me.NoteEnabled = model.NoteEnabled
         Me.Note = model.Note

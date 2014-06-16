@@ -183,12 +183,12 @@ Public Class TimerSettingsDialog
             time.AlarmVolume = value
         End Set
     End Property
-    Public Property AlarmRepeat As Boolean
+    Public Property AlarmLoop As Boolean
         Get
-            Return time.AlarmRepeat
+            Return time.AlarmLoop
         End Get
         Set(value As Boolean)
-            time.AlarmRepeat = True
+            time.AlarmLoop = True
         End Set
     End Property
     Public Property AlarmFilter As String
@@ -220,8 +220,7 @@ Public Class TimerSettingsDialog
         CheckedGroupBox1.DataBindings.Add("Checked", time, "AlarmEnabled")
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
         NumericUpDownVolume.DataBindings.Add("Value", time, "AlarmVolume")
-        CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmRepeat")
-
+        CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
         ' ContextMenuStripSettings.DataBindings.Add("Visible", CheckBoxSettings, "Checked")
         ' ComboBoxAlarmPath.SelectedItem = alarms.Where(Function(i) i.Value = AlarmName)
         'Dim hoursBinding As New Binding("Value", time, "Duration")

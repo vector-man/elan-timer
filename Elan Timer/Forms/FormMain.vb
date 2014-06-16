@@ -453,7 +453,7 @@ Public Class FormMain
             dialog.AlarmsPath = Common.AlarmsPath
             dialog.SelectedAlarm = timeSettings.AlarmName
             dialog.AlarmEnabled = timeSettings.AlarmEnabled
-            dialog.AlarmRepeat = timeSettings.AlarmLoop
+            dialog.AlarmLoop = timeSettings.AlarmLoop
             dialog.AlarmVolume = timeSettings.AlarmVolume
 
             dialog.Duration = timeSettings.Duration
@@ -469,7 +469,7 @@ Public Class FormMain
                 timeSettings.Restarts = dialog.Restarts
                 timeSettings.AlarmEnabled = dialog.AlarmEnabled
                 timeSettings.AlarmName = dialog.SelectedAlarm
-                timeSettings.AlarmLoop = dialog.AlarmRepeat
+                timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
                 timeSettings.Note = dialog.Note
                 timeSettings.NoteEnabled = dialog.NoteEnabled
