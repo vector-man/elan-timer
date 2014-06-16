@@ -3,7 +3,6 @@ Imports System.IO
 Imports System.Linq
 Imports System.Xml.Linq
 Imports System.Xml.XPath
-Imports Salar.Bois
 Namespace Settings
 
     Public Class StyleSettings
