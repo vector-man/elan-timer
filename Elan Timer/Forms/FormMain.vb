@@ -371,17 +371,38 @@ Public Class FormMain
                 Dim pref = args(0)
                 If (System.IO.File.Exists(pref)) Then
                     'TODO: Fix LoadSettongs()
-                    'Using stream As FileStream = File.OpenRead(pref)
-                    '    Select Case System.IO.Path.GetExtension(pref)
+                    Using stream As FileStream = File.OpenRead(pref)
+                        Select Case System.IO.Path.GetExtension(pref)
 
-                    '        Case My.Settings.StyleFileExtension
-                    '            styleSettings.Import(stream)
-                    '        Case My.Settings.TaskFileExtension
-                    '            taskSettings.Import(stream)
-                    '        Case My.Settings.TimeFileExtension
-                    '            timeSettings.Import(stream)
-                    '    End Select
-                    'End Using
+                            Case My.Settings.StyleFileExtension
+                                Dim model = New StyleModel(transporter)
+                                model.Import(stream)
+
+                                styleSettings.BackgroundColor = model.BackgroundColor
+                                styleSettings.ForegroundColor = model.ForegroundColor
+                                styleSettings.DisplayFont = model.DisplayFont
+                                styleSettings.DisplayFormat = model.DisplayFormat
+                                styleSettings.GrowToFit = model.GrowToFit
+                                styleSettings.Opacity = 100 - model.Transparency
+                            Case My.Settings.TaskFileExtension
+                                Dim model = New TasksModel(transporter)
+                                model.Import(stream)
+                                taskSettings.Tasks = model.Tasks
+                            Case My.Settings.TimeFileExtension
+                                Dim model = New TimeModel(transporter)
+                                model.Import(stream)
+                                timeSettings.AlarmName = model.AlarmName
+                                timeSettings.AlarmEnabled = model.AlarmEnabled
+                                timeSettings.AlarmLoop = model.AlarmLoop
+                                timeSettings.AlarmVolume = model.AlarmVolume
+                                timeSettings.AlertEnabled = model.AlertEnabled
+                                timeSettings.CountUp = model.CountUp
+                                timeSettings.Duration = model.Duration
+                                timeSettings.Note = model.Note
+                                timeSettings.NoteEnabled = model.NoteEnabled
+                                timeSettings.Restarts = model.Restarts
+                        End Select
+                    End Using
 
                 End If
             End If
