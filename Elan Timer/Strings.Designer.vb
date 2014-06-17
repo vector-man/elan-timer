@@ -389,7 +389,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Edit Timer....
+        '''  Looks up a localized string similar to Edit....
         '''</summary>
         Public Shared ReadOnly Property MenuEditTimer() As String
             Get
@@ -434,7 +434,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Timer....
+        '''  Looks up a localized string similar to New....
         '''</summary>
         Public Shared ReadOnly Property MenuNewTimer() As String
             Get

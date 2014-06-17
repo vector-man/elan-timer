@@ -226,7 +226,7 @@
     <value>Default</value>
   </data>
   <data name="MenuEditTimer" xml:space="preserve">
-    <value>Edit Timer...</value>
+    <value>Edit...</value>
   </data>
   <data name="MenuExit" xml:space="preserve">
     <value>E&amp;xit</value>
@@ -241,7 +241,7 @@
     <value>Help Online</value>
   </data>
   <data name="MenuNewTimer" xml:space="preserve">
-    <value>New Timer...</value>
+    <value>New...</value>
   </data>
   <data name="MenuSettings" xml:space="preserve">
     <value>Settings...</value>
