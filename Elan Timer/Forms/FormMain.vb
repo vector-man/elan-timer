@@ -593,9 +593,9 @@ Public Class FormMain
             End If
 
             ' DialogTaskSettings.TopMost = True
-            tasksDialog.Tasks = New List(Of TaskModel)(taskSettings.Tasks)
-            If (tasksDialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
-                taskSettings.Tasks = tasksDialog.Tasks
+            tasksDialog.Tasks = taskSettings.Tasks
+            If (Not tasksDialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
+                taskSettings.Reload()
             End If
         End Using
     End Sub
