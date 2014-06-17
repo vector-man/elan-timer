@@ -30,7 +30,6 @@ Partial Class FormMain
         Me.ToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemAlwaysOnTop = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,6 +65,7 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMain.SuspendLayout()
         Me.ContextMenuStripMain.SuspendLayout()
         Me.SuspendLayout()
@@ -81,7 +81,7 @@ Partial Class FormMain
         'ToolStripSplitButtonSettings
         '
         Me.ToolStripSplitButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripSeparator2, Me.ToolStripMenuItemSettings, Me.ToolStripMenuItem2, Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
+        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItem7, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripMenuItemSettings, Me.ToolStripMenuItem2, Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
         resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
         Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
         '
@@ -104,11 +104,6 @@ Partial Class FormMain
         '
         Me.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle"
         resources.ApplyResources(Me.ToolStripMenuItemStyle, "ToolStripMenuItemStyle")
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         '
         'ToolStripMenuItemSettings
         '
@@ -297,6 +292,11 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
         resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        resources.ApplyResources(Me.ToolStripMenuItem7, "ToolStripMenuItem7")
+        '
         'FormMain
         '
         resources.ApplyResources(Me, "$this")
@@ -322,7 +322,6 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItemNewTimer As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemTasks As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemStyle As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItemSettings As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItemAlwaysOnTop As System.Windows.Forms.ToolStripMenuItem
@@ -354,5 +353,6 @@ Partial Class FormMain
     Friend WithEvents NotifyIconToolStripMenuItemShow As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NotifyIconToolStripMenuItemExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem6 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripSeparator
 
 End Class
