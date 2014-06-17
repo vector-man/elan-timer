@@ -15,4 +15,9 @@ Public Class Utils
     Public Shared Function GetDefaultAlarm(alarmsPath)
         Return GetAlarms(alarmsPath)(0).Value
     End Function
+    Public Shared Sub ShowContextMenuStrip(control As Control, contextMenuStrip As ContextMenuStrip)
+        Dim ptLowerLeft As Point = New Point(0, control.Height)
+        ptLowerLeft = control.PointToScreen(ptLowerLeft)
+        contextMenuStrip.Show(ptLowerLeft)
+    End Sub
 End Class
