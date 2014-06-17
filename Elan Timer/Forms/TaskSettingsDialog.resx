@@ -121,36 +121,32 @@
   <data name="ButtonAdd.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ButtonAdd.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ButtonAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        QmCC
 </value>
   </data>
   <data name="ButtonAdd.Location" type="System.Drawing.Point, System.Drawing">
     <value>367, 0</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ButtonAdd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 0, 3, 3</value>
   </data>
   <data name="ButtonAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 23</value>
   </data>
   <data name="ButtonAdd.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -173,31 +169,26 @@
   <data name="ButtonRemove.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonRemove.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="ButtonRemove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJpSURBVDhPpZP7S1NhGMf9W/SHKEGiGyFhFBTmvMyd
-        tTa3eTvL9LjFIpam7AzTDGoYuvCHcJbaVSt/yTSxUV4ycnYdWh4rL+3URq3pObumfNsmbS5HEL3weeE8
-        PJ/vy3nOeZMA/BcbCgsaTco8Van/QJUzsyqSm1GVcO9JJTNFyvW2UmnKn/1xD4tqDfGJotjvpib4RywI
-        vLUiMDEK/n43FrRleF1IsC+UQmK9EyfPVVD88t1urM6+Q3DwHoJdzQiaL+Dn7TasjA/CUauFVZ7NP5dm
-        RkMi27xanRyS7dzNLqwyNgQvn4O72YClphr4LxkQaKHhN56C/8EtLB4nMX7kgH1Msi85GhCSaWe9Hiu2
-        yciJPhMN13kdvA3qOLjTJPy91/AqLwPD4gw6GvCROsZ4eq8j2GOG21iFb0XihCxXkeCb6uAwVOMxkc5E
-        A5gKlTfwsBdBkwHus9pQKfFyyHLgogqxZG6FJW+XN1RaC5ghi7y+ng74G7XwnimPNCda4QBnmQJLba0Y
-        Em6LBUyXKhiXsQ6+ZhrcSWWkMSHyPLjra7FQq8OgIC32CrZiKc1IBPD2dMKtksBVJtogs9JssAUieLqu
-        YFS4AwNZW2JDfFMkTn5ZQtgXK0vgudMRGZhTIVwTZblgJSFZIgTf2Y6pYnFYtvcJNsc+Y5jJghxiQnaI
-        nzuqgOdGB3400nCQcnxRyuBq0IO/2o5pZT76s1L5kBz/I/3mmfQg8fTwftYq2oOvNTq4Wi5G+Fx9Ak9y
-        todldr0cJi4gzIh4b8qwMF1vIXYzj/J3ckOCrdxAbhrTn52q78vc9PfL9O8g6Rcd0s65aUjWSwAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB60lEQVQ4T42STUtUcRjF7yfw
+        I8wqyHnLVFJrHCMXQ9r0gtFISmQZ1BQmUlYLw020bpEFLYRoEQ5C+4Ixp69RLYKosSzJW/dOmafn9+fO
+        WCrYgcN/nuf5ncMwjLdZi5nEzMuu5mChc7fqZmYfIQ1Jij6ZKt2pHPDrm5f1bW5W4fNnCl+Y7WVmzx0u
+        imwUVLKp3KuDLfr65KGC+VktT46oOtij94d2uZeZPXc4eHKNAppXnj7S6r1pVfNt+tCX1sf8XnOre5nZ
+        c4eDJ+cKFjPJmTdT4/p+/46q/XtUPdqupeP7tHSiY8M2s+cOB0/OFSzsj4f+/GMtD3Tp8+G0PuWS5sQ2
+        Tro7HDy5qCCh8MFdfTnSYvPOgoMnZ7KCTFLBrVGt2Ff8H8HBkzNZQXdKYfGkVgs9DthJcPDkTJ5XzqZr
+        /oVjCkbz8od65Rvgn8puNXu7O854cq6g1Bmfe1vo1a+xQdccXBpQcHEb2547HDw5V2CK8XX8YkFrE2f0
+        c3xYtatDW8yeOxw8uXqBNx2PXanYP+zH2GnpxnmtXx/R+rWz+m3mZWbPHQ6eXKPA1MSybL/su+F+rU2e
+        k24XpSmzvczsuUfhJkJ/FyCW7aWO5lI5k6oBlw+YeW1mzz3inDYX1BUzt5qB62Zm/48keX8AZkQ3TJU8
+        XwkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ButtonRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 28</value>
+    <value>367, 29</value>
   </data>
   <data name="ButtonRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 23</value>
   </data>
   <data name="ButtonRemove.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -229,27 +220,6 @@
   <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>317, 10</value>
-  </data>
-  <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="ButtonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
   <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
     <value>ButtonCancel</value>
   </data>
@@ -262,27 +232,6 @@
   <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>232, 10</value>
-  </data>
-  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="ButtonOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
   <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
     <value>ButtonOK</value>
   </data>
@@ -294,42 +243,6 @@
   </data>
   <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="ButtonExport.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ButtonExport.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="ButtonExport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAp0lEQVQ4T6WOQQoCMQxFu/Y6
-        XfYqrlpooXdTQZDZ6ey8g7pRHPAWcX5GkDZZGAw8SF4+JI6I/kKVFlRpQZUWVGlBiFrrOedMKSWKMTLo
-        4bDr880ASil0ud7oOb3o/pgY9HDY9flmYOGcT/PV42mk/WFg0MNhJ/JCLOXx9ma7Y9DDYSHyQnzL42UQ
-        Qlh/nMwL0RaughVPc4l8L6yo0oIqLajSgip/h9wboJi7L/oK2XwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ButtonExport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonExport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
-  </data>
-  <data name="ButtonExport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="ButtonExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 23</value>
-  </data>
-  <data name="ButtonExport.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="ButtonExport.Text" xml:space="preserve">
-    <value>Options</value>
-  </data>
-  <data name="ButtonExport.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>TextBeforeImage</value>
   </data>
   <data name="&gt;&gt;ButtonExport.Name" xml:space="preserve">
     <value>ButtonExport</value>
@@ -347,7 +260,7 @@
     <value>Fill</value>
   </data>
   <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 222</value>
+    <value>0, 223</value>
   </data>
   <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -356,7 +269,7 @@
     <value>2</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 33</value>
+    <value>394, 33</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
@@ -375,33 +288,6 @@
   </data>
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonCancel" Row="1" RowSpan="1" Column="4" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonExport" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0,Absolute,10,AutoSize,0,Absolute,20" /&gt;&lt;Rows Styles="Absolute,10,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="OlvColumnName.Text" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="OlvColumnName.Width" type="System.Int32, mscorlib">
-    <value>140</value>
-  </data>
-  <data name="OlvColumnEvent.Text" xml:space="preserve">
-    <value>Event</value>
-  </data>
-  <data name="OlvColumnCommand.DisplayIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="OlvColumnCommand.Text" xml:space="preserve">
-    <value>Command</value>
-  </data>
-  <data name="OlvColumnCommand.Width" type="System.Int32, mscorlib">
-    <value>130</value>
-  </data>
-  <data name="OlvColumnArguments.DisplayIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="OlvColumnArguments.Text" xml:space="preserve">
-    <value>Arguments</value>
-  </data>
-  <data name="OlvColumnArguments.Width" type="System.Int32, mscorlib">
-    <value>90</value>
   </data>
   <data name="DataListViewActions.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -433,25 +319,34 @@
   <data name="ButtonBrowseForFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonBrowseForFile.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="ButtonBrowseForFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKlSURBVDhPhZLdSxRRGIf3NuhPqatyuymI6KIbCbK1
-        INAugggMDIRIKC1zVQpzHZMw1LqoCwuE9CqlUNfSdf1Yv3Z3XNd1v3etVmd2PnY+zq93ZhMSlrp4OGdm
-        zu95z3vOOABUZHAmj/6vafROJG0a3gSku0Mrcn2/n7/wwPvo7O1Px6x1FcMW/V9SYDTJiSbyRFYwkCho
-        yAgaOifycLUvj527M368YtiCo6o/JYbZqIHvMR3TkRLG1ySIJQZvXAM39QOXHs5wFcMW1rb3ZYbFuIHF
-        hIG5HQ2TYQXbOQl7ogZR1VHT5mMVwxaW4EBhWE0ZCCQN+OM6vNslTARljAZEJKmd6x1+5giPn17Zna7T
-        4jM3/6Je85BAUICNDLMJpEz4Yhq80ZK9k4xg4pol4MecKmMmFaUjYxbluecztWALgM2MifW0iRXayULC
-        Og8NWZGh1m0JRqv2maFATXZDinogxYYh737Elac+agEI54CtfHkMkmw1BSzEYX9ztS+QYMQpmNoBhftQ
-        jHDITd4C31f1XwqyDlebtYMPVZouZ5GZbER8xIXYu2rszXtQoJM2qR2DOirDoBuM3jFbkBUKqH28BAf/
-        /oxm92+qhEwrJTBDRDE5ACU9ADn9GlJqkBhCMTUMVeRtwa+iiautvpKDf+ssMUOGmuojuD94kNvikAhy
-        iKxyCC71YHnuOb5NubEZmrcFF5tmszUtvgMHP+BUTU2AmrYEvUQP1MQzKHE3lN0WyNH7kCMNKIbrIG5c
-        hi74bcHh/+KgB4VphXLl5AsKd1HwCZSdZgrfg7R1G8XQDYjr1RAC50ngOyoId5/Stf0IXd0ryLGXkHd6
-        6UboSiNdKPLtVLkVYrCZqjdBWGuEmp8+Kgi5TwRCnSeVUAdhjf/icA1lygI4fgMa/TtqTPLuogAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADImlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20v
+        eGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxu
+        czpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1w
+        OkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJ
+        RD0ieG1wLmlpZDpENjEzQzg0RkE3M0IxMUUxQkZCMDlEOUIwOEQ2QzEyQiIgeG1wTU06RG9jdW1lbnRJ
+        RD0ieG1wLmRpZDpENjEzQzg1MEE3M0IxMUUxQkZCMDlEOUIwOEQ2QzEyQiI+IDx4bXBNTTpEZXJpdmVk
+        RnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQ2MTNDODREQTczQjExRTFCRkIwOUQ5QjA4RDZD
+        MTJCIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQ2MTNDODRFQTczQjExRTFCRkIwOUQ5QjA4RDZD
+        MTJCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQg
+        ZW5kPSJyIj8+jKAT/AAAAkNJREFUOE99kd9LU3EYxr0L6q5/oKuiO0krSJ1bm9ZdBHpR3UhdeBGoJJRx
+        MluFCBOp7bi57MLAG0tGXlQXldCgUhues81Ip/thU1o1xlxG2c62p+cczU099sLDOXz5vp/3fb5PGQBN
+        M4P16aC7DoGBkwg4jfD3G+AXqyE7ilLPgm5Luoz1r2/zJzhg1hrCnktITYvIJl4BuRCQpf7MrksJaRBd
+        gF+s4ecbVudHsDx+AwG3BQHxKBafnEJyvAHKzEVgTdI20QXI9hMaACtPgd8SJ89DSb7D98n7WPA0IzJy
+        mgAfATX6AMlexZWDyMUF5CIdUGK3kPvyEEg9I2wOPtsRAt5DFnexINmr6XOKgC7kop1Qwtdpvx3ZT5e5
+        0ccNgPd/AL7B2hsCODl2E0pEoIuryM62AKsT8PVWEvSaFnYD0Bt+vUBuyVoCuEZAK5B+uQF4jul7VYza
+        ktABGDjJQ8BtArqKgLk2IOmhhWPAzzFqlFEa2bIDUAtkhgm4swWghK4AXx/hg+04QT3Aj2Fod3UBK4PI
+        L9/dAijEbYg8PoPwaCMT6eOWQ3wHHYDcb+IGDiDRjfxnK5SoAGWhA4h3w9fHhDIim11MaogWeHc7QHKa
+        07Gxc0hPtSDPJApLapwCAVaubIQ6QBZNWrPssmR2AFjlD9oqOr02w4TkMCHqaUTqbTMKiwL8TjOa6g+c
+        bW84dEE4f7hJvasHUGs/dZCqdLdWCN7e2smAy8KJdRme7aH2UvuoYt82QGltwqhy9aC01vtQ9hcj0Lau
+        wuQJhQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ButtonBrowseForFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -461,7 +356,7 @@
     <value>367, 171</value>
   </data>
   <data name="ButtonBrowseForFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 23</value>
   </data>
   <data name="ButtonBrowseForFile.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -482,7 +377,7 @@
     <value>Fill</value>
   </data>
   <data name="TextBoxArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 199</value>
+    <value>63, 200</value>
   </data>
   <data name="TextBoxArguments.Size" type="System.Drawing.Size, System.Drawing">
     <value>298, 20</value>
@@ -509,7 +404,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelArguments.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 202</value>
+    <value>0, 203</value>
   </data>
   <data name="LabelArguments.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 6, 0, 6</value>
@@ -706,16 +601,13 @@
   <data name="ButtonMoveDown.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonMoveDown.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="ButtonMoveDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC2SURBVDhPpc2hDoMwFIVhHgO1ZI+HQGAQNegaTBE0
-        QVWRoAiiAQNvsAeZ3Tp51jtJ75LdTHzmz21PBuAvbJRgowQbJdgowUaJJBzHgW3bsCwLpmmCcw5936Nt
-        23C+JUnw3j/pg33fsa7r56NhGNA0ze18S5IQV/O4+hjHEfM8w1oLpVSoqup6viVJIMaYXGv96roOdV2H
-        siwv3B1hI4mreVy9F0Xx9TFhowQbJdgowUYJNv4O2Rvq9/HAPudiTgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAp0lEQVQ4T6WOQQoCMQxFu/Y6
+        XfYqrlpooXdTQZDZ6ey8g7pRHPAWcX5GkDZZGAw8SF4+JI6I/kKVFlRpQZUWVGlBiFrrOedMKSWKMTLo
+        4bDr880ASil0ud7oOb3o/pgY9HDY9flmYOGcT/PV42mk/WFg0MNhJ/JCLOXx9ma7Y9DDYSHyQnzL42UQ
+        Qlh/nMwL0RaughVPc4l8L6yo0oIqLajSgip/h9wboJi7L/oK2XwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ButtonMoveDown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -728,7 +620,7 @@
     <value>3, 3, 3, 0</value>
   </data>
   <data name="ButtonMoveDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 22</value>
   </data>
   <data name="ButtonMoveDown.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
@@ -753,21 +645,21 @@
   </data>
   <data name="ButtonMoveUp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC2SURBVDhPpc6hDoMwEMZxHqNqyd4L1QRRWVtNSGow
-        qIoakjYQBCE8yB5kdmPyWytm6C3ZZeJn/hx3rQD8hYwcZOQgIwcZOcjIQcZs33exLMt9HMcL9f2DjOu6
-        ihjjKy3AMAyHtfbrkiKkn0S6+pimCdu2wTkHY8yhtb6eZ7MieO+fIQSkV2CeZ6Rl6LoOTdPczrNZEfq+
-        R9u2+SrSVSilIKVEXdfHeTYrAhcZOcjIQUYOMv4O1RtZkO87gkYKgAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAnElEQVQ4T6WNWwoCMQxFu6QB
+        d9SWPrYn4q+K+i3OKC7EBVwnoR9OE2GCFw4kJ5fWAfgLVVpQpQVVWlClBSm+klIC0VaO6AvR4r3HOD0Y
+        mpuWfSHmhBBwvlyx3e0ZmsmteqCUgsPxhPvzhds4MTSTo1vfXyxErfWdc0aMkX8laCZHt76/WFg4N8xs
+        fjCIfi+sqNKCKi2o0oIq1wP3AdnTui3bGb3WAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ButtonMoveUp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ButtonMoveUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>367, 65</value>
+    <value>367, 64</value>
   </data>
   <data name="ButtonMoveUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 23</value>
   </data>
   <data name="ButtonMoveUp.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -797,7 +689,7 @@
     <value>10</value>
   </data>
   <data name="TableLayoutPanelActions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>392, 255</value>
+    <value>394, 256</value>
   </data>
   <data name="TableLayoutPanelActions.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
@@ -816,6 +708,147 @@
   </data>
   <data name="TableLayoutPanelActions.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TableLayoutPanel2" Row="9" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="DataListViewActions" Row="0" RowSpan="5" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="ButtonRemove" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonBrowseForFile" Row="7" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxArguments" Row="8" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelArguments" Row="8" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxCommand" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="TextBoxName" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelName" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxEvent" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelCommand" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelEvent" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAdd" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveDown" Row="4" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonMoveUp" Row="3" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>319, 10</value>
+  </data>
+  <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="ButtonCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
+    <value>ButtonCancel</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 10</value>
+  </data>
+  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ButtonOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
+    <value>ButtonOK</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ButtonExport.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ButtonExport.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="ButtonExport.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAp0lEQVQ4T6WOQQoCMQxFu/Y6
+        XfYqrlpooXdTQZDZ6ey8g7pRHPAWcX5GkDZZGAw8SF4+JI6I/kKVFlRpQZUWVGlBiFrrOedMKSWKMTLo
+        4bDr880ASil0ud7oOb3o/pgY9HDY9flmYOGcT/PV42mk/WFg0MNhJ/JCLOXx9ma7Y9DDYSHyQnzL42UQ
+        Qlh/nMwL0RaughVPc4l8L6yo0oIqLajSgip/h9wboJi7L/oK2XwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ButtonExport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ButtonExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="ButtonExport.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ButtonExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="ButtonExport.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="ButtonExport.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="ButtonExport.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>TextBeforeImage</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Name" xml:space="preserve">
+    <value>ButtonExport</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.Parent" xml:space="preserve">
+    <value>TableLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;ButtonExport.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OlvColumnName.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="OlvColumnName.Width" type="System.Int32, mscorlib">
+    <value>140</value>
+  </data>
+  <data name="OlvColumnEvent.Text" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="OlvColumnCommand.DisplayIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="OlvColumnCommand.Text" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="OlvColumnCommand.Width" type="System.Int32, mscorlib">
+    <value>130</value>
+  </data>
+  <data name="OlvColumnArguments.DisplayIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="OlvColumnArguments.Text" xml:space="preserve">
+    <value>Arguments</value>
+  </data>
+  <data name="OlvColumnArguments.Width" type="System.Int32, mscorlib">
+    <value>90</value>
   </data>
   <metadata name="ContextMenuExport.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
