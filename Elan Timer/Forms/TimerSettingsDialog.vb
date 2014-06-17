@@ -283,8 +283,8 @@ Public Class TimerSettingsDialog
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
         Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Enabled = Me.CheckBoxNote.Checked
-        Me.Text = If(Editing, "Edit Timer", "New Timer")
-        Me.CheckBoxCountUp.Enabled = (Not Editing)
+        Me.Text = If(Editing, "Edit", "New")
+        Me.GroupBoxDuration.Enabled = Not Editing
 
 
         Me.ComboBoxAlarmPath.Enabled = Me.CheckedGroupBox1.Checked

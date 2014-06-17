@@ -462,6 +462,7 @@ Public Class FormMain
             dialog.Note = timeSettings.Note
             dialog.NoteEnabled = timeSettings.NoteEnabled
             dialog.ShowAlertBoxOnTimerExpiration = timeSettings.AlertEnabled
+            dialog.Editing = editing
             Dim result As DialogResult = dialog.ShowDialog(owner)
             If (Not result = Windows.Forms.DialogResult.Cancel) Then
                 timeSettings.Duration = dialog.Duration
