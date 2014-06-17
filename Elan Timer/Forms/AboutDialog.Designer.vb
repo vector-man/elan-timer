@@ -101,7 +101,7 @@ Partial Class AboutDialog
         Me.ButtonOk.Name = "ButtonOk"
         Me.ButtonOk.UseVisualStyleBackColor = True
         '
-        'DialogAbout
+        'AboutDialog
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -109,7 +109,7 @@ Partial Class AboutDialog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "DialogAbout"
+        Me.Name = "AboutDialog"
         Me.ShowInTaskbar = False
         Me.TableLayoutPanel.ResumeLayout(False)
         Me.TableLayoutPanel.PerformLayout()
