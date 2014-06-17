@@ -240,11 +240,11 @@
   <data name="MenuHelpOnline" xml:space="preserve">
     <value>Help Online</value>
   </data>
+  <data name="MenuMisc" xml:space="preserve">
+    <value>Misc...</value>
+  </data>
   <data name="MenuNewTimer" xml:space="preserve">
     <value>New...</value>
-  </data>
-  <data name="MenuSettings" xml:space="preserve">
-    <value>Settings...</value>
   </data>
   <data name="MenuStyle" xml:space="preserve">
     <value>Style...</value>

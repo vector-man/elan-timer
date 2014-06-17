@@ -161,11 +161,11 @@
   <data name="ToolStripMenuItemStyle.Text" xml:space="preserve">
     <value>Style...</value>
   </data>
-  <data name="ToolStripMenuItemSettings.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripMenuItemMisc.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
-  <data name="ToolStripMenuItemSettings.Text" xml:space="preserve">
-    <value>Settings...</value>
+  <data name="ToolStripMenuItemMisc.Text" xml:space="preserve">
+    <value>Misc...</value>
   </data>
   <data name="ToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 6</value>
@@ -223,21 +223,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbaNNQHMYPivjikyCKMm9DhwoTZQpOvD34
-        oAhecRYvMCfWC2xSLwx06+alqNVpt67b1NnWTcUyL5NuPk2LdMNNJ46ptEznbdN2SZo2aUy6pvlMYsCB
-        H/zJP/9zft/hfAnRBCsZx7eRiqSf9HF+0qO0k4n6whjxrWSqtq7u6048IznGWIUbyITYQ3I5/to0NEq/
-        gPBqZ5RvmB2Ui48GxCOHGdF8kJGK9gfizpkvhTcH6N8fS5lYC+lmHpMs3SByn5yOd+8dTkXawAUL2NiN
-        6bxgPw+u4RrY5nqwTXVIuK6AO3cC9JVJAvfOIvDvjo9E7pJe7XDy3U3KuN5S5leggP1SOyOduF0D7sk9
-        pBw2KJbDUIoPQLpUhsQDL5j6k+hrXpIZfH9d/vVkQXjolnqVzzfIqkHX+HBIdU/crobg8yDZdAvS0Hek
-        U6OQpRTEb1/BO6ogNNYgUluAoYbJ0ueacW8HXUYW3HGTPWm3gnt8F8lGFzTJsgyKovRek5LJIGG7gHjT
-        TdCWQrBrVlzQYU3yUXMgUV8FyVaG35++GAjgdruRSqX0vqOjA+zbPohHisDYKhFfmh8wcEK0pNk7dVD2
-        m5AZTeuAJqvVitbWVpSXl6Onpwc8w0JZmw+q7hqii5cwBq4a7NnDsF4XlILNSIuSDouiCLvdrsP9/f36
-        LBGhoKzKw4hLNcgeYyDt2xeIV1+CVHIIsd4+fXM6nUZXVxd4ntfftUyizzsh7toGqvIM6Pm5Y65gMlVw
-        ZaVg7nnAnjqBjJzRobHSZozZjJ/uRtCFhWDmLKgwcEKE7dvzhC1bP8SqLyPmuKqbJD+GoCiKXslQGDFL
-        CUYu2kDZzqpwzgcqKyfPwP9K2LjJHLVYBMphx89mD8QiE5QN+VDWL4e4ext+eDwYdjoQ2mESqKx5ZgP7
-        p2AwuE4Lq7vjuUyXFIM+b8VIbZVelPUMhkuO4ZHPpzxsaVE6OztXG9hftbe3T/H7/fzAwID22Rh22crK
-        eO6ygJZ0NDuXoecuDDCzciranj7lwuGw9n+kVSbbwAnx+XyTPB5PyOl0ptTnImP8n1Rwttfrjas1rPbT
-        CCHkD99VcuzpOM6ZAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbSBRRHMYPRfTSUxBFYTcpqcAoLMjo9tBD
+        EXQlW7qAGW0X0NguCKWrXZZqS1ldV61sd9MKrShltSdriVXSMhQrdjG7au06Mzu7MzvNrDs7XzPTQEIf
+        /Jn//M/5fYfzzRBNsJJJfDspS/jIAOcjvUoHmaovTBDfSmZq6+q+nvhzkmWMVbieTIk+Iddjb0wj4/RL
+        CK/3Rvj6+QG58KRfPHGcEc1HGangsD/mnPtKeHuE/v2xmIk+Jj3MU5KhG4QfkvOxnoOjyXA7uEAeG701
+        mxfsl8HVV4JtqgPbWIu46wa4S2dA35gmcP0Wge8/PRa+T/q0w8l3Nynh+oqZX/489kvNnFT8bjW4Zw+Q
+        dNigWI5DKTwC6VoJ4s1eMHVn0d+0Ij38vlL+9WxJaOSOepXhW2TdZ9fkUFB1j9+tgtDiQaLxDqSR70gl
+        xyFLSYjfvoJ3VEBoqEa4Jg8j9dOl4epJ7z67jCy40yZ7wm4F9/Q+Eg0uaJJlGRRF6b0mJZ1G3HYFscbb
+        oC35YDesuaLDmuSTZn+8rgKSrQS/P30xEMDtdiOZTOp9Z2cn2HcDEE8UgLGVI7Yy12/ghGhJs/dqoRw2
+        IT2e0gFNVqsVra2tKC0tRW9vL3iGhbIxF1RtJSLLVzAGrhocOMCwXheUvO1IiZIOi6IIu92uw4ODg/os
+        HqagrMvBmEs1yJxgIB065I9VXYNUdAzRvgF9cyqVQnd3N3ie19+1TCIvuiDu2wWq/ALoxdkTrmAylXEl
+        xWAeeMCeO4O0nNahidJmjNmMn+4G0Pn5YBYsKTNwQoTdu3OEHTs/RKuuI+q4qZskPgahKIpeiWAIUUsR
+        xq7aQNkuqnDWByojK8fA/0rYus0csVgEymHHzyYPxAITlC25UDavhrh/F354PBh1OhDcYxKojEVmA/un
+        QCCwSQurp/OFTBcVgr5sxVhNhV6U9QJGi07hSXOz8vjRI6Wrq2u9gf1VR0fHDJ/Pxw8NDWmfjWFXrS2P
+        Za/ya0lHMrMZeuFSPzMvq6y9rY0LhULa/5FSmUwDJ6SlpWWax+MJOp3OpPpcZoz/kwrO93q9MbVG1X4W
+        IYT8AdKZcuPgPVonAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1800,6 +1800,12 @@
   <data name="&gt;&gt;ToolStripMenuItemEditTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
+    <value>ToolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ToolStripMenuItemTasks.Name" xml:space="preserve">
     <value>ToolStripMenuItemTasks</value>
   </data>
@@ -1812,10 +1818,10 @@
   <data name="&gt;&gt;ToolStripMenuItemStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemSettings.Name" xml:space="preserve">
-    <value>ToolStripMenuItemSettings</value>
+  <data name="&gt;&gt;ToolStripMenuItemMisc.Name" xml:space="preserve">
+    <value>ToolStripMenuItemMisc</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemSettings.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolStripMenuItemMisc.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItem2.Name" xml:space="preserve">
@@ -2003,12 +2009,6 @@
   </data>
   <data name="&gt;&gt;NotifyIconToolStripMenuItemExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Name" xml:space="preserve">
-    <value>ToolStripMenuItem7</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>

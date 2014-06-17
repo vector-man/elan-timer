@@ -47,7 +47,7 @@ Public Class Common
         FormMain.ToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
         FormMain.ToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
         FormMain.ToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
-        FormMain.ToolStripMenuItemSettings.Text = My.Resources.Strings.MenuSettings
+        FormMain.ToolStripMenuItemMisc.Text = My.Resources.Strings.MenuMisc
         FormMain.ToolStripMenuItemAlwaysOnTop.Text = My.Resources.Strings.MenuAlwaysOnTop
         FormMain.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
         FormMain.ToolStripMenuItemCompact.Text = My.Resources.Strings.MenuCompact

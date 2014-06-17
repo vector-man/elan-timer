@@ -134,7 +134,7 @@ Public Class FormMain
         ' Add handler for UpdateUI
         AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
-    Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettings.Click
+    Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemMisc.Click
         ' Show the Settings dialog.
         ShowSettingsDialog(Me)
     End Sub

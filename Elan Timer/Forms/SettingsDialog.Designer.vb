@@ -156,7 +156,7 @@ Partial Class SettingsDialog
         Me.CheckBoxClickingTrayIconStopsAlarm.Name = "CheckBoxClickingTrayIconStopsAlarm"
         Me.CheckBoxClickingTrayIconStopsAlarm.UseVisualStyleBackColor = True
         '
-        'DialogSettings
+        'SettingsDialog
         '
         Me.AcceptButton = Me.ButtonOK
         resources.ApplyResources(Me, "$this")
@@ -166,7 +166,7 @@ Partial Class SettingsDialog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "DialogSettings"
+        Me.Name = "SettingsDialog"
         Me.ShowInTaskbar = False
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
