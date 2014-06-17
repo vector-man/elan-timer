@@ -453,6 +453,18 @@ Public Class TimerSettingsDialog
                 If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                     Using input As Stream = File.OpenRead(openDialog.FileName)
                         time.Import(input)
+                        Me.AlarmEnabled = time.AlarmEnabled
+                        Me.time.AlarmLoop = time.AlarmLoop
+                        Me.SelectedAlarm = time.AlarmName
+                        Me.AlarmVolume = time.AlarmVolume
+                        Me.ShowAlertBoxOnTimerExpiration = time.AlertEnabled
+                        Me.CountUp = time.CountUp
+                        Me.NumericUpDownHours.Value = time.Duration.Hours
+                        Me.NumericUpDownMinutes.Value = time.Duration.Minutes
+                        Me.NumericUpDownSeconds.Value = time.Duration.Seconds
+                        Me.Note = time.Note
+                        Me.NoteEnabled = time.NoteEnabled
+                        Me.Restarts = time.Restarts
                     End Using
                 End If
             End Using
