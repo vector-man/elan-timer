@@ -12,7 +12,7 @@ Public Class TimerSettingsDialog
     Dim alarmPlayer As Alarm
     Private transporter As New JsonNetTransporter()
     Private time As New TimeModel(transporter)
-
+    Private toolTip As New ToolTip()
     '  Dim alarpPath As String
     '  Dim formLoaded As Boolean = False
 
@@ -219,7 +219,7 @@ Public Class TimerSettingsDialog
 
         CheckedGroupBox1.DataBindings.Add("Checked", time, "AlarmEnabled")
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
-        NumericUpDownVolume.DataBindings.Add("Value", time, "AlarmVolume")
+        TrackBarVolume.DataBindings.Add("Value", time, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
         ' ContextMenuStripSettings.DataBindings.Add("Visible", CheckBoxSettings, "Checked")
         ' ComboBoxAlarmPath.SelectedItem = alarms.Where(Function(i) i.Value = AlarmName)
@@ -301,9 +301,9 @@ Public Class TimerSettingsDialog
         Me.Close()
     End Sub
 
-    Private Sub NumericUpDownVolume_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownVolume.ValueChanged
+    Private Sub NumericUpDownVolume_ValueChanged(sender As Object, e As EventArgs)
         Try
-            alarmPlayer.Volume = NumericUpDownVolume.Value
+            alarmPlayer.Volume = TrackBarVolume.Value
         Catch ex As Exception
 
         End Try
@@ -487,6 +487,18 @@ Public Class TimerSettingsDialog
             End Using
         Catch ex As Exception
             MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+        End Try
+    End Sub
+
+    Private Sub TrackBarVolume_Scroll(sender As Object, e As EventArgs) Handles TrackBarVolume.Scroll
+        toolTip.SetToolTip(TrackBarVolume, TrackBarVolume.Value.ToString())
+    End Sub
+
+    Private Sub TrackBarVolume_ValueChanged(sender As Object, e As EventArgs) Handles TrackBarVolume.ValueChanged
+        Try
+            alarmPlayer.Volume = TrackBarVolume.Value
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class
