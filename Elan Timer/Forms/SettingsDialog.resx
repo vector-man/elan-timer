@@ -301,7 +301,7 @@
     <value>297, 40</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
     <value>TableLayoutPanel1</value>
@@ -346,7 +346,7 @@
     <value>75, 23</value>
   </data>
   <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>0</value>
   </data>
   <data name="ButtonOK.Text" xml:space="preserve">
     <value>OK</value>
@@ -379,7 +379,7 @@
     <value>75, 23</value>
   </data>
   <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>1</value>
   </data>
   <data name="ButtonCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -412,7 +412,7 @@
     <value>303, 29</value>
   </data>
   <data name="TableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel3.Name" xml:space="preserve">
     <value>TableLayoutPanel3</value>
@@ -448,7 +448,7 @@
     <value>119, 17</value>
   </data>
   <data name="CheckBoxCloseToSystemTray.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="CheckBoxCloseToSystemTray.Text" xml:space="preserve">
     <value>Close to system tray</value>
@@ -478,7 +478,7 @@
     <value>119, 17</value>
   </data>
   <data name="CheckBoxShowInSystemTray.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="CheckBoxShowInSystemTray.Text" xml:space="preserve">
     <value>Show in system tray</value>
@@ -535,7 +535,7 @@
     <value>297, 69</value>
   </data>
   <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;TableLayoutPanel4.Name" xml:space="preserve">
     <value>TableLayoutPanel4</value>

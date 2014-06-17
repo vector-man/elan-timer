@@ -169,7 +169,7 @@
     <value>69, 23</value>
   </data>
   <data name="ButtonOptions.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+    <value>5</value>
   </data>
   <data name="ButtonOptions.Text" xml:space="preserve">
     <value>Options</value>
@@ -208,7 +208,7 @@
     <value>72, 23</value>
   </data>
   <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+    <value>8</value>
   </data>
   <data name="ButtonCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -241,7 +241,7 @@
     <value>72, 23</value>
   </data>
   <data name="ButtonStart.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>6</value>
   </data>
   <data name="ButtonStart.Text" xml:space="preserve">
     <value>Start</value>
@@ -274,7 +274,7 @@
     <value>72, 23</value>
   </data>
   <data name="ButtonSet.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>7</value>
   </data>
   <data name="ButtonSet.Text" xml:space="preserve">
     <value>Set</value>
@@ -634,7 +634,7 @@
     <value>345, 154</value>
   </data>
   <data name="GroupBoxDuration.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
+    <value>0</value>
   </data>
   <data name="GroupBoxDuration.Text" xml:space="preserve">
     <value>Duration</value>
@@ -673,7 +673,7 @@
     <value>58, 23</value>
   </data>
   <data name="CheckBoxNote.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>1</value>
   </data>
   <data name="CheckBoxNote.Text" xml:space="preserve">
     <value>Note:</value>
@@ -709,7 +709,7 @@
     <value>289, 20</value>
   </data>
   <data name="TextBoxNote.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;TextBoxNote.Name" xml:space="preserve">
     <value>TextBoxNote</value>
@@ -754,7 +754,7 @@
     <value>82, 17</value>
   </data>
   <data name="CheckBoxLoop.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>3</value>
   </data>
   <data name="CheckBoxLoop.Text" xml:space="preserve">
     <value>Loop sound</value>
@@ -817,7 +817,7 @@
     <value>41, 20</value>
   </data>
   <data name="NumericUpDownVolume.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;NumericUpDownVolume.Name" xml:space="preserve">
     <value>NumericUpDownVolume</value>
@@ -862,7 +862,10 @@
     <value>24, 22</value>
   </data>
   <data name="ButtonOpenAlarm.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>99</value>
+  </data>
+  <data name="ButtonOpenAlarm.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;ButtonOpenAlarm.Name" xml:space="preserve">
     <value>ButtonOpenAlarm</value>
@@ -906,7 +909,7 @@
     <value>22, 22</value>
   </data>
   <data name="ButtonAlarmPlay.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;ButtonAlarmPlay.Name" xml:space="preserve">
     <value>ButtonAlarmPlay</value>
@@ -930,7 +933,7 @@
     <value>222, 21</value>
   </data>
   <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;ComboBoxAlarmPath.Name" xml:space="preserve">
     <value>ComboBoxAlarmPath</value>
@@ -1014,7 +1017,7 @@
     <value>345, 101</value>
   </data>
   <data name="CheckedGroupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>49</value>
+    <value>4</value>
   </data>
   <data name="CheckedGroupBox1.Text" xml:space="preserve">
     <value>Alarm</value>
@@ -1077,7 +1080,7 @@
     <value>216, 23</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>3</value>
   </data>
   <data name="CheckBoxShowNoteAlertWhenTimerExpires.Text" xml:space="preserve">
     <value>Show note alert box when timer expires</value>

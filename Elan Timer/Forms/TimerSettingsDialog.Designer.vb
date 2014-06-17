@@ -43,6 +43,10 @@ Partial Class TimerSettingsDialog
         Me.ButtonSet = New System.Windows.Forms.Button()
         Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
         Me.TextBoxNote = New System.Windows.Forms.TextBox()
+        Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
+        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
         Me.CheckedGroupBox1 = New ElanTimer.CheckedGroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
@@ -52,10 +56,6 @@ Partial Class TimerSettingsDialog
         Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
-        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
-        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
-        Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,6 +208,26 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
         Me.TextBoxNote.Name = "TextBoxNote"
         '
+        'CheckBoxAlarmSet
+        '
+        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
+        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
+        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
+        '
+        'ContextMenuOptions
+        '
+        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItemSavePresetAs})
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = 0
+        resources.ApplyResources(Me.MenuItem1, "MenuItem1")
+        '
+        'MenuItemSavePresetAs
+        '
+        Me.MenuItemSavePresetAs.Index = 1
+        resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
+        '
         'CheckedGroupBox1
         '
         resources.ApplyResources(Me.CheckedGroupBox1, "CheckedGroupBox1")
@@ -271,26 +291,6 @@ Partial Class TimerSettingsDialog
         '
         resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.Name = "Label2"
-        '
-        'CheckBoxAlarmSet
-        '
-        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
-        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
-        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
-        '
-        'ContextMenuOptions
-        '
-        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItemSavePresetAs})
-        '
-        'MenuItem1
-        '
-        Me.MenuItem1.Index = 0
-        resources.ApplyResources(Me.MenuItem1, "MenuItem1")
-        '
-        'MenuItemSavePresetAs
-        '
-        Me.MenuItemSavePresetAs.Index = 1
-        resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
         '
         'TimerSettingsDialog
         '
