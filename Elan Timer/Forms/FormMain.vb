@@ -41,8 +41,11 @@ Public Class FormMain
         HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
-        ' sw.Stop()
-        ' MessageBox.Show(sw.Elapsed.TotalMilliseconds)
+        '#If DEBUG Then
+        '        sw.Stop()
+        '        MessageBox.Show(sw.Elapsed.TotalMilliseconds)
+        '#End If
+
         ExecuteActions(TimerEvent.Expired)
         ShowNote()
         TryShowNoteAlert()
@@ -87,8 +90,6 @@ Public Class FormMain
             My.Settings.WindowSize = Me.Size
         End If
         SaveSettings()
-        ' Dispose of the application mutex.
-        ' Common.ApplicationMutex.Dispose()
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

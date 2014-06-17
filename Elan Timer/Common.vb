@@ -2,7 +2,6 @@
 Imports System.Threading
 Imports ElanTimer.Prefs
 Public Class Common
-    ' Public Shared ApplicationMutex As Mutex
     Private Shared toolTipMain As New ToolTip
     ' Framerate constant. This is equal to 10 frames per second.
     Public Const Framerate As Integer = 1000 / 10
@@ -83,8 +82,7 @@ Public Class Common
         StyleSettingsDialog.LabelFont.Text = My.Resources.Strings.Font
         StyleSettingsDialog.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
         StyleSettingsDialog.LabelTransparency.Text = My.Resources.Strings.Transparency
-        StyleSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Load
-        StyleSettingsDialog.ButtonSaveAs.Text = My.Resources.Strings.SaveAs
+        StyleSettingsDialog.ButtonOptions.Text = My.Resources.Strings.Load
         StyleSettingsDialog.ButtonOK.Text = My.Resources.Strings.Ok
         StyleSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
 
@@ -122,7 +120,7 @@ Public Class Common
         TimerSettingsDialog.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         TimerSettingsDialog.CheckBoxNote.Text = My.Resources.Strings.Note
 
-        TimerSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Presets
+        ' TimerSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Presets
         TimerSettingsDialog.ButtonSet.Text = My.Resources.Strings.Start
         TimerSettingsDialog.ButtonStart.Text = My.Resources.Strings.SetTimer
         TimerSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel

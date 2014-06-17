@@ -162,11 +162,7 @@ Public Class TaskSettingsDialog
                     Using input As FileStream = File.OpenRead(openDialog.FileName)
                         _model.Import(input)
                     End Using
-                    'actionsBindingSource.Clear()
                     actionsBindingSource.ResetBindings(True)
-                    'For Each t In _model.Tasks
-                    '    actionsBindingSource.Add(t)
-                    'Next
                 End If
             End Using
         Catch ex As Exception

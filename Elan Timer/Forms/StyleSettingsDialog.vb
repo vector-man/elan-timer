@@ -83,12 +83,8 @@ Public Class StyleSettingsDialog
         End Set
     End Property
     Public Property Timer As AlarmTimer
-    '  Public Property SaveAction As Action(Of String)
-    '  Public Property LoadAction As Action(Of String)
 
     Sub Initialize()
-        'Dim binding As New BindingSource()
-        'binding.DataSource = style
         ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
@@ -162,45 +158,20 @@ Public Class StyleSettingsDialog
 
     Private Sub ButtonOptions_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
         ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
-        ' TODO: Fix code. Possibly replace with Import event handled in the owner form.
-        'Using dialogOpen As New OpenFileDialog
-        '    dialogOpen.InitialDirectory = Preferences.StylePath
-        '    dialogOpen.CheckFileExists = True
-        '    dialogOpen.Filter = My.Settings.StyleDialogFilter
-        '    If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-        '        Try
-        '            Preferences.Style.ImportFrom(dialogOpen.FileName)
-        '            Initialize()
-        '            UpdateUI()
-        '        Catch ex As Exception
-        '            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        '        End Try
-        '    End If
-        'End Using
     End Sub
 
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs)
-        ' TODO: Fix code. Possibly replace with Export event handled in the owner form.
         Using dialogSave As New SaveFileDialog()
-            '    dialogSave.InitialDirectory = Preferences.StylePath
+            ' TODO: Fix initial directory.
+            ' dialogSave.InitialDirectory = Preferences.StylePath
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Using stream As FileStream = File.Create(dialogSave.FileName)
                     style.Export(stream)
                 End Using
-                ' SaveAction.DynamicInvoke(dialogSave.FileName)
             End If
         End Using
-
-        '        Try
-        '            SaveSettings()
-        '            Preferences.Style.ExportTo(dialogSave.FileName)
-        '        Catch ex As Exception
-        '            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        '        End Try
-        '    End If
-        'End Using
     End Sub
     Private Sub UpdateUI()
         timerObject.Color = ForegroundColor
@@ -236,9 +207,9 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
-        ' TODO: Fix code. Possibly replace with Export event handled in the owner form.
         Using dialogSave As New SaveFileDialog()
-            '    dialogSave.InitialDirectory = Preferences.StylePath
+            ' TODO: Fix initial directory.
+            ' dialogSave.InitialDirectory = Preferences.StylePath
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
