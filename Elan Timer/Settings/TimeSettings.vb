@@ -2,10 +2,6 @@
 Namespace Settings
     Public Class TimeSettings
         Inherits ApplicationSettingsBase
-        ' Implements IImportable, IExportable
-
-        ' Private _transporter As ITransporter
-
         <UserScopedSetting>
         <DefaultSettingValue("0:5:0")>
         Public Property Duration As TimeSpan
@@ -113,27 +109,5 @@ Namespace Settings
                 Me("AlertEnabled") = value
             End Set
         End Property
-        'Sub New(transporter As ITransporter)
-        '    _transporter = transporter
-        'End Sub
-        'Public Sub Import(stream As IO.Stream) Implements IImportable.Import
-        '    _transporter.Import(Of TimeSettings)(Me, stream)
-
-        '    'Dim settings As TimeSettings = _transporter.Import(Of TimeSettings)(Me, stream)
-        '    'Me.AlarmEnabled = settings.AlarmEnabled
-        '    'Me.AlarmLoop = settings.AlarmLoop
-        '    'Me.AlarmPath = settings.AlarmPath
-        '    'Me.AlarmVolume = settings.AlarmVolume
-        '    'Me.AlertEnabled = settings.AlertEnabled
-        '    'Me.CountUp = settings.CountUp
-        '    'Me.Duration = settings.Duration
-        '    'Me.Note = settings.Note
-        '    'Me.NoteEnabled = settings.NoteEnabled
-        '    'Me.Restarts = settings.Restarts
-        'End Sub
-
-        'Public Sub Export(stream As IO.Stream) Implements IExportable.Export
-        '    _transporter.Export(Of TimeSettings)(Me, stream)
-        'End Sub
     End Class
 End Namespace

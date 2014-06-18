@@ -437,7 +437,6 @@ Public Class FormMain
 
         Me.ToolStripMenuItemAlwaysOnTop.Checked = My.Settings.AlwaysOnTop
         Me.TopMost = Me.ToolStripMenuItemAlwaysOnTop.Checked
-        ' Me.Opacity = ElanTimer.Settings.Settings.Look.Opacity / 100.
 
         Me.Size = My.Settings.WindowSize
         If My.Settings.WindowMaximized Then
@@ -525,16 +524,6 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = False
 
         Using dialog As New StyleSettingsDialog
-            'dialog.SaveAction = Sub(path As String)
-            '                        Using output = File.OpenWrite(path)
-            '                            styleSettings.Export(output)
-            '                        End Using
-            '                    End Sub
-            'dialog.LoadAction = Sub(path As String)
-            '                        Using input = File.OpenRead(path)
-            '                            styleSettings.Import(input)
-            '                        End Using
-            '                    End Sub
             If (owner IsNot Nothing) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else

@@ -109,18 +109,17 @@ Public Class Common
 
         TaskSettingsDialog.ResumeLayout()
 
-        ' DialogTimerSettings.
         TimerSettingsDialog.SuspendLayout()
 
         TimerSettingsDialog.GroupBoxDuration.Text = My.Resources.Strings.Duration
         TimerSettingsDialog.LabelRestarts.Text = My.Resources.Strings.Restarts
         TimerSettingsDialog.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
-        ' DialogTimerSettings.CheckBoxStartImmediately.Text = My.Resources.Strings.StartImmediately
+
         TimerSettingsDialog.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
         TimerSettingsDialog.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         TimerSettingsDialog.CheckBoxNote.Text = My.Resources.Strings.Note
 
-        ' TimerSettingsDialog.ButtonLoad.Text = My.Resources.Strings.Presets
+
         TimerSettingsDialog.ButtonSet.Text = My.Resources.Strings.Start
         TimerSettingsDialog.ButtonStart.Text = My.Resources.Strings.SetTimer
         TimerSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
