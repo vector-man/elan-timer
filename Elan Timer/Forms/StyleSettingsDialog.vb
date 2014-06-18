@@ -107,7 +107,7 @@ Public Class StyleSettingsDialog
             stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
-            timerObject = New TimerTextRenderObject(timer, DisplayFont, DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderObject(timer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
@@ -142,7 +142,8 @@ Public Class StyleSettingsDialog
 
     Private Sub FontPickerFont_ValueChanged(sender As Object, e As EventArgs) Handles FontPickerFont.ValueChanged
         Try
-            timerObject.Font = FontPickerFont.Value
+            Dim fnt = FontPickerFont.Value
+            timerObject.Font = New Font(fnt.FontFamily.Name, 1, fnt.Style)
         Catch ex As Exception
 
         End Try
