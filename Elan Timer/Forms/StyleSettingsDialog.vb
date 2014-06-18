@@ -14,6 +14,7 @@ Public Class StyleSettingsDialog
     Private loaded As Boolean = False
     Private transporter As New JsonNetTransporter()
     Private style As New StyleModel(transporter)
+    Private toolTip As New ToolTip()
     Sub New()
         ' This call is required by the designer.
         InitializeComponent()
@@ -90,11 +91,10 @@ Public Class StyleSettingsDialog
         ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
         FontPickerFont.DataBindings.Add("Value", style, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
         CheckBoxGrowToFit.DataBindings.Add("Checked", style, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
-        NumericUpDownTransparencyLevel.DataBindings.Add("Value", style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
+        TrackBarTransparency.DataBindings.Add("Value", style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
 
         ComboBoxDisplayFormat.DisplayMember = "Key"
         ComboBoxDisplayFormat.ValueMember = "Value"
-
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -111,11 +111,11 @@ Public Class StyleSettingsDialog
             Dim objects As New List(Of IRenderObject)
             objects.Add(timerObject)
             renderer = New Renderer(objects)
-            timerSurface = New PreviewSurface(renderer, (100 - NumericUpDownTransparencyLevel.Value) / 100, Common.Framerate)
+            timerSurface = New PreviewSurface(renderer, (100 - TrackBarTransparency.Value) / 100, Common.Framerate)
             timerSurface.BackColor = BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
-            CType(timerSurface, PreviewSurface).Opacity = (100 - NumericUpDownTransparencyLevel.Value) / 100
+            CType(timerSurface, PreviewSurface).Opacity = (100 - TrackBarTransparency.Value) / 100
         Catch ex As Exception
 
         End Try
@@ -143,14 +143,6 @@ Public Class StyleSettingsDialog
     Private Sub FontPickerFont_ValueChanged(sender As Object, e As EventArgs) Handles FontPickerFont.ValueChanged
         Try
             timerObject.Font = FontPickerFont.Value
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub NumericUpDownOpacityLevel_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDownTransparencyLevel.ValueChanged
-        Try
-            CType(timerSurface, PreviewSurface).Opacity = (100 - Transparency) / 100
         Catch ex As Exception
 
         End Try
@@ -191,6 +183,8 @@ Public Class StyleSettingsDialog
         Timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
         StartUpRendering(Timer)
         Timer.Start()
+
+        toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
     End Sub
 
     Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
@@ -218,5 +212,17 @@ Public Class StyleSettingsDialog
                 End Using
             End If
         End Using
+    End Sub
+
+    Private Sub TrackBarTransparency_Scroll(sender As Object, e As EventArgs) Handles TrackBarTransparency.Scroll
+        toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
+    End Sub
+
+    Private Sub TrackBarTransparency_ValueChanged(sender As Object, e As EventArgs) Handles TrackBarTransparency.ValueChanged
+        Try
+            CType(timerSurface, PreviewSurface).Opacity = (100 - Transparency) / 100
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

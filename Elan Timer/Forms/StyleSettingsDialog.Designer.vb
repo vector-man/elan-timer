@@ -32,7 +32,6 @@ Partial Class StyleSettingsDialog
         Me.FontPickerFont = New Com.Windows.Forms.FontPicker()
         Me.CheckBoxGrowToFit = New System.Windows.Forms.CheckBox()
         Me.LabelTransparency = New System.Windows.Forms.Label()
-        Me.NumericUpDownTransparencyLevel = New System.Windows.Forms.NumericUpDown()
         Me.ComboBoxDisplayFormat = New System.Windows.Forms.ComboBox()
         Me.LabelRenderer = New System.Windows.Forms.Label()
         Me.PanelRenderPreview = New System.Windows.Forms.Panel()
@@ -44,9 +43,10 @@ Partial Class StyleSettingsDialog
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItemLoadStyle = New System.Windows.Forms.MenuItem()
         Me.MenuItemSaveStyleAs = New System.Windows.Forms.MenuItem()
-        CType(Me.NumericUpDownTransparencyLevel, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TrackBarTransparency = New System.Windows.Forms.TrackBar()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -104,13 +104,6 @@ Partial Class StyleSettingsDialog
         resources.ApplyResources(Me.LabelTransparency, "LabelTransparency")
         Me.LabelTransparency.Name = "LabelTransparency"
         '
-        'NumericUpDownTransparencyLevel
-        '
-        resources.ApplyResources(Me.NumericUpDownTransparencyLevel, "NumericUpDownTransparencyLevel")
-        Me.NumericUpDownTransparencyLevel.Maximum = New Decimal(New Integer() {75, 0, 0, 0})
-        Me.NumericUpDownTransparencyLevel.Name = "NumericUpDownTransparencyLevel"
-        Me.NumericUpDownTransparencyLevel.Value = New Decimal(New Integer() {75, 0, 0, 0})
-        '
         'ComboBoxDisplayFormat
         '
         resources.ApplyResources(Me.ComboBoxDisplayFormat, "ComboBoxDisplayFormat")
@@ -134,6 +127,7 @@ Partial Class StyleSettingsDialog
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
+        Me.TableLayoutPanel1.Controls.Add(Me.TrackBarTransparency, 1, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelRenderer, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.PanelRenderPreview, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxDisplayFormat, 1, 1)
@@ -141,7 +135,6 @@ Partial Class StyleSettingsDialog
         Me.TableLayoutPanel1.Controls.Add(Me.FontPickerFont, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelForegroundColor, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxForegrounColor, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.NumericUpDownTransparencyLevel, 1, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelBackgroundColor, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxGrowToFit, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxBackgroundColor, 1, 5)
@@ -192,6 +185,14 @@ Partial Class StyleSettingsDialog
         Me.MenuItemSaveStyleAs.Index = 1
         resources.ApplyResources(Me.MenuItemSaveStyleAs, "MenuItemSaveStyleAs")
         '
+        'TrackBarTransparency
+        '
+        resources.ApplyResources(Me.TrackBarTransparency, "TrackBarTransparency")
+        Me.TrackBarTransparency.LargeChange = 25
+        Me.TrackBarTransparency.Maximum = 75
+        Me.TrackBarTransparency.Name = "TrackBarTransparency"
+        Me.TrackBarTransparency.TickFrequency = 10
+        '
         'StyleSettingsDialog
         '
         Me.AcceptButton = Me.ButtonOK
@@ -204,11 +205,11 @@ Partial Class StyleSettingsDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "StyleSettingsDialog"
-        CType(Me.NumericUpDownTransparencyLevel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -222,7 +223,6 @@ Partial Class StyleSettingsDialog
     Friend WithEvents FontPickerFont As Com.Windows.Forms.FontPicker
     Friend WithEvents CheckBoxGrowToFit As System.Windows.Forms.CheckBox
     Friend WithEvents LabelTransparency As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDownTransparencyLevel As System.Windows.Forms.NumericUpDown
     Friend WithEvents ComboBoxDisplayFormat As System.Windows.Forms.ComboBox
     Friend WithEvents LabelRenderer As System.Windows.Forms.Label
     Friend WithEvents PanelRenderPreview As System.Windows.Forms.Panel
@@ -234,5 +234,6 @@ Partial Class StyleSettingsDialog
     Friend WithEvents ContextMenuOptions As System.Windows.Forms.ContextMenu
     Friend WithEvents MenuItemLoadStyle As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItemSaveStyleAs As System.Windows.Forms.MenuItem
+    Friend WithEvents TrackBarTransparency As System.Windows.Forms.TrackBar
 
 End Class
