@@ -3,12 +3,16 @@ Imports ElanTimer.Prefs
 Imports ElanTimer.CodeIsle.Timers
 Imports System.IO
 
+Imports ElanTimer.Rendering
+Imports System.Drawing.Drawing2D
+
 Public Class StyleSettingsDialog
     ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
     Private Const PreviewTime As Long = 5588
 
-    Private timerObject As TimerTextRenderObject
-    Private renderer As Rendering.IRenderer
+    Private timerObject As TimerTextRenderable
+    Private checkerBoardObject As BackgroundRenderable
+    Private renderer As Renderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timerSurface As Rendering.Surface
     Private loaded As Boolean = False
@@ -107,17 +111,27 @@ Public Class StyleSettingsDialog
             stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
-            timerObject = New TimerTextRenderObject(timer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
-            Dim objects As New List(Of IRenderObject)
-            objects.Add(timerObject)
-            renderer = New Renderer(objects)
-            timerSurface = New PreviewSurface(renderer, (100 - TrackBarTransparency.Value) / 100, Common.Framerate)
+            timerObject = New TimerTextRenderable(timer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
+            checkerBoardObject = New BackgroundRenderable(Nothing, True)
+
+            timerSurface = New Surface()
             timerSurface.BackColor = BackgroundColor
             timerSurface.Dock = DockStyle.Fill
             PanelRenderPreview.Controls.Add(timerSurface)
-            CType(timerSurface, PreviewSurface).Opacity = (100 - TrackBarTransparency.Value) / 100
-        Catch ex As Exception
 
+            timerObject.Rectangle = timerSurface.ClientRectangle
+            checkerBoardObject.Rectangle = timerSurface.ClientRectangle
+
+            renderer = New Renderer(timerSurface)
+            renderer.FramesPerSecond = Common.Framerate
+
+            renderer.Renderables.Add(timerObject)
+            renderer.Renderables.Add(checkerBoardObject)
+
+            UpdateOpacity()
+            renderer.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
         End Try
     End Sub
     Private Sub ShutDownRendering()
@@ -221,9 +235,13 @@ Public Class StyleSettingsDialog
 
     Private Sub TrackBarTransparency_ValueChanged(sender As Object, e As EventArgs) Handles TrackBarTransparency.ValueChanged
         Try
-            CType(timerSurface, PreviewSurface).Opacity = (100 - Transparency) / 100
+            UpdateOpacity()
         Catch ex As Exception
 
         End Try
+    End Sub
+    Private Sub UpdateOpacity()
+        Dim transparency As Integer = 255 - (((100 - TrackBarTransparency.Value) / 100) * 255)
+        checkerBoardObject.Brush = New HatchBrush(Drawing2D.HatchStyle.LargeCheckerBoard, Color.FromArgb(transparency, Color.Gray), Color.FromArgb(transparency, Color.White))
     End Sub
 End Class

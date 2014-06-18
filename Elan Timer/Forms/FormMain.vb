@@ -1,20 +1,21 @@
 ﻿Imports Microsoft.WindowsAPICodePack.Taskbar
 Imports System.Threading
 Imports System.Text
-Imports ElanTimer.Prefs
-Imports ElanTimer.Settings
 Imports System.IO
 
+Imports ElanTimer.Prefs
+Imports ElanTimer.Settings
+Imports ElanTimer.Rendering
 Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
-    Public timerSurface As Rendering.Surface
+    Public timerSurface As Surface
 
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
-    Private timerObject As TimerTextRenderObject
-    Private noteObject As TextRenderObject
+    Private timerObject As TimerTextRenderable
+    Private noteObject As TextRenderable
     Private stringFormat As New StringFormat
-    Private renderer As Rendering.IRenderer
+    Private renderer As Renderer
     Private forceClose As Boolean = False
 
     Private transporter As ITransporter = New JsonNetTransporter()
@@ -106,33 +107,37 @@ Public Class FormMain
         End If
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Load the localization language.
-        LoadLanguage()
-
-        ' Load settings.
-        LoadSettings()
-
-        ' Create a new alarm initialized to Nothing.
-        Dim alarm As Alarm = Nothing
-
-        timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName)), Utils.GetDefaultAlarm(Common.AlarmsPath), timeSettings.AlarmName)
-
-        ' Try to assign alarm to a new Alarm object.
         Try
-            alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+            ' Load the localization language.
+            LoadLanguage()
+
+            ' Load settings.
+            LoadSettings()
+
+            ' Create a new alarm initialized to Nothing.
+            Dim alarm As Alarm = Nothing
+
+            timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName)), Utils.GetDefaultAlarm(Common.AlarmsPath), timeSettings.AlarmName)
+
+            ' Try to assign alarm to a new Alarm object.
+            Try
+                alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+            Catch ex As Exception
+
+            End Try
+
+            ' Create a new timer object.
+            timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
+
+            ' Start rendering.
+            StartUpRendering(timer)
+            ' Add event handlers for the timer.
+            AddTimerHandlers()
+            ' Add handler for UpdateUI
+            AddHandler Application.Idle, AddressOf UpdateUI
         Catch ex As Exception
-
+            MessageBox.Show(ex.ToString())
         End Try
-
-        ' Create a new timer object.
-        timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
-
-        ' Start rendering.
-        StartUpRendering(timer)
-        ' Add event handlers for the timer.
-        AddTimerHandlers()
-        ' Add handler for UpdateUI
-        AddHandler Application.Idle, AddressOf UpdateUI
     End Sub
     Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemMisc.Click
         ' Show the Settings dialog.
@@ -285,23 +290,28 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderObject(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderObject(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
-        Dim objects As New List(Of IRenderObject)
+        timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
 
-        objects.Add(timerObject)
-        objects.Add(noteObject)
 
-        renderer = New Renderer(objects)
-        timerSurface = Rendering.SurfaceFactory.CreateInstance(renderer, Common.Framerate)
-        timerSurface.BackColor = Color.Transparent
+        timerSurface = New Surface()
+        timerSurface.BackColor = styleSettings.BackgroundColor
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        timerSurface.BackColor = styleSettings.BackgroundColor
+        renderer = New Renderer(timerSurface)
+        renderer.Renderables.Add(timerObject)
+        renderer.Renderables.Add(noteObject)
+
 
         timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
+
+        timerObject.Rectangle = timerSurface.ClientRectangle
+        noteObject.Rectangle = timerSurface.ClientRectangle
+
+
+        renderer.Enabled = True
 
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
@@ -319,38 +329,42 @@ Public Class FormMain
     End Sub
 
     Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
-        Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
-        Await Task.Factory.StartNew(Async Function()
-                                        While (Not token.IsCancellationRequested)
-                                            Dim currentProgressValue As Long
-                                            currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
-                                            If TaskbarManager.IsPlatformSupported Then
-                                                TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
-                                            End If
-                                            ProgressBarMain.Value = currentProgressValue
-
-                                            Dim sb = New StringBuilder
-
-                                            If (Not timer.IsExpired) Then
-                                                sb.Append(timerObject.Text)
-                                                If (Not timeSettings.Note = String.Empty) Then
-                                                    sb.Append(" - ")
+        Try
+            Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
+            Await Task.Factory.StartNew(Async Function()
+                                            While (Not token.IsCancellationRequested)
+                                                Dim currentProgressValue As Long
+                                                currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
+                                                If TaskbarManager.IsPlatformSupported Then
+                                                    TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
                                                 End If
-                                            End If
-                                            If (timeSettings.NoteEnabled) Then
-                                                sb.Append(timeSettings.Note)
-                                            End If
+                                                ProgressBarMain.Value = currentProgressValue
 
-                                            If (sb.Length = 0) Then
-                                                sb.Append(assemblyName)
-                                            End If
+                                                Dim sb = New StringBuilder
 
-                                            Me.Text = sb.ToString
-                                            NotifyIconMain.Text = LimitTextLength(Me.Text, 63)
+                                                If (Not timer.IsExpired) Then
+                                                    sb.Append(timerObject.Text)
+                                                    If (Not timeSettings.Note = String.Empty) Then
+                                                        sb.Append(" - ")
+                                                    End If
+                                                End If
+                                                If (timeSettings.NoteEnabled) Then
+                                                    sb.Append(timeSettings.Note)
+                                                End If
 
-                                            Await TaskEx.Delay(Common.Framerate)
-                                        End While
-                                    End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
+                                                If (sb.Length = 0) Then
+                                                    sb.Append(assemblyName)
+                                                End If
+
+                                                Me.Text = sb.ToString
+                                                NotifyIconMain.Text = LimitTextLength(Me.Text, 63)
+
+                                                Await TaskEx.Delay(Common.Framerate)
+                                            End While
+                                        End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Function
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
@@ -358,11 +372,15 @@ Public Class FormMain
     End Sub
     ' Update the form user interface.
     Private Sub UpdateUI()
-        ToolStripButtonStartPause.Enabled = Not timer.IsExpired
-        NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
-        ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
-        NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
-        Me.Opacity = styleSettings.Opacity / 100
+        Try
+            ToolStripButtonStartPause.Enabled = Not timer.IsExpired
+            NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
+            ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
+            NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
+            Me.Opacity = styleSettings.Opacity / 100
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString())
+        End Try
     End Sub
 
     Private Sub LoadSettings()
@@ -738,5 +756,10 @@ Public Class FormMain
     Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
         ShowSettingsDialog(Nothing)
+    End Sub
+
+    Private Sub FormMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        If (timerObject IsNot Nothing) Then timerObject.Rectangle = timerSurface.ClientRectangle
+        If (noteObject IsNot Nothing) Then noteObject.Rectangle = timerSurface.ClientRectangle
     End Sub
 End Class

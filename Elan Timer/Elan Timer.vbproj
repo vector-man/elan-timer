@@ -218,21 +218,14 @@
     <Compile Include="Settings\IImportable.vb" />
     <Compile Include="Settings\ITransporter.vb" />
     <Compile Include="Rendering\Renderer.vb" />
-    <Compile Include="Rendering\IRenderer.vb" />
-    <Compile Include="Rendering\RenderObjects\ClearRenderObject.vb" />
-    <Compile Include="Rendering\RenderObjects\IRenderArgs.vb" />
-    <Compile Include="Rendering\RenderObjects\IRenderObject.vb" />
-    <Compile Include="Rendering\PreviewSurface.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Rendering\RenderObjects\BackgroundRenderObject.vb" />
-    <Compile Include="Rendering\RenderObjects\RenderArgs.vb" />
-    <Compile Include="Rendering\RenderObjects\TextRenderObject.vb" />
-    <Compile Include="Rendering\RenderObjects\TimerTextRenderObject.vb" />
+    <Compile Include="Rendering\RenderObjects\ClearRenderable.vb" />
+    <Compile Include="Rendering\RenderObjects\IRenderable.vb" />
+    <Compile Include="Rendering\RenderObjects\BackgroundRenderable.vb" />
+    <Compile Include="Rendering\RenderObjects\TextRenderable.vb" />
+    <Compile Include="Rendering\RenderObjects\TimerTextRenderable.vb" />
     <Compile Include="Rendering\Surface.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Rendering\SurfaceFactory.vb" />
     <Compile Include="Settings\StyleSettings.vb" />
     <Compile Include="Settings\TimeSettings.vb" />
     <Compile Include="Settings\RendererModel.vb" />
