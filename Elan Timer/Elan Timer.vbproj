@@ -228,7 +228,6 @@
     </Compile>
     <Compile Include="Settings\StyleSettings.vb" />
     <Compile Include="Settings\TimeSettings.vb" />
-    <Compile Include="Settings\RendererModel.vb" />
     <Compile Include="Settings\TaskSettings.vb" />
     <Compile Include="Locale\Languages.vb" />
     <Compile Include="Common.vb" />
@@ -262,7 +261,6 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="Timers\AlarmTimer.vb" />
-    <Compile Include="Timers\RoundedTimeSpan.vb" />
     <Compile Include="Timers\CountDownAlarmTimer.vb" />
     <Compile Include="Timers\CountUpAlarmTimer.vb" />
     <Compile Include="Timers\Stopwatch.vb" />
