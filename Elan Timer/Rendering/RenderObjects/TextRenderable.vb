@@ -89,6 +89,7 @@
         Public Property Rectangle As Rectangle Implements IRenderable.Rectangle
 
         Public Sub Render(e As PaintEventArgs) Implements IRenderable.Render
+            e.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
             If (Visible) Then
                 Dim largestFontSize As Long
 
