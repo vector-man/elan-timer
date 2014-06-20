@@ -2,27 +2,29 @@
 Public Class Languages
     Private _path As String
     Private _default As String
-    Private _cultures As List(Of System.Globalization.CultureInfo)
+    Private _languages As Dictionary(Of String, String)
     Sub New(path As String, [default] As String)
         _path = path
         _default = [default]
         Load()
     End Sub
-    Public Sub Load()
-        Dim dir = My.Computer.FileSystem.GetDirectories(_path)
-        _cultures = New List(Of System.Globalization.CultureInfo)
-        _cultures.Add(System.Globalization.CultureInfo.GetCultureInfo(_default))
-        For Each d In dir
+    Private Sub Load()
+        Dim directory = My.Computer.FileSystem.GetDirectories(_path)
+        _languages = New Dictionary(Of String, String)()
+        Dim defaultCulture = System.Globalization.CultureInfo.GetCultureInfo(_default)
+        _languages.Add(defaultCulture.Name, defaultCulture.NativeName)
+        For Each dir In directory
             Try
-                _cultures.Add(System.Globalization.CultureInfo.GetCultureInfo(My.Computer.FileSystem.GetName(d)))
+                Dim culture = System.Globalization.CultureInfo.GetCultureInfo(My.Computer.FileSystem.GetName(dir))
+                _languages.Add(culture.Name, culture.NativeName)
             Catch ex As Exception
 
             End Try
         Next
     End Sub
-    Public ReadOnly Property Cultures As List(Of System.Globalization.CultureInfo)
+    Public ReadOnly Property GetLanguages As Dictionary(Of String, String)
         Get
-            Return _cultures
+            Return _languages
         End Get
     End Property
 
@@ -30,11 +32,7 @@ Public Class Languages
         Return My.Resources.ResourceManager.GetString(name)
     End Function
 
-    Public Sub SetUICulture(name As String)
+    Public Sub SetLanguage(name As String)
         Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(name)
-    End Sub
-
-    Public Sub SetUICulture(culture As System.Globalization.CultureInfo)
-        Threading.Thread.CurrentThread.CurrentUICulture = culture
     End Sub
 End Class

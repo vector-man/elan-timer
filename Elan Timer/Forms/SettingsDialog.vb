@@ -3,12 +3,12 @@
     Private applicationBindingSource As BindingSource
 
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
-        My.Settings.Language = CType(ComboBoxLanguage.SelectedItem, System.Globalization.CultureInfo).Name
+        My.Settings.Language = ComboBoxLanguage.SelectedValue
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckBoxShowInSystemTray.Checked
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
         My.Settings.Save()
-        Common.Languages.SetUICulture(ComboBoxLanguage.SelectedItem)
+        Common.Languages.SetLanguage(My.Settings.Language)
         Common.SetStrings()
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
@@ -25,9 +25,9 @@
         'End Using
 
 
-        ComboBoxLanguage.DisplayMember = "NativeName"
-
-        ComboBoxLanguage.DataSource = Common.Languages.Cultures
+        ComboBoxLanguage.DisplayMember = "Value"
+        ComboBoxLanguage.ValueMember = "Key"
+        ComboBoxLanguage.DataSource = Common.Languages.GetLanguages.ToList()
     End Sub
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -35,7 +35,7 @@
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
-            ComboBoxLanguage.SelectedItem = Common.Languages.Cultures.Where(Function(item) item.Name = My.Settings.Language).First
+            ComboBoxLanguage.SelectedItem = Common.Languages.GetLanguages.ToList().Where(Function(item) item.Key = My.Settings.Language).First
             CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
             CheckBoxClickingTrayIconStopsAlarm.Enabled = CheckBoxShowInSystemTray.Checked
         Catch ex As Exception
