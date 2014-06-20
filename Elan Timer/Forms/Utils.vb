@@ -16,8 +16,15 @@ Public Class Utils
         Return GetAlarms(alarmsPath)(0).Value
     End Function
     Public Shared Sub ShowContextMenuStrip(control As Control, contextMenuStrip As ContextMenuStrip)
-        Dim ptLowerLeft As Point = New Point(0, control.Height)
-        ptLowerLeft = control.PointToScreen(ptLowerLeft)
-        contextMenuStrip.Show(ptLowerLeft)
+        Dim lowerLeftPoint As Point = New Point(0, control.Height)
+        lowerLeftPoint = control.PointToScreen(lowerLeftPoint)
+        contextMenuStrip.Show(lowerLeftPoint)
     End Sub
+    Public Shared Function LimitTextLength(text As String, maximumLength As Long)
+        If (text.Length > maximumLength) Then
+            Return text.Substring(0, (maximumLength - 3)) & "..."
+        Else
+            Return text
+        End If
+    End Function
 End Class

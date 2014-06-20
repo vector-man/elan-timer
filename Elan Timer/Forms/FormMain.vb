@@ -6,6 +6,8 @@ Imports System.IO
 Imports ElanTimer.Prefs
 Imports ElanTimer.Settings
 Imports ElanTimer.Rendering
+Imports Microsoft
+
 Public Class FormMain
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
     Public timerSurface As Surface
@@ -23,6 +25,7 @@ Public Class FormMain
     Private taskSettings As TaskSettings = New TaskSettings()
     Private styleSettings As StyleSettings = New StyleSettings()
 
+    Private reporter As IProgress(Of Integer)
 #If DEBUG Then
     Private sw As New Stopwatch ' Used for benchmark and testing.
 #End If
@@ -84,7 +87,7 @@ Public Class FormMain
             CloseToSystemTray()
             Return
         End If
-        ShutDownRendering()
+        StartRendering()
         If Not My.Settings.WindowFullScreen Then
             My.Settings.WindowMaximized = (Me.WindowState = FormWindowState.Maximized)
             Me.WindowState = FormWindowState.Normal
@@ -126,11 +129,20 @@ Public Class FormMain
 
             End Try
 
+            If (TaskbarManager.IsPlatformSupported) Then
+                reporter = New Progress(Of Integer)(Sub(progress)
+                                                        TaskbarManager.Instance.SetProgressValue(progress, 1000, Me.Handle)
+                                                    End Sub)
+            Else
+                reporter = New Progress(Of Integer)()
+            End If
+
+
             ' Create a new timer object.
             timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
 
             ' Start rendering.
-            StartUpRendering(timer)
+            StopRendering(timer)
             ' Add event handlers for the timer.
             AddTimerHandlers()
             ' Add handler for UpdateUI
@@ -165,7 +177,7 @@ Public Class FormMain
         ' Set timer form to default size.
         My.Settings.WindowFullScreen = False
         My.Settings.WindowMaximized = False
-        GoFullscreen(My.Settings.WindowFullScreen)
+        EnterFullscreen(My.Settings.WindowFullScreen)
         Me.Size = My.Settings.DefaultWindowSize
     End Sub
 
@@ -194,7 +206,7 @@ Public Class FormMain
         Else
             My.Settings.WindowFullScreen = True
             My.Settings.WindowMaximized = False
-            GoFullscreen(My.Settings.WindowFullScreen)
+            EnterFullscreen(My.Settings.WindowFullScreen)
             Me.Focus()
         End If
     End Sub
@@ -221,17 +233,10 @@ Public Class FormMain
         ' Hide the timer.
         timerObject.Visible = False
     End Sub
-    Private Function LimitTextLength(text As String, maximumLength As Long)
-        If (text.Length > maximumLength) Then
-            Return text.Substring(0, (maximumLength - 3)) & "..."
-        Else
-            Return text
-        End If
-    End Function
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
                                  If (timeSettings.NoteEnabled And timeSettings.AlertEnabled) Then
-                                     MessageBox.Show(If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                                  End If
                              End Sub))
 
@@ -240,7 +245,7 @@ Public Class FormMain
     Private Sub LoadLanguage()
         Try
             ' Try to set UI culture to the language fronm settings.
-            Common.Languages.SetUICulture(My.Settings.Language)
+            Common.Languages.SetLanguage(My.Settings.Language)
         Catch ex As Exception
             ' On failure, revert to the default language.
             My.Settings.Language = My.Settings.DefaultLanguage
@@ -255,7 +260,7 @@ Public Class FormMain
             ' Exit fullscreen mode.
             My.Settings.WindowFullScreen = False
             My.Settings.WindowMaximized = False
-            GoFullscreen(My.Settings.WindowFullScreen)
+            EnterFullscreen(My.Settings.WindowFullScreen)
         End If
     End Sub
     ' Removes the event handlers for the timer.
@@ -273,7 +278,7 @@ Public Class FormMain
         AddHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
     ' Shuts down rendering of the timer.
-    Private Sub ShutDownRendering()
+    Private Sub StartRendering()
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
         PanelTimer.Controls.Clear()
@@ -283,7 +288,7 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     ' Starts up rendering of the timer.
-    Private Async Sub StartUpRendering(timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
+    Private Async Sub StopRendering(timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
@@ -328,44 +333,39 @@ Public Class FormMain
 #End If
     End Sub
 
+
     Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
         Try
-            Dim assemblyName As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name
             Await Task.Factory.StartNew(Async Function()
                                             While (Not token.IsCancellationRequested)
                                                 Dim currentProgressValue As Long
                                                 currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
-                                                If TaskbarManager.IsPlatformSupported Then
-                                                    TaskbarManager.Instance.SetProgressValue(currentProgressValue, 1000, Me.Handle)
-                                                End If
-                                                ProgressBarMain.Value = currentProgressValue
 
-                                                Dim sb = New StringBuilder
+                                                reporter.Report(currentProgressValue)
 
-                                                If (Not timer.IsExpired) Then
-                                                    sb.Append(timerObject.Text)
-                                                    If (Not timeSettings.Note = String.Empty) Then
-                                                        sb.Append(" - ")
-                                                    End If
-                                                End If
-                                                If (timeSettings.NoteEnabled) Then
-                                                    sb.Append(timeSettings.Note)
-                                                End If
-
-                                                If (sb.Length = 0) Then
-                                                    sb.Append(assemblyName)
-                                                End If
-
-                                                Me.Text = sb.ToString
-                                                NotifyIconMain.Text = LimitTextLength(Me.Text, 63)
-
-                                                Await TaskEx.Delay(Common.Framerate)
+                                                ProgressBarMain.Invoke(New Action(Sub()
+                                                                                      ProgressBarMain.Value = currentProgressValue
+                                                                                  End Sub)
+                                                )
+                                                Me.Invoke(New Action(Sub()
+                                                                         UpdateWindowText()
+                                                                         NotifyIconMain.Text = Utils.LimitTextLength(Me.Text, 63)
+                                                                     End Sub))
+                                                Await TaskEx.Delay(renderer.FramesPerSecond)
                                             End While
                                         End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
     End Function
+    Private Sub UpdateWindowText()
+        Dim time As String = If(Not timer.IsExpired, timerObject.Text, String.Empty)
+        Dim separator As String = If(Not timer.IsExpired AndAlso timeSettings.NoteEnabled, " - ", String.Empty)
+        Dim note As String = If(timeSettings.NoteEnabled, timeSettings.Note, String.Empty)
+        Dim title As String = If(time.Length = 0 And separator.Length = 0 And note.Length = 0, My.Application.Info.AssemblyName, String.Empty)
+
+        Me.Text = String.Join("", time, separator, note, title)
+    End Sub
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
         ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play_green, My.Resources.pause_green)
@@ -443,7 +443,7 @@ Public Class FormMain
             Me.WindowState = FormWindowState.Maximized
         End If
         If My.Settings.WindowFullScreen Then
-            GoFullscreen(True)
+            EnterFullscreen(True)
         End If
 
         Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
@@ -452,13 +452,62 @@ Public Class FormMain
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
-
+    Private Sub SaveSettings()
+        ' Save setting files
+        Try
+            styleSettings.Save()
+            timeSettings.Save()
+            taskSettings.Save()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+            If MessageBox.Show("Elan Timer failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Elan Timer will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                SaveSettings()
+            End If
+        End Try
+    End Sub
+    ' Toggles timer between paused and not paused.
+    Private Sub SetTimerState(enabled As Boolean)
+        Try
+            If enabled Then
+                timer.Start()
+            Else
+                timer.Pause()
+            End If
+            If (TaskbarManager.IsPlatformSupported) Then
+                Dim progressState = If(timer.IsPaused, TaskbarProgressBarState.Paused, TaskbarProgressBarState.Normal)
+                TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+        UpdateIcons()
+    End Sub
     Private Sub ResetTimer()
         timer.Reset()
         HideNote()
         UpdateIcons()
     End Sub
-
+    ' Enter or exit fullscreen.
+    Private Sub EnterFullscreen(fullscreen As Boolean)
+        If fullscreen Then
+            Me.TopMost = True
+            Me.WindowState = FormWindowState.Normal
+            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+            Me.WindowState = FormWindowState.Maximized
+        Else
+            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
+            Me.WindowState = FormWindowState.Normal
+            Me.TopMost = My.Settings.AlwaysOnTop
+            Me.CenterToScreen()
+        End If
+    End Sub
+    Private Sub CloseToSystemTray()
+        Me.Hide()
+        ' timerSurface.Enabled = False
+        NotifyIconMain.Visible = True
+    End Sub
+#End Region
+#Region "Dialogs"
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
     Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
         ContextMenuStripMain.Enabled = False
@@ -610,56 +659,6 @@ Public Class FormMain
     Private Sub ExitApplication()
         forceClose = True
         Me.Close()
-    End Sub
-
-    Private Sub SaveSettings()
-        ' Save setting files
-        Try
-            styleSettings.Save()
-            timeSettings.Save()
-            taskSettings.Save()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-            If MessageBox.Show("Elan Timer failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Elan Timer will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                SaveSettings()
-            End If
-        End Try
-    End Sub
-    ' Toggles timer between paused and not paused.
-    Private Sub SetTimerState(enabled As Boolean)
-        Try
-            If enabled Then
-                timer.Start()
-            Else
-                timer.Pause()
-            End If
-            If (TaskbarManager.IsPlatformSupported) Then
-                Dim progressState = If(timer.IsPaused, TaskbarProgressBarState.Paused, TaskbarProgressBarState.Normal)
-                TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
-            End If
-        Catch ex As Exception
-            Throw ex
-        End Try
-        UpdateIcons()
-    End Sub
-    ' Enter or exit fullscreen.
-    Private Sub GoFullscreen(fullscreen As Boolean)
-        If fullscreen Then
-            Me.TopMost = True
-            Me.WindowState = FormWindowState.Normal
-            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-            Me.WindowState = FormWindowState.Maximized
-        Else
-            Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
-            Me.WindowState = FormWindowState.Normal
-            Me.TopMost = My.Settings.AlwaysOnTop
-            Me.CenterToScreen()
-        End If
-    End Sub
-    Private Sub CloseToSystemTray()
-        Me.Hide()
-        ' timerSurface.Enabled = False
-        NotifyIconMain.Visible = True
     End Sub
 #End Region
 
