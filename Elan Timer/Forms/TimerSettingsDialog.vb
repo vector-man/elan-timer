@@ -158,11 +158,19 @@ Public Class TimerSettingsDialog
 
     Private Sub ButtonAlarmPlay_Click(sender As Object, e As EventArgs) Handles ButtonAlarmPlay.Click
         Try
-            If Not alarmPlayer Is Nothing Then
-                alarmPlayer.Dispose()
+            If (alarmPlayer IsNot Nothing AndAlso alarmPlayer.Playing) Then
+                alarmPlayer.Stop()
+            Else
+                If alarmPlayer IsNot Nothing Then
+                    RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+                    alarmPlayer.Dispose()
+                    alarmPlayer = Nothing
+                End If
+                alarmPlayer = New Alarm(Path.Combine(AlarmsPath, SelectedAlarm), AlarmVolume, False)
+                AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+                alarmPlayer.Play()
+                ButtonAlarmPlay.Image = My.Resources.stop_red
             End If
-            alarmPlayer = New Alarm(Path.Combine(AlarmsPath, SelectedAlarm), AlarmVolume, False)
-            alarmPlayer.Play()
         Catch ex As Exception
 
         End Try
@@ -186,7 +194,6 @@ Public Class TimerSettingsDialog
         Me.ComboBoxAlarmPath.Enabled = Me.CheckedGroupBox1.Checked
         Me.CheckBoxLoop.Enabled = Me.ComboBoxAlarmPath.Enabled
         Me.ButtonAlarmPlay.Enabled = Me.CheckBoxLoop.Enabled
-        Me.ButtonOpenAlarm.Enabled = Me.ButtonAlarmPlay.Enabled
         Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         Me.ButtonStart.Enabled = (Me.ButtonSet.Enabled And Not Editing)
 
@@ -283,4 +290,10 @@ Public Class TimerSettingsDialog
 
         End Try
     End Sub
+
+    Private Sub AlarmPlayer_PlaybackStopped(sender As Object, e As NAudio.Wave.StoppedEventArgs)
+        alarmPlayer.Stop()
+        ButtonAlarmPlay.Image = My.Resources.play_blue
+    End Sub
+
 End Class

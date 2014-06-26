@@ -354,6 +354,9 @@
     <Content Include="eggzle-icon.ico" />
     <Content Include="eggzle.ico" />
     <Content Include="FodyWeavers.xml" />
+    <None Include="Resources\stop_red.png" />
+    <None Include="Resources\pause_blue.png" />
+    <None Include="Resources\play_blue.png" />
     <None Include="Resources\arrow_redo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

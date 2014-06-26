@@ -729,11 +729,8 @@
   <data name="TableLayoutPanel4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="TableLayoutPanel4.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="TableLayoutPanel4.ColumnCount" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="CheckBoxLoop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -745,7 +742,7 @@
     <value>NoControl</value>
   </data>
   <data name="CheckBoxLoop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 60</value>
+    <value>6, 61</value>
   </data>
   <data name="CheckBoxLoop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 3, 3, 3</value>
@@ -804,76 +801,17 @@
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ButtonOpenAlarm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="ButtonOpenAlarm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAILSURBVDhPpY9LaxNRGIa7cO/On+CqFdFmRHQpiCs3
-        ohtvIAW1WUiUQkXQLnoBIVAaRUQshVLBFotGBJfWRTW17dhEM5mkteklNMFm7pecubx+mWomQhBLYZ75
-        zjnwPu85bQD2RMvD3dDycDcEv9zbTr44c5mtfbzaxBWWf3dyWXjTfoDY/xfJgH0NgZjkbN/3aOnTV2dn
-        7VgVbMx219Znu+0/lOZ7rc3UnWLu9ZHzoWA6IvuuBXsjDmNlGMbqKMziFHxHIpcO39UIZWfvVAGP1cRp
-        LhMKXnKqxxQKJ6AXRqB+68N26iYqc1FI6X5ISw8g8XdRXewhYnSzMsRXnVoomIwwx9yClEmgujCE8ofb
-        MMufqVX93V6fcngDep44yVmhYOIYC97v2YQJuEYQdE0BdikBa70f5o8eGPnr0IWLcPUsxPFIk2CMq/mu
-        CVf9BEd6D/ZzCrWtZxR8CHP1HsxCFEbuEvTvZ6GlT8HVeIijzYKnnO0xFWw7iVp5nFofwVqj1pV6axf0
-        7AVomTNQv56AsnAYjvoF4pNmQSJi+Uyi8BjszWFYxT4Kx2CI1yh8jlpPQ+WPQ5k/BHnuIAlSqGcaglz8
-        aInJBVlffuHp+efQxMfQhDi07ADUzH2o6V4oSzEofBTK4g3YlRmfMnJDIAy03xKGOiaEwY4KTeufDAZT
-        ocxIQ7AXWh7+P2j7BY3RGzIVTOkAAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ButtonOpenAlarm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ButtonOpenAlarm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 2</value>
-  </data>
-  <data name="ButtonOpenAlarm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 0</value>
-  </data>
-  <data name="ButtonOpenAlarm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 22</value>
-  </data>
-  <data name="ButtonOpenAlarm.TabIndex" type="System.Int32, mscorlib">
-    <value>99</value>
-  </data>
-  <data name="ButtonOpenAlarm.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ButtonOpenAlarm.Name" xml:space="preserve">
-    <value>ButtonOpenAlarm</value>
-  </data>
-  <data name="&gt;&gt;ButtonOpenAlarm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonOpenAlarm.Parent" xml:space="preserve">
-    <value>TableLayoutPanel4</value>
-  </data>
-  <data name="&gt;&gt;ButtonOpenAlarm.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="ButtonAlarmPlay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="ButtonAlarmPlay.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonAlarmPlay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAe
-        vAAAHrwB7kRN9wAAAAd0SU1FB9cJGws2IYDHWhIAAAEWSURBVDhPYxh8YMLS51/6Fj9r////PwM6JgoA
-        Dfjfu+jZv+aZjzAMIQp0zX/6f8/pb/9nrH71P7/zVh/JBtRPf/h/98mv/7cc/vS/ddaj/6FFl+aRZEBR
-        953/Gw9++r9oy9v/q3Z9+F8I5FvHnFhCtAHJ9dfBGoEB+R8UHjPXvPofVX75v7rX/kdQJfgB0Mn/5296
-        879l5qP/bXMegw3xyz3/X9Zh62aoEvzAOfnU/6mrXvxvmPEQFBv/PdLP/pe0XrNGQL+fBaoEPzCPOPa/
-        e+HT/53zHv93ST39X9xy6UqSAhHoV7DzHRJP/RcxmbkIpploA4B+/W8Te+I/0MkLkDUTbYC4+aL//Nqd
-        s9E1E20AnQEDAwDmGOiTYw0zBgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="ButtonAlarmPlay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ButtonAlarmPlay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 2</value>
+    <value>317, 2</value>
   </data>
   <data name="ButtonAlarmPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -894,7 +832,10 @@
     <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;ButtonAlarmPlay.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
+  </data>
+  <data name="ComboBoxAlarmPath.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="ComboBoxAlarmPath.Location" type="System.Drawing.Point, System.Drawing">
     <value>51, 3</value>
@@ -903,7 +844,7 @@
     <value>0, 3, 3, 3</value>
   </data>
   <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 21</value>
+    <value>263, 21</value>
   </data>
   <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -918,7 +859,7 @@
     <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;ComboBoxAlarmPath.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="Label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -951,7 +892,7 @@
     <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="TrackBarVolume.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -969,7 +910,7 @@
     <value>3, 3, 3, 6</value>
   </data>
   <data name="TrackBarVolume.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 21</value>
+    <value>282, 21</value>
   </data>
   <data name="TrackBarVolume.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
@@ -984,16 +925,19 @@
     <value>TableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;TrackBarVolume.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
+  </data>
+  <data name="TableLayoutPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="TableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+    <value>3, 16</value>
   </data>
   <data name="TableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 80</value>
+    <value>339, 82</value>
   </data>
   <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1011,7 +955,7 @@
     <value>1</value>
   </data>
   <data name="TableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CheckBoxLoop" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="Label1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOpenAlarm" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAlarmPlay" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxAlarmPath" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TrackBarVolume" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="CheckBoxLoop" Row="3" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="Label1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonAlarmPlay" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ComboBoxAlarmPath" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="Label2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="TrackBarVolume" Row="2" RowSpan="1" Column="1" ColumnSpan="2" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="CheckedGroupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -1168,6 +1112,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>361, 364</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>7, 7, 7, 7</value>
