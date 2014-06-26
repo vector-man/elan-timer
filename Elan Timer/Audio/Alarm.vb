@@ -2,15 +2,17 @@
 Public Class Alarm : Implements IDisposable
     Private reader As WaveFileReader
     Private loopStream As LoopStream
-    Private waveOut As New WaveOut
+    Private waveOut As WaveOut
     Private _enabled As Boolean
+    Public Event PlaybackStopped(sender As Object, e As StoppedEventArgs)
     Sub New(path As String, volume As Integer, [loop] As Boolean)
         reader = New WaveFileReader(path)
         loopStream = New LoopStream(reader)
-        waveOut = New WaveOut
+        waveOut = New WaveOut()
         Me.Volume = volume
         Me.Loop = [loop]
         waveOut.Init(loopStream)
+        AddHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
     End Sub
 
     Public Sub Play()
@@ -51,6 +53,7 @@ Public Class Alarm : Implements IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If Not Me.disposedValue Then
             If disposing Then
+                RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
                 waveOut.Stop()
                 waveOut.Dispose()
                 waveOut = Nothing
@@ -73,5 +76,9 @@ Public Class Alarm : Implements IDisposable
         GC.SuppressFinalize(Me)
     End Sub
 #End Region
+
+    Private Sub OnPlaybackStopped(sender As Object, e As StoppedEventArgs)
+        RaiseEvent PlaybackStopped(sender, e)
+    End Sub
 
 End Class
