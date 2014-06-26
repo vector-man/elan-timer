@@ -5,15 +5,15 @@ Public Class JsonNetTransporter
     Implements ITransporter
 
     Public Function Import(Of T)(stream As IO.Stream) Implements ITransporter.Import
-        Try
-            stream.Seek(0, SeekOrigin.Begin)
-            Using sr As New StreamReader(stream)
-                Dim text As String = sr.ReadToEnd()
-                Return JsonConvert.DeserializeObject(text, GetType(T))
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-        End Try
+        stream.Seek(0, SeekOrigin.Begin)
+        Using sr As New StreamReader(stream)
+            Dim text As String = sr.ReadToEnd()
+            Dim settings As New JsonSerializerSettings()
+            settings.Error = AddressOf JsonError
+            settings.TypeNameAssemblyFormat = Runtime.Serialization.Formatters.FormatterAssemblyStyle.Full
+            settings.TypeNameHandling = TypeNameHandling.All
+            Return JsonConvert.DeserializeObject(text, GetType(T), settings)
+        End Using
     End Function
 
     Public Sub Export(Of T)(ByRef obj As Object, stream As IO.Stream) Implements ITransporter.Export
@@ -27,5 +27,9 @@ Public Class JsonNetTransporter
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
         End Try
+    End Sub
+
+    Private Sub JsonError(sender As Object, e As Newtonsoft.Json.Serialization.ErrorEventArgs)
+        Throw New JsonSerializationException()
     End Sub
 End Class
