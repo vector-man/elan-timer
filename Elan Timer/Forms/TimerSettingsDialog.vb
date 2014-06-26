@@ -251,7 +251,7 @@ Public Class TimerSettingsDialog
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+            MessageBox.Show("Failed to load preset.", My.Application.Info.AssemblyName)
         End Try
     End Sub
 

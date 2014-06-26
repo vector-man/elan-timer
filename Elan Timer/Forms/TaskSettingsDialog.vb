@@ -166,7 +166,7 @@ Public Class TaskSettingsDialog
                 End If
             End Using
         Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+            MessageBox.Show("Failed to import tasks.", My.Application.Info.AssemblyName)
         End Try
     End Sub
 End Class

@@ -203,16 +203,20 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
-        Using dialogOpen As New OpenFileDialog()
-            dialogOpen.CheckPathExists = True
-            dialogOpen.Filter = My.Settings.StyleDialogFilter
-            If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
-                    style.Import(stream)
-                    UpdateUI()
-                End Using
-            End If
-        End Using
+        Try
+            Using dialogOpen As New OpenFileDialog()
+                dialogOpen.CheckPathExists = True
+                dialogOpen.Filter = My.Settings.StyleDialogFilter
+                If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                    Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
+                        style.Import(stream)
+                        UpdateUI()
+                    End Using
+                End If
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Failed to load style.", My.Application.Info.AssemblyName)
+        End Try
     End Sub
 
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
