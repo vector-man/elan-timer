@@ -21,6 +21,12 @@ Public Class Alarm : Implements IDisposable
         ' Play audio.
         waveOut.Play()
     End Sub
+    Public ReadOnly Property Playing
+        Get
+            Return (waveOut.PlaybackState = PlaybackState.Playing)
+        End Get
+    End Property
+
     Public Sub [Stop]()
         waveOut.Stop()
     End Sub
