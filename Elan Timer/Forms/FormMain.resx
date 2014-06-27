@@ -176,6 +176,33 @@
   <data name="ToolStripMenuItemAlwaysOnTop.Text" xml:space="preserve">
     <value>Always On Top</value>
   </data>
+  <data name="ToolStripMenuItemDefault.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+D</value>
+  </data>
+  <data name="ToolStripMenuItemDefault.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemDefault.Text" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+C</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemCompact.Text" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemFullScreen.Text" xml:space="preserve">
+    <value>Full Screen</value>
+  </data>
   <data name="ToolStripMenuItemWindow.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
   </data>
@@ -184,6 +211,30 @@
   </data>
   <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 6</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F1</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemHelpOnline.Text" xml:space="preserve">
+    <value>Help Online</value>
+  </data>
+  <data name="ToolStripMenuItemAboutElanTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemAboutElanTimer.Text" xml:space="preserve">
+    <value>About Elan Timer</value>
+  </data>
+  <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 6</value>
+  </data>
+  <data name="ToolStripMenuItemCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 22</value>
+  </data>
+  <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
+    <value>Check for Updates</value>
   </data>
   <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -223,21 +274,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbSBRRHMYPRfTSUxBFYTcpqcAoLMjo9tBD
-        EXQlW7qAGW0X0NguCKWrXZZqS1ldV61sd9MKrShltSdriVXSMhQrdjG7au06Mzu7MzvNrDs7XzPTQEIf
-        /Jn//M/5fYfzzRBNsJJJfDspS/jIAOcjvUoHmaovTBDfSmZq6+q+nvhzkmWMVbieTIk+Iddjb0wj4/RL
-        CK/3Rvj6+QG58KRfPHGcEc1HGangsD/mnPtKeHuE/v2xmIk+Jj3MU5KhG4QfkvOxnoOjyXA7uEAeG701
-        mxfsl8HVV4JtqgPbWIu46wa4S2dA35gmcP0Wge8/PRa+T/q0w8l3Nynh+oqZX/489kvNnFT8bjW4Zw+Q
-        dNigWI5DKTwC6VoJ4s1eMHVn0d+0Ij38vlL+9WxJaOSOepXhW2TdZ9fkUFB1j9+tgtDiQaLxDqSR70gl
-        xyFLSYjfvoJ3VEBoqEa4Jg8j9dOl4epJ7z67jCy40yZ7wm4F9/Q+Eg0uaJJlGRRF6b0mJZ1G3HYFscbb
-        oC35YDesuaLDmuSTZn+8rgKSrQS/P30xEMDtdiOZTOp9Z2cn2HcDEE8UgLGVI7Yy12/ghGhJs/dqoRw2
-        IT2e0gFNVqsVra2tKC0tRW9vL3iGhbIxF1RtJSLLVzAGrhocOMCwXheUvO1IiZIOi6IIu92uw4ODg/os
-        HqagrMvBmEs1yJxgIB065I9VXYNUdAzRvgF9cyqVQnd3N3ie19+1TCIvuiDu2wWq/ALoxdkTrmAylXEl
-        xWAeeMCeO4O0nNahidJmjNmMn+4G0Pn5YBYsKTNwQoTdu3OEHTs/RKuuI+q4qZskPgahKIpeiWAIUUsR
-        xq7aQNkuqnDWByojK8fA/0rYus0csVgEymHHzyYPxAITlC25UDavhrh/F354PBh1OhDcYxKojEVmA/un
-        QCCwSQurp/OFTBcVgr5sxVhNhV6U9QJGi07hSXOz8vjRI6Wrq2u9gf1VR0fHDJ/Pxw8NDWmfjWFXrS2P
-        Za/ya0lHMrMZeuFSPzMvq6y9rY0LhULa/5FSmUwDJ6SlpWWax+MJOp3OpPpcZoz/kwrO93q9MbVG1X4W
-        IYT8AdKZcuPgPVonAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMxSURBVDhPZZJbaNNQHMYPivjikyCKMm9DhwoTZQpOvD34
+        oAhecRYvMCfWC2xSLwx06+alqNVJt67b1NnWzVtV3KSbT9Mi3XDTqWMqLfPupu2SNG3SmHRN85nEgAM/
+        +JN//uf8vsP5EqIJVjKGbyMVST/p4/ykR2kn4/WFUeJbyWRtXd3XnXhCcoyxCjeQcbGH5GL8pWlwhH4G
+        4cX2KN8wMygXHw6Ihw4yonk/IxXtDcSd058Lr/bRvz+UMrEHpJt5RLJ0g8gdcjLevXsoFWkDFyxgY1en
+        8oL9LLiGK2Cb68E21SHhugTuzDHQlyYI3FuLwL89Ohy5RXq1w8l3NynjekuZX4EC9kvttHTiRg24lttI
+        OWxQLAehFO+DdKEMiXteMPXH8aZ5Uebjuyr5V8u88OB19SqfrpIVn11jwyHVPXGjGoLPg2TTdUiD35FO
+        jUCWUhC/fQXvqILQWINIbQEGGyZKn2rGvP7sMrLgjprsSbsV3KNbSDa6oEmWZVAUpfealEwGCds5xJuu
+        gbYUgl217JwOa5IPmwOJ+ipItjL8/vjFQAC3241UKqX3HR0dYF/3QTxUBMZWifji/ICBE6Ilzd6sg7LX
+        hMxIWgc0Wa1WtLa2ory8HD09PeAZFsrqfFB1VxBduIgxcNVg1y6G9bqgFGxEWpR0WBRF2O12He7v79dn
+        iQgFZUUehl2qQfYoA2nPnkC8+gKkkgOI9fbpm9PpNLq6usDzvP6uZRJ92glxxxZQladAz80ddQWTqYIr
+        KwVz2wP2xDFk5IwOjZY2Y8xm/HQ3gi4sBDNrXoWBEyJs3ZonbNr8PlZ9ETHHZd0k+SEERVH0SobCiFlK
+        MHzeBsp2WoVz3lNZOXkG/lfC+g3mqMUiUA47fjZ7IBaZoKzLh7J2KcSdW/DD48GQ04HQNpNAZc0xG9g/
+        BYPBNVpY3R1PZbqkGPRZK4Zrq/SirKcwVHIED+7eVe77fEpnZ+dKA/ur9vb2SX6/nx8YGNA+G8MuWV4Z
+        z10S0JKOZucy9Oz5AWZGTkXb48dcOBzW/o+0ymQbOCE+n2+Cx+MJOZ3OlPpcYIz/kwrO9Hq9cbWG1H4K
+        IYT8AcXdctrCDeepAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -294,57 +345,6 @@
   </data>
   <data name="&gt;&gt;ToolStripMain.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+D</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemDefault.Text" xml:space="preserve">
-    <value>Default</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+C</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemCompact.Text" xml:space="preserve">
-    <value>Compact</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemFullScreen.Text" xml:space="preserve">
-    <value>Full Screen</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F1</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemHelpOnline.Text" xml:space="preserve">
-    <value>Help Online</value>
-  </data>
-  <data name="ToolStripMenuItemAboutElanTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemAboutElanTimer.Text" xml:space="preserve">
-    <value>About Elan Timer</value>
-  </data>
-  <data name="ToolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 6</value>
-  </data>
-  <data name="ToolStripMenuItemCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 22</value>
-  </data>
-  <data name="ToolStripMenuItemCheckForUpdates.Text" xml:space="preserve">
-    <value>Check for Updates</value>
   </data>
   <data name="PanelTimer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -403,8 +403,74 @@
   <metadata name="ContextMenuStripMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>349, 17</value>
   </metadata>
+  <data name="NotifyIconToolStripMenuItemNewTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemNewTimer.Text" xml:space="preserve">
+    <value>New...</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemEditTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemEditTimer.Text" xml:space="preserve">
+    <value>Edit...</value>
+  </data>
+  <data name="ToolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemStartTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemStartTimer.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="ToolNotifyIconStripMenuItemResetTimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="ToolNotifyIconStripMenuItemResetTimer.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ToolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemTasks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemTasks.Text" xml:space="preserve">
+    <value>Tasks...</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemStyle.Text" xml:space="preserve">
+    <value>Style...</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemSettings.Text" xml:space="preserve">
+    <value>Misc...</value>
+  </data>
+  <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemShow.Text" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="NotifyIconToolStripMenuItemExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
   <data name="ContextMenuStripMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 220</value>
+    <value>153, 248</value>
   </data>
   <data name="&gt;&gt;ContextMenuStripMain.Name" xml:space="preserve">
     <value>ContextMenuStripMain</value>
@@ -577,69 +643,6 @@
         AAAAPwAA/gAAAAB/AAD/AAAAAP8AAP+AAAAB/wAA/8AAAAP/AAD/8AAAD/8AAP/8AAA//wAA//+AAf//
         AAA=
 </value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemNewTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemNewTimer.Text" xml:space="preserve">
-    <value>New Timer...</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemEditTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemEditTimer.Text" xml:space="preserve">
-    <value>Edit Timer...</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemStartTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemStartTimer.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="ToolNotifyIconStripMenuItemResetTimer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="ToolNotifyIconStripMenuItemResetTimer.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemTasks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemTasks.Text" xml:space="preserve">
-    <value>Tasks...</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemStyle.Text" xml:space="preserve">
-    <value>Look...</value>
-  </data>
-  <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 6</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemSettings.Text" xml:space="preserve">
-    <value>Settings...</value>
-  </data>
-  <data name="ToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 6</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemShow.Text" xml:space="preserve">
-    <value>Show</value>
-  </data>
-  <data name="ToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 6</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="NotifyIconToolStripMenuItemExit.Text" xml:space="preserve">
-    <value>Exit</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1974,12 +1977,6 @@
   <data name="&gt;&gt;NotifyIconToolStripMenuItemStyle.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;NotifyIconToolStripMenuItemSettings.Name" xml:space="preserve">
     <value>NotifyIconToolStripMenuItemSettings</value>
   </data>
@@ -2009,6 +2006,18 @@
   </data>
   <data name="&gt;&gt;NotifyIconToolStripMenuItemExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem8.Name" xml:space="preserve">
+    <value>ToolStripMenuItem8</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem9.Name" xml:space="preserve">
+    <value>ToolStripMenuItem9</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItem9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FormMain</value>
