@@ -416,76 +416,98 @@ Namespace My
                 Me("TimerAlarmEnabled") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property TimerAlarmFile() As String
             Get
-                Return CType(Me("TimerAlarmFile"), String)
+                Return CType(Me("TimerAlarmFile"),String)
             End Get
-            Set(value As String)
+            Set
                 Me("TimerAlarmFile") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property TimerAlarmLoop() As Boolean
             Get
-                Return CType(Me("TimerAlarmLoop"), Boolean)
+                Return CType(Me("TimerAlarmLoop"),Boolean)
             End Get
-            Set(value As Boolean)
+            Set
                 Me("TimerAlarmLoop") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("100")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("100")>  _
         Public Property TimerAlarmVolume() As Integer
             Get
-                Return CType(Me("TimerAlarmVolume"), Integer)
+                Return CType(Me("TimerAlarmVolume"),Integer)
             End Get
-            Set(value As Integer)
+            Set
                 Me("TimerAlarmVolume") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property TimerNoteEnabled() As Boolean
             Get
-                Return CType(Me("TimerNoteEnabled"), Boolean)
+                Return CType(Me("TimerNoteEnabled"),Boolean)
             End Get
-            Set(value As Boolean)
+            Set
                 Me("TimerNoteEnabled") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property TimerNote() As String
             Get
-                Return CType(Me("TimerNote"), String)
+                Return CType(Me("TimerNote"),String)
             End Get
-            Set(value As String)
+            Set
                 Me("TimerNote") = value
             End Set
         End Property
-
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")> _
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property TimerAlertEnabled() As Boolean
             Get
-                Return CType(Me("TimerAlertEnabled"), Boolean)
+                Return CType(Me("TimerAlertEnabled"),Boolean)
             End Get
-            Set(value As Boolean)
+            Set
                 Me("TimerAlertEnabled") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CustomBackgroundColors() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("CustomBackgroundColors"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("CustomBackgroundColors") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CustomForegroundColors() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("CustomForegroundColors"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("CustomForegroundColors") = value
             End Set
         End Property
     End Class

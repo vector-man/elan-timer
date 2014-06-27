@@ -69,6 +69,24 @@ Public Class StyleSettingsDialog
         End Set
     End Property
 
+    Public Property CustomForegroundColors As Integer()
+        Get
+            Return ColorComboBoxForegrounColor.CustomColors
+        End Get
+        Set(value As Integer())
+            ColorComboBoxForegrounColor.CustomColors = value
+        End Set
+    End Property
+
+    Public Property CustomBackgroundColors As Integer()
+        Get
+            Return ColorComboBoxBackgroundColor.CustomColors
+        End Get
+        Set(value As Integer())
+            ColorComboBoxBackgroundColor.CustomColors = value
+        End Set
+    End Property
+
     Public Property GrowToFit As Boolean
         Get
             Return style.GrowToFit

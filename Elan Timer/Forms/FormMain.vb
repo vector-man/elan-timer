@@ -576,6 +576,12 @@ Public Class FormMain
             dialog.Timer = timer
             dialog.GrowToFit = styleSettings.GrowToFit
             dialog.Transparency = 100 - styleSettings.Opacity
+            dialog.CustomForegroundColors = If(My.Settings.CustomForegroundColors IsNot Nothing, My.Settings.CustomForegroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
+                                                                                                                                                                              Return Convert.ToInt32(c)
+                                                                                                                                                                          End Function).ToArray(), Nothing)
+            dialog.CustomBackgroundColors = If(My.Settings.CustomBackgroundColors IsNot Nothing, My.Settings.CustomBackgroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
+                                                                                                                                                                              Return Convert.ToInt32(c)
+                                                                                                                                                                          End Function).ToArray(), Nothing)
             If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 Dim timeVisible = timerObject.Visible
                 timerObject.Visible = False
@@ -589,6 +595,19 @@ Public Class FormMain
                 styleSettings.ForegroundColor = dialog.ForegroundColor
                 styleSettings.GrowToFit = dialog.GrowToFit
                 styleSettings.Opacity = 100 - dialog.Transparency
+
+
+                Dim customColors = New System.Collections.Specialized.StringCollection()
+                customColors.AddRange(dialog.CustomForegroundColors.ToList().ConvertAll(Function(c)
+                                                                                            Return c.ToString()
+                                                                                        End Function).ToArray())
+                My.Settings.CustomForegroundColors = customColors
+
+                customColors = New System.Collections.Specialized.StringCollection()
+                customColors.AddRange(dialog.CustomBackgroundColors.ToList().ConvertAll(Function(c)
+                                                                                            Return c.ToString()
+                                                                                        End Function).ToArray())
+                My.Settings.CustomBackgroundColors = customColors
 
 
                 timerSurface.BackColor = styleSettings.BackgroundColor
