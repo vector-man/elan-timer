@@ -16,8 +16,7 @@ Public Class StyleSettingsDialog
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timerSurface As Rendering.Surface
     Private loaded As Boolean = False
-    Private transporter As New JsonNetTransporter()
-    Private style As New StyleModel(transporter)
+    Private style As New StyleModel()
     Private toolTip As New ToolTip()
     Sub New()
         ' This call is required by the designer.
@@ -167,19 +166,6 @@ Public Class StyleSettingsDialog
         ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
     End Sub
 
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs)
-        Using dialogSave As New SaveFileDialog()
-            ' TODO: Fix initial directory.
-            ' dialogSave.InitialDirectory = Preferences.StylePath
-            dialogSave.CheckPathExists = True
-            dialogSave.Filter = My.Settings.StyleDialogFilter
-            If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                Using stream As FileStream = File.Create(dialogSave.FileName)
-                    style.Export(stream)
-                End Using
-            End If
-        End Using
-    End Sub
     Private Sub UpdateUI()
         timerObject.Color = ForegroundColor
         timerSurface.BackColor = BackgroundColor
@@ -203,20 +189,32 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
-        Try
-            Using dialogOpen As New OpenFileDialog()
-                dialogOpen.CheckPathExists = True
-                dialogOpen.Filter = My.Settings.StyleDialogFilter
-                If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
-                        style.Import(stream)
-                        UpdateUI()
-                    End Using
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Failed to load style.", My.Application.Info.AssemblyName)
-        End Try
+
+        Using dialogOpen As New OpenFileDialog()
+            dialogOpen.CheckPathExists = True
+            dialogOpen.Filter = My.Settings.StyleDialogFilter
+            If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
+                UpdateUI()
+
+            End If
+        End Using
+
+        ' TODO: Move code out of class.
+        'Try
+        '    Using dialogOpen As New OpenFileDialog()
+        '        dialogOpen.CheckPathExists = True
+        '        dialogOpen.Filter = My.Settings.StyleDialogFilter
+        '        If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+        '            Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
+        '                style.Import(stream)
+        '                UpdateUI()
+        '            End Using
+        '        End If
+        '    End Using
+        'Catch ex As Exception
+        '    MessageBox.Show("Failed to load style.", My.Application.Info.AssemblyName)
+        'End Try
     End Sub
 
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
@@ -226,11 +224,21 @@ Public Class StyleSettingsDialog
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                Using stream As FileStream = File.Create(dialogSave.FileName)
-                    style.Export(stream)
-                End Using
+                RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
             End If
         End Using
+        ' TODO: Move code of out class.
+        'Using dialogSave As New SaveFileDialog()
+        '    ' TODO: Fix initial directory.
+        '    ' dialogSave.InitialDirectory = Preferences.StylePath
+        '    dialogSave.CheckPathExists = True
+        '    dialogSave.Filter = My.Settings.StyleDialogFilter
+        '    If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+        '        Using stream As FileStream = File.Create(dialogSave.FileName)
+        '            style.Export(stream)
+        '        End Using
+        '    End If
+        'End Using
     End Sub
 
     Private Sub TrackBarTransparency_Scroll(sender As Object, e As EventArgs) Handles TrackBarTransparency.Scroll
@@ -248,4 +256,6 @@ Public Class StyleSettingsDialog
         Dim transparency As Integer = 255 - (((100 - TrackBarTransparency.Value) / 100) * 255)
         checkerBoardObject.Brush = New HatchBrush(Drawing2D.HatchStyle.LargeCheckerBoard, Color.FromArgb(transparency, Color.Gray), Color.FromArgb(transparency, Color.White))
     End Sub
+    Public Event Loading As EventHandler(Of LoadingEventArgs)
+    Public Event Saving As EventHandler(Of SavingEventArgs)
 End Class

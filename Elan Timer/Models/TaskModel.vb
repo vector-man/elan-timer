@@ -10,7 +10,7 @@ Public Class TaskModel
     Public Property Script As String
     Public Property Enabled As Boolean
     Sub New()
-        MyBase.New()
+
     End Sub
     Sub New([event] As TimerEvent, name As String, command As String, arguments As String, useScript As String, script As String, enabled As Boolean)
         Me.Event = [event]

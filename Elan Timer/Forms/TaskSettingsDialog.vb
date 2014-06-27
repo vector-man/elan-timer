@@ -5,8 +5,7 @@ Public Class TaskSettingsDialog
 
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource
-    Private _transporter As ITransporter = New JsonNetTransporter()
-    Private _model As New TasksModel(_transporter)
+    Private _model As New TasksModel()
     Sub New()
 
         ' This call is required by the designer.
@@ -74,33 +73,58 @@ Public Class TaskSettingsDialog
     End Sub
 
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
-        Try
-            Using saveDialog As New SaveFileDialog
-                saveDialog.InitialDirectory = TasksPath
-                saveDialog.Filter = TasksFilter
-                saveDialog.OverwritePrompt = True
-                If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-                    Dim tasksToExport As New List(Of TaskModel)
-                    Dim objects
-                    If exportSelected Then
-                        objects = DataListViewActions.SelectedObjects
-                    Else
-                        objects = DataListViewActions.Objects
-                    End If
 
-                    For Each obj In objects
-                        tasksToExport.Add(obj)
-                    Next
-                    Dim tsk As New TasksModel(_transporter)
-                    tsk.Tasks = tasksToExport
-                    Using output As FileStream = File.Create(saveDialog.FileName)
-                        tsk.Export(output)
-                    End Using
+        Using saveDialog As New SaveFileDialog
+            saveDialog.InitialDirectory = TasksPath
+            saveDialog.Filter = TasksFilter
+            saveDialog.OverwritePrompt = True
+            If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+                Dim tasksToExport As New List(Of TaskModel)
+                Dim objects
+                If exportSelected Then
+                    objects = DataListViewActions.SelectedObjects
+                Else
+                    objects = DataListViewActions.Objects
                 End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        End Try
+
+                For Each obj In objects
+                    tasksToExport.Add(obj)
+                Next
+                Dim tsk As New TasksModel()
+                tsk.Tasks = tasksToExport
+
+                RaiseEvent Exporting(Me, New TaskExportingEventArgs(saveDialog.FileName, tsk))
+            End If
+        End Using
+
+        ' TODO: Move code out of class.
+        'Try
+        '    Using saveDialog As New SaveFileDialog
+        '        saveDialog.InitialDirectory = TasksPath
+        '        saveDialog.Filter = TasksFilter
+        '        saveDialog.OverwritePrompt = True
+        '        If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+        '            Dim tasksToExport As New List(Of TaskModel)
+        '            Dim objects
+        '            If exportSelected Then
+        '                objects = DataListViewActions.SelectedObjects
+        '            Else
+        '                objects = DataListViewActions.Objects
+        '            End If
+
+        '            For Each obj In objects
+        '                tasksToExport.Add(obj)
+        '            Next
+        '            Dim tsk As New TasksModel()
+        '            tsk.Tasks = tasksToExport
+        '            Using output As FileStream = File.Create(saveDialog.FileName)
+        '                tsk.Export(output)
+        '            End Using
+        '        End If
+        '    End Using
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
+        'End Try
     End Sub
 
     Private Sub MenuItemExportSelected_Click(sender As Object, e As EventArgs) Handles MenuItemExportSelected.Click
@@ -139,10 +163,6 @@ Public Class TaskSettingsDialog
         End Using
     End Sub
 
-    Private Sub ButtonImport_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
         ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
     End Sub
@@ -153,20 +173,17 @@ Public Class TaskSettingsDialog
     End Sub
 
     Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
-        Try
-            Using openDialog As New OpenFileDialog
-                openDialog.InitialDirectory = TasksPath
-                openDialog.Filter = TasksFilter
-                openDialog.CheckFileExists = True
-                If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                    Using input As FileStream = File.OpenRead(openDialog.FileName)
-                        _model.Import(input)
-                    End Using
-                    actionsBindingSource.ResetBindings(True)
-                End If
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Failed to import tasks.", My.Application.Info.AssemblyName)
-        End Try
+
+        Using openDialog As New OpenFileDialog
+            openDialog.InitialDirectory = TasksPath
+            openDialog.Filter = TasksFilter
+            openDialog.CheckFileExists = True
+            If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, _model))
+                actionsBindingSource.ResetBindings(True)
+            End If
+        End Using
     End Sub
+    Public Event Exporting As EventHandler(Of TaskExportingEventArgs)
+    Public Event Importing As EventHandler(Of TaskImportingEventArgs)
 End Class

@@ -2,6 +2,14 @@
 Namespace Settings
     Public Class TaskSettings
         Inherits ApplicationSettingsBase
+        Implements IImportable, IExportable
+        Sub New()
+            MyClass.New(Nothing)
+        End Sub
+        Sub New(transporter As ITransporter)
+            MyBase.New()
+            Me.Transporter = transporter
+        End Sub
         <UserScopedSetting>
         <DefaultSettingValue("")>
         Public Property Tasks As List(Of TaskModel)
@@ -12,5 +20,16 @@ Namespace Settings
                 Me("Tasks") = value
             End Set
         End Property
+        Public Property Transporter As ITransporter
+        Public Sub Export(stream As IO.Stream) Implements IExportable.Export
+            Transporter.Export(Of TasksModel)(Me, stream)
+        End Sub
+
+        Public Sub Import(stream As IO.Stream) Implements IImportable.Import
+            Dim model As TasksModel
+            model = Transporter.Import(Of TasksModel)(stream)
+
+            Me.Tasks = model.Tasks
+        End Sub
     End Class
 End Namespace

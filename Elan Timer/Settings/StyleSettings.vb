@@ -7,7 +7,14 @@ Namespace Settings
 
     Public Class StyleSettings
         Inherits ApplicationSettingsBase
-
+        Implements IImportable, IExportable '
+        Sub New()
+            MyClass.New(Nothing)
+        End Sub
+        Sub New(transporter As ITransporter)
+            MyBase.New()
+            Me.Transporter = transporter
+        End Sub
         <UserScopedSetting>
         <DefaultSettingValue("Calibri, 24pt, style=Bold")>
         Public Property DisplayFont As Font
@@ -73,5 +80,26 @@ Namespace Settings
                 Me("DisplayFormat") = value
             End Set
         End Property
+        Public Property Transporter As ITransporter
+        Public Sub Export(stream As IO.Stream) Implements IExportable.Export
+            Transporter.Export(Of StyleModel)(Me, stream)
+        End Sub
+
+        Public Sub Import(stream As IO.Stream) Implements IImportable.Import
+            Dim model As StyleModel
+            model = Transporter.Import(Of StyleModel)(stream)
+
+            DisplayFont = model.DisplayFont
+
+            GrowToFit = model.GrowToFit
+
+            BackgroundColor = model.BackgroundColor
+
+            ForegroundColor = model.ForegroundColor
+
+            Opacity = 100 - model.Transparency
+
+            DisplayFormat = model.DisplayFormat
+        End Sub
     End Class
 End Namespace

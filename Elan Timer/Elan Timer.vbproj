@@ -182,12 +182,14 @@
     <Compile Include="Forms\AboutDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\SavingEventArgs.vb" />
     <Compile Include="Forms\StyleSettingsDialog.Designer.vb">
       <DependentUpon>StyleSettingsDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\StyleSettingsDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\TaskExportingEventArgs.vb" />
     <Compile Include="Forms\TaskSettingsDialog.Designer.vb">
       <DependentUpon>TaskSettingsDialog.vb</DependentUpon>
     </Compile>
@@ -201,6 +203,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Utils.vb" />
+    <Compile Include="LoadingEventArgs.vb" />
     <Compile Include="Models\TaskModel.vb" />
     <Compile Include="Models\TasksModel.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -261,6 +264,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="TaskImportingEventArgs.vb" />
     <Compile Include="Timers\AlarmTimer.vb" />
     <Compile Include="Timers\CountDownAlarmTimer.vb" />
     <Compile Include="Timers\CountUpAlarmTimer.vb" />

@@ -21,9 +21,9 @@ Public Class FormMain
     Private forceClose As Boolean = False
 
     Private transporter As ITransporter = New JsonNetTransporter()
-    Private timeSettings As TimeSettings = New TimeSettings()
-    Private taskSettings As TaskSettings = New TaskSettings()
-    Private styleSettings As StyleSettings = New StyleSettings()
+    Private timeSettings As TimeSettings = New TimeSettings(transporter)
+    Private taskSettings As TaskSettings = New TaskSettings(transporter)
+    Private styleSettings As StyleSettings = New StyleSettings(transporter)
 
     Private reporter As IProgress(Of Integer)
 #If DEBUG Then
@@ -394,32 +394,14 @@ Public Class FormMain
                         Select Case System.IO.Path.GetExtension(pref)
 
                             Case My.Settings.StyleFileExtension
-                                Dim model = New StyleModel(transporter)
-                                model.Import(stream)
 
-                                styleSettings.BackgroundColor = model.BackgroundColor
-                                styleSettings.ForegroundColor = model.ForegroundColor
-                                styleSettings.DisplayFont = model.DisplayFont
-                                styleSettings.DisplayFormat = model.DisplayFormat
-                                styleSettings.GrowToFit = model.GrowToFit
-                                styleSettings.Opacity = 100 - model.Transparency
+                                styleSettings.Import(stream)
+
                             Case My.Settings.TaskFileExtension
-                                Dim model = New TasksModel(transporter)
-                                model.Import(stream)
-                                taskSettings.Tasks = model.Tasks
+
+                                taskSettings.Import(stream)
                             Case My.Settings.TimeFileExtension
-                                Dim model = New TimeModel(transporter)
-                                model.Import(stream)
-                                timeSettings.AlarmName = model.AlarmName
-                                timeSettings.AlarmEnabled = model.AlarmEnabled
-                                timeSettings.AlarmLoop = model.AlarmLoop
-                                timeSettings.AlarmVolume = model.AlarmVolume
-                                timeSettings.AlertEnabled = model.AlertEnabled
-                                timeSettings.CountUp = model.CountUp
-                                timeSettings.Duration = model.Duration
-                                timeSettings.Note = model.Note
-                                timeSettings.NoteEnabled = model.NoteEnabled
-                                timeSettings.Restarts = model.Restarts
+                                timeSettings.Import(stream)
                         End Select
                     End Using
 
@@ -512,6 +494,8 @@ Public Class FormMain
     Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
         ContextMenuStripMain.Enabled = False
         Using dialog = New TimerSettingsDialog()
+            AddHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
+            AddHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
             If (owner IsNot Nothing) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
@@ -566,6 +550,9 @@ Public Class FormMain
                 Me.UpdateIcons()
             End If
             ContextMenuStripMain.Enabled = True
+
+            RemoveHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
+            RemoveHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
         End Using
     End Sub
 
@@ -573,6 +560,8 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = False
 
         Using dialog As New StyleSettingsDialog
+            AddHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
+            AddHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
             If (owner IsNot Nothing) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
@@ -619,6 +608,8 @@ Public Class FormMain
                 Me.Opacity = styleSettings.Opacity / 100
             End If
 
+            RemoveHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
+            RemoveHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
         End Using
         ContextMenuStripMain.Enabled = True
     End Sub
@@ -642,18 +633,24 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
-        Using tasksDialog As New TaskSettingsDialog
+        Using dialog As New TaskSettingsDialog
+            AddHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
+            AddHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
             If (owner IsNot Nothing) Then
-                tasksDialog.StartPosition = FormStartPosition.CenterParent
+                dialog.StartPosition = FormStartPosition.CenterParent
             Else
-                tasksDialog.StartPosition = FormStartPosition.CenterScreen
+                dialog.StartPosition = FormStartPosition.CenterScreen
             End If
 
             ' DialogTaskSettings.TopMost = True
-            tasksDialog.Tasks = taskSettings.Tasks
-            If (Not tasksDialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
-                taskSettings.Reload()
+            dialog.Tasks = taskSettings.Tasks.ConvertAll(Of TaskModel)(Function(t)
+                                                                           Return New TaskModel(t.Event, t.Name, t.Command, t.Arguments, t.UseScript, t.Script, t.Enabled)
+                                                                       End Function)
+            If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
+                taskSettings.Tasks = dialog.Tasks
             End If
+            RemoveHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
+            RemoveHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
         End Using
     End Sub
     Private Sub ExitApplication()
@@ -750,4 +747,121 @@ Public Class FormMain
         If (timerObject IsNot Nothing) Then timerObject.Rectangle = timerSurface.ClientRectangle
         If (noteObject IsNot Nothing) Then noteObject.Rectangle = timerSurface.ClientRectangle
     End Sub
+
+    Private Sub TimerSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
+        Try
+            Dim dialog As TimerSettingsDialog = sender
+            Dim settings As New TimeSettings(transporter)
+            Using output As Stream = File.OpenWrite(e.Output)
+                settings.Duration = dialog.Duration
+                settings.CountUp = dialog.CountUp
+                settings.Restarts = dialog.Restarts
+                settings.AlarmEnabled = dialog.AlarmEnabled
+                settings.AlarmName = dialog.SelectedAlarm
+                settings.AlarmLoop = dialog.AlarmLoop
+                settings.AlarmVolume = dialog.AlarmVolume
+                settings.Note = dialog.Note
+                settings.NoteEnabled = dialog.NoteEnabled
+                settings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
+
+                settings.Export(output)
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub TimerSettingsDialog_Loading(sender As Object, e As LoadingEventArgs)
+        Try
+            Dim dialog As TimerSettingsDialog = sender
+            Dim settings As New TimeSettings(transporter)
+            Using input As Stream = File.OpenRead(e.Input)
+                settings.Import(input)
+
+                dialog.AlarmsPath = Common.AlarmsPath
+                dialog.SelectedAlarm = settings.AlarmName
+                dialog.AlarmEnabled = settings.AlarmEnabled
+                dialog.AlarmLoop = settings.AlarmLoop
+                dialog.AlarmVolume = settings.AlarmVolume
+
+                dialog.Duration = settings.Duration
+                dialog.CountUp = settings.CountUp
+                dialog.Restarts = settings.Restarts
+                dialog.Note = settings.Note
+                dialog.NoteEnabled = settings.NoteEnabled
+                dialog.ShowAlertBoxOnTimerExpiration = settings.AlertEnabled
+
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub StyleSettingsDialog_Loading(sender As Object, e As LoadingEventArgs)
+        Try
+            Dim dialog As StyleSettingsDialog = sender
+            Dim settings As New StyleSettings(transporter)
+            Using input As Stream = File.OpenRead(e.Input)
+                settings.Import(input)
+
+                dialog.BackgroundColor = settings.BackgroundColor
+                dialog.DisplayFont = settings.DisplayFont
+                dialog.DisplayFormats = Common.DisplayFormats
+                dialog.DisplayFormat = settings.DisplayFormat
+                dialog.ForegroundColor = settings.ForegroundColor
+                dialog.Timer = timer
+                dialog.GrowToFit = settings.GrowToFit
+                dialog.Transparency = 100 - settings.Opacity
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub StyleSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
+        Try
+            Dim dialog As StyleSettingsDialog = sender
+            Dim settings As New StyleSettings(transporter)
+            Using output As Stream = File.OpenWrite(e.Output)
+                settings.BackgroundColor = dialog.BackgroundColor
+                settings.DisplayFormat = dialog.DisplayFormat
+                settings.DisplayFont = dialog.DisplayFont
+                settings.ForegroundColor = dialog.ForegroundColor
+                settings.GrowToFit = dialog.GrowToFit
+                settings.Opacity = 100 - dialog.Transparency
+
+                settings.Export(output)
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub TaskSettingsDialog_Importing(sender As Object, e As TaskImportingEventArgs)
+        Try
+            Dim dialog As TaskSettingsDialog = sender
+            Dim settings As New TaskSettings(transporter)
+
+            Using input As Stream = File.OpenRead(e.Input)
+                settings.Import(input)
+                dialog.Tasks.AddRange(settings.Tasks)
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    Private Sub TaskSettingsDialog_Exporting(sender As Object, e As TaskExportingEventArgs)
+        Try
+            Dim dialog As TaskSettingsDialog = sender
+            Dim settings As New TaskSettings(transporter)
+            Using output As Stream = File.OpenWrite(e.Output)
+                settings.Tasks = e.Tasks.Tasks
+                settings.Export(output)
+            End Using
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
 End Class
