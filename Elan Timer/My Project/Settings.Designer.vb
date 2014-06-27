@@ -510,6 +510,18 @@ Namespace My
                 Me("CustomForegroundColors") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property BlendToolbarColorWithBackground() As Boolean
+            Get
+                Return CType(Me("BlendToolbarColorWithBackground"),Boolean)
+            End Get
+            Set
+                Me("BlendToolbarColorWithBackground") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

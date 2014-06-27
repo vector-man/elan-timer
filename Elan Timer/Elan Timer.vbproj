@@ -173,6 +173,7 @@
   <ItemGroup>
     <Compile Include="Audio\Alarm.vb" />
     <Compile Include="Audio\LoopStream.vb" />
+    <Compile Include="BorderlessToolStripSystemRenderer.vb" />
     <Compile Include="CheckedGroupBox.vb">
       <SubType>Component</SubType>
     </Compile>

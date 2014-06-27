@@ -301,6 +301,11 @@ Public Class FormMain
 
         timerSurface = New Surface()
         timerSurface.BackColor = styleSettings.BackgroundColor
+
+        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+
+
+
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
@@ -611,6 +616,9 @@ Public Class FormMain
 
 
                 timerSurface.BackColor = styleSettings.BackgroundColor
+
+                SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+ 
                 timerObject.Color = styleSettings.ForegroundColor
                 timerObject.Font = styleSettings.DisplayFont
                 timerObject.Format = styleSettings.DisplayFormat
@@ -649,6 +657,8 @@ Public Class FormMain
         End Try
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
         ContextMenuStripMain.Enabled = True
+
+        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
@@ -881,6 +891,16 @@ Public Class FormMain
         Catch ex As Exception
             Throw ex
         End Try
+    End Sub
+
+    Private Sub SetColoredToolStrip(enabled As Boolean)
+        If (enabled) Then
+            ToolStripMain.BackColor = styleSettings.BackgroundColor
+            ToolStripMain.Renderer = New BorderlessToolStripSystemRenderer()
+        Else
+            ToolStripMain.BackColor = ToolStrip.DefaultBackColor
+            ToolStripMain.Renderer = New ToolStripProfessionalRenderer()
+        End If
     End Sub
 
 End Class
