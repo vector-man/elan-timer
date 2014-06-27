@@ -37,8 +37,9 @@ Public Class TaskSettingsDialog
         ButtonMoveDown.Enabled = enabled
 
         ButtonRemove.Enabled = (DataListViewActions.SelectedObjects.Count > 0)
-        ButtonExport.Enabled = (DataListViewActions.GetItemCount > 0)
+
         MenuItemExportSelected.Enabled = (Not DataListViewActions.SelectedIndices.Count = 0)
+        MenuItemExportAll.Enabled = (DataListViewActions.GetItemCount() > 0)
     End Sub
     Private Sub ButtonAdd_Click(sender As Object, e As EventArgs) Handles ButtonAdd.Click
         actionsBindingSource.Add(New TaskModel(TimerEvent.Started, "New Action", "", "", False, "", True))
