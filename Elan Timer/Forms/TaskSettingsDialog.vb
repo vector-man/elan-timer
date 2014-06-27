@@ -96,35 +96,6 @@ Public Class TaskSettingsDialog
                 RaiseEvent Exporting(Me, New TaskExportingEventArgs(saveDialog.FileName, tsk))
             End If
         End Using
-
-        ' TODO: Move code out of class.
-        'Try
-        '    Using saveDialog As New SaveFileDialog
-        '        saveDialog.InitialDirectory = TasksPath
-        '        saveDialog.Filter = TasksFilter
-        '        saveDialog.OverwritePrompt = True
-        '        If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-        '            Dim tasksToExport As New List(Of TaskModel)
-        '            Dim objects
-        '            If exportSelected Then
-        '                objects = DataListViewActions.SelectedObjects
-        '            Else
-        '                objects = DataListViewActions.Objects
-        '            End If
-
-        '            For Each obj In objects
-        '                tasksToExport.Add(obj)
-        '            Next
-        '            Dim tsk As New TasksModel()
-        '            tsk.Tasks = tasksToExport
-        '            Using output As FileStream = File.Create(saveDialog.FileName)
-        '                tsk.Export(output)
-        '            End Using
-        '        End If
-        '    End Using
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        'End Try
     End Sub
 
     Private Sub MenuItemExportSelected_Click(sender As Object, e As EventArgs) Handles MenuItemExportSelected.Click

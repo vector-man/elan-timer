@@ -241,34 +241,6 @@ Public Class TimerSettingsDialog
                 RaiseEvent Loading(Me, New LoadingEventArgs(openDialog.FileName))
             End If
         End Using
-
-        ' TODO: Move code out of class.
-        'Try
-        '    Using openDialog As New OpenFileDialog
-        '        openDialog.InitialDirectory = ""
-        '        openDialog.Filter = AlarmFilter
-        '        openDialog.CheckFileExists = True
-        '        If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-        '            Using input As Stream = File.OpenRead(openDialog.FileName)
-        '                time.Import(input)
-        '                Me.AlarmEnabled = time.AlarmEnabled
-        '                Me.time.AlarmLoop = time.AlarmLoop
-        '                Me.SelectedAlarm = time.AlarmName
-        '                Me.AlarmVolume = time.AlarmVolume
-        '                Me.ShowAlertBoxOnTimerExpiration = time.AlertEnabled
-        '                Me.CountUp = time.CountUp
-        '                Me.NumericUpDownHours.Value = time.Duration.Hours
-        '                Me.NumericUpDownMinutes.Value = time.Duration.Minutes
-        '                Me.NumericUpDownSeconds.Value = time.Duration.Seconds
-        '                Me.Note = time.Note
-        '                Me.NoteEnabled = time.NoteEnabled
-        '                Me.Restarts = time.Restarts
-        '            End Using
-        '        End If
-        '    End Using
-        'Catch ex As Exception
-        '    MessageBox.Show("Failed to load preset.", My.Application.Info.AssemblyName)
-        'End Try
     End Sub
 
     Private Sub MenuItemSavePresetAs_Click(sender As Object, e As EventArgs) Handles MenuItemSavePresetAs.Click
@@ -280,22 +252,6 @@ Public Class TimerSettingsDialog
                 RaiseEvent Saving(Me, New SavingEventArgs(saveDialog.FileName))
             End If
         End Using
-
-        ' TODO: Move code out of class.
-        'Try
-        '    Using saveDialog As New SaveFileDialog
-        '        saveDialog.InitialDirectory = ""
-        '        saveDialog.Filter = My.Settings.TimeDialogFilter
-        '        saveDialog.OverwritePrompt = True
-        '        If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-        '            Using output As Stream = File.OpenWrite(saveDialog.FileName)
-        '                time.Export(output)
-        '            End Using
-        '        End If
-        '    End Using
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-        'End Try
     End Sub
 
     Private Sub TrackBarVolume_Scroll(sender As Object, e As EventArgs) Handles TrackBarVolume.Scroll

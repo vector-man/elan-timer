@@ -199,22 +199,6 @@ Public Class StyleSettingsDialog
 
             End If
         End Using
-
-        ' TODO: Move code out of class.
-        'Try
-        '    Using dialogOpen As New OpenFileDialog()
-        '        dialogOpen.CheckPathExists = True
-        '        dialogOpen.Filter = My.Settings.StyleDialogFilter
-        '        If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-        '            Using stream As FileStream = File.OpenRead(dialogOpen.FileName)
-        '                style.Import(stream)
-        '                UpdateUI()
-        '            End Using
-        '        End If
-        '    End Using
-        'Catch ex As Exception
-        '    MessageBox.Show("Failed to load style.", My.Application.Info.AssemblyName)
-        'End Try
     End Sub
 
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
@@ -227,18 +211,6 @@ Public Class StyleSettingsDialog
                 RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
             End If
         End Using
-        ' TODO: Move code of out class.
-        'Using dialogSave As New SaveFileDialog()
-        '    ' TODO: Fix initial directory.
-        '    ' dialogSave.InitialDirectory = Preferences.StylePath
-        '    dialogSave.CheckPathExists = True
-        '    dialogSave.Filter = My.Settings.StyleDialogFilter
-        '    If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
-        '        Using stream As FileStream = File.Create(dialogSave.FileName)
-        '            style.Export(stream)
-        '        End Using
-        '    End If
-        'End Using
     End Sub
 
     Private Sub TrackBarTransparency_Scroll(sender As Object, e As EventArgs) Handles TrackBarTransparency.Scroll
