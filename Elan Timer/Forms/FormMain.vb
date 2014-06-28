@@ -87,7 +87,7 @@ Public Class FormMain
             CloseToSystemTray()
             Return
         End If
-        StartRendering()
+        StopRendering()
         If Not My.Settings.WindowFullScreen Then
             My.Settings.WindowMaximized = (Me.WindowState = FormWindowState.Maximized)
             Me.WindowState = FormWindowState.Normal
@@ -142,7 +142,7 @@ Public Class FormMain
             timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
 
             ' Start rendering.
-            StopRendering(timer)
+            StartRendering(timer)
             ' Add event handlers for the timer.
             AddTimerHandlers()
             ' Add handler for UpdateUI
@@ -278,7 +278,7 @@ Public Class FormMain
         AddHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
     ' Shuts down rendering of the timer.
-    Private Sub StartRendering()
+    Private Sub StopRendering()
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
         PanelTimer.Controls.Clear()
@@ -288,7 +288,7 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     ' Starts up rendering of the timer.
-    Private Async Sub StopRendering(timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
+    Private Async Sub StartRendering(timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
