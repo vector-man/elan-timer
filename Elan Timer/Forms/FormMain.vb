@@ -394,7 +394,6 @@ Public Class FormMain
             If args.Count > 0 Then
                 Dim pref = args(0)
                 If (System.IO.File.Exists(pref)) Then
-                    'TODO: Fix LoadSettongs()
                     Using stream As FileStream = File.OpenRead(pref)
                         Select Case System.IO.Path.GetExtension(pref)
 
