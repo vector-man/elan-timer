@@ -522,6 +522,18 @@ Namespace My
                 Me("BlendToolbarColorWithBackground") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property UseDocumentsDataFolder() As Boolean
+            Get
+                Return CType(Me("UseDocumentsDataFolder"),Boolean)
+            End Get
+            Set
+                Me("UseDocumentsDataFolder") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

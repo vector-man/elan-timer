@@ -104,7 +104,7 @@ Public Class TimerSettingsDialog
             _alarmsPath = value
             ComboBoxAlarmPath.DisplayMember = "Key"
             ComboBoxAlarmPath.ValueMember = "Value"
-            ComboBoxAlarmPath.DataSource = Utils.GetAlarms(AlarmsPath)
+            ComboBoxAlarmPath.DataSource = GetAlarmsByPath(AlarmsPath)
         End Set
     End Property
     Public Property SelectedAlarm As String
@@ -270,6 +270,14 @@ Public Class TimerSettingsDialog
         alarmPlayer.Stop()
         ButtonAlarmPlay.Image = My.Resources.play_blue
     End Sub
+
+    Private Function GetAlarmsByPath(alarmPath As String)
+        Dim dict As New List(Of KeyValuePair(Of String, String))
+        For Each alarm As String In My.Computer.FileSystem.GetFiles(AlarmsPath)
+            dict.Add(New KeyValuePair(Of String, String)(Path.GetFileNameWithoutExtension(alarm), Path.GetFileName(alarm)))
+        Next
+        Return dict
+    End Function
 
     Public Event Saving As EventHandler(Of SavingEventArgs)
     Public Event Loading As EventHandler(Of LoadingEventArgs)

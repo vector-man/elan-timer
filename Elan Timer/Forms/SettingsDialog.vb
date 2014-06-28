@@ -9,8 +9,8 @@
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
         My.Settings.BlendToolbarColorWithBackground = CheckBoxBlendToolbarColorWithBackground.Checked
         My.Settings.Save()
-        Common.Languages.SetLanguage(My.Settings.Language)
-        Common.SetStrings()
+        Utils.Languages.SetLanguage(My.Settings.Language)
+        Utils.SetStrings()
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
 
@@ -28,7 +28,7 @@
 
         ComboBoxLanguage.DisplayMember = "Value"
         ComboBoxLanguage.ValueMember = "Key"
-        ComboBoxLanguage.DataSource = Common.Languages.GetLanguages.ToList()
+        ComboBoxLanguage.DataSource = Utils.Languages.GetLanguages.ToList()
     End Sub
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,7 +36,7 @@
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
-            ComboBoxLanguage.SelectedItem = Common.Languages.GetLanguages.ToList().Where(Function(item) item.Key = My.Settings.Language).First
+            ComboBoxLanguage.SelectedItem = Utils.Languages.GetLanguages.ToList().Where(Function(item) item.Key = My.Settings.Language).First
             CheckBoxCloseToSystemTray.Enabled = CheckBoxShowInSystemTray.Checked
             CheckBoxClickingTrayIconStopsAlarm.Enabled = CheckBoxShowInSystemTray.Checked
             CheckBoxBlendToolbarColorWithBackground.Checked = My.Settings.BlendToolbarColorWithBackground

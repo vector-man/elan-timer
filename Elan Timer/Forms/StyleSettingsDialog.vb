@@ -140,7 +140,7 @@ Public Class StyleSettingsDialog
             checkerBoardObject.Rectangle = timerSurface.ClientRectangle
 
             renderer = New Renderer(timerSurface)
-            renderer.FramesPerSecond = Common.Framerate
+            renderer.FramesPerSecond = Utils.Framerate
 
             renderer.Renderables.Add(timerObject)
             renderer.Renderables.Add(checkerBoardObject)

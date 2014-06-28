@@ -120,11 +120,11 @@ Public Class FormMain
             ' Create a new alarm initialized to Nothing.
             Dim alarm As Alarm = Nothing
 
-            timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName)), Utils.GetDefaultAlarm(Common.AlarmsPath), timeSettings.AlarmName)
+            timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
 
             ' Try to assign alarm to a new Alarm object.
             Try
-                alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+                alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
             Catch ex As Exception
 
             End Try
@@ -245,13 +245,13 @@ Public Class FormMain
     Private Sub LoadLanguage()
         Try
             ' Try to set UI culture to the language fronm settings.
-            Common.Languages.SetLanguage(My.Settings.Language)
+            Utils.Languages.SetLanguage(My.Settings.Language)
         Catch ex As Exception
             ' On failure, revert to the default language.
             My.Settings.Language = My.Settings.DefaultLanguage
         End Try
         ' Set localization text.
-        Common.SetStrings()
+        Utils.SetStrings()
     End Sub
     ' Exits fullscreen mode.
     Private Sub ExitFullScreen()
@@ -506,7 +506,7 @@ Public Class FormMain
             Else
                 dialog.StartPosition = FormStartPosition.CenterScreen
             End If
-            dialog.AlarmsPath = Common.AlarmsPath
+            dialog.AlarmsPath = Utils.GetAlarmsPath()
             dialog.SelectedAlarm = timeSettings.AlarmName
             dialog.AlarmEnabled = timeSettings.AlarmEnabled
             dialog.AlarmLoop = timeSettings.AlarmLoop
@@ -534,7 +534,7 @@ Public Class FormMain
                 RemoveTimerHandlers()
                 Dim alarm As Alarm = Nothing
                 Try
-                    alarm = New Alarm(Path.Combine(Common.AlarmsPath, timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+                    alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
                 Catch ex As Exception
 
                 End Try
@@ -575,7 +575,7 @@ Public Class FormMain
             dialog.TopMost = (owner Is Nothing)
             dialog.BackgroundColor = styleSettings.BackgroundColor
             dialog.DisplayFont = styleSettings.DisplayFont
-            dialog.DisplayFormats = Common.DisplayFormats
+            dialog.DisplayFormats = Utils.DisplayFormats
             dialog.DisplayFormat = styleSettings.DisplayFormat
             dialog.ForegroundColor = styleSettings.ForegroundColor
             dialog.Timer = timer
@@ -618,7 +618,7 @@ Public Class FormMain
                 timerSurface.BackColor = styleSettings.BackgroundColor
 
                 SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
- 
+
                 timerObject.Color = styleSettings.ForegroundColor
                 timerObject.Font = styleSettings.DisplayFont
                 timerObject.Format = styleSettings.DisplayFormat
@@ -807,7 +807,7 @@ Public Class FormMain
             Using input As Stream = File.OpenRead(e.Input)
                 settings.Import(input)
 
-                dialog.AlarmsPath = Common.AlarmsPath
+                dialog.AlarmsPath = Utils.GetAlarmsPath
                 dialog.SelectedAlarm = settings.AlarmName
                 dialog.AlarmEnabled = settings.AlarmEnabled
                 dialog.AlarmLoop = settings.AlarmLoop
@@ -835,7 +835,7 @@ Public Class FormMain
 
                 dialog.BackgroundColor = settings.BackgroundColor
                 dialog.DisplayFont = settings.DisplayFont
-                dialog.DisplayFormats = Common.DisplayFormats
+                dialog.DisplayFormats = Utils.DisplayFormats
                 dialog.DisplayFormat = settings.DisplayFormat
                 dialog.ForegroundColor = settings.ForegroundColor
                 dialog.Timer = timer
