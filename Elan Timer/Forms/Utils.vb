@@ -151,4 +151,9 @@ Public Class Utils
         TimerSettingsDialog.ResumeLayout()
 
     End Sub
+
+    Public Shared Function GetStylesPath() As String
+        Return Path.Combine(GetDataPath, My.Settings.StyleFolder)
+    End Function
+
 End Class
