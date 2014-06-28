@@ -506,6 +506,8 @@ Public Class FormMain
             Else
                 dialog.StartPosition = FormStartPosition.CenterScreen
             End If
+            dialog.FileFilter = My.Settings.TimeDialogFilter
+            dialog.InitialDirectory = Utils.GetTimersPath()
             dialog.AlarmsPath = Utils.GetAlarmsPath()
             dialog.SelectedAlarm = timeSettings.AlarmName
             dialog.AlarmEnabled = timeSettings.AlarmEnabled
@@ -581,6 +583,8 @@ Public Class FormMain
             dialog.Timer = timer
             dialog.GrowToFit = styleSettings.GrowToFit
             dialog.Transparency = 100 - styleSettings.Opacity
+            dialog.InitialDirectory = Utils.GetStylesPath()
+            dialog.FileFilter = My.Settings.StyleDialogFilter
             dialog.CustomForegroundColors = If(My.Settings.CustomForegroundColors IsNot Nothing, My.Settings.CustomForegroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
                                                                                                                                                                               Return Convert.ToInt32(c)
                                                                                                                                                                           End Function).ToArray(), Nothing)
@@ -671,7 +675,8 @@ Public Class FormMain
                 dialog.StartPosition = FormStartPosition.CenterScreen
             End If
 
-            ' DialogTaskSettings.TopMost = True
+            dialog.InitialDirectory = Utils.GetDataPath()
+            dialog.FileFilter = My.Settings.TaskDialogFilter
             dialog.Tasks = taskSettings.Tasks.ConvertAll(Of TaskModel)(Function(t)
                                                                            Return New TaskModel(t.Event, t.Name, t.Command, t.Arguments, t.UseScript, t.Script, t.Enabled)
                                                                        End Function)

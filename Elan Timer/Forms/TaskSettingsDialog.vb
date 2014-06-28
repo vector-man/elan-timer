@@ -11,8 +11,8 @@ Public Class TaskSettingsDialog
         ' This call is required by the designer.
         InitializeComponent()
     End Sub
-    Private Property TasksPath As String
-    Private Property TasksFilter As String
+    Public Property InitialDirectory As String
+    Public Property FileFilter As String
     Public Property Tasks As List(Of TaskModel)
         Get
             Return _model.Tasks
@@ -76,8 +76,8 @@ Public Class TaskSettingsDialog
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
 
         Using saveDialog As New SaveFileDialog
-            saveDialog.InitialDirectory = TasksPath
-            saveDialog.Filter = TasksFilter
+            saveDialog.InitialDirectory = InitialDirectory
+            saveDialog.Filter = FileFilter
             saveDialog.OverwritePrompt = True
             If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 Dim tasksToExport As New List(Of TaskModel)
@@ -147,8 +147,8 @@ Public Class TaskSettingsDialog
     Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
 
         Using openDialog As New OpenFileDialog
-            openDialog.InitialDirectory = TasksPath
-            openDialog.Filter = TasksFilter
+            openDialog.InitialDirectory = InitialDirectory
+            openDialog.Filter = FileFilter
             openDialog.CheckFileExists = True
             If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, _model))

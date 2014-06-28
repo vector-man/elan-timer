@@ -131,7 +131,8 @@ Public Class TimerSettingsDialog
             time.AlarmLoop = value
         End Set
     End Property
-    Public Property AlarmFilter As String
+    Public Property FileFilter As String
+    Public Property InitialDirectory
 
     Public Sub Initialize()
 
@@ -234,8 +235,8 @@ Public Class TimerSettingsDialog
 
     Private Sub MenuItemLoadPreset_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
         Using openDialog As New OpenFileDialog
-            openDialog.InitialDirectory = ""
-            openDialog.Filter = AlarmFilter
+            openDialog.InitialDirectory = InitialDirectory
+            openDialog.Filter = FileFilter
             openDialog.CheckFileExists = True
             If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 RaiseEvent Loading(Me, New LoadingEventArgs(openDialog.FileName))
@@ -245,7 +246,7 @@ Public Class TimerSettingsDialog
 
     Private Sub MenuItemSavePresetAs_Click(sender As Object, e As EventArgs) Handles MenuItemSavePresetAs.Click
         Using saveDialog As New SaveFileDialog
-            saveDialog.InitialDirectory = ""
+            saveDialog.InitialDirectory = InitialDirectory
             saveDialog.Filter = My.Settings.TimeDialogFilter
             saveDialog.OverwritePrompt = True
             If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then

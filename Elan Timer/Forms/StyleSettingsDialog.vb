@@ -105,6 +105,8 @@ Public Class StyleSettingsDialog
         End Set
     End Property
     Public Property Timer As AlarmTimer
+    Public Property InitialDirectory As String
+    Public Property FileFilter As String
 
     Sub Initialize()
         ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
@@ -209,8 +211,9 @@ Public Class StyleSettingsDialog
     Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
 
         Using dialogOpen As New OpenFileDialog()
+            dialogOpen.InitialDirectory = InitialDirectory
             dialogOpen.CheckPathExists = True
-            dialogOpen.Filter = My.Settings.StyleDialogFilter
+            dialogOpen.Filter = FileFilter
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
                 UpdateUI()
@@ -222,7 +225,7 @@ Public Class StyleSettingsDialog
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
         Using dialogSave As New SaveFileDialog()
             ' TODO: Fix initial directory.
-            ' dialogSave.InitialDirectory = Preferences.StylePath
+            dialogSave.InitialDirectory = Utils.GetStylesPath()
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
             If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
