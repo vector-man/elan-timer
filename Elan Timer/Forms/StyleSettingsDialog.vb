@@ -224,7 +224,6 @@ Public Class StyleSettingsDialog
 
     Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
         Using dialogSave As New SaveFileDialog()
-            ' TODO: Fix initial directory.
             dialogSave.InitialDirectory = Utils.GetStylesPath()
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
