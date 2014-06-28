@@ -142,7 +142,7 @@ Public Class FormMain
             timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
 
             ' Start rendering.
-            StartRendering(timer)
+            StartRendering()
             ' Add event handlers for the timer.
             AddTimerHandlers()
             ' Add handler for UpdateUI
@@ -288,7 +288,7 @@ Public Class FormMain
         Task.WaitAll()
     End Sub
     ' Starts up rendering of the timer.
-    Private Async Sub StartRendering(timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
+    Private Async Sub StartRendering()
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
