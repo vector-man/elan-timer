@@ -683,7 +683,7 @@ Public Class FormMain
         Else
             SettingsDialog.StartPosition = FormStartPosition.CenterScreen
         End If
-        SettingsDialog.TopMost = (owner Is Nothing)
+        SettingsDialog.TopMost = (owner Is Nothing Or owner.TopLevel)
 
         ContextMenuStripMain.Enabled = False
         Try
