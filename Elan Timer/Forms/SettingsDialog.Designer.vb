@@ -30,21 +30,18 @@ Partial Class SettingsDialog
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.ComboBoxLanguage = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxShowInSystemTray = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
         Me.CheckBoxBlendToolbarColorWithBackground = New System.Windows.Forms.CheckBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckedGroupBoxShowInSystemTray = New ElanTimer.CheckedGroupBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.CheckedGroupBoxShowInSystemTray.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -85,37 +82,16 @@ Partial Class SettingsDialog
         '
         'ComboBoxLanguage
         '
+        Me.TableLayoutPanel1.SetColumnSpan(Me.ComboBoxLanguage, 3)
         resources.ApplyResources(Me.ComboBoxLanguage, "ComboBoxLanguage")
         Me.ComboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxLanguage.FormattingEnabled = True
         Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
         '
-        'TableLayoutPanel1
-        '
-        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxLanguage, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
-        '
-        'TableLayoutPanel2
-        '
-        resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 1)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        '
-        'TableLayoutPanel3
-        '
-        resources.ApplyResources(Me.TableLayoutPanel3, "TableLayoutPanel3")
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonOK, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 4, 0)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
         'ButtonOK
         '
@@ -131,14 +107,39 @@ Partial Class SettingsDialog
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel4
+        'CheckBoxBlendToolbarColorWithBackground
         '
-        resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxBlendToolbarColorWithBackground, 0, 3)
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 1)
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxShowInSystemTray, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 2)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        resources.ApplyResources(Me.CheckBoxBlendToolbarColorWithBackground, "CheckBoxBlendToolbarColorWithBackground")
+        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBoxBlendToolbarColorWithBackground, 3)
+        Me.CheckBoxBlendToolbarColorWithBackground.Name = "CheckBoxBlendToolbarColorWithBackground"
+        Me.CheckBoxBlendToolbarColorWithBackground.UseVisualStyleBackColor = True
+        '
+        'TableLayoutPanel1
+        '
+        resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
+        Me.TableLayoutPanel1.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxBlendToolbarColorWithBackground, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxLanguage, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'CheckedGroupBoxShowInSystemTray
+        '
+        resources.ApplyResources(Me.CheckedGroupBoxShowInSystemTray, "CheckedGroupBoxShowInSystemTray")
+        Me.CheckedGroupBoxShowInSystemTray.Checked = False
+        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckedGroupBoxShowInSystemTray, 3)
+        Me.CheckedGroupBoxShowInSystemTray.Controls.Add(Me.TableLayoutPanel2)
+        Me.CheckedGroupBoxShowInSystemTray.Name = "CheckedGroupBoxShowInSystemTray"
+        Me.CheckedGroupBoxShowInSystemTray.TabStop = False
+        '
+        'TableLayoutPanel2
+        '
+        resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
+        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 1)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'CheckBoxCloseToSystemTray
         '
@@ -146,23 +147,11 @@ Partial Class SettingsDialog
         Me.CheckBoxCloseToSystemTray.Name = "CheckBoxCloseToSystemTray"
         Me.CheckBoxCloseToSystemTray.UseVisualStyleBackColor = True
         '
-        'CheckBoxShowInSystemTray
-        '
-        resources.ApplyResources(Me.CheckBoxShowInSystemTray, "CheckBoxShowInSystemTray")
-        Me.CheckBoxShowInSystemTray.Name = "CheckBoxShowInSystemTray"
-        Me.CheckBoxShowInSystemTray.UseVisualStyleBackColor = True
-        '
         'CheckBoxClickingTrayIconStopsAlarm
         '
         resources.ApplyResources(Me.CheckBoxClickingTrayIconStopsAlarm, "CheckBoxClickingTrayIconStopsAlarm")
         Me.CheckBoxClickingTrayIconStopsAlarm.Name = "CheckBoxClickingTrayIconStopsAlarm"
         Me.CheckBoxClickingTrayIconStopsAlarm.UseVisualStyleBackColor = True
-        '
-        'CheckBoxBlendToolbarColorWithBackground
-        '
-        resources.ApplyResources(Me.CheckBoxBlendToolbarColorWithBackground, "CheckBoxBlendToolbarColorWithBackground")
-        Me.CheckBoxBlendToolbarColorWithBackground.Name = "CheckBoxBlendToolbarColorWithBackground"
-        Me.CheckBoxBlendToolbarColorWithBackground.UseVisualStyleBackColor = True
         '
         'SettingsDialog
         '
@@ -170,7 +159,7 @@ Partial Class SettingsDialog
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonCancel
-        Me.Controls.Add(Me.TableLayoutPanel2)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -178,12 +167,10 @@ Partial Class SettingsDialog
         Me.ShowInTaskbar = False
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.CheckedGroupBoxShowInSystemTray.ResumeLayout(False)
+        Me.CheckedGroupBoxShowInSystemTray.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -195,15 +182,13 @@ Partial Class SettingsDialog
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents ComboBoxLanguage As System.Windows.Forms.ComboBox
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBoxShowInSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents CheckBoxBlendToolbarColorWithBackground As System.Windows.Forms.CheckBox
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CheckedGroupBoxShowInSystemTray As ElanTimer.CheckedGroupBox
+    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
 End Class
