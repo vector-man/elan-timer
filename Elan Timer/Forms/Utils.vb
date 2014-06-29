@@ -25,8 +25,7 @@ Public Class Utils
         Return dict
     End Function
     Public Shared Function GetAlarmFullPath(name As String) As String
-        Dim result As String = GetAlarms().FirstOrDefault(Function(i) i.Value = name).Value
-        Return result
+        Return Path.Combine(GetAlarmsPath(), name)
     End Function
     Public Shared Function GetDefaultAlarm()
         Return GetAlarms()(0).Value
