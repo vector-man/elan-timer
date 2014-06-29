@@ -305,6 +305,7 @@ Partial Class FormMain
         '
         'FormMain
         '
+        Me.AllowDrop = True
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ProgressBarMain)

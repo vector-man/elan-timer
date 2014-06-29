@@ -115,12 +115,18 @@ Public Class FormMain
             LoadLanguage()
 
             ' Load settings.
-            LoadSettings()
+            If (My.Application.CommandLineArgs.Count = 1) Then
+                LoadSettings(My.Application.CommandLineArgs(0))
+            End If
 
             ' Create a new alarm initialized to Nothing.
             Dim alarm As Alarm = Nothing
 
-            timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
+            Try
+                timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
+            Catch ex As Exception
+
+            End Try
 
             ' Try to assign alarm to a new Alarm object.
             Try
@@ -388,28 +394,22 @@ Public Class FormMain
         End Try
     End Sub
 
-    Private Sub LoadSettings()
+    Private Sub LoadSettings(fileName As String)
         Try
-            Dim args = My.Application.CommandLineArgs
-            If args.Count > 0 Then
-                Dim pref = args(0)
-                If (System.IO.File.Exists(pref)) Then
-                    Using stream As FileStream = File.OpenRead(pref)
-                        Select Case System.IO.Path.GetExtension(pref)
+            If (System.IO.File.Exists(fileName)) Then
+                Using stream As FileStream = File.OpenRead(fileName)
+                    Select Case System.IO.Path.GetExtension(fileName)
+                        Case My.Settings.StyleFileExtension
+                            styleSettings.Import(stream)
+                        Case My.Settings.TaskFileExtension
+                            taskSettings.Import(stream)
+                        Case My.Settings.TimeFileExtension
+                            timeSettings.Import(stream)
+                    End Select
+                    StopRendering()
+                    StartRendering()
+                End Using
 
-                            Case My.Settings.StyleFileExtension
-
-                                styleSettings.Import(stream)
-
-                            Case My.Settings.TaskFileExtension
-
-                                taskSettings.Import(stream)
-                            Case My.Settings.TimeFileExtension
-                                timeSettings.Import(stream)
-                        End Select
-                    End Using
-
-                End If
             End If
         Catch ex As Exception
 
@@ -506,8 +506,12 @@ Public Class FormMain
                 dialog.StartPosition = FormStartPosition.CenterScreen
             End If
             dialog.FileFilter = My.Settings.TimeDialogFilter
-            dialog.InitialDirectory = Utils.GetTimersPath()
-            dialog.AlarmsPath = Utils.GetAlarmsPath()
+            Try
+                dialog.InitialDirectory = Utils.GetTimersPath()
+                dialog.AlarmsPath = Utils.GetAlarmsPath()
+            Catch ex As DirectoryNotFoundException
+
+            End Try
             dialog.SelectedAlarm = timeSettings.AlarmName
             dialog.AlarmEnabled = timeSettings.AlarmEnabled
             dialog.AlarmLoop = timeSettings.AlarmLoop
@@ -907,4 +911,29 @@ Public Class FormMain
         End If
     End Sub
 
+    Private Sub FormMain_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
+
+        Try
+            Dim data As Array = DirectCast(e.Data.GetData(DataFormats.FileDrop), Array)
+            If (data IsNot Nothing) Then
+                Dim file = data.GetValue(0).ToString()
+
+                Me.BeginInvoke(DirectCast(Function(value As String)
+                                              LoadSettings(value)
+                                          End Function, Action(Of String)), New Object() {file})
+
+                Me.Activate()
+
+            End If
+        Catch generatedExceptionName As Exception
+        End Try
+    End Sub
+
+    Private Sub FormMain_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
+        If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
+            e.Effect = DragDropEffects.Copy
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
 End Class
