@@ -402,12 +402,24 @@ Public Class FormMain
                         Case My.Settings.StyleFileExtension
                             styleSettings.Import(stream)
                         Case My.Settings.TaskFileExtension
-                            taskSettings.Import(stream)
+                            Dim settings As New TaskSettings(transporter)
+                            settings.Import(stream)
+                            settings.Tasks.ForEach(Sub(i) i.Enabled = False)
+                            taskSettings.Tasks.AddRange(settings.Tasks)
+                            MessageBox.Show("Tasks were imported, but were disabled for safety.", My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Case My.Settings.TimeFileExtension
                             timeSettings.Import(stream)
+                            RemoveTimerHandlers()
+                            Dim alarm As Alarm = Nothing
+                            Try
+                                alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+                            Catch ex As Exception
+
+                            End Try
+                            InitializeAlarm()
+                            InitializeTimer()
                     End Select
-                    StopRendering()
-                    StartRendering()
+                    RestartRendering()
                 End Using
 
             End If
