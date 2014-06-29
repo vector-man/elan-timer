@@ -25,6 +25,8 @@ Public Class FormMain
     Private taskSettings As TaskSettings = New TaskSettings(transporter)
     Private styleSettings As StyleSettings = New StyleSettings(transporter)
 
+    Private alarm As Alarm
+
     Private reporter As IProgress(Of Integer)
 #If DEBUG Then
     Private sw As New Stopwatch ' Used for benchmark and testing.
@@ -119,18 +121,8 @@ Public Class FormMain
                 LoadSettings(My.Application.CommandLineArgs(0))
             End If
 
-            ' Create a new alarm initialized to Nothing.
-            Dim alarm As Alarm = Nothing
-
             Try
                 timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
-            Catch ex As Exception
-
-            End Try
-
-            ' Try to assign alarm to a new Alarm object.
-            Try
-                alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
             Catch ex As Exception
 
             End Try
@@ -143,20 +135,43 @@ Public Class FormMain
                 reporter = New Progress(Of Integer)()
             End If
 
+            InitializeAlarm()
 
-            ' Create a new timer object.
-            timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
+            InitializeTimer()
 
             ' Start rendering.
             StartRendering()
-            ' Add event handlers for the timer.
-            AddTimerHandlers()
+
+            ToolStripMain.Select()
+
             ' Add handler for UpdateUI
             AddHandler Application.Idle, AddressOf UpdateUI
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
         End Try
     End Sub
+    Sub InitializeAlarm()
+        ' Try to assign alarm to a new Alarm object.
+        Try
+            If (alarm IsNot Nothing) Then
+                alarm.Dispose()
+            End If
+            alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+        Catch ex As FileNotFoundException
+
+        End Try
+    End Sub
+    Sub InitializeTimer()
+        If (timer IsNot Nothing) Then
+            RemoveTimerHandlers()
+            timer.Dispose()
+        End If
+        ' Create a new timer object.
+        timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
+        ' Add event handlers for the timer.
+        AddTimerHandlers()
+    End Sub
+
     Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemMisc.Click
         ' Show the Settings dialog.
         ShowSettingsDialog(Me)
@@ -221,6 +236,68 @@ Public Class FormMain
 
 
 #Region "Helper Methods"
+    ' Shuts down rendering of the timer.
+    Private Sub StopRendering()
+        updateCancellationTokenSource.Cancel()
+        Task.WaitAll()
+        PanelTimer.Controls.Clear()
+
+        timerSurface.Dispose()
+
+        Task.WaitAll()
+    End Sub
+    ' Starts up rendering of the timer.
+    Private Async Sub StartRendering()
+        updateCancellationTokenSource = New System.Threading.CancellationTokenSource
+
+        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
+        stringFormat.Alignment = StringAlignment.Center
+        stringFormat.LineAlignment = StringAlignment.Center
+
+        timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
+        noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
+
+
+        timerSurface = New Surface()
+        timerSurface.BackColor = styleSettings.BackgroundColor
+
+        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+
+
+
+        AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
+        AddHandler timerSurface.Click, AddressOf TimerSurface_Click
+
+        renderer = New Renderer(timerSurface)
+        renderer.Renderables.Add(timerObject)
+        renderer.Renderables.Add(noteObject)
+
+
+        timerSurface.Dock = DockStyle.Fill
+        PanelTimer.Controls.Add(timerSurface)
+
+        timerObject.Rectangle = timerSurface.ClientRectangle
+        noteObject.Rectangle = timerSurface.ClientRectangle
+
+
+        renderer.Enabled = True
+
+        Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
+    End Sub
+    Sub RestartRendering()
+        StopRendering()
+        StartRendering()
+    End Sub
+
+    Private Sub SetColoredToolStrip(enabled As Boolean)
+        If (enabled) Then
+            ToolStripMain.BackColor = styleSettings.BackgroundColor
+            ToolStripMain.Renderer = New BorderlessToolStripSystemRenderer()
+        Else
+            ToolStripMain.BackColor = ToolStrip.DefaultBackColor
+            ToolStripMain.Renderer = New ToolStripProfessionalRenderer()
+        End If
+    End Sub
     ' Hide the timer note and show the time.
     Private Sub HideNote()
         ' Hide the note.
@@ -283,66 +360,16 @@ Public Class FormMain
         AddHandler timer.Expired, AddressOf Timer_Expired
         AddHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
-    ' Shuts down rendering of the timer.
-    Private Sub StopRendering()
-        updateCancellationTokenSource.Cancel()
-        Task.WaitAll()
-        PanelTimer.Controls.Clear()
-
-        timerSurface.Dispose()
-
-        Task.WaitAll()
-    End Sub
-    ' Starts up rendering of the timer.
-    Private Async Sub StartRendering()
-        updateCancellationTokenSource = New System.Threading.CancellationTokenSource
-
-        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
-        stringFormat.Alignment = StringAlignment.Center
-        stringFormat.LineAlignment = StringAlignment.Center
-
-        timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
-        noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
-
-
-        timerSurface = New Surface()
-        timerSurface.BackColor = styleSettings.BackgroundColor
-
-        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
-
-
-
-        AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
-        AddHandler timerSurface.Click, AddressOf TimerSurface_Click
-
-        renderer = New Renderer(timerSurface)
-        renderer.Renderables.Add(timerObject)
-        renderer.Renderables.Add(noteObject)
-
-
-        timerSurface.Dock = DockStyle.Fill
-        PanelTimer.Controls.Add(timerSurface)
-
-        timerObject.Rectangle = timerSurface.ClientRectangle
-        noteObject.Rectangle = timerSurface.ClientRectangle
-
-
-        renderer.Enabled = True
-
-        Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
-    End Sub
-
-
+#If DEBUG Then
     Private Sub Started(sender As Object, e As TimerEventArgs)
-#If DEBUG Then
         sw.Start()
-#End If
     End Sub
-    Private Sub Stopped(sender As Object, e As TimerEventArgs)
+#End If
 #If DEBUG Then
+    Private Sub Stopped(sender As Object, e As TimerEventArgs)
         sw.Stop()
-#End If
     End Sub
+#End If
 
 
     Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
@@ -548,24 +575,14 @@ Public Class FormMain
                 timeSettings.Note = dialog.Note
                 timeSettings.NoteEnabled = dialog.NoteEnabled
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
-                RemoveTimerHandlers()
-                Dim alarm As Alarm = Nothing
-                Try
-                    alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
-                Catch ex As Exception
 
-                End Try
+                InitializeAlarm()
+
                 If (Not editing) Then
-                    timer.Dispose()
-                    timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
-                Else
-                    timer.Alarm = alarm
-                    timer.AlarmEnabled = timeSettings.AlarmEnabled
+                    InitializeTimer()
+                    RestartRendering()
                 End If
-                timerObject.Timer = timer
-                noteObject.Text = timeSettings.Note
-                HideNote()
-                AddTimerHandlers()
+
                 If result = Windows.Forms.DialogResult.Yes Then
                     SetTimerState(True)
                 End If
@@ -911,16 +928,6 @@ Public Class FormMain
         Catch ex As Exception
             Throw ex
         End Try
-    End Sub
-
-    Private Sub SetColoredToolStrip(enabled As Boolean)
-        If (enabled) Then
-            ToolStripMain.BackColor = styleSettings.BackgroundColor
-            ToolStripMain.Renderer = New BorderlessToolStripSystemRenderer()
-        Else
-            ToolStripMain.BackColor = ToolStrip.DefaultBackColor
-            ToolStripMain.Renderer = New ToolStripProfessionalRenderer()
-        End If
     End Sub
 
     Private Sub FormMain_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
