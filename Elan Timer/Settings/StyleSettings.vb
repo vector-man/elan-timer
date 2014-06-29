@@ -82,7 +82,14 @@ Namespace Settings
         End Property
         Public Property Transporter As ITransporter
         Public Sub Export(stream As IO.Stream) Implements IExportable.Export
-            Transporter.Export(Of StyleModel)(Me, stream)
+            Dim model As New StyleModel
+            model.BackgroundColor = Me.BackgroundColor
+            model.DisplayFont = Me.DisplayFont
+            model.DisplayFormat = Me.DisplayFormat
+            model.ForegroundColor = Me.ForegroundColor
+            model.GrowToFit = Me.GrowToFit
+            model.Transparency = 100 - Me.Opacity
+            Transporter.Export(Of StyleModel)(model, stream)
         End Sub
 
         Public Sub Import(stream As IO.Stream) Implements IImportable.Import

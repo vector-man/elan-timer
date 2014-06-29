@@ -136,7 +136,18 @@ Namespace Settings
         End Sub
 
         Public Sub Export(stream As IO.Stream) Implements IExportable.Export
-            Transporter.Export(Of TimeModel)(Me, stream)
+            Dim model As New TimeModel()
+            model.AlarmEnabled = Me.AlarmEnabled
+            model.AlarmLoop = Me.AlarmLoop
+            model.AlarmName = Me.AlarmName
+            model.AlarmVolume = Me.AlarmVolume
+            model.AlertEnabled = Me.AlertEnabled
+            model.CountUp = Me.CountUp
+            model.Duration = Me.Duration
+            model.Note = Me.Note
+            model.NoteEnabled = Me.NoteEnabled
+            model.Restarts = Me.Restarts
+            Transporter.Export(Of TimeModel)(model, stream)
         End Sub
     End Class
 End Namespace

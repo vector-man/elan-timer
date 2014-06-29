@@ -22,7 +22,11 @@ Namespace Settings
         End Property
         Public Property Transporter As ITransporter
         Public Sub Export(stream As IO.Stream) Implements IExportable.Export
-            Transporter.Export(Of TasksModel)(Me, stream)
+            Dim model As New TasksModel()
+
+            model.Tasks = Me.Tasks
+
+            Transporter.Export(Of TasksModel)(model, stream)
         End Sub
 
         Public Sub Import(stream As IO.Stream) Implements IImportable.Import
