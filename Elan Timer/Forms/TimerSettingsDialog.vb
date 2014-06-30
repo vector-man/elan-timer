@@ -196,6 +196,7 @@ Public Class TimerSettingsDialog
         Me.ButtonAlarmPlay.Enabled = Me.CheckBoxLoop.Enabled
         Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         Me.ButtonStart.Enabled = (Me.ButtonSet.Enabled And Not Editing)
+        Me.ButtonOptions.Enabled = (Not Editing)
 
     End Sub
 
