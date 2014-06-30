@@ -503,7 +503,7 @@ Public Class FormMain
                 TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
             End If
         Catch ex As Exception
-            Throw ex
+
         End Try
         UpdateIcons()
     End Sub
