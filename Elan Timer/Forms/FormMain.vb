@@ -157,7 +157,7 @@ Public Class FormMain
                 alarm.Dispose()
             End If
             alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
-        Catch ex As FileNotFoundException
+        Catch ex As Exception
 
         End Try
     End Sub
