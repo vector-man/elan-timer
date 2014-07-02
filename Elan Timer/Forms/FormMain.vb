@@ -763,6 +763,7 @@ Public Class FormMain
 
     Private Sub NotifyIconMain_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIconMain.MouseDoubleClick
         Me.Show()
+        Me.WindowState = FormWindowState.Normal
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemNewTimer.Click
@@ -805,6 +806,7 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemShow_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemShow.Click
         Me.Show()
+        Me.WindowState = FormWindowState.Normal
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
