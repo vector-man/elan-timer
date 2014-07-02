@@ -534,12 +534,12 @@ Public Class FormMain
 #End Region
 #Region "Dialogs"
     ' Shows the 'New Timer' or 'Edit Timer' dialogs.
-    Public Sub ShowTimerDialog(owner As System.Windows.Forms.IWin32Window, editing As Boolean)
+    Public Sub ShowTimerDialog(owner As Form, editing As Boolean)
         ContextMenuStripMain.Enabled = False
         Using dialog = New TimerSettingsDialog()
             AddHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
             AddHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
-            If (owner IsNot Nothing) Then
+            If (owner IsNot Nothing AndAlso owner.Visible) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
                 dialog.StartPosition = FormStartPosition.CenterScreen
@@ -601,7 +601,7 @@ Public Class FormMain
         Using dialog As New StyleSettingsDialog
             AddHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
             AddHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
-            If (owner IsNot Nothing) Then
+            If (owner IsNot Nothing AndAlso owner.Visible) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
                 dialog.StartPosition = FormStartPosition.CenterScreen
@@ -623,7 +623,7 @@ Public Class FormMain
             dialog.CustomBackgroundColors = If(My.Settings.CustomBackgroundColors IsNot Nothing, My.Settings.CustomBackgroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
                                                                                                                                                                               Return Convert.ToInt32(c)
                                                                                                                                                                           End Function).ToArray(), Nothing)
-            If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+            If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
                 Dim timeVisible = timerObject.Visible
                 timerObject.Visible = False
 
@@ -678,12 +678,12 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowSettingsDialog(owner As Form)
-        If (owner IsNot Nothing) Then
+        If (owner IsNot Nothing AndAlso owner.Visible) Then
             SettingsDialog.StartPosition = FormStartPosition.CenterParent
         Else
             SettingsDialog.StartPosition = FormStartPosition.CenterScreen
         End If
-        SettingsDialog.TopMost = (owner Is Nothing Or owner.TopLevel)
+        SettingsDialog.TopMost = (owner Is Nothing OrElse owner.TopLevel)
 
         ContextMenuStripMain.Enabled = False
         Try
@@ -701,7 +701,7 @@ Public Class FormMain
         Using dialog As New TaskSettingsDialog
             AddHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
             AddHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
-            If (owner IsNot Nothing) Then
+            If (owner IsNot Nothing AndAlso owner.Visible) Then
                 dialog.StartPosition = FormStartPosition.CenterParent
             Else
                 dialog.StartPosition = FormStartPosition.CenterScreen
@@ -764,12 +764,12 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemNewTimer.Click
         ' Show 'New Timer' dialog.
-        ShowTimerDialog(Nothing, False)
+        ShowTimerDialog(Me, False)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemEditTimer.Click
         ' Show 'Edit Timer' dialog.
-        ShowTimerDialog(Nothing, True)
+        ShowTimerDialog(Me, True)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemStartTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStartTimer.Click
@@ -781,13 +781,13 @@ Public Class FormMain
     Private Sub NotifyIconToolStripMenuItemTasks_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemTasks.Click
         ' Show the task dialog with current form as parent.
         ContextMenuStripMain.Enabled = False
-        ShowTaskDialog(Nothing)
+        ShowTaskDialog(Me)
         ContextMenuStripMain.Enabled = True
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
-        ShowLookDialog(Nothing)
+        ShowLookDialog(Me)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemExit_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemExit.Click
@@ -806,7 +806,7 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
         ' Show the Settings dialog.
-        ShowSettingsDialog(Nothing)
+        ShowSettingsDialog(Me)
     End Sub
 
     Private Sub FormMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
