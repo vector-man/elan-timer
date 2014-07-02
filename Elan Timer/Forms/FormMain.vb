@@ -119,6 +119,8 @@ Public Class FormMain
             ' Load settings.
             If (My.Application.CommandLineArgs.Count = 1) Then
                 LoadSettings(My.Application.CommandLineArgs(0))
+            Else
+                InitializeFormMain()
             End If
 
             Try
@@ -450,11 +452,12 @@ Public Class FormMain
                 End Using
 
             End If
+            InitializeFormMain()
         Catch ex As Exception
 
         End Try
-
-
+    End Sub
+    Private Sub InitializeFormMain()
         ' Fixes taskbar showing issue.
         Me.ShowInTaskbar = False
         Me.ShowInTaskbar = True
