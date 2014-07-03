@@ -46,15 +46,15 @@ Partial Class TimerSettingsDialog
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItem1 = New System.Windows.Forms.MenuItem()
         Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
-        Me.ButtonOptions = New System.Windows.Forms.Button()
         Me.CheckedGroupBox1 = New ElanTimer.CheckedGroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TrackBarVolume = New System.Windows.Forms.TrackBar()
+        Me.ButtonOptions = New System.Windows.Forms.Button()
+        Me.ButtonAlarmPlay = New System.Windows.Forms.Button()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -221,12 +221,6 @@ Partial Class TimerSettingsDialog
         Me.MenuItemSavePresetAs.Index = 1
         resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
         '
-        'ButtonOptions
-        '
-        resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
-        Me.ButtonOptions.Name = "ButtonOptions"
-        Me.ButtonOptions.UseVisualStyleBackColor = True
-        '
         'CheckedGroupBox1
         '
         resources.ApplyResources(Me.CheckedGroupBox1, "CheckedGroupBox1")
@@ -259,13 +253,6 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.Name = "Label1"
         '
-        'ButtonAlarmPlay
-        '
-        resources.ApplyResources(Me.ButtonAlarmPlay, "ButtonAlarmPlay")
-        Me.ButtonAlarmPlay.Image = Global.ElanTimer.My.Resources.Resources.play_blue
-        Me.ButtonAlarmPlay.Name = "ButtonAlarmPlay"
-        Me.ButtonAlarmPlay.UseVisualStyleBackColor = True
-        '
         'ComboBoxAlarmPath
         '
         resources.ApplyResources(Me.ComboBoxAlarmPath, "ComboBoxAlarmPath")
@@ -286,6 +273,19 @@ Partial Class TimerSettingsDialog
         Me.TrackBarVolume.Maximum = 100
         Me.TrackBarVolume.Name = "TrackBarVolume"
         Me.TrackBarVolume.TickFrequency = 10
+        '
+        'ButtonOptions
+        '
+        resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
+        Me.ButtonOptions.Name = "ButtonOptions"
+        Me.ButtonOptions.UseVisualStyleBackColor = True
+        '
+        'ButtonAlarmPlay
+        '
+        resources.ApplyResources(Me.ButtonAlarmPlay, "ButtonAlarmPlay")
+        Me.ButtonAlarmPlay.Image = Global.ElanTimer.My.Resources.Resources.play_green
+        Me.ButtonAlarmPlay.Name = "ButtonAlarmPlay"
+        Me.ButtonAlarmPlay.UseVisualStyleBackColor = True
         '
         'TimerSettingsDialog
         '

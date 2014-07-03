@@ -270,7 +270,7 @@ Public Class TimerSettingsDialog
 
     Private Sub AlarmPlayer_PlaybackStopped(sender As Object, e As NAudio.Wave.StoppedEventArgs)
         alarmPlayer.Stop()
-        ButtonAlarmPlay.Image = My.Resources.play_blue
+        ButtonAlarmPlay.Image = My.Resources.play_green
     End Sub
 
     Private Function GetAlarmsByPath(alarmPath As String)
