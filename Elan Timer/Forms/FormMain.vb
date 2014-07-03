@@ -284,6 +284,7 @@ Public Class FormMain
 
         renderer.Enabled = True
 
+        UpdateIcons()
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
     Sub RestartRendering()
@@ -294,7 +295,10 @@ Public Class FormMain
     Private Sub SetColoredToolStrip(enabled As Boolean)
         If (enabled) Then
             ToolStripMain.BackColor = styleSettings.BackgroundColor
-            ToolStripMain.Renderer = New BorderlessToolStripSystemRenderer()
+            Dim renderer = New BorderlessToolStripSystemRenderer()
+            renderer.SeparatorBackColor = styleSettings.ForegroundColor
+            renderer.SeparatorForeColor = styleSettings.ForegroundColor
+            ToolStripMain.Renderer = renderer
         Else
             ToolStripMain.BackColor = ToolStrip.DefaultBackColor
             ToolStripMain.Renderer = New ToolStripProfessionalRenderer()
@@ -408,8 +412,48 @@ Public Class FormMain
     End Sub
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
-        ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play_green, My.Resources.pause_green)
+        'If ((My.Settings.BlendToolbarColorWithBackground And styleSettings.BackgroundColor.GetBrightness() > 0.5) Or (Not My.Settings.BlendToolbarColorWithBackground)) Then
+        '    ToolStripSplitButtonSettings.Image = My.Resources.menu
+        '    ToolStripButtonReset.Image = My.Resources.repeat
+
+        '    ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
+        'Else
+        '    ToolStripSplitButtonSettings.Image = My.Resources.menu_light
+        '    ToolStripButtonReset.Image = My.Resources.repeat_light
+
+        '    ToolStripButtonStartPause.Image. = If(timer.IsPaused, My.Resources.play_light, My.Resources.pause_light)
+        'End If
+
+        Try
+            If (Not My.Settings.BlendToolbarColorWithBackground) Then
+                ToolStripSplitButtonSettings.Image = My.Resources.menu
+                ToolStripButtonReset.Image = My.Resources.repeat
+                ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
+            Else
+                Dim transparentColor As Color = If(styleSettings.ForegroundColor = Color.Fuchsia, Color.AliceBlue, Color.Fuchsia)
+                ToolStripButtonReset.ImageTransparentColor = transparentColor
+                ToolStripButtonStartPause.ImageTransparentColor = transparentColor
+                ToolStripSplitButtonSettings.ImageTransparentColor = transparentColor
+
+                ToolStripSplitButtonSettings.Image = GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
+                ToolStripButtonReset.Image = GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
+                ToolStripButtonStartPause.Image = If(timer.IsPaused, GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
+    Private Function GetColoredImage(image As Image, c As Color) As Image
+        Dim bmp As Bitmap = New Bitmap(image)
+        bmp.MakeTransparent(Color.Red)
+        For x As Integer = 0 To bmp.Width - 1
+            For y As Integer = 0 To bmp.Height - 1
+                Dim oldColor As Color = bmp.GetPixel(x, y)
+                bmp.SetPixel(x, y, Color.FromArgb(oldColor.A, c.R, c.G, c.B))
+            Next
+        Next
+        Return bmp
+    End Function
     ' Update the form user interface.
     Private Sub UpdateUI()
         Try
@@ -672,6 +716,8 @@ Public Class FormMain
                 noteObject.Visible = noteVisible
 
                 Me.Opacity = styleSettings.Opacity / 100
+
+                UpdateIcons()
             End If
 
             RemoveHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
@@ -698,6 +744,7 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = True
 
         SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+        UpdateIcons()
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)

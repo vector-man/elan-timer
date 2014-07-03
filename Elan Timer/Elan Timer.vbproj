@@ -350,18 +350,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pause_green.png" />
-    <None Include="Resources\arrow_refresh.png" />
     <None Include="Resources\play_green.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="eggzle-icon.ico" />
     <Content Include="eggzle.ico" />
     <Content Include="FodyWeavers.xml" />
+    <Content Include="README.txt" />
+    <None Include="Resources\play-light.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\repeat.png" />
+    <None Include="Resources\play.png" />
     <None Include="Resources\stop_red.png" />
-    <None Include="Resources\pause_blue.png" />
-    <None Include="Resources\play_blue.png" />
-    <None Include="Resources\arrow_redo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
