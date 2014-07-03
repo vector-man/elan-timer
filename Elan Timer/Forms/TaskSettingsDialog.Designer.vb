@@ -146,12 +146,14 @@ Partial Class TaskSettingsDialog
         Me.OlvColumnName.AspectName = "Name"
         Me.OlvColumnName.CellPadding = Nothing
         Me.OlvColumnName.FillsFreeSpace = true
+        Me.OlvColumnName.Sortable = False
         resources.ApplyResources(Me.OlvColumnName, "OlvColumnName")
         '
         'OlvColumnEvent
         '
         Me.OlvColumnEvent.AspectName = "Event"
         Me.OlvColumnEvent.CellPadding = Nothing
+        Me.OlvColumnEvent.Sortable = False
         resources.ApplyResources(Me.OlvColumnEvent, "OlvColumnEvent")
         '
         'OlvColumnCommand
@@ -159,14 +161,16 @@ Partial Class TaskSettingsDialog
         Me.OlvColumnCommand.AspectName = "Command"
         Me.OlvColumnCommand.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnCommand, "OlvColumnCommand")
-        Me.OlvColumnCommand.IsVisible = false
+        Me.OlvColumnCommand.IsVisible = False
+        Me.OlvColumnCommand.Sortable = False
         '
         'OlvColumnArguments
         '
         Me.OlvColumnArguments.AspectName = "Arguments"
         Me.OlvColumnArguments.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnArguments, "OlvColumnArguments")
-        Me.OlvColumnArguments.IsVisible = false
+        Me.OlvColumnArguments.IsVisible = False
+        Me.OlvColumnArguments.Sortable = False
         '
         'ButtonBrowseForFile
         '
