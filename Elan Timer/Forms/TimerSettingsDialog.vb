@@ -23,7 +23,7 @@ Public Class TimerSettingsDialog
     End Property
     Public Property Hours As Integer
         Get
-            Return Duration.Hours
+            Return Math.Floor(Duration.TotalHours)
         End Get
         Set(value As Integer)
             Duration = New TimeSpan(value, Minutes, Seconds)
