@@ -138,7 +138,7 @@ Public Class Utils
         TimerSettingsDialog.LabelRestarts.Text = My.Resources.Strings.Restarts
         TimerSettingsDialog.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
 
-        TimerSettingsDialog.CheckBoxAlarmSet.Text = My.Resources.Strings.Alarm
+
         TimerSettingsDialog.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
         TimerSettingsDialog.CheckBoxNote.Text = My.Resources.Strings.Note
 

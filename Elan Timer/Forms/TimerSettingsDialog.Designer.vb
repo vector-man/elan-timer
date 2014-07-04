@@ -51,7 +51,6 @@ Partial Class TimerSettingsDialog
         Me.TrackBarVolume = New System.Windows.Forms.TrackBar()
         Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
         Me.TextBoxNote = New System.Windows.Forms.TextBox()
-        Me.CheckBoxAlarmSet = New System.Windows.Forms.CheckBox()
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItem1 = New System.Windows.Forms.MenuItem()
         Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
@@ -267,12 +266,6 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
         Me.TextBoxNote.Name = "TextBoxNote"
         '
-        'CheckBoxAlarmSet
-        '
-        resources.ApplyResources(Me.CheckBoxAlarmSet, "CheckBoxAlarmSet")
-        Me.CheckBoxAlarmSet.Name = "CheckBoxAlarmSet"
-        Me.CheckBoxAlarmSet.UseVisualStyleBackColor = True
-        '
         'ContextMenuOptions
         '
         Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItemSavePresetAs})
@@ -293,7 +286,6 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonCancel
-        Me.Controls.Add(Me.CheckBoxAlarmSet)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = false
@@ -349,7 +341,6 @@ End Sub
     Friend WithEvents ButtonSet As System.Windows.Forms.Button
     Friend WithEvents ButtonStart As System.Windows.Forms.Button
     Friend WithEvents ButtonOptions As System.Windows.Forms.Button
-    Friend WithEvents CheckBoxAlarmSet As System.Windows.Forms.CheckBox
     Friend WithEvents ContextMenuOptions As System.Windows.Forms.ContextMenu
     Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItemSavePresetAs As System.Windows.Forms.MenuItem
