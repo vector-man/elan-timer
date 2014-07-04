@@ -27,9 +27,6 @@
       <Value Profile="(Default)">Audio Files (*.wav; *.wave)|*.wav; *.wave</Value>
     </Setting>
     <Setting Name="WindowSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">290, 145</Value>
-    </Setting>
-    <Setting Name="DefaultWindowSize" Type="System.Drawing.Size" Scope="Application">
       <Value Profile="(Default)">330, 130</Value>
     </Setting>
     <Setting Name="WindowMaximized" Type="System.Boolean" Scope="User">

@@ -201,7 +201,7 @@ Public Class FormMain
         My.Settings.WindowFullScreen = False
         My.Settings.WindowMaximized = False
         EnterFullscreen(My.Settings.WindowFullScreen)
-        Me.Size = My.Settings.DefaultWindowSize
+        Me.Size = My.MySettings.Default.WindowSize
     End Sub
 
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCompact.Click

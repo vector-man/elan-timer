@@ -143,7 +143,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("290, 145")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("330, 130")>  _
         Public Property WindowSize() As Global.System.Drawing.Size
             Get
                 Return CType(Me("WindowSize"),Global.System.Drawing.Size)
@@ -151,15 +151,6 @@ Namespace My
             Set
                 Me("WindowSize") = value
             End Set
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("330, 130")>  _
-        Public ReadOnly Property DefaultWindowSize() As Global.System.Drawing.Size
-            Get
-                Return CType(Me("DefaultWindowSize"),Global.System.Drawing.Size)
-            End Get
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
