@@ -16,7 +16,7 @@ Namespace Settings
             Me.Transporter = transporter
         End Sub
         <UserScopedSetting>
-        <DefaultSettingValue("Calibri, 24pt, style=Bold")>
+        <DefaultSettingValue("monoMMM_5, 12pt, style=Bold")>
         Public Property DisplayFont As Font
             Get
                 Return Me("DisplayFont")
