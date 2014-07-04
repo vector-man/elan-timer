@@ -36,6 +36,7 @@ Partial Class StyleSettingsDialog
         Me.LabelRenderer = New System.Windows.Forms.Label()
         Me.PanelRenderPreview = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TrackBarTransparency = New System.Windows.Forms.TrackBar()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOptions = New System.Windows.Forms.Button()
@@ -43,10 +44,9 @@ Partial Class StyleSettingsDialog
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItemLoadStyle = New System.Windows.Forms.MenuItem()
         Me.MenuItemSaveStyleAs = New System.Windows.Forms.MenuItem()
-        Me.TrackBarTransparency = New System.Windows.Forms.TrackBar()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -61,6 +61,7 @@ Partial Class StyleSettingsDialog
         '
         'ColorComboBoxForegrounColor
         '
+        Me.ColorComboBoxForegrounColor.CustomColors = Nothing
         Me.ColorComboBoxForegrounColor.Extended = False
         resources.ApplyResources(Me.ColorComboBoxForegrounColor, "ColorComboBoxForegrounColor")
         Me.ColorComboBoxForegrounColor.Name = "ColorComboBoxForegrounColor"
@@ -73,6 +74,7 @@ Partial Class StyleSettingsDialog
         '
         'ColorComboBoxBackgroundColor
         '
+        Me.ColorComboBoxBackgroundColor.CustomColors = Nothing
         Me.ColorComboBoxBackgroundColor.Extended = False
         resources.ApplyResources(Me.ColorComboBoxBackgroundColor, "ColorComboBoxBackgroundColor")
         Me.ColorComboBoxBackgroundColor.Name = "ColorComboBoxBackgroundColor"
@@ -133,14 +135,22 @@ Partial Class StyleSettingsDialog
         Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxDisplayFormat, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelFont, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.FontPickerFont, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.LabelForegroundColor, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxForegrounColor, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.LabelBackgroundColor, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxGrowToFit, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxBackgroundColor, 1, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelTransparency, 0, 6)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelForegroundColor, 0, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabelBackgroundColor, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxForegrounColor, 1, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.ColorComboBoxBackgroundColor, 1, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'TrackBarTransparency
+        '
+        resources.ApplyResources(Me.TrackBarTransparency, "TrackBarTransparency")
+        Me.TrackBarTransparency.LargeChange = 25
+        Me.TrackBarTransparency.Maximum = 75
+        Me.TrackBarTransparency.Name = "TrackBarTransparency"
+        Me.TrackBarTransparency.TickFrequency = 10
         '
         'TableLayoutPanel2
         '
@@ -185,14 +195,6 @@ Partial Class StyleSettingsDialog
         Me.MenuItemSaveStyleAs.Index = 1
         resources.ApplyResources(Me.MenuItemSaveStyleAs, "MenuItemSaveStyleAs")
         '
-        'TrackBarTransparency
-        '
-        resources.ApplyResources(Me.TrackBarTransparency, "TrackBarTransparency")
-        Me.TrackBarTransparency.LargeChange = 25
-        Me.TrackBarTransparency.Maximum = 75
-        Me.TrackBarTransparency.Name = "TrackBarTransparency"
-        Me.TrackBarTransparency.TickFrequency = 10
-        '
         'StyleSettingsDialog
         '
         Me.AcceptButton = Me.ButtonOK
@@ -207,9 +209,9 @@ Partial Class StyleSettingsDialog
         Me.Name = "StyleSettingsDialog"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
