@@ -125,7 +125,7 @@
     <Setting Name="CustomForegroundColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="BlendToolbarColorWithBackground" Type="System.Boolean" Scope="User">
+    <Setting Name="UseToolbarStyling" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UseDocumentsDataFolder" Type="System.Boolean" Scope="User">

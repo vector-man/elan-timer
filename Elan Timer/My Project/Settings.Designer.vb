@@ -514,12 +514,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property BlendToolbarColorWithBackground() As Boolean
+        Public Property UseToolbarStyling() As Boolean
             Get
-                Return CType(Me("BlendToolbarColorWithBackground"),Boolean)
+                Return CType(Me("UseToolbarStyling"),Boolean)
             End Get
             Set
-                Me("BlendToolbarColorWithBackground") = value
+                Me("UseToolbarStyling") = value
             End Set
         End Property
         

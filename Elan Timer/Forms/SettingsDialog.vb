@@ -7,7 +7,7 @@
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckedGroupBoxShowInSystemTray.Checked
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
-        My.Settings.BlendToolbarColorWithBackground = CheckBoxBlendToolbarColorWithBackground.Checked
+        My.Settings.UseToolbarStyling = CheckBoxBlendToolbarColorWithBackground.Checked
         My.Settings.Save()
         Utils.Languages.SetLanguage(My.Settings.Language)
         Utils.SetStrings()
@@ -37,7 +37,7 @@
             CheckedGroupBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
             ComboBoxLanguage.SelectedItem = Utils.Languages.GetLanguages.ToList().Where(Function(item) item.Key = My.Settings.Language).First
-            CheckBoxBlendToolbarColorWithBackground.Checked = My.Settings.BlendToolbarColorWithBackground
+            CheckBoxBlendToolbarColorWithBackground.Checked = My.Settings.UseToolbarStyling
         Catch ex As Exception
 
         End Try

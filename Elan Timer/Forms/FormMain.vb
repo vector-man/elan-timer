@@ -263,7 +263,7 @@ Public Class FormMain
         timerSurface = New Surface()
         timerSurface.BackColor = styleSettings.BackgroundColor
 
-        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+        SetColoredToolStrip(My.Settings.UseToolbarStyling)
 
 
 
@@ -425,7 +425,7 @@ Public Class FormMain
         'End If
 
         Try
-            If (Not My.Settings.BlendToolbarColorWithBackground) Then
+            If (Not My.Settings.UseToolbarStyling) Then
                 ToolStripSplitButtonSettings.Image = My.Resources.menu
                 ToolStripButtonReset.Image = My.Resources.repeat
                 ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
@@ -700,7 +700,7 @@ Public Class FormMain
 
                 timerSurface.BackColor = styleSettings.BackgroundColor
 
-                SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+                SetColoredToolStrip(My.Settings.UseToolbarStyling)
 
                 timerObject.Color = styleSettings.ForegroundColor
                 timerObject.Font = styleSettings.DisplayFont
@@ -743,7 +743,7 @@ Public Class FormMain
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
         ContextMenuStripMain.Enabled = True
 
-        SetColoredToolStrip(My.Settings.BlendToolbarColorWithBackground)
+        SetColoredToolStrip(My.Settings.UseToolbarStyling)
         UpdateIcons()
     End Sub
 
