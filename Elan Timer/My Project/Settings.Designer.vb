@@ -480,25 +480,14 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CustomBackgroundColors() As Global.System.Collections.Specialized.StringCollection
+        <Global.System.Configuration.UserScopedSettingAttribute(), _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        Public Property CustomStyleColors() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("CustomBackgroundColors"),Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("CustomStyleColors"), Global.System.Collections.Specialized.StringCollection)
             End Get
-            Set
-                Me("CustomBackgroundColors") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CustomForegroundColors() As Global.System.Collections.Specialized.StringCollection
-            Get
-                Return CType(Me("CustomForegroundColors"),Global.System.Collections.Specialized.StringCollection)
-            End Get
-            Set
-                Me("CustomForegroundColors") = value
+            Set(value As Global.System.Collections.Specialized.StringCollection)
+                Me("CustomStyleColors") = value
             End Set
         End Property
         

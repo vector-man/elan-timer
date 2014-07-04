@@ -664,12 +664,12 @@ Public Class FormMain
             dialog.Transparency = 100 - styleSettings.Opacity
             dialog.InitialDirectory = Utils.GetStylesPath()
             dialog.FileFilter = My.Settings.StyleDialogFilter
-            dialog.CustomForegroundColors = If(My.Settings.CustomForegroundColors IsNot Nothing, My.Settings.CustomForegroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
-                                                                                                                                                                              Return Convert.ToInt32(c)
-                                                                                                                                                                          End Function).ToArray(), Nothing)
-            dialog.CustomBackgroundColors = If(My.Settings.CustomBackgroundColors IsNot Nothing, My.Settings.CustomBackgroundColors.Cast(Of String)().ToList().ConvertAll(Function(c)
-                                                                                                                                                                              Return Convert.ToInt32(c)
-                                                                                                                                                                          End Function).ToArray(), Nothing)
+
+            Dim customStyleColors = If(My.Settings.CustomStyleColors IsNot Nothing, My.Settings.CustomStyleColors.Cast(Of String)().ToList().ConvertAll(Function(c)
+                                                                                                                                                            Return Convert.ToInt32(c)
+                                                                                                                                                        End Function).ToArray(), Nothing)
+            dialog.CustomStyleColors = customStyleColors
+
             If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
                 Dim timeVisible = timerObject.Visible
                 timerObject.Visible = False
@@ -686,16 +686,11 @@ Public Class FormMain
 
 
                 Dim customColors = New System.Collections.Specialized.StringCollection()
-                customColors.AddRange(dialog.CustomForegroundColors.ToList().ConvertAll(Function(c)
-                                                                                            Return c.ToString()
-                                                                                        End Function).ToArray())
-                My.Settings.CustomForegroundColors = customColors
+                customColors.AddRange(dialog.CustomStyleColors.ToList().ConvertAll(Function(c)
+                                                                                       Return c.ToString()
+                                                                                   End Function).ToArray())
+                My.Settings.CustomStyleColors = customColors
 
-                customColors = New System.Collections.Specialized.StringCollection()
-                customColors.AddRange(dialog.CustomBackgroundColors.ToList().ConvertAll(Function(c)
-                                                                                            Return c.ToString()
-                                                                                        End Function).ToArray())
-                My.Settings.CustomBackgroundColors = customColors
 
 
                 timerSurface.BackColor = styleSettings.BackgroundColor

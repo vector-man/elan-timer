@@ -116,10 +116,7 @@
     <Setting Name="TimerAlertEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="CustomBackgroundColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="CustomForegroundColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
+    <Setting Name="CustomStyleColors" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="UseToolbarStyling" Type="System.Boolean" Scope="User">

@@ -18,6 +18,8 @@ Public Class StyleSettingsDialog
     Private loaded As Boolean = False
     Private style As New StyleModel()
     Private toolTip As New ToolTip()
+    Dim _customStyleColors As Integer()
+
     Sub New()
         ' This call is required by the designer.
         InitializeComponent()
@@ -69,20 +71,12 @@ Public Class StyleSettingsDialog
         End Set
     End Property
 
-    Public Property CustomForegroundColors As Integer()
+    Public Property CustomStyleColors As Integer()
         Get
             Return ColorComboBoxForegrounColor.CustomColors
         End Get
         Set(value As Integer())
             ColorComboBoxForegrounColor.CustomColors = value
-        End Set
-    End Property
-
-    Public Property CustomBackgroundColors As Integer()
-        Get
-            Return ColorComboBoxBackgroundColor.CustomColors
-        End Get
-        Set(value As Integer())
             ColorComboBoxBackgroundColor.CustomColors = value
         End Set
     End Property
@@ -160,6 +154,7 @@ Public Class StyleSettingsDialog
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
         Try
             timerObject.Color = e.color
+            ColorComboBoxBackgroundColor.CustomColors = ColorComboBoxForegrounColor.CustomColors
         Catch ex As Exception
 
         End Try
@@ -168,6 +163,7 @@ Public Class StyleSettingsDialog
     Private Sub ColorComboBoxBackgroundColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxBackgroundColor.ColorChanged
         Try
             timerSurface.BackColor = e.color
+            ColorComboBoxForegrounColor.CustomColors = ColorComboBoxBackgroundColor.CustomColors
         Catch ex As Exception
 
         End Try
