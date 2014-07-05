@@ -78,7 +78,7 @@ Public Class FormMain
         ResetTimer()
     End Sub
 
-    Private Sub AlwaysOnTopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAlwaysOnTop.Click
+    Private Sub ToolStripMenuItemAlwaysOnTop_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAlwaysOnTop.Click
         Me.TopMost = CType(sender, ToolStripMenuItem).Checked
         My.Settings.AlwaysOnTop = Me.ToolStripMenuItemAlwaysOnTop.Checked
     End Sub

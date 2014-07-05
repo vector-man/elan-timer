@@ -33,7 +33,6 @@ Partial Class FormMain
         Me.ToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemMisc = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItemAlwaysOnTop = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemWindow = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemDefault = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemCompact = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,6 +66,8 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItemAlwaysOnTop = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMain.SuspendLayout()
         Me.ContextMenuStripMain.SuspendLayout()
         Me.SuspendLayout()
@@ -82,7 +83,7 @@ Partial Class FormMain
         'ToolStripSplitButtonSettings
         '
         Me.ToolStripSplitButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItem7, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripMenuItemMisc, Me.ToolStripMenuItem2, Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
+        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItem7, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripMenuItemMisc, Me.ToolStripMenuItem2, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
         Me.ToolStripSplitButtonSettings.Image = Global.ElanTimer.My.Resources.Resources.menu
         resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
         Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
@@ -123,15 +124,9 @@ Partial Class FormMain
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         resources.ApplyResources(Me.ToolStripMenuItem2, "ToolStripMenuItem2")
         '
-        'ToolStripMenuItemAlwaysOnTop
-        '
-        Me.ToolStripMenuItemAlwaysOnTop.CheckOnClick = True
-        Me.ToolStripMenuItemAlwaysOnTop.Name = "ToolStripMenuItemAlwaysOnTop"
-        resources.ApplyResources(Me.ToolStripMenuItemAlwaysOnTop, "ToolStripMenuItemAlwaysOnTop")
-        '
         'ToolStripMenuItemWindow
         '
-        Me.ToolStripMenuItemWindow.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemDefault, Me.ToolStripMenuItemCompact, Me.ToolStripMenuItemFullScreen})
+        Me.ToolStripMenuItemWindow.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItem1, Me.ToolStripMenuItemDefault, Me.ToolStripMenuItemCompact, Me.ToolStripMenuItemFullScreen})
         Me.ToolStripMenuItemWindow.Name = "ToolStripMenuItemWindow"
         resources.ApplyResources(Me.ToolStripMenuItemWindow, "ToolStripMenuItemWindow")
         '
@@ -306,6 +301,16 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
         resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        '
+        'ToolStripMenuItemAlwaysOnTop
+        '
+        Me.ToolStripMenuItemAlwaysOnTop.Name = "ToolStripMenuItemAlwaysOnTop"
+        resources.ApplyResources(Me.ToolStripMenuItemAlwaysOnTop, "ToolStripMenuItemAlwaysOnTop")
+        '
         'FormMain
         '
         Me.AllowDrop = True
@@ -334,7 +339,6 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItemStyle As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemMisc As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripMenuItemAlwaysOnTop As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemWindow As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemDefault As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItemCompact As System.Windows.Forms.ToolStripMenuItem
@@ -365,5 +369,7 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItem7 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItem8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripMenuItemAlwaysOnTop As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
 
 End Class
