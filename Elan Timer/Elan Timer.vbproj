@@ -91,7 +91,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>eggzle-icon.ico</ApplicationIcon>
+    <ApplicationIcon>elan-green-48.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -353,8 +353,7 @@
     <None Include="Resources\play_green.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="eggzle-icon.ico" />
-    <Content Include="eggzle.ico" />
+    <Content Include="elan-green-48.ico" />
     <Content Include="FodyWeavers.xml" />
     <None Include="Resources\menu.png" />
     <None Include="Resources\pause.png" />
