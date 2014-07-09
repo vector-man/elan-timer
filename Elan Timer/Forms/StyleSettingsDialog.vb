@@ -117,7 +117,7 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        Timer.Dispose()
+        _previewTimer.Dispose()
     End Sub
 
     Private Sub StartUpRendering()
@@ -202,7 +202,7 @@ Public Class StyleSettingsDialog
     Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         _previewTimer = TimerFactory.CreateInstance(Timer.Duration, (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
         StartUpRendering()
-        Timer.Start()
+        _previewTimer.Start()
 
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
     End Sub
