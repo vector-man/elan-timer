@@ -138,6 +138,9 @@
   <data name="CountUp" xml:space="preserve">
     <value>Count up</value>
   </data>
+  <data name="CountUpFormat" xml:space="preserve">
+    <value>{0}{1}</value>
+  </data>
   <data name="CustomizeAndControlEggzle" xml:space="preserve">
     <value>Customize and control Eggzle</value>
   </data>
@@ -188,6 +191,12 @@
   </data>
   <data name="Hours" xml:space="preserve">
     <value>Hours</value>
+  </data>
+  <data name="HoursFormat" xml:space="preserve">
+    <value>{0} Hours {1} Minutes {2} Seconds</value>
+  </data>
+  <data name="HoursSecondsFormat" xml:space="preserve">
+    <value>{0} Hours {1} Seconds</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>Import...</value>
@@ -261,6 +270,9 @@
   <data name="Minutes" xml:space="preserve">
     <value>Minutes</value>
   </data>
+  <data name="MinutesFormat" xml:space="preserve">
+    <value>{0} Minutes {1} Seconds</value>
+  </data>
   <data name="MoveDown" xml:space="preserve">
     <value>Move down</value>
   </data>
@@ -299,6 +311,9 @@
   </data>
   <data name="Seconds" xml:space="preserve">
     <value>Seconds</value>
+  </data>
+  <data name="SecondsFormat" xml:space="preserve">
+    <value>{0} Seconds</value>
   </data>
   <data name="SetTimer" xml:space="preserve">
     <value>Set</value>

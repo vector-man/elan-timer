@@ -281,6 +281,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {0} Hours {1} Minutes {2} Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property HoursFormat() As String
+            Get
+                Return ResourceManager.GetString("HoursFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} Hours {1} Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property HoursSecondsFormat() As String
+            Get
+                Return ResourceManager.GetString("HoursSecondsFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Import....
         '''</summary>
         Public Shared ReadOnly Property Import() As String
@@ -497,6 +515,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {0} Minutes {1} Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property MinutesFormat() As String
+            Get
+                Return ResourceManager.GetString("MinutesFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Move down.
         '''</summary>
         Public Shared ReadOnly Property MoveDown() As String
@@ -610,6 +637,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Seconds() As String
             Get
                 Return ResourceManager.GetString("Seconds", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property SecondsFormat() As String
+            Get
+                Return ResourceManager.GetString("SecondsFormat", resourceCulture)
             End Get
         End Property
         

@@ -1,19 +1,21 @@
 ﻿Imports System.Text
-Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
-    Private daysFormat As String = "{0} Days {1} Hours {2} Minutes {3} Seconds"
-    Private hoursFormat As String = "{0} Hours {1} Minutes {2} Seconds"
-    Private hoursSecondsFormat As String = "{0} Hours {1} Seconds"
-    Private minutesFormat As String = "{0} Minutes {1} Seconds"
-    Private secondsFormat As String = "{0} Seconds"
-    Sub New()
+Imports System.Globalization
+Imports System.Resources
 
-    End Sub
-    Sub New(daysFormat As String, hoursFormat As String, hoursSecondsFormat As String, minutesFormat As String, secondsFormat As String)
-        MyClass.daysFormat = daysFormat
-        MyClass.hoursFormat = hoursFormat
-        MyClass.minutesFormat = minutesFormat
-        MyClass.secondsFormat = secondsFormat
-        MyClass.hoursSecondsFormat = hoursSecondsFormat
+Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
+    Private hoursFormat As String
+    Private hoursSecondsFormat As String
+    Private minutesFormat As String
+    Private secondsFormat As String
+    Private countUpFormat As String
+    Sub New()
+        Dim res As ResourceHelper = New ResourceHelper("ElanTimer.Strings", Me.GetType.Assembly)
+
+        hoursFormat = res.GetResourceValue("HoursFormat")
+        hoursSecondsFormat = res.GetResourceValue("HoursSecondsFormat")
+        minutesFormat = res.GetResourceValue("MinutesFormat")
+        secondsFormat = res.GetResourceValue("SecondsFormat")
+        countUpFormat = res.GetResourceValue("CountUpFormat")
     End Sub
     Public Function Format(fmt As String, arg As Object, formatProvider As IFormatProvider) As String Implements ICustomFormatter.Format
         Dim sb = New StringBuilder()

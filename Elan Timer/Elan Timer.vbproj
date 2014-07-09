@@ -216,6 +216,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ResourceHelper.vb" />
     <Compile Include="Settings\JsonNetTransporter.vb" />
     <Compile Include="Models\StyleModel.vb" />
     <Compile Include="Models\TimeModel.vb" />
@@ -312,7 +313,6 @@
     <EmbeddedResource Include="Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <LastGenOutput>Strings.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
