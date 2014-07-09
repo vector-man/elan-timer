@@ -14,20 +14,12 @@ Namespace Rendering
         Public Property FormatProvider As IFormatProvider
         Public Property ShowCountUpPlusSymbol As Boolean
         Public Property Timer As TimerBase
-        Private Const CountUpPlusSymbol As String = "+"
         Public Overrides Property Text As String
             Get
-                Dim prefix As String = String.Empty
-                Dim suffix As String = String.Empty
-                If (ShowCountUpPlusSymbol) Then
-                    If (My.Application.Culture.TextInfo.IsRightToLeft) Then
-                        suffix = CountUpPlusSymbol
-                    Else
-                        prefix = CountUpPlusSymbol
-                    End If
-                End If
 
-                Return String.Format(FormatProvider, String.Concat(prefix, "{0:", Me.Format, "}", suffix), Me.Timer.Current)
+
+
+                Return String.Format(FormatProvider, String.Concat("{0:", Me.Format, "}"), Me.Timer.Current)
             End Get
             Set(value As String)
                 Throw New NotImplementedException()

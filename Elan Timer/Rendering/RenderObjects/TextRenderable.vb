@@ -16,6 +16,8 @@
         Public Property SizeToFit As Boolean
         Public Overridable Property Text As String
         Public Property Font As Font
+        Public Property Prefix As String
+        Public Property Suffix As String
         Public Property Color As Color Implements IRenderable.Color
             Get
                 Return colorBrush.Color
@@ -91,6 +93,14 @@
         Public Sub Render(e As PaintEventArgs) Implements IRenderable.Render
             e.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
             If (Visible) Then
+
+                Dim textToPrint As String = String.Empty
+                If (Not My.Application.Culture.TextInfo.IsRightToLeft) Then
+                    textToPrint = Prefix & Text & Suffix
+                Else
+                    textToPrint = Suffix & Text & Prefix
+                End If
+
                 Dim largestFontSize As Long
 
                 If (SizeToFit) Then
@@ -99,8 +109,8 @@
                     largestFontSize = Font.Size
                 End If
 
-                Using textFont = AppropriateFont(e.Graphics, Font.Size, largestFontSize, Rectangle.Size, Text, Font)
-                    e.Graphics.DrawString(Text, textFont, colorBrush, Rectangle, StringFormat)
+                Using textFont = AppropriateFont(e.Graphics, Font.Size, largestFontSize, Rectangle.Size, textToPrint, Font)
+                    e.Graphics.DrawString(textToPrint, textFont, colorBrush, Rectangle, StringFormat)
                 End Using
             End If
         End Sub
