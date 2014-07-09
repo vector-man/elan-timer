@@ -128,6 +128,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {0}{1}.
+        '''</summary>
+        Public Shared ReadOnly Property CountUpFormat() As String
+            Get
+                Return ResourceManager.GetString("CountUpFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Customize and control Eggzle.
         '''</summary>
         Public Shared ReadOnly Property CustomizeAndControlEggzle() As String
@@ -718,6 +727,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Transparency() As String
             Get
                 Return ResourceManager.GetString("Transparency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}{1}{2}{3}{4}{5}.
+        '''</summary>
+        Public Shared ReadOnly Property WindowTextFormat() As String
+            Get
+                Return ResourceManager.GetString("WindowTextFormat", resourceCulture)
             End Get
         End Property
     End Class

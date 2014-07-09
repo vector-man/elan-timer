@@ -11,6 +11,7 @@ Public Class StyleSettingsDialog
     Private Const PreviewTime As Long = 5588
 
     Private timerObject As TimerTextRenderable
+    Private _previewTimer As AlarmTimer
     Private checkerBoardObject As BackgroundRenderable
     Private renderer As Renderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
@@ -18,6 +19,7 @@ Public Class StyleSettingsDialog
     Private loaded As Boolean = False
     Private style As New StyleModel()
     Private toolTip As New ToolTip()
+    Private Const CountUpPrefix As String = "+"
     Dim _customStyleColors As Integer()
 
     Sub New()
@@ -118,13 +120,14 @@ Public Class StyleSettingsDialog
         Timer.Dispose()
     End Sub
 
-    Private Sub StartUpRendering(ByRef timer As ElanTimer.CodeIsle.Timers.AlarmTimer)
+    Private Sub StartUpRendering()
 
         Try
             stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
             stringFormat.Alignment = StringAlignment.Center
             stringFormat.LineAlignment = StringAlignment.Center
-            timerObject = New TimerTextRenderable(timer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
+            timerObject = New TimerTextRenderable(_previewTimer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
+            timerObject.Prefix = If(TypeOf _previewTimer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
             checkerBoardObject = New BackgroundRenderable(Nothing, True)
 
             timerSurface = New Surface()
@@ -197,8 +200,8 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        Timer = TimerFactory.CreateInstance(New TimeSpan(0, 0, PreviewTime), (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
-        StartUpRendering(Timer)
+        _previewTimer = TimerFactory.CreateInstance(Timer.Duration, (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
+        StartUpRendering()
         Timer.Start()
 
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
@@ -213,7 +216,6 @@ Public Class StyleSettingsDialog
             If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
                 RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
                 UpdateUI()
-
             End If
         End Using
     End Sub

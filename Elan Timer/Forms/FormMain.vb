@@ -2,8 +2,7 @@
 Imports System.Threading
 Imports System.Text
 Imports System.IO
-
-Imports ElanTimer.Prefs
+Imports ElanTimer.CodeIsle.Timers
 Imports ElanTimer.Settings
 Imports ElanTimer.Rendering
 Imports Microsoft
@@ -19,6 +18,8 @@ Public Class FormMain
     Private stringFormat As New StringFormat
     Private renderer As Renderer
     Private forceClose As Boolean = False
+
+    Private Const CountUpPrefix As String = "+"
 
     Private transporter As ITransporter = New JsonNetTransporter()
     Private timeSettings As TimeSettings = New TimeSettings(transporter)
@@ -257,6 +258,7 @@ Public Class FormMain
         stringFormat.LineAlignment = StringAlignment.Center
 
         timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
+        timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
         noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
 
 
@@ -408,7 +410,7 @@ Public Class FormMain
         Dim note As String = If(timeSettings.NoteEnabled, timeSettings.Note, String.Empty)
         Dim title As String = If(time.Length = 0 And separator.Length = 0 And note.Length = 0, My.Application.Info.AssemblyName, String.Empty)
 
-        Me.Text = String.Join("", time, separator, note, title)
+        Me.Text = String.Format(My.Resources.Strings.WindowTextFormat, timerObject.Prefix, time, separator, note, title)
     End Sub
     ' Update the button icons for paused/not paused.
     Private Sub UpdateIcons()
