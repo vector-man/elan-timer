@@ -1,4 +1,5 @@
-﻿Imports System.Resources
+﻿' Taken from: http://stackoverflow.com/questions/16361685/how-to-get-name-by-string-value-from-a-net-resource-resx-file.
+Imports System.Resources
 Imports System.Threading
 Imports System.Reflection
 
