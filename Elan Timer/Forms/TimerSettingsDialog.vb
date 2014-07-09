@@ -196,7 +196,7 @@ Public Class TimerSettingsDialog
         Me.ButtonAlarmPlay.Enabled = Me.CheckBoxLoop.Enabled
         Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         Me.ButtonStart.Enabled = (Me.ButtonSet.Enabled And Not Editing)
-        Me.ButtonOptions.Enabled = (Not Editing)
+        Me.MenuItemLoadPreset.Enabled = (Not Editing)
 
     End Sub
 
@@ -234,7 +234,7 @@ Public Class TimerSettingsDialog
         ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
     End Sub
 
-    Private Sub MenuItemLoadPreset_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
+    Private Sub MenuItemLoadPreset_Click(sender As Object, e As EventArgs) Handles MenuItemLoadPreset.Click
         Using openDialog As New OpenFileDialog
             openDialog.InitialDirectory = InitialDirectory
             openDialog.Filter = FileFilter
