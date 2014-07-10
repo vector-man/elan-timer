@@ -105,6 +105,8 @@ Public Class StyleSettingsDialog
     Public Property FileFilter As String
 
     Sub Initialize()
+        SetStrings()
+
         ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
@@ -259,7 +261,7 @@ Public Class StyleSettingsDialog
         Me.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
         Me.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
         Me.LabelTransparency.Text = My.Resources.Strings.Transparency
-        Me.ButtonOptions.Text = My.Resources.Strings.Load
+        Me.ButtonOptions.Text = My.Resources.Strings.Options
         Me.MenuItemLoadStyle.Text = My.Resources.Strings.LoadStyle
         Me.MenuItemSaveStyleAs.Text = My.Resources.Strings.SaveStyleAs
         Me.ButtonOK.Text = My.Resources.Strings.Ok

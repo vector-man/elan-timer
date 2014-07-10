@@ -114,6 +114,9 @@ Public Class FormMain
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            ' Set strings for this form.
+            SetStrings()
+
             ' Load settings.
             If (My.Application.CommandLineArgs.Count = 1) Then
                 LoadSettings(My.Application.CommandLineArgs(0))
@@ -988,5 +991,32 @@ Public Class FormMain
         Else
             e.Effect = DragDropEffects.None
         End If
+    End Sub
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.ToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.ToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
+        Me.ToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
+        Me.ToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
+        Me.ToolStripMenuItemMisc.Text = My.Resources.Strings.MenuMisc
+        Me.ToolStripMenuItemAlwaysOnTop.Text = My.Resources.Strings.MenuAlwaysOnTop
+        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
+
+        Me.ToolStripMenuItemWindow.Text = My.Resources.Strings.MenuWindow
+        Me.ToolStripMenuItemCompact.Text = My.Resources.Strings.MenuCompact
+        Me.ToolStripMenuItemFullScreen.Text = My.Resources.Strings.MenuFullSreen
+        Me.ToolStripMenuItemDefault.Text = My.Resources.Strings.MenuDefault
+
+        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
+        Me.ToolStripMenuItemHelpOnline.Text = My.Resources.Strings.MenuHelpOnline
+        Me.ToolStripMenuItemAboutElanTimer.Text = My.Resources.Strings.About
+        Me.ToolStripMenuItemCheckForUpdates.Text = My.Resources.Strings.MenuCheckForUpdates
+        Me.ToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
+
+        Me.ToolStripButtonNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
+
+        Me.ResumeLayout()
     End Sub
 End Class

@@ -8,7 +8,6 @@
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
         My.Settings.UseToolbarStyling = CheckBoxBlendToolbarColorWithBackground.Checked
         My.Settings.Save()
-        Utils.SetStrings()
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
 
@@ -17,11 +16,12 @@
         ' This call is required by the designer.
         InitializeComponent()
 
+        SetStrings()
+
         ' Add any initialization after the InitializeComponent() call.
         applicationBindingSource = New BindingSource
 
         applicationBindingSource.DataSource = My.Settings
-        'End Using
     End Sub
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -38,4 +38,10 @@
     Private Sub CheckBoxShowInSystemTray_CheckedChanged(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub SetStrings()
+        ' TODO: Finish SetStrings.
+        ' Throw New NotImplementedException
+    End Sub
+
 End Class

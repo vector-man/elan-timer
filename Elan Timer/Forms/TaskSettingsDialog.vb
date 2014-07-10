@@ -5,7 +5,8 @@ Public Class TaskSettingsDialog
 
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource
-    Private _model As New TasksModel()
+    Private model As New TasksModel()
+    Private taskToolTip As ToolTip
     Sub New()
 
         ' This call is required by the designer.
@@ -15,10 +16,10 @@ Public Class TaskSettingsDialog
     Public Property FileFilter As String
     Public Property Tasks As List(Of TaskModel)
         Get
-            Return _model.Tasks
+            Return model.Tasks
         End Get
         Set(value As List(Of TaskModel))
-            _model.Tasks = value
+            model.Tasks = value
         End Set
     End Property
 
@@ -42,7 +43,7 @@ Public Class TaskSettingsDialog
         MenuItemExportAll.Enabled = (DataListViewActions.GetItemCount() > 0)
     End Sub
     Private Sub ButtonAdd_Click(sender As Object, e As EventArgs) Handles ButtonAdd.Click
-        actionsBindingSource.Add(New TaskModel(TimerEvent.Started, "New Action", "", "", False, "", True))
+        actionsBindingSource.Add(New TaskModel(TimerEvent.Started, My.Resources.Strings.NewTask, "", "", False, "", True))
     End Sub
 
     Private Sub ButtonRemove_Click(sender As Object, e As EventArgs) Handles ButtonRemove.Click
@@ -57,12 +58,16 @@ Public Class TaskSettingsDialog
         Return actions.ConvertAll(Function(action) New TaskModel(action.Event, action.Name, action.Command, action.Arguments, action.UseScript, action.Script, action.Enabled))
     End Function
     Private Sub Initialize()
+        taskToolTip = New ToolTip()
+
+        SetStrings()
+
         AddHandler Application.Idle, AddressOf UpdateStates
-        If _model.Tasks Is Nothing Then
-            _model.Tasks = New List(Of TaskModel)
+        If model.Tasks Is Nothing Then
+            model.Tasks = New List(Of TaskModel)
         End If
         actionsBindingSource = New BindingSource()
-        actionsBindingSource.DataSource = _model.Tasks
+        actionsBindingSource.DataSource = model.Tasks
 
         ComboBoxEvent.DataSource = [Enum].GetValues(GetType(TimerEvent))
         ComboBoxEvent.DataBindings.Add("Text", actionsBindingSource, "Event", True, DataSourceUpdateMode.OnPropertyChanged)
@@ -135,8 +140,12 @@ Public Class TaskSettingsDialog
         End Using
     End Sub
 
-    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonExport.Click
-        ContextMenuExport.Show(ButtonExport, New Point(0, ButtonExport.Height))
+    Private Sub ButtonExport_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
+        ContextMenuExport.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
+    End Sub
+
+    Private Sub TaskSettingsDialog_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        taskToolTip.Dispose()
     End Sub
 
     Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -144,18 +153,56 @@ Public Class TaskSettingsDialog
         Initialize()
     End Sub
 
-    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItem1.Click
+    Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItemImport.Click
 
         Using openDialog As New OpenFileDialog
             openDialog.InitialDirectory = InitialDirectory
             openDialog.Filter = FileFilter
             openDialog.CheckFileExists = True
             If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, _model))
+                RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, model))
                 actionsBindingSource.ResetBindings(True)
             End If
         End Using
     End Sub
     Public Event Exporting As EventHandler(Of TaskExportingEventArgs)
     Public Event Importing As EventHandler(Of TaskImportingEventArgs)
+
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.OlvColumnName.Text = My.Resources.Strings.HeaderName
+        Me.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
+        Me.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
+        Me.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
+
+        Me.OlvColumnName.Text = My.Resources.Strings.HeaderName
+        Me.OlvColumnEvent.Text = My.Resources.Strings.HeaderEvent
+        Me.OlvColumnCommand.Text = My.Resources.Strings.HeaderCommand
+        Me.OlvColumnArguments.Text = My.Resources.Strings.HeaderArguments
+
+        Me.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
+        Me.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
+
+        Me.LabelEvent.Text = My.Resources.Strings.LabelEvent
+        Me.LabelName.Text = My.Resources.Strings.LabelName
+        Me.LabelCommand.Text = My.Resources.Strings.LabelCommand
+        Me.LabelArguments.Text = My.Resources.Strings.LabelArguments
+
+        Me.ButtonOptions.Text = My.Resources.Strings.Options
+        Me.MenuItemExportAll.Text = My.Resources.Strings.ExportAll
+        Me.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
+        Me.MenuItemImport.Text = My.Resources.Strings.Import
+
+
+
+        taskToolTip.SetToolTip(Me.ButtonAdd, My.Resources.Strings.Add)
+        taskToolTip.SetToolTip(Me.ButtonRemove, My.Resources.Strings.Remove)
+        taskToolTip.SetToolTip(Me.ButtonMoveUp, My.Resources.Strings.MoveUp)
+        taskToolTip.SetToolTip(Me.ButtonMoveDown, My.Resources.Strings.MoveDown)
+        taskToolTip.SetToolTip(Me.ButtonBrowseForFile, My.Resources.Strings.BrowseForFile)
+        ' TODO: Figure out event localization.
+        Me.ResumeLayout()
+    End Sub
+
 End Class

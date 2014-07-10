@@ -1,6 +1,8 @@
 ﻿Public NotInheritable Class AboutDialog
 
     Private Sub DialogAbout_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        SetStrings()
+
         ' Set the title of the form.
         Dim ApplicationTitle As String
         If My.Application.Info.Title <> "" Then
@@ -20,6 +22,17 @@
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
+    End Sub
+
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.Text = My.Resources.Strings.About
+        Me.LinkLabelLicense.Text = My.Resources.Strings.License
+        Me.ButtonOk.Text = My.Resources.Strings.Ok
+
+        Me.ResumeLayout()
+
     End Sub
 
 End Class

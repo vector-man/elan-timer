@@ -129,6 +129,9 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background color:</value>
   </data>
+  <data name="BrowseForFile" xml:space="preserve">
+    <value>Browse for a file...</value>
+  </data>
   <data name="BrowseForFolder" xml:space="preserve">
     <value>Browse for folder...</value>
   </data>
@@ -284,6 +287,9 @@
   </data>
   <data name="MoveUp" xml:space="preserve">
     <value>Move up</value>
+  </data>
+  <data name="NewTask" xml:space="preserve">
+    <value>New Task</value>
   </data>
   <data name="NewTimer" xml:space="preserve">
     <value>New</value>

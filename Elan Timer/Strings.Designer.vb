@@ -101,6 +101,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Browse for a file....
+        '''</summary>
+        Public Shared ReadOnly Property BrowseForFile() As String
+            Get
+                Return ResourceManager.GetString("BrowseForFile", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
         '''  Looks up a localized string similar to Browse for folder....
         '''</summary>
         Public Shared ReadOnly Property BrowseForFolder() As String
@@ -565,6 +574,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property MoveUp() As String
             Get
                 Return ResourceManager.GetString("MoveUp", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to New Task.
+        '''</summary>
+        Public Shared ReadOnly Property NewTask() As String
+            Get
+                Return ResourceManager.GetString("NewTask", resourceCulture)
             End Get
         End Property
         
