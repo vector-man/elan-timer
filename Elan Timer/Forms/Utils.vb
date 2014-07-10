@@ -95,21 +95,6 @@ Public Class Utils
 
         AboutDialog.ResumeLayout()
 
-        ' DialogLookSettings.
-        StyleSettingsDialog.SuspendLayout()
-
-        StyleSettingsDialog.Text = My.Resources.Strings.Style
-        StyleSettingsDialog.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
-        StyleSettingsDialog.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
-        StyleSettingsDialog.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
-        StyleSettingsDialog.LabelFont.Text = My.Resources.Strings.Font
-        StyleSettingsDialog.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
-        StyleSettingsDialog.LabelTransparency.Text = My.Resources.Strings.Transparency
-        StyleSettingsDialog.ButtonOptions.Text = My.Resources.Strings.Load
-        StyleSettingsDialog.ButtonOK.Text = My.Resources.Strings.Ok
-        StyleSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
-
-        StyleSettingsDialog.ResumeLayout()
 
         ' DialogTaskSettings.
         TaskSettingsDialog.SuspendLayout()
@@ -132,22 +117,7 @@ Public Class Utils
 
         TaskSettingsDialog.ResumeLayout()
 
-        TimerSettingsDialog.SuspendLayout()
 
-        TimerSettingsDialog.GroupBoxDuration.Text = My.Resources.Strings.Duration
-        TimerSettingsDialog.LabelRestarts.Text = My.Resources.Strings.Restarts
-        TimerSettingsDialog.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
-
-
-        TimerSettingsDialog.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
-        TimerSettingsDialog.CheckBoxNote.Text = My.Resources.Strings.Note
-
-
-        TimerSettingsDialog.ButtonSet.Text = My.Resources.Strings.Start
-        TimerSettingsDialog.ButtonStart.Text = My.Resources.Strings.SetTimer
-        TimerSettingsDialog.ButtonCancel.Text = My.Resources.Strings.Cancel
-
-        TimerSettingsDialog.ResumeLayout()
 
     End Sub
 
