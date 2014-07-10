@@ -150,6 +150,8 @@ Public Class TimerSettingsDialog
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
         TrackBarVolume.DataBindings.Add("Value", time, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
+
+        SetStrings()
     End Sub
 
     Private Sub ButtonStart_Click(sender As Object, e As EventArgs) Handles ButtonStart.Click
@@ -187,7 +189,8 @@ Public Class TimerSettingsDialog
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
         Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Enabled = Me.CheckBoxNote.Checked
-        Me.Text = If(Editing, "Edit", "New")
+        Me.Text = If(Editing, My.Resources.Strings.EditTimer, My.Resources.Strings.NewTimer)
+
         Me.GroupBoxDuration.Enabled = Not Editing
 
 
@@ -283,4 +286,32 @@ Public Class TimerSettingsDialog
 
     Public Event Saving As EventHandler(Of SavingEventArgs)
     Public Event Loading As EventHandler(Of LoadingEventArgs)
+
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.CheckBoxNote.Text = My.Resources.Strings.Note
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.Text = My.Resources.Strings.ShowAlertBoxWhenTimerExpires
+
+        Me.GroupBoxDuration.Text = My.Resources.Strings.Duration
+        Me.LabelHours.Text = My.Resources.Strings.Hours
+        Me.LabelMinutes.Text = My.Resources.Strings.Minutes
+        Me.LabelSeconds.Text = My.Resources.Strings.Seconds
+        Me.LabelRestarts.Text = My.Resources.Strings.Restarts
+        Me.CheckBoxCountUp.Text = My.Resources.Strings.CountUp
+
+        Me.CheckedGroupBox1.Text = My.Resources.Strings.Alarm
+        Me.Label2.Text = My.Resources.Strings.Sound
+        Me.Label1.Text = My.Resources.Strings.Volume
+        Me.CheckBoxLoop.Text = My.Resources.Strings.LoopAlarm
+        Me.ButtonOptions.Text = My.Resources.Strings.Options
+        Me.MenuItemLoadPreset.Text = My.Resources.Strings.LoadPreset
+        Me.MenuItemSavePresetAs.Text = My.Resources.Strings.SavePresetAs
+
+        Me.ButtonStart.Text = My.Resources.Strings.Start
+        Me.ButtonSet.Text = My.Resources.Strings.SetTimer
+        Me.ButtonCancel.Text = My.Resources.Strings.Cancel
+
+        Me.ResumeLayout()
+    End Sub
 End Class

@@ -248,4 +248,23 @@ Public Class StyleSettingsDialog
     End Sub
     Public Event Loading As EventHandler(Of LoadingEventArgs)
     Public Event Saving As EventHandler(Of SavingEventArgs)
+
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.Text = My.Resources.Strings.Style
+        Me.LabelRenderer.Text = My.Resources.Strings.DisplayFormat
+        Me.LabelFont.Text = My.Resources.Strings.Font
+        Me.CheckBoxGrowToFit.Text = My.Resources.Strings.GrowToFit
+        Me.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
+        Me.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
+        Me.LabelTransparency.Text = My.Resources.Strings.Transparency
+        Me.ButtonOptions.Text = My.Resources.Strings.Load
+        Me.MenuItemLoadStyle.Text = My.Resources.Strings.LoadStyle
+        Me.MenuItemSaveStyleAs.Text = My.Resources.Strings.SaveStyleAs
+        Me.ButtonOK.Text = My.Resources.Strings.Ok
+        Me.ButtonCancel.Text = My.Resources.Strings.Cancel
+        ' TODO: Figure out how to localize Font selection.
+        Me.ResumeLayout()
+    End Sub
 End Class

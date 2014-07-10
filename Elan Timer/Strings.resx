@@ -124,7 +124,7 @@
     <value>Add</value>
   </data>
   <data name="Alarm" xml:space="preserve">
-    <value>Alarm:</value>
+    <value>Alarm</value>
   </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background color:</value>
@@ -154,7 +154,7 @@
     <value>Duration:</value>
   </data>
   <data name="EditTimer" xml:space="preserve">
-    <value>Edit Timer</value>
+    <value>Edit</value>
   </data>
   <data name="Expired" xml:space="preserve">
     <value>Expired</value>
@@ -190,7 +190,7 @@
     <value>Name</value>
   </data>
   <data name="Hours" xml:space="preserve">
-    <value>Hours</value>
+    <value>Hours:</value>
   </data>
   <data name="HoursFormat" xml:space="preserve">
     <value>{0} Hours {1} Minutes {2} Seconds</value>
@@ -219,8 +219,14 @@
   <data name="Load" xml:space="preserve">
     <value>Load...</value>
   </data>
+  <data name="LoadPreset" xml:space="preserve">
+    <value>Load Preset...</value>
+  </data>
+  <data name="LoadStyle" xml:space="preserve">
+    <value>Load Style...</value>
+  </data>
   <data name="LoopAlarm" xml:space="preserve">
-    <value>Loop</value>
+    <value>Loop alarm</value>
   </data>
   <data name="MenuAlwaysOnTop" xml:space="preserve">
     <value>Always On Top</value>
@@ -268,7 +274,7 @@
     <value>The time format you entered was unrecognized. When in doubt, use one of these formats: hours:minutes:seconds, minutes:seconds, or, simply, a number for seconds. Read the help document for more recognized formats.</value>
   </data>
   <data name="Minutes" xml:space="preserve">
-    <value>Minutes</value>
+    <value>Minutes:</value>
   </data>
   <data name="MinutesFormat" xml:space="preserve">
     <value>{0} Minutes {1} Seconds</value>
@@ -280,13 +286,16 @@
     <value>Move up</value>
   </data>
   <data name="NewTimer" xml:space="preserve">
-    <value>New Timer</value>
+    <value>New</value>
   </data>
   <data name="Note" xml:space="preserve">
     <value>Note:</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>OK</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
   </data>
   <data name="Pause" xml:space="preserve">
     <value>Pause</value>
@@ -309,14 +318,26 @@
   <data name="SaveAs" xml:space="preserve">
     <value>Save as...</value>
   </data>
+  <data name="SavePresetAs" xml:space="preserve">
+    <value>Save Preset As...</value>
+  </data>
+  <data name="SaveStyleAs" xml:space="preserve">
+    <value>Save Style As...</value>
+  </data>
   <data name="Seconds" xml:space="preserve">
-    <value>Seconds</value>
+    <value>Seconds:</value>
   </data>
   <data name="SecondsFormat" xml:space="preserve">
     <value>{0} Seconds</value>
   </data>
   <data name="SetTimer" xml:space="preserve">
     <value>Set</value>
+  </data>
+  <data name="ShowAlertBoxWhenTimerExpires" xml:space="preserve">
+    <value>Show alert box when timer expires</value>
+  </data>
+  <data name="Sound" xml:space="preserve">
+    <value>Sound:</value>
   </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
@@ -338,6 +359,9 @@
   </data>
   <data name="Transparency" xml:space="preserve">
     <value>Transparency:</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Volume:</value>
   </data>
   <data name="WindowTextFormat" xml:space="preserve">
     <value>{0}{1}{2}{3}{4}</value>

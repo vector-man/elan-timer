@@ -83,7 +83,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Alarm:.
+        '''  Looks up a localized string similar to Alarm.
         '''</summary>
         Public Shared ReadOnly Property Alarm() As String
             Get
@@ -173,7 +173,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Edit Timer.
+        '''  Looks up a localized string similar to Edit.
         '''</summary>
         Public Shared ReadOnly Property EditTimer() As String
             Get
@@ -281,7 +281,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Hours.
+        '''  Looks up a localized string similar to Hours:.
         '''</summary>
         Public Shared ReadOnly Property Hours() As String
             Get
@@ -371,7 +371,25 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Loop.
+        '''  Looks up a localized string similar to Load Preset....
+        '''</summary>
+        Public Shared ReadOnly Property LoadPreset() As String
+            Get
+                Return ResourceManager.GetString("LoadPreset", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Load Style....
+        '''</summary>
+        Public Shared ReadOnly Property LoadStyle() As String
+            Get
+                Return ResourceManager.GetString("LoadStyle", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Loop alarm.
         '''</summary>
         Public Shared ReadOnly Property LoopAlarm() As String
             Get
@@ -515,7 +533,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Minutes.
+        '''  Looks up a localized string similar to Minutes:.
         '''</summary>
         Public Shared ReadOnly Property Minutes() As String
             Get
@@ -551,7 +569,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to New Timer.
+        '''  Looks up a localized string similar to New.
         '''</summary>
         Public Shared ReadOnly Property NewTimer() As String
             Get
@@ -574,6 +592,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Ok() As String
             Get
                 Return ResourceManager.GetString("Ok", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Options.
+        '''</summary>
+        Public Shared ReadOnly Property Options() As String
+            Get
+                Return ResourceManager.GetString("Options", resourceCulture)
             End Get
         End Property
         
@@ -641,7 +668,25 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Seconds.
+        '''  Looks up a localized string similar to Save Preset As....
+        '''</summary>
+        Public Shared ReadOnly Property SavePresetAs() As String
+            Get
+                Return ResourceManager.GetString("SavePresetAs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Save Style As....
+        '''</summary>
+        Public Shared ReadOnly Property SaveStyleAs() As String
+            Get
+                Return ResourceManager.GetString("SaveStyleAs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Seconds:.
         '''</summary>
         Public Shared ReadOnly Property Seconds() As String
             Get
@@ -664,6 +709,24 @@ Namespace My.Resources
         Public Shared ReadOnly Property SetTimer() As String
             Get
                 Return ResourceManager.GetString("SetTimer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Show alert box when timer expires.
+        '''</summary>
+        Public Shared ReadOnly Property ShowAlertBoxWhenTimerExpires() As String
+            Get
+                Return ResourceManager.GetString("ShowAlertBoxWhenTimerExpires", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sound:.
+        '''</summary>
+        Public Shared ReadOnly Property Sound() As String
+            Get
+                Return ResourceManager.GetString("Sound", resourceCulture)
             End Get
         End Property
         
@@ -731,7 +794,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0}{1}{2}{3}{4}{5}.
+        '''  Looks up a localized string similar to Volume:.
+        '''</summary>
+        Public Shared ReadOnly Property Volume() As String
+            Get
+                Return ResourceManager.GetString("Volume", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}{1}{2}{3}{4}.
         '''</summary>
         Public Shared ReadOnly Property WindowTextFormat() As String
             Get
