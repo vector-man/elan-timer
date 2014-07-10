@@ -202,7 +202,7 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        _previewTimer = TimerFactory.CreateInstance(Timer.Duration, (Timer Is GetType(CountUpAlarmTimer)), Integer.MaxValue, Nothing, False)
+        _previewTimer = TimerFactory.CreateInstance(Timer.Duration, (TypeOf Timer Is CountUpAlarmTimer), Integer.MaxValue, Nothing, False)
         StartUpRendering()
         _previewTimer.Start()
 
