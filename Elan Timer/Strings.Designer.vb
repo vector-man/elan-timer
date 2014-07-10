@@ -128,6 +128,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Clicking tray icon stops alarm.
+        '''</summary>
+        Public Shared ReadOnly Property ClickingTrayIconStopsAlarm() As String
+            Get
+                Return ResourceManager.GetString("ClickingTrayIconStopsAlarm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Close to system tray.
+        '''</summary>
+        Public Shared ReadOnly Property CloseToSystemTray() As String
+            Get
+                Return ResourceManager.GetString("CloseToSystemTray", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Count up.
         '''</summary>
         Public Shared ReadOnly Property CountUp() As String
@@ -187,6 +205,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property EditTimer() As String
             Get
                 Return ResourceManager.GetString("EditTimer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Enable toolbar styling.
+        '''</summary>
+        Public Shared ReadOnly Property EnableToolbarStyling() As String
+            Get
+                Return ResourceManager.GetString("EnableToolbarStyling", resourceCulture)
             End Get
         End Property
         
@@ -736,6 +763,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property ShowAlertBoxWhenTimerExpires() As String
             Get
                 Return ResourceManager.GetString("ShowAlertBoxWhenTimerExpires", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Show in system tray.
+        '''</summary>
+        Public Shared ReadOnly Property ShowInSystemTray() As String
+            Get
+                Return ResourceManager.GetString("ShowInSystemTray", resourceCulture)
             End Get
         End Property
         

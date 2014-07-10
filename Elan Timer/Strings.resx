@@ -138,6 +138,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="ClickingTrayIconStopsAlarm" xml:space="preserve">
+    <value>Clicking tray icon stops alarm</value>
+  </data>
+  <data name="CloseToSystemTray" xml:space="preserve">
+    <value>Close to system tray</value>
+  </data>
   <data name="CountUp" xml:space="preserve">
     <value>Count up</value>
   </data>
@@ -158,6 +164,9 @@
   </data>
   <data name="EditTimer" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="EnableToolbarStyling" xml:space="preserve">
+    <value>Enable toolbar styling</value>
   </data>
   <data name="Expired" xml:space="preserve">
     <value>Expired</value>
@@ -341,6 +350,9 @@
   </data>
   <data name="ShowAlertBoxWhenTimerExpires" xml:space="preserve">
     <value>Show alert box when timer expires</value>
+  </data>
+  <data name="ShowInSystemTray" xml:space="preserve">
+    <value>Show in system tray</value>
   </data>
   <data name="Sound" xml:space="preserve">
     <value>Sound:</value>

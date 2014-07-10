@@ -31,7 +31,7 @@ Partial Class SettingsDialog
         Me.Button6 = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.CheckBoxBlendToolbarColorWithBackground = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxEnableToolbarStyling = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckedGroupBoxShowInSystemTray = New ElanTimer.CheckedGroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -92,19 +92,19 @@ Partial Class SettingsDialog
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'CheckBoxBlendToolbarColorWithBackground
+        'CheckBoxEnableToolbarStyling
         '
-        resources.ApplyResources(Me.CheckBoxBlendToolbarColorWithBackground, "CheckBoxBlendToolbarColorWithBackground")
-        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBoxBlendToolbarColorWithBackground, 3)
-        Me.CheckBoxBlendToolbarColorWithBackground.Name = "CheckBoxBlendToolbarColorWithBackground"
-        Me.CheckBoxBlendToolbarColorWithBackground.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.CheckBoxEnableToolbarStyling, "CheckBoxEnableToolbarStyling")
+        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBoxEnableToolbarStyling, 3)
+        Me.CheckBoxEnableToolbarStyling.Name = "CheckBoxEnableToolbarStyling"
+        Me.CheckBoxEnableToolbarStyling.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
         Me.TableLayoutPanel1.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxBlendToolbarColorWithBackground, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxEnableToolbarStyling, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         '
@@ -168,7 +168,7 @@ Partial Class SettingsDialog
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button
-    Friend WithEvents CheckBoxBlendToolbarColorWithBackground As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckBoxEnableToolbarStyling As System.Windows.Forms.CheckBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckedGroupBoxShowInSystemTray As ElanTimer.CheckedGroupBox
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel

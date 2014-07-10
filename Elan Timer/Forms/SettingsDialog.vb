@@ -6,7 +6,7 @@
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckedGroupBoxShowInSystemTray.Checked
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
-        My.Settings.UseToolbarStyling = CheckBoxBlendToolbarColorWithBackground.Checked
+        My.Settings.UseToolbarStyling = CheckBoxEnableToolbarStyling.Checked
         My.Settings.Save()
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
@@ -29,7 +29,7 @@
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckedGroupBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
-            CheckBoxBlendToolbarColorWithBackground.Checked = My.Settings.UseToolbarStyling
+            CheckBoxEnableToolbarStyling.Checked = My.Settings.UseToolbarStyling
         Catch ex As Exception
 
         End Try
@@ -40,8 +40,18 @@
     End Sub
 
     Private Sub SetStrings()
-        ' TODO: Finish SetStrings.
-        ' Throw New NotImplementedException
+        Me.SuspendLayout()
+
+        Me.CheckedGroupBoxShowInSystemTray.Text = My.Resources.Strings.ShowInSystemTray
+        Me.CheckBoxCloseToSystemTray.Text = My.Resources.Strings.CloseToSystemTray
+        Me.CheckBoxClickingTrayIconStopsAlarm.Text = My.Resources.Strings.ClickingTrayIconStopsAlarm
+        Me.CheckBoxEnableToolbarStyling.Text = My.Resources.Strings.EnableToolbarStyling
+
+        Me.ButtonOK.Text = My.Resources.Strings.Ok
+        Me.ButtonCancel.Text = My.Resources.Strings.Cancel
+
+        Me.ResumeLayout()
+
     End Sub
 
 End Class
