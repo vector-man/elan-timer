@@ -3,13 +3,11 @@
     Private applicationBindingSource As BindingSource
 
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
-        My.Settings.Language = ComboBoxLanguage.SelectedValue
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckedGroupBoxShowInSystemTray.Checked
         My.Settings.ClickingTrayIconStopsAlarm = CheckBoxClickingTrayIconStopsAlarm.Checked
         My.Settings.UseToolbarStyling = CheckBoxBlendToolbarColorWithBackground.Checked
         My.Settings.Save()
-        Utils.Languages.SetLanguage(My.Settings.Language)
         Utils.SetStrings()
         Me.DialogResult = Windows.Forms.DialogResult.OK
     End Sub
@@ -24,11 +22,6 @@
 
         applicationBindingSource.DataSource = My.Settings
         'End Using
-
-
-        ComboBoxLanguage.DisplayMember = "Value"
-        ComboBoxLanguage.ValueMember = "Key"
-        ComboBoxLanguage.DataSource = Utils.Languages.GetLanguages.ToList()
     End Sub
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -36,7 +29,6 @@
             CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
             CheckedGroupBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
             CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
-            ComboBoxLanguage.SelectedItem = Utils.Languages.GetLanguages.ToList().Where(Function(item) item.Key = My.Settings.Language).First
             CheckBoxBlendToolbarColorWithBackground.Checked = My.Settings.UseToolbarStyling
         Catch ex As Exception
 

@@ -29,8 +29,6 @@ Partial Class SettingsDialog
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.ComboBoxLanguage = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.CheckBoxBlendToolbarColorWithBackground = New System.Windows.Forms.CheckBox()
@@ -80,19 +78,6 @@ Partial Class SettingsDialog
         Me.Button6.Name = "Button6"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'ComboBoxLanguage
-        '
-        Me.TableLayoutPanel1.SetColumnSpan(Me.ComboBoxLanguage, 3)
-        resources.ApplyResources(Me.ComboBoxLanguage, "ComboBoxLanguage")
-        Me.ComboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxLanguage.FormattingEnabled = True
-        Me.ComboBoxLanguage.Name = "ComboBoxLanguage"
-        '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
         'ButtonOK
         '
         resources.ApplyResources(Me.ButtonOK, "ButtonOK")
@@ -117,12 +102,10 @@ Partial Class SettingsDialog
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxBlendToolbarColorWithBackground, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.ComboBoxLanguage, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxBlendToolbarColorWithBackground, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         '
         'CheckedGroupBoxShowInSystemTray
@@ -181,9 +164,7 @@ Partial Class SettingsDialog
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents ComboBoxLanguage As System.Windows.Forms.ComboBox
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
     Friend WithEvents ButtonCancel As System.Windows.Forms.Button

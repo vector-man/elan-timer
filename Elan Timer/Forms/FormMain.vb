@@ -114,9 +114,6 @@ Public Class FormMain
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            ' Load the localization language.
-            LoadLanguage()
-
             ' Load settings.
             If (My.Application.CommandLineArgs.Count = 1) Then
                 LoadSettings(My.Application.CommandLineArgs(0))
@@ -331,18 +328,6 @@ Public Class FormMain
                                  End If
                              End Sub))
 
-    End Sub
-    ' Load the language settings.
-    Private Sub LoadLanguage()
-        Try
-            ' Try to set UI culture to the language fronm settings.
-            Utils.Languages.SetLanguage(My.Settings.Language)
-        Catch ex As Exception
-            ' On failure, revert to the default language.
-            My.Settings.Language = My.Settings.DefaultLanguage
-        End Try
-        ' Set localization text.
-        Utils.SetStrings()
     End Sub
     ' Exits fullscreen mode.
     Private Sub ExitFullScreen()

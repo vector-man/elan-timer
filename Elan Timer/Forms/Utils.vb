@@ -3,8 +3,6 @@ Public Class Utils
     Private Shared toolTipMain As New ToolTip
     ' Framerate constant. This is equal to 10 frames per second.
     Public Const Framerate As Integer = 1000 / 10
-    ' The object for language settings, set with the default language.
-    Public Shared ReadOnly Languages As New Languages(My.Application.Info.DirectoryPath, My.Settings.DefaultLanguage)
     ' The object for all of the supported display formats for the timer (these appear in the 'Look' settings dialog).
     Public Shared ReadOnly DisplayFormats As New List(Of KeyValuePair(Of String, String)) From {
         {New KeyValuePair(Of String, String)("Standard", "d")},

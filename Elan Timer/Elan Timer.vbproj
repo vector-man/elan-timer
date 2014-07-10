@@ -235,7 +235,6 @@
     <Compile Include="Settings\StyleSettings.vb" />
     <Compile Include="Settings\TimeSettings.vb" />
     <Compile Include="Settings\TaskSettings.vb" />
-    <Compile Include="Locale\Languages.vb" />
     <Compile Include="Forms\FormMain.Designer.vb">
       <DependentUpon>FormMain.vb</DependentUpon>
     </Compile>
