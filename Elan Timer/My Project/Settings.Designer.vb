@@ -252,27 +252,6 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("en-US")>  _
-        Public ReadOnly Property DefaultLanguage() As String
-            Get
-                Return CType(Me("DefaultLanguage"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property Language() As String
-            Get
-                Return CType(Me("Language"),String)
-            End Get
-            Set
-                Me("Language") = value
-            End Set
-        End Property
-        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
@@ -480,13 +459,13 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CustomStyleColors() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("CustomStyleColors"), Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("CustomStyleColors"),Global.System.Collections.Specialized.StringCollection)
             End Get
-            Set(value As Global.System.Collections.Specialized.StringCollection)
+            Set
                 Me("CustomStyleColors") = value
             End Set
         End Property
