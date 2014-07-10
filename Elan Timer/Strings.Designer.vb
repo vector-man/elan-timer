@@ -108,7 +108,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("BrowseForFile", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to Browse for folder....
         '''</summary>
@@ -790,6 +790,42 @@ Namespace My.Resources
         Public Shared ReadOnly Property Tasks() As String
             Get
                 Return ResourceManager.GetString("Tasks", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Expired.
+        '''</summary>
+        Public Shared ReadOnly Property TimerEvent_Expired() As String
+            Get
+                Return ResourceManager.GetString("TimerEvent_Expired", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Paused.
+        '''</summary>
+        Public Shared ReadOnly Property TimerEvent_Paused() As String
+            Get
+                Return ResourceManager.GetString("TimerEvent_Paused", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Restarted.
+        '''</summary>
+        Public Shared ReadOnly Property TimerEvent_Restarted() As String
+            Get
+                Return ResourceManager.GetString("TimerEvent_Restarted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Started.
+        '''</summary>
+        Public Shared ReadOnly Property TimerEvent_Started() As String
+            Get
+                Return ResourceManager.GetString("TimerEvent_Started", resourceCulture)
             End Get
         End Property
         

@@ -360,6 +360,18 @@
   <data name="Tasks" xml:space="preserve">
     <value>Tasks</value>
   </data>
+  <data name="TimerEvent_Expired" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="TimerEvent_Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="TimerEvent_Restarted" xml:space="preserve">
+    <value>Restarted</value>
+  </data>
+  <data name="TimerEvent_Started" xml:space="preserve">
+    <value>Started</value>
+  </data>
   <data name="TimerHasExpired" xml:space="preserve">
     <value>Timer has expired.</value>
   </data>

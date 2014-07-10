@@ -1,4 +1,6 @@
 ﻿Imports PropertyChanged
+Imports System.ComponentModel
+
 <ImplementPropertyChanged>
 <Serializable>
 Public Class TaskModel
@@ -22,6 +24,7 @@ Public Class TaskModel
         Me.Enabled = enabled
     End Sub
 End Class
+<TypeConverter(GetType(LocalizedEnumConverter))>
 Public Enum TimerEvent
     Expired
     Paused ' Same as Enabled = False, or calling Stop()

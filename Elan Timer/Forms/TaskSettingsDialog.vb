@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports System.IO
+Imports ElanTimer.Infralution.Localization
 
 Public Class TaskSettingsDialog
 
@@ -74,6 +75,12 @@ Public Class TaskSettingsDialog
         TextBoxName.DataBindings.Add("Text", actionsBindingSource, "Name", True, DataSourceUpdateMode.OnPropertyChanged)
         TextBoxCommand.DataBindings.Add("Text", actionsBindingSource, "Command", True, DataSourceUpdateMode.OnPropertyChanged)
         TextBoxArguments.DataBindings.Add("Text", actionsBindingSource, "Arguments", True, DataSourceUpdateMode.OnPropertyChanged)
+
+        ' Used to fix localization issue for "Event" column.
+        OlvColumnEvent.AspectGetter = Function(obj)
+                                          ' Convert the event in task (obj) to the localized string.
+                                          Return ResourceEnumConverter.ConvertToString(DirectCast(obj, TaskModel).Event)
+                                      End Function
 
         DataListViewActions.DataSource = actionsBindingSource
     End Sub
@@ -201,7 +208,6 @@ Public Class TaskSettingsDialog
         taskToolTip.SetToolTip(Me.ButtonMoveUp, My.Resources.Strings.MoveUp)
         taskToolTip.SetToolTip(Me.ButtonMoveDown, My.Resources.Strings.MoveDown)
         taskToolTip.SetToolTip(Me.ButtonBrowseForFile, My.Resources.Strings.BrowseForFile)
-        ' TODO: Figure out event localization.
         Me.ResumeLayout()
     End Sub
 
