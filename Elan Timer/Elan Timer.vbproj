@@ -358,6 +358,9 @@
   <ItemGroup>
     <Content Include="elan-green-48.ico" />
     <Content Include="FodyWeavers.xml" />
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\menu.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\repeat.png" />
