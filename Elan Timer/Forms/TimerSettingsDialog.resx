@@ -964,7 +964,7 @@
     <value>0, 3, 0, 3</value>
   </data>
   <data name="TextBoxNote.MaxLength" type="System.Int32, mscorlib">
-    <value>150</value>
+    <value>100</value>
   </data>
   <data name="TextBoxNote.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>

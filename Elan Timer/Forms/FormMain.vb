@@ -54,7 +54,6 @@ Public Class FormMain
         '#End If
 
         ExecuteActions(TimerEvent.Expired)
-        ShowNote()
         TryShowNoteAlert()
     End Sub
     Public Sub ExecuteActions(e As TimerEvent)
@@ -261,6 +260,7 @@ Public Class FormMain
         timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
         noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
 
+        ToolStripLabelNote.Text = If(timeSettings.NoteEnabled, noteObject.Text, String.Empty)
 
         timerSurface = New Surface()
         timerSurface.BackColor = styleSettings.BackgroundColor
@@ -312,6 +312,8 @@ Public Class FormMain
         noteObject.Visible = False
         ' Show the timer.
         timerObject.Visible = True
+
+        SetFullScreenNoteVisibility()
     End Sub
     ' Show the timer note and hide the time.
     Private Sub ShowNote()
@@ -323,14 +325,18 @@ Public Class FormMain
         noteObject.Visible = True
         ' Hide the timer.
         timerObject.Visible = False
+
+        SetFullScreenNoteVisibility()
     End Sub
     Private Sub TryShowNoteAlert()
         Me.Invoke(New Action(Sub()
-                                 If (timeSettings.NoteEnabled And timeSettings.AlertEnabled) Then
-                                     MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                 If (timeSettings.NoteEnabled) Then
+                                     ShowNote()
+                                     If (timeSettings.AlertEnabled) Then
+                                         MessageBox.Show(Me, If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text), My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                     End If
                                  End If
                              End Sub))
-
     End Sub
     ' Exits fullscreen mode.
     Private Sub ExitFullScreen()
@@ -413,12 +419,14 @@ Public Class FormMain
 
         '    ToolStripButtonStartPause.Image. = If(timer.IsPaused, My.Resources.play_light, My.Resources.pause_light)
         'End If
-
+        SetFullScreenNoteVisibility()
         Try
             If (Not My.Settings.UseToolbarStyling) Then
                 ToolStripSplitButtonSettings.Image = My.Resources.menu
                 ToolStripButtonReset.Image = My.Resources.repeat
                 ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
+                ToolStripLabelNote.ForeColor = Label.DefaultForeColor
+                ToolStripLabelNote.BackColor = Label.DefaultBackColor
             Else
                 Dim transparentColor As Color = If(styleSettings.ForegroundColor = Color.Fuchsia, Color.AliceBlue, Color.Fuchsia)
                 ToolStripButtonReset.ImageTransparentColor = transparentColor
@@ -428,6 +436,8 @@ Public Class FormMain
                 ToolStripSplitButtonSettings.Image = GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
                 ToolStripButtonReset.Image = GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
                 ToolStripButtonStartPause.Image = If(timer.IsPaused, GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
+                ToolStripLabelNote.ForeColor = styleSettings.ForegroundColor
+                ToolStripLabelNote.BackColor = styleSettings.BackgroundColor
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -546,8 +556,8 @@ Public Class FormMain
     End Sub
     Private Sub ResetTimer()
         timer.Reset()
-        HideNote()
         UpdateIcons()
+        HideNote()
     End Sub
     ' Enter or exit fullscreen.
     Private Sub EnterFullscreen(fullscreen As Boolean)
@@ -562,6 +572,7 @@ Public Class FormMain
             Me.TopMost = My.Settings.AlwaysOnTop
             Me.CenterToScreen()
         End If
+        SetFullScreenNoteVisibility()
     End Sub
     Private Sub CloseToSystemTray()
         Me.Hide()
@@ -609,7 +620,7 @@ Public Class FormMain
                 timeSettings.AlarmName = dialog.SelectedAlarm
                 timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
-                timeSettings.Note = dialog.Note
+                timeSettings.Note = dialog.Note.Replace(Environment.NewLine, String.Empty)
                 timeSettings.NoteEnabled = dialog.NoteEnabled
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
@@ -623,6 +634,7 @@ Public Class FormMain
                 If result = Windows.Forms.DialogResult.Yes Then
                     SetTimerState(True)
                 End If
+
                 Me.UpdateIcons()
             End If
             ContextMenuStripMain.Enabled = True
@@ -1019,4 +1031,9 @@ Public Class FormMain
 
         Me.ResumeLayout()
     End Sub
+
+    Private Sub SetFullScreenNoteVisibility()
+        ToolStripLabelNote.Visible = (Not timer.IsExpired AndAlso timeSettings.NoteEnabled AndAlso My.Settings.WindowFullScreen)
+    End Sub
+
 End Class
