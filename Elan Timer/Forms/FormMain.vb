@@ -530,11 +530,8 @@ Public Class FormMain
             styleSettings.Save()
             timeSettings.Save()
             taskSettings.Save()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, My.Application.Info.AssemblyName)
-            If MessageBox.Show("Elan Timer failed to save one or more settings files. Would you like to try again? If you select ""No,"" Some changes since you last ran Elan Timer will be lost.", My.Application.Info.AssemblyName, MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
-                SaveSettings()
-            End If
+        Catch
+
         End Try
     End Sub
     ' Toggles timer between paused and not paused.
