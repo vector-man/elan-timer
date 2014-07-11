@@ -51,6 +51,7 @@ Partial Class FormMain
         Me.ToolStripButtonNewTimer = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonStartPause = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonReset = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
         Me.PanelTimer = New System.Windows.Forms.Panel()
         Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
         Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -68,10 +69,9 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
-        Me.ToolStripMain.SuspendLayout()
-        Me.ContextMenuStripMain.SuspendLayout()
-        Me.SuspendLayout()
+        Me.ToolStripMain.SuspendLayout
+        Me.ContextMenuStripMain.SuspendLayout
+        Me.SuspendLayout
         '
         'ToolStripMain
         '
@@ -79,7 +79,7 @@ Partial Class FormMain
         Me.ToolStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset, Me.ToolStripLabelNote})
         resources.ApplyResources(Me.ToolStripMain, "ToolStripMain")
         Me.ToolStripMain.Name = "ToolStripMain"
-        Me.ToolStripMain.TabStop = True
+        Me.ToolStripMain.TabStop = true
         '
         'ToolStripSplitButtonSettings
         '
@@ -89,7 +89,7 @@ Partial Class FormMain
         resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
         Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
         Me.ToolStripSplitButtonSettings.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripSplitButtonSettings.ShowDropDownArrow = False
+        Me.ToolStripSplitButtonSettings.ShowDropDownArrow = false
         '
         'ToolStripMenuItemNewTimer
         '
@@ -228,11 +228,18 @@ Partial Class FormMain
         Me.ToolStripButtonReset.Name = "ToolStripButtonReset"
         Me.ToolStripButtonReset.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         '
+        'ToolStripLabelNote
+        '
+        Me.ToolStripLabelNote.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabelNote.AutoToolTip = true
+        Me.ToolStripLabelNote.Name = "ToolStripLabelNote"
+        resources.ApplyResources(Me.ToolStripLabelNote, "ToolStripLabelNote")
+        '
         'PanelTimer
         '
         resources.ApplyResources(Me.PanelTimer, "PanelTimer")
         Me.PanelTimer.Name = "PanelTimer"
-        Me.PanelTimer.TabStop = True
+        Me.PanelTimer.TabStop = true
         '
         'ProgressBarMain
         '
@@ -317,29 +324,23 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
         resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
-        'ToolStripLabelNote
-        '
-        Me.ToolStripLabelNote.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabelNote.AutoToolTip = True
-        Me.ToolStripLabelNote.Name = "ToolStripLabelNote"
-        resources.ApplyResources(Me.ToolStripLabelNote, "ToolStripLabelNote")
-        '
         'FormMain
         '
-        Me.AllowDrop = True
+        Me.AllowDrop = true
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ProgressBarMain)
         Me.Controls.Add(Me.PanelTimer)
         Me.Controls.Add(Me.ToolStripMain)
+        Me.KeyPreview = true
         Me.Name = "FormMain"
-        Me.ToolStripMain.ResumeLayout(False)
-        Me.ToolStripMain.PerformLayout()
-        Me.ContextMenuStripMain.ResumeLayout(False)
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ToolStripMain.ResumeLayout(false)
+        Me.ToolStripMain.PerformLayout
+        Me.ContextMenuStripMain.ResumeLayout(false)
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents ToolStripMain As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButtonStartPause As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButtonReset As System.Windows.Forms.ToolStripButton
