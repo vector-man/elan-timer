@@ -408,17 +408,6 @@ Public Class FormMain
     End Sub
     ' Update the button icons for paused/not paused.
     Private Sub UpdateToolbar()
-        'If ((My.Settings.BlendToolbarColorWithBackground And styleSettings.BackgroundColor.GetBrightness() > 0.5) Or (Not My.Settings.BlendToolbarColorWithBackground)) Then
-        '    ToolStripSplitButtonSettings.Image = My.Resources.menu
-        '    ToolStripButtonReset.Image = My.Resources.repeat
-
-        '    ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
-        'Else
-        '    ToolStripSplitButtonSettings.Image = My.Resources.menu_light
-        '    ToolStripButtonReset.Image = My.Resources.repeat_light
-
-        '    ToolStripButtonStartPause.Image. = If(timer.IsPaused, My.Resources.play_light, My.Resources.pause_light)
-        'End If
         SetFullScreenNoteVisibility()
         Try
             If (Not My.Settings.UseToolbarStyling) Then
