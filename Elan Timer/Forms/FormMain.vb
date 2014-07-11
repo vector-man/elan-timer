@@ -1015,6 +1015,16 @@ Public Class FormMain
         Me.ToolStripButtonNewTimer.Text = My.Resources.Strings.MenuNewTimer
         Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
 
+        ' NotifyIconMain
+        Me.NotifyIconToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.NotifyIconToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
+        Me.NotifyIconToolStripMenuItemStartTimer.Text = My.Resources.Strings.Start
+        Me.ToolNotifyIconStripMenuItemResetTimer.Text = My.Resources.Strings.Reset
+        Me.NotifyIconToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
+        Me.NotifyIconToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
+        Me.NotifyIconToolStripMenuItemSettings.Text = My.Resources.Strings.MenuMisc
+        Me.NotifyIconToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
+
         Me.ResumeLayout()
     End Sub
 
