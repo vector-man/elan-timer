@@ -479,7 +479,7 @@ Public Class FormMain
                             settings.Import(stream)
                             settings.Tasks.ForEach(Sub(i) i.Enabled = False)
                             taskSettings.Tasks.AddRange(settings.Tasks)
-                            MessageBox.Show("Tasks were imported, but were disabled for safety.", My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            MessageBox.Show(My.Resources.Strings.MessageTasksWereImported, My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Case My.Settings.TimeFileExtension
                             timeSettings.Import(stream)
                             RemoveTimerHandlers()

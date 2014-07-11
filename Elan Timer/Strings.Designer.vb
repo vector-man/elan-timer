@@ -560,6 +560,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Tasks were imported, but were disabled for safety. They must be manually enabled..
+        '''</summary>
+        Public Shared ReadOnly Property MessageTasksWereImported() As String
+            Get
+                Return ResourceManager.GetString("MessageTasksWereImported", resourceCulture)
+            End Get
+        End Property
+
+        '''<summary>
         '''  Looks up a localized string similar to The time format you entered was unrecognized. When in doubt, use one of these formats: hours:minutes:seconds, minutes:seconds, or, simply, a number for seconds. Read the help document for more recognized formats..
         '''</summary>
         Public Shared ReadOnly Property MessageUnrecognizedTimerFormat() As String
