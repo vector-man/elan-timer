@@ -122,5 +122,8 @@
     <Setting Name="DefaultWindowSize" Type="System.Drawing.Size" Scope="Application">
       <Value Profile="(Default)">330, 130</Value>
     </Setting>
+    <Setting Name="LicenseFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LICENSE.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

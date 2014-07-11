@@ -502,6 +502,18 @@ Namespace My
                 Return CType(Me("DefaultWindowSize"),Global.System.Drawing.Size)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("LICENSE.txt")>  _
+        Public Property LicenseFile() As String
+            Get
+                Return CType(Me("LicenseFile"),String)
+            End Get
+            Set
+                Me("LicenseFile") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

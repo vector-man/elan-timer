@@ -1,5 +1,6 @@
-﻿Public NotInheritable Class AboutDialog
+﻿Imports System.IO
 
+Public NotInheritable Class AboutDialog
     Private Sub DialogAbout_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         SetStrings()
 
@@ -35,4 +36,12 @@
 
     End Sub
 
+    Private Sub LinkLabelLicense_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelLicense.LinkClicked
+        Try
+            Process.Start(Path.Combine(My.Application.Info.DirectoryPath, My.Settings.LicenseFile))
+            Me.Close()
+        Catch
+
+        End Try
+    End Sub
 End Class

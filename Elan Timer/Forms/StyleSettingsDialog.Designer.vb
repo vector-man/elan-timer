@@ -207,6 +207,7 @@ Partial Class StyleSettingsDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "StyleSettingsDialog"
+        Me.ShowInTaskbar = False
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.TrackBarTransparency, System.ComponentModel.ISupportInitialize).EndInit()
