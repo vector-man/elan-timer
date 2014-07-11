@@ -286,7 +286,7 @@ Public Class FormMain
 
         renderer.Enabled = True
 
-        UpdateIcons()
+        UpdateToolbar()
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
     Sub RestartRendering()
@@ -407,7 +407,7 @@ Public Class FormMain
         Me.Text = String.Format(My.Resources.Strings.WindowTextFormat, timerObject.Prefix, time, separator, note, title)
     End Sub
     ' Update the button icons for paused/not paused.
-    Private Sub UpdateIcons()
+    Private Sub UpdateToolbar()
         'If ((My.Settings.BlendToolbarColorWithBackground And styleSettings.BackgroundColor.GetBrightness() > 0.5) Or (Not My.Settings.BlendToolbarColorWithBackground)) Then
         '    ToolStripSplitButtonSettings.Image = My.Resources.menu
         '    ToolStripButtonReset.Image = My.Resources.repeat
@@ -549,11 +549,11 @@ Public Class FormMain
         Catch ex As Exception
 
         End Try
-        UpdateIcons()
+        UpdateToolbar()
     End Sub
     Private Sub ResetTimer()
         timer.Reset()
-        UpdateIcons()
+        UpdateToolbar()
         HideNote()
     End Sub
     ' Enter or exit fullscreen.
@@ -632,7 +632,7 @@ Public Class FormMain
                     SetTimerState(True)
                 End If
 
-                Me.UpdateIcons()
+                Me.UpdateToolbar()
             End If
             ContextMenuStripMain.Enabled = True
 
@@ -711,7 +711,7 @@ Public Class FormMain
 
                 Me.Opacity = styleSettings.Opacity / 100
 
-                UpdateIcons()
+                UpdateToolbar()
             End If
 
             RemoveHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
@@ -738,7 +738,7 @@ Public Class FormMain
         ContextMenuStripMain.Enabled = True
 
         SetColoredToolStrip(My.Settings.UseToolbarStyling)
-        UpdateIcons()
+        UpdateToolbar()
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
