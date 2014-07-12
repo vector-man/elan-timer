@@ -1,4 +1,6 @@
 ﻿Imports System.Configuration
+Imports System.IO
+
 Namespace Settings
     Public Class TaskSettings
         Inherits ApplicationSettingsBase
@@ -32,7 +34,9 @@ Namespace Settings
         Public Sub Import(stream As IO.Stream) Implements IImportable.Import
             Dim model As TasksModel
             model = Transporter.Import(Of TasksModel)(stream)
-
+            If model.Tasks.Where(Function(t) Not [Enum].IsDefined(GetType(TimerEvent), t.Event)).Count > 0 Then
+                Throw New FileFormatException()
+            End If
             Me.Tasks = model.Tasks
         End Sub
     End Class
