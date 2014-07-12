@@ -54,25 +54,25 @@ Partial Class TimerSettingsDialog
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItemLoadPreset = New System.Windows.Forms.MenuItem()
         Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
-        CType(Me.NumericUpDownHours,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.NumericUpDownMinutes,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.NumericUpDownSeconds,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.NumericUpDownRestarts,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.GroupBoxDuration.SuspendLayout
-        Me.TableLayoutPanel1.SuspendLayout
-        Me.TableLayoutPanel2.SuspendLayout
-        Me.TableLayoutPanel3.SuspendLayout
-        Me.CheckedGroupBox1.SuspendLayout
-        Me.TableLayoutPanel4.SuspendLayout
-        CType(Me.TrackBarVolume,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDownRestarts, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxDuration.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
+        Me.CheckedGroupBox1.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
+        CType(Me.TrackBarVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'CheckBoxShowNoteAlertWhenTimerExpires
         '
         resources.ApplyResources(Me.CheckBoxShowNoteAlertWhenTimerExpires, "CheckBoxShowNoteAlertWhenTimerExpires")
         Me.TableLayoutPanel2.SetColumnSpan(Me.CheckBoxShowNoteAlertWhenTimerExpires, 4)
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Name = "CheckBoxShowNoteAlertWhenTimerExpires"
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = true
+        Me.CheckBoxShowNoteAlertWhenTimerExpires.UseVisualStyleBackColor = True
         '
         'LabelHours
         '
@@ -123,15 +123,15 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.CheckBoxCountUp, "CheckBoxCountUp")
         Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBoxCountUp, 2)
         Me.CheckBoxCountUp.Name = "CheckBoxCountUp"
-        Me.CheckBoxCountUp.UseVisualStyleBackColor = true
+        Me.CheckBoxCountUp.UseVisualStyleBackColor = True
         '
         'GroupBoxDuration
         '
         resources.ApplyResources(Me.GroupBoxDuration, "GroupBoxDuration")
-        Me.TableLayoutPanel2.SetColumnSpan(Me.GroupBoxDuration, 6)
+        Me.TableLayoutPanel2.SetColumnSpan(Me.GroupBoxDuration, 5)
         Me.GroupBoxDuration.Controls.Add(Me.TableLayoutPanel1)
         Me.GroupBoxDuration.Name = "GroupBoxDuration"
-        Me.GroupBoxDuration.TabStop = false
+        Me.GroupBoxDuration.TabStop = False
         '
         'TableLayoutPanel1
         '
@@ -161,47 +161,47 @@ Partial Class TimerSettingsDialog
         'TableLayoutPanel3
         '
         resources.ApplyResources(Me.TableLayoutPanel3, "TableLayoutPanel3")
-        Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 6)
+        Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.ButtonOptions, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 6, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonStart, 2, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSet, 4, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonCancel, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonStart, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ButtonSet, 2, 0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         '
         'ButtonOptions
         '
         resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
         Me.ButtonOptions.Name = "ButtonOptions"
-        Me.ButtonOptions.UseVisualStyleBackColor = true
+        Me.ButtonOptions.UseVisualStyleBackColor = True
         '
         'ButtonCancel
         '
         resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
         Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.UseVisualStyleBackColor = true
+        Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'ButtonStart
         '
         resources.ApplyResources(Me.ButtonStart, "ButtonStart")
         Me.ButtonStart.Name = "ButtonStart"
-        Me.ButtonStart.UseVisualStyleBackColor = true
+        Me.ButtonStart.UseVisualStyleBackColor = True
         '
         'ButtonSet
         '
         resources.ApplyResources(Me.ButtonSet, "ButtonSet")
         Me.ButtonSet.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.ButtonSet.Name = "ButtonSet"
-        Me.ButtonSet.UseVisualStyleBackColor = true
+        Me.ButtonSet.UseVisualStyleBackColor = True
         '
         'CheckedGroupBox1
         '
         resources.ApplyResources(Me.CheckedGroupBox1, "CheckedGroupBox1")
-        Me.CheckedGroupBox1.Checked = false
-        Me.TableLayoutPanel2.SetColumnSpan(Me.CheckedGroupBox1, 6)
+        Me.CheckedGroupBox1.Checked = False
+        Me.TableLayoutPanel2.SetColumnSpan(Me.CheckedGroupBox1, 5)
         Me.CheckedGroupBox1.Controls.Add(Me.TableLayoutPanel4)
         Me.CheckedGroupBox1.Name = "CheckedGroupBox1"
-        Me.CheckedGroupBox1.TabStop = false
+        Me.CheckedGroupBox1.TabStop = False
         '
         'TableLayoutPanel4
         '
@@ -219,7 +219,7 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.CheckBoxLoop, "CheckBoxLoop")
         Me.TableLayoutPanel4.SetColumnSpan(Me.CheckBoxLoop, 2)
         Me.CheckBoxLoop.Name = "CheckBoxLoop"
-        Me.CheckBoxLoop.UseVisualStyleBackColor = true
+        Me.CheckBoxLoop.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -231,13 +231,13 @@ Partial Class TimerSettingsDialog
         resources.ApplyResources(Me.ButtonAlarmPlay, "ButtonAlarmPlay")
         Me.ButtonAlarmPlay.Image = Global.ElanTimer.My.Resources.Resources.play_green
         Me.ButtonAlarmPlay.Name = "ButtonAlarmPlay"
-        Me.ButtonAlarmPlay.UseVisualStyleBackColor = true
+        Me.ButtonAlarmPlay.UseVisualStyleBackColor = True
         '
         'ComboBoxAlarmPath
         '
         resources.ApplyResources(Me.ComboBoxAlarmPath, "ComboBoxAlarmPath")
         Me.ComboBoxAlarmPath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxAlarmPath.FormattingEnabled = true
+        Me.ComboBoxAlarmPath.FormattingEnabled = True
         Me.ComboBoxAlarmPath.Name = "ComboBoxAlarmPath"
         '
         'Label2
@@ -258,7 +258,7 @@ Partial Class TimerSettingsDialog
         '
         resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
         Me.CheckBoxNote.Name = "CheckBoxNote"
-        Me.CheckBoxNote.UseVisualStyleBackColor = true
+        Me.CheckBoxNote.UseVisualStyleBackColor = True
         '
         'TextBoxNote
         '
