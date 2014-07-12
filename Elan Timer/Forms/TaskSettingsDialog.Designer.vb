@@ -92,9 +92,9 @@ Partial Class TaskSettingsDialog
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanelActions.SetColumnSpan(Me.TableLayoutPanel2, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 4, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 2, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOptions, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 3, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 2, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOptions, 0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'ButtonCancel

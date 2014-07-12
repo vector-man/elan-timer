@@ -136,7 +136,7 @@
     <value>0, 17</value>
   </data>
   <data name="LabelProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 17</value>
+    <value>261, 17</value>
   </data>
   <data name="LabelProductName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -172,7 +172,7 @@
     <value>0, 17</value>
   </data>
   <data name="LabelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 17</value>
+    <value>261, 17</value>
   </data>
   <data name="LabelVersion.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -208,7 +208,7 @@
     <value>0, 17</value>
   </data>
   <data name="LabelCopyright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 17</value>
+    <value>261, 17</value>
   </data>
   <data name="LabelCopyright.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -244,7 +244,7 @@
     <value>0, 17</value>
   </data>
   <data name="LabelCompanyName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 17</value>
+    <value>261, 17</value>
   </data>
   <data name="LabelCompanyName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -283,7 +283,7 @@
     <value>Both</value>
   </data>
   <data name="TextBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 121</value>
+    <value>261, 121</value>
   </data>
   <data name="TextBoxDescription.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -343,7 +343,7 @@ Customize the application's assembly information in the Application pane of Proj
     <value>0</value>
   </data>
   <data name="ButtonOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 3</value>
+    <value>192, 3</value>
   </data>
   <data name="ButtonOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -379,7 +379,7 @@ Customize the application's assembly information in the Application pane of Proj
     <value>1</value>
   </data>
   <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 31</value>
+    <value>270, 31</value>
   </data>
   <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -403,13 +403,13 @@ Customize the application's assembly information in the Application pane of Proj
     <value>Bottom</value>
   </data>
   <data name="TableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 9</value>
+    <value>7, 11</value>
   </data>
   <data name="TableLayoutPanel.RowCount" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="TableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 258</value>
+    <value>270, 258</value>
   </data>
   <data name="TableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -439,7 +439,7 @@ Customize the application's assembly information in the Application pane of Proj
     <value>284, 276</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>9, 9, 9, 9</value>
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

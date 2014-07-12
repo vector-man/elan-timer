@@ -298,7 +298,7 @@
     <value>Top</value>
   </data>
   <data name="TableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 303</value>
+    <value>0, 310</value>
   </data>
   <data name="TableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -346,10 +346,10 @@
     <value>NoControl</value>
   </data>
   <data name="CheckBoxLoop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 53</value>
+    <value>3, 53</value>
   </data>
   <data name="CheckBoxLoop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 0, 0</value>
+    <value>3, 2, 0, 0</value>
   </data>
   <data name="CheckBoxLoop.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 17</value>
@@ -415,7 +415,7 @@
     <value>NoControl</value>
   </data>
   <data name="ButtonAlarmPlay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 2</value>
+    <value>336, 2</value>
   </data>
   <data name="ButtonAlarmPlay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 0, 0</value>
@@ -448,7 +448,7 @@
     <value>2, 3, 2, 2</value>
   </data>
   <data name="ComboBoxAlarmPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 21</value>
+    <value>282, 21</value>
   </data>
   <data name="ComboBoxAlarmPath.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -514,7 +514,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="TrackBarVolume.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 21</value>
+    <value>304, 21</value>
   </data>
   <data name="TrackBarVolume.TabIndex" type="System.Int32, mscorlib">
     <value>100</value>
@@ -535,7 +535,7 @@
     <value>Fill</value>
   </data>
   <data name="TableLayoutPanel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 20</value>
+    <value>5, 20</value>
   </data>
   <data name="TableLayoutPanel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -544,7 +544,7 @@
     <value>4</value>
   </data>
   <data name="TableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>357, 70</value>
+    <value>358, 70</value>
   </data>
   <data name="TableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -568,13 +568,13 @@
     <value>Top</value>
   </data>
   <data name="CheckedGroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 199</value>
+    <value>0, 206</value>
   </data>
   <data name="CheckedGroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 7</value>
   </data>
   <data name="CheckedGroupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 7, 6, 7</value>
+    <value>5, 7, 6, 7</value>
   </data>
   <data name="CheckedGroupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>369, 97</value>
@@ -958,10 +958,10 @@
     <value>Fill</value>
   </data>
   <data name="GroupBoxDuration.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 52</value>
+    <value>0, 59</value>
   </data>
   <data name="GroupBoxDuration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 7</value>
+    <value>0, 7, 0, 7</value>
   </data>
   <data name="GroupBoxDuration.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 7, 6, 7</value>
@@ -1030,7 +1030,7 @@
     <value>5</value>
   </data>
   <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 326</value>
+    <value>369, 333</value>
   </data>
   <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
@@ -1103,6 +1103,9 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>383, 340</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>7, 7, 7, 7</value>

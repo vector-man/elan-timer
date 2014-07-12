@@ -136,7 +136,7 @@ Partial Class StyleSettingsDialog
         Me.TableLayoutPanel1.Controls.Add(Me.LabelFont, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.FontPickerFont, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxGrowToFit, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 8)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelTransparency, 0, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelForegroundColor, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelBackgroundColor, 0, 4)
@@ -150,15 +150,15 @@ Partial Class StyleSettingsDialog
         Me.TrackBarTransparency.LargeChange = 25
         Me.TrackBarTransparency.Maximum = 75
         Me.TrackBarTransparency.Name = "TrackBarTransparency"
-        Me.TrackBarTransparency.TickFrequency = 10
+        Me.TrackBarTransparency.TickFrequency = 15
         '
         'TableLayoutPanel2
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanel1.SetColumnSpan(Me.TableLayoutPanel2, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 5, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonCancel, 3, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ButtonOptions, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 3, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.ButtonOK, 2, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         '
         'ButtonCancel
