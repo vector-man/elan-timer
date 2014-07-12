@@ -868,7 +868,7 @@ Public Class FormMain
                 settings.Export(output)
             End Using
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(String.Format("Preset could not be saved to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
@@ -894,7 +894,8 @@ Public Class FormMain
 
             End Using
         Catch ex As Exception
-            Throw ex
+            ' Throw ex
+            MessageBox.Show(String.Format("Preset could not be loaded from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
@@ -915,7 +916,7 @@ Public Class FormMain
                 dialog.Transparency = 100 - settings.Opacity
             End Using
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(String.Format("Style could not be loaded from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
@@ -934,7 +935,7 @@ Public Class FormMain
                 settings.Export(output)
             End Using
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(String.Format("Style could not be saved to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
@@ -948,7 +949,7 @@ Public Class FormMain
                 dialog.Tasks.AddRange(settings.Tasks)
             End Using
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(String.Format("Tasks could not be imported from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
@@ -961,7 +962,7 @@ Public Class FormMain
                 settings.Export(output)
             End Using
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(String.Format("Tasks could not be exported to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
