@@ -155,14 +155,6 @@ Public Class FormMain
             ' Set localized strings for this form.
             SetStrings()
 
-            ' If a single argument is in command line (assumed to be a file), then load settings file.
-            If (My.Application.CommandLineArgs.Count = 1) Then
-                LoadSettings(My.Application.CommandLineArgs(0))
-            Else
-                ' Initialize the main form.
-                InitializeFormMain()
-            End If
-
             ' Try to set the alarm name. If it is not present on the system, sets the default alarm or nothing instead.
             Try
                 timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
@@ -184,16 +176,23 @@ Public Class FormMain
             ' Initialize the timer.
             InitializeTimer()
 
-            ' Start rendering.
+            ' Restart rendering.
             StartRendering()
+            ' Initialize the main form.
+            InitializeFormMain()
             ' Get rid of the toolstrip highlight bug that occurs for some reason.
             ToolStripMain.Select()
 
             ' Add handler for UpdateUI.
             AddHandler Application.Idle, AddressOf UpdateUI
 
+            ' If a single argument is in command line (assumed to be a file), then load settings file.
+            If (My.Application.CommandLineArgs.Count = 1) Then
+                LoadSettings(My.Application.CommandLineArgs(0))
+            End If
+
         Catch ex As Exception
-            Debug.Print(ex.ToString())
+            Throw ex
         End Try
     End Sub
 
