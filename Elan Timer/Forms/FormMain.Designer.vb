@@ -134,6 +134,7 @@ Partial Class FormMain
         '
         'ToolStripMenuItemAlwaysOnTop
         '
+        Me.ToolStripMenuItemAlwaysOnTop.CheckOnClick = True
         Me.ToolStripMenuItemAlwaysOnTop.Name = "ToolStripMenuItemAlwaysOnTop"
         resources.ApplyResources(Me.ToolStripMenuItemAlwaysOnTop, "ToolStripMenuItemAlwaysOnTop")
         '
