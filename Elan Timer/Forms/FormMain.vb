@@ -747,9 +747,9 @@ Public Class FormMain
 
 
                 Dim customColors = New System.Collections.Specialized.StringCollection()
-                customColors.AddRange(dialog.CustomStyleColors.ToList().ConvertAll(Function(c)
-                                                                                       Return c.ToString()
-                                                                                   End Function).ToArray())
+                If (dialog.CustomStyleColors IsNot Nothing) Then customColors.AddRange(dialog.CustomStyleColors.ToList().ConvertAll(Function(c)
+                                                                                                                                        Return c.ToString()
+                                                                                                                                    End Function).ToArray())
                 My.Settings.CustomStyleColors = customColors
 
 
