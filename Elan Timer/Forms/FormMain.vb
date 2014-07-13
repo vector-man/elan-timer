@@ -423,31 +423,28 @@ Public Class FormMain
     Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
         ' TODO: better error handling.
         Try
-            Await Task.Factory.StartNew(Async Function()
-                                            ' Runs while not canceled.
-                                            While (Not token.IsCancellationRequested)
-                                                ' Calculate current progress value (based on current/total time left.)
-                                                Dim currentProgressValue As Long
-                                                currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
-                                                ' Report the progress (for task bar progress bar.)
-                                                reporter.Report(currentProgressValue)
+            ' Runs while not canceled.
+            While (Not token.IsCancellationRequested)
+                ' Calculate current progress value (based on current/total time left.)
+                Dim currentProgressValue As Long
+                currentProgressValue = (timer.Elapsed.TotalMilliseconds / timer.Duration.TotalMilliseconds) * 1000
+                ' Report the progress (for task bar progress bar.)
+                reporter.Report(currentProgressValue)
 
-                                                ' Update form progress bar on UI thread.
-                                                ProgressBarMain.Invoke(New Action(Sub()
-                                                                                      ProgressBarMain.Value = currentProgressValue
-                                                                                  End Sub)
-                                                )
-                                                ' Update form text on UI thread.
-                                                Me.Invoke(New Action(Sub()
-                                                                         UpdateWindowText()
-                                                                         NotifyIconMain.Text = Utils.LimitTextLength(Me.Text, 63)
-                                                                     End Sub))
-                                                ' Wait until next frame update.
-                                                Await TaskEx.Delay(renderer.FramesPerSecond)
-                                            End While
-                                        End Function, token, TaskCreationOptions.LongRunning, TaskScheduler.FromCurrentSynchronizationContext)
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
+                ' Update form progress bar on UI thread.
+
+                ProgressBarMain.Value = currentProgressValue
+
+                ' Update form text on UI thread.
+
+                UpdateWindowText()
+                NotifyIconMain.Text = Utils.LimitTextLength(Me.Text, 63)
+
+                ' Wait until next frame update.
+                Await TaskEx.Delay(renderer.FramesPerSecond)
+            End While
+        Catch ex As TaskCanceledException
+
         End Try
     End Function
     Private Sub UpdateWindowText()
