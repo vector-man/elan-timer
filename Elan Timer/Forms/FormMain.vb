@@ -679,7 +679,7 @@ Public Class FormMain
                 timeSettings.AlarmName = dialog.SelectedAlarm
                 timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
-                timeSettings.Note = dialog.Note.Replace(Environment.NewLine, String.Empty)
+                timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note), dialog.Note.Replace(Environment.NewLine, String.Empty), String.Empty)
                 timeSettings.NoteEnabled = dialog.NoteEnabled
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
