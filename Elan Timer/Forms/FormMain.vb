@@ -37,11 +37,16 @@ Public Class FormMain
     ' Reports progress to update UI when timer is running.
     Private reporter As IProgress(Of Integer)
 
+    Private formInitialized As Boolean = False
+
     ' Eascape key character (used for exiting full screen mode.)
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
     ' Forces window to close.
     Private forceClose As Boolean = False
+
+    Dim maximized As Boolean = False
+    Dim fullScreen As Boolean = False
 
     ' Used for benchmark and testing.
 #If DEBUG Then
@@ -122,15 +127,7 @@ Public Class FormMain
         Else
             ' Stop rendering the timer display.
             StopRendering()
-            ' If full screen is not set...
-            If (Not My.Settings.WindowFullScreen) Then
-                ' Assign the setting to indicate if the window is maximized or not.
-                My.Settings.WindowMaximized = (Me.WindowState = FormWindowState.Maximized)
-                ' Set the window state to normal.
-                Me.WindowState = FormWindowState.Normal
-                ' Assign the setting to the form size.
-                My.Settings.WindowSize = Me.Size
-            End If
+
             ' Save application settings.
             SaveSettings()
         End If
@@ -150,7 +147,7 @@ Public Class FormMain
         ' If escape key is pressed...
         If e.KeyChar = EscapeKeyChar Then
             ' Exit full screen mode.
-            ExitFullScreen()
+            SetWindowFullScreen(False)
         End If
     End Sub
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -194,6 +191,7 @@ Public Class FormMain
                 LoadSettings(My.Application.CommandLineArgs(0))
             End If
 
+            formInitialized = True
         Catch ex As Exception
             Throw ex
         End Try
@@ -223,19 +221,12 @@ Public Class FormMain
     End Sub
 
     Private Sub DefaultToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemDefault.Click
-        ' Set timer form setting to default size.
-        My.Settings.WindowFullScreen = False
-        My.Settings.WindowMaximized = False
-
-        ' Exit fullscreen
-        SetFullScreen(False)
-        ' Set default window size.
-        Me.Size = My.Settings.DefaultWindowSize
+        SetWindowDefault()
     End Sub
 
     Private Sub CompactToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCompact.Click
         ' Set timer form to 'compact' size.
-        Me.Size = New Size(My.Settings.DefaultCompactWindowWidth, Me.Height - Me.ClientSize.Height + Me.ToolStripMain.Height)
+        SetWindowCompact()
     End Sub
 
     Private Sub TimerSurface_DoubleClick(sender As Object, e As EventArgs)
@@ -244,7 +235,9 @@ Public Class FormMain
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
         ' Exit fullscreen mode (when the timer display area is clicked).
-        ExitFullScreen()
+        If (fullScreen) Then
+            SetWindowFullScreen(False)
+        End If
     End Sub
     ' Toggle timer between paused/not paused.
     Private Sub ToolStripButtonStartPause_Click(sender As Object, e As EventArgs) Handles ToolStripButtonStartPause.Click
@@ -253,15 +246,8 @@ Public Class FormMain
     End Sub
     ' Set timer form to or from fullscreen.
     Private Sub FullScreenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemFullScreen.Click
-        ' If full screen is already enabled, exit full screen.
-        If My.Settings.WindowFullScreen Then
-            ExitFullScreen()
-            ' Else, enter full screen mode.
-        Else
-            My.Settings.WindowFullScreen = True
-            My.Settings.WindowMaximized = False
-            SetFullScreen(My.Settings.WindowFullScreen)
-            Me.Focus()
+        If (Not fullScreen) Then
+            SetWindowFullScreen(True)
         End If
     End Sub
 #End Region
@@ -390,17 +376,7 @@ Public Class FormMain
     ' Sets visibility of full screen note.
     Private Sub SetFullScreenNoteVisibility()
         ' Full screen note is shown only if the timer is not expired, "Note" is enabled, and the window is full screen.
-        ToolStripLabelNote.Visible = (Not timer.IsExpired AndAlso timeSettings.NoteEnabled AndAlso My.Settings.WindowFullScreen)
-    End Sub
-    ' Exits fullscreen mode.
-    Private Sub ExitFullScreen()
-        '  If in fullscreen mode...
-        If My.Settings.WindowFullScreen Then
-            ' Exit fullscreen mode.
-            My.Settings.WindowFullScreen = False
-            My.Settings.WindowMaximized = False
-            SetFullScreen(My.Settings.WindowFullScreen)
-        End If
+        ToolStripLabelNote.Visible = (Not timer.IsExpired AndAlso timeSettings.NoteEnabled AndAlso fullScreen)
     End Sub
     ' Adds the event handlers for the timer.
     Private Sub AddTimerHandlers()
@@ -552,29 +528,31 @@ Public Class FormMain
         AddTimerHandlers()
     End Sub
     Private Sub InitializeFormMain()
-        ' Fixes taskbar showing issue.
-        Me.ShowInTaskbar = False
-        Me.ShowInTaskbar = True
-
+        Me.Size = My.Settings.WindowSize
 
         Me.ToolStripMenuItemAlwaysOnTop.Checked = My.Settings.AlwaysOnTop
         Me.TopMost = Me.ToolStripMenuItemAlwaysOnTop.Checked
 
-        Me.Size = My.Settings.WindowSize
-        If My.Settings.WindowMaximized Then
-            Me.WindowState = FormWindowState.Maximized
-        End If
-        If My.Settings.WindowFullScreen Then
-            SetFullScreen(True)
-        End If
+        Me.WindowState = If(My.Settings.WindowMaximized, FormWindowState.Maximized, FormWindowState.Normal)
+
+        SetWindowFullScreen(My.Settings.WindowFullScreen)
+
 
         Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
 
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
+
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
     Private Sub SaveSettings()
+        My.Settings.WindowMaximized = maximized
+        My.Settings.WindowFullScreen = fullScreen
+
+        Me.WindowState = FormWindowState.Normal
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
+        My.Settings.WindowSize = Me.Size
+
         ' Save setting files
         Try
             styleSettings.Save()
@@ -606,24 +584,90 @@ Public Class FormMain
         UpdateToolbar()
         HideNote()
     End Sub
-    ' Enter or exit fullscreen.
-    Private Sub SetFullScreen(enabled As Boolean)
+
+    Private Sub CloseToSystemTray()
+        Me.Hide()
+        NotifyIconMain.Visible = True
+    End Sub
+
+    Private Sub SetStrings()
+        Me.SuspendLayout()
+
+        Me.ToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.ToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
+        Me.ToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
+        Me.ToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
+        Me.ToolStripMenuItemMisc.Text = My.Resources.Strings.MenuMisc
+        Me.ToolStripMenuItemAlwaysOnTop.Text = My.Resources.Strings.MenuAlwaysOnTop
+        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
+
+        Me.ToolStripMenuItemWindow.Text = My.Resources.Strings.MenuWindow
+        Me.ToolStripMenuItemCompact.Text = My.Resources.Strings.MenuCompact
+        Me.ToolStripMenuItemFullScreen.Text = My.Resources.Strings.MenuFullSreen
+        Me.ToolStripMenuItemDefault.Text = My.Resources.Strings.MenuDefault
+
+        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
+        Me.ToolStripMenuItemHelpOnline.Text = My.Resources.Strings.MenuHelpOnline
+        Me.ToolStripMenuItemAboutElanTimer.Text = My.Resources.Strings.About
+        Me.ToolStripMenuItemCheckForUpdates.Text = My.Resources.Strings.MenuCheckForUpdates
+        Me.ToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
+
+        Me.ToolStripButtonNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
+
+        ' NotifyIconMain
+        Me.NotifyIconToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
+        Me.NotifyIconToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
+        Me.NotifyIconToolStripMenuItemStartTimer.Text = My.Resources.Strings.Start
+        Me.ToolNotifyIconStripMenuItemResetTimer.Text = My.Resources.Strings.Reset
+        Me.NotifyIconToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
+        Me.NotifyIconToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
+        Me.NotifyIconToolStripMenuItemSettings.Text = My.Resources.Strings.MenuMisc
+        Me.NotifyIconToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
+
+        Me.ResumeLayout()
+    End Sub
+
+    Private Function WindowVisible(owner As Form) As Boolean
+        Return (owner.Visible AndAlso (Not owner.WindowState = FormWindowState.Minimized))
+    End Function
+
+    Private Sub SetWindowDefault()
+        ' Set timer form setting to default size.
+        Me.WindowState = FormWindowState.Normal
+        Me.TopMost = My.Settings.AlwaysOnTop
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
+        ' Set default window size.
+        fullScreen = False
+
+        Me.Size = My.Settings.DefaultWindowSize
+
+        SetFullScreenNoteVisibility()
+    End Sub
+
+    Private Sub SetWindowCompact()
+        Me.WindowState = FormWindowState.Normal
+        Me.TopMost = My.Settings.AlwaysOnTop
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
+        fullScreen = False
+        ' Set default window size.
+        Me.Size = New Size(My.Settings.DefaultCompactWindowWidth, Me.Height - Me.ClientSize.Height + Me.ToolStripMain.Height)
+        SetFullScreenNoteVisibility()
+    End Sub
+
+    Private Sub SetWindowFullScreen(enabled As Boolean)
+        fullScreen = enabled
         If enabled Then
             Me.TopMost = True
             Me.WindowState = FormWindowState.Normal
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
             Me.WindowState = FormWindowState.Maximized
         Else
+            Me.WindowState = If(My.Settings.WindowMaximized, FormWindowState.Maximized, FormWindowState.Normal)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable
-            Me.WindowState = FormWindowState.Normal
             Me.TopMost = My.Settings.AlwaysOnTop
-            Me.CenterToScreen()
         End If
         SetFullScreenNoteVisibility()
-    End Sub
-    Private Sub CloseToSystemTray()
-        Me.Hide()
-        NotifyIconMain.Visible = True
     End Sub
 #End Region
 #Region "Dialogs"
@@ -910,6 +954,10 @@ Public Class FormMain
     Private Sub FormMain_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         If (timerObject IsNot Nothing) Then timerObject.Rectangle = timerSurface.ClientRectangle
         If (noteObject IsNot Nothing) Then noteObject.Rectangle = timerSurface.ClientRectangle
+
+        If (Not fullScreen) Then
+            maximized = (Me.WindowState = FormWindowState.Maximized)
+        End If
     End Sub
 
     Private Sub TimerSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
@@ -1052,45 +1100,4 @@ Public Class FormMain
             e.Effect = DragDropEffects.None
         End If
     End Sub
-    Private Sub SetStrings()
-        Me.SuspendLayout()
-
-        Me.ToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
-        Me.ToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
-        Me.ToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
-        Me.ToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
-        Me.ToolStripMenuItemMisc.Text = My.Resources.Strings.MenuMisc
-        Me.ToolStripMenuItemAlwaysOnTop.Text = My.Resources.Strings.MenuAlwaysOnTop
-        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
-
-        Me.ToolStripMenuItemWindow.Text = My.Resources.Strings.MenuWindow
-        Me.ToolStripMenuItemCompact.Text = My.Resources.Strings.MenuCompact
-        Me.ToolStripMenuItemFullScreen.Text = My.Resources.Strings.MenuFullSreen
-        Me.ToolStripMenuItemDefault.Text = My.Resources.Strings.MenuDefault
-
-        Me.ToolStripMenuItemHelp.Text = My.Resources.Strings.MenuHelp
-        Me.ToolStripMenuItemHelpOnline.Text = My.Resources.Strings.MenuHelpOnline
-        Me.ToolStripMenuItemAboutElanTimer.Text = My.Resources.Strings.About
-        Me.ToolStripMenuItemCheckForUpdates.Text = My.Resources.Strings.MenuCheckForUpdates
-        Me.ToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
-
-        Me.ToolStripButtonNewTimer.Text = My.Resources.Strings.MenuNewTimer
-        Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
-
-        ' NotifyIconMain
-        Me.NotifyIconToolStripMenuItemNewTimer.Text = My.Resources.Strings.MenuNewTimer
-        Me.NotifyIconToolStripMenuItemEditTimer.Text = My.Resources.Strings.MenuEditTimer
-        Me.NotifyIconToolStripMenuItemStartTimer.Text = My.Resources.Strings.Start
-        Me.ToolNotifyIconStripMenuItemResetTimer.Text = My.Resources.Strings.Reset
-        Me.NotifyIconToolStripMenuItemTasks.Text = My.Resources.Strings.MenuTasks
-        Me.NotifyIconToolStripMenuItemStyle.Text = My.Resources.Strings.MenuStyle
-        Me.NotifyIconToolStripMenuItemSettings.Text = My.Resources.Strings.MenuMisc
-        Me.NotifyIconToolStripMenuItemExit.Text = My.Resources.Strings.MenuExit
-
-        Me.ResumeLayout()
-    End Sub
-
-    Private Function WindowVisible(owner As Form) As Boolean
-        Return (owner.Visible AndAlso (Not owner.WindowState = FormWindowState.Minimized))
-    End Function
 End Class
