@@ -542,16 +542,18 @@ Public Class FormMain
 
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
 
+        Me.Location = My.Settings.WindowPosition
         ' Get rid of selection on toolstrip.
         Me.Focus()
     End Sub
     Private Sub SaveSettings()
         My.Settings.WindowMaximized = maximized
         My.Settings.WindowFullScreen = fullScreen
-
         Me.WindowState = FormWindowState.Normal
+
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
         My.Settings.WindowSize = Me.Size
+        My.Settings.WindowPosition = Me.Location
 
         ' Save setting files
         Try
