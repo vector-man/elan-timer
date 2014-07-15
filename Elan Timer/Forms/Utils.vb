@@ -59,4 +59,23 @@ Public Class Utils
         Return Path.Combine(GetDataPath, My.Settings.StyleFolder)
     End Function
 
+    Public Shared Function GetAlarmNameOrDefault(alarm As String) As String
+        If (String.IsNullOrEmpty(alarm) OrElse Not File.Exists(Utils.GetAlarmFullPath(alarm))) Then
+            Return Utils.GetDefaultAlarm()
+        Else
+            Return alarm
+        End If
+    End Function
+
+    Public Shared Function GetColoredImage(image As Image, c As Color) As Image
+        Dim bmp As Bitmap = New Bitmap(image)
+        bmp.MakeTransparent(Color.Red)
+        For x As Integer = 0 To bmp.Width - 1
+            For y As Integer = 0 To bmp.Height - 1
+                Dim oldColor As Color = bmp.GetPixel(x, y)
+                bmp.SetPixel(x, y, Color.FromArgb(oldColor.A, c.R, c.G, c.B))
+            Next
+        Next
+        Return bmp
+    End Function
 End Class

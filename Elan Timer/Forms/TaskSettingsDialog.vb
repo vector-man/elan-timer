@@ -60,13 +60,12 @@ Public Class TaskSettingsDialog
     End Function
     Private Sub Initialize()
         taskToolTip = New ToolTip()
-
-        SetStrings()
-
         AddHandler Application.Idle, AddressOf UpdateStates
+
         If model.Tasks Is Nothing Then
             model.Tasks = New List(Of TaskModel)
         End If
+
         actionsBindingSource = New BindingSource()
         actionsBindingSource.DataSource = model.Tasks
 
@@ -83,6 +82,14 @@ Public Class TaskSettingsDialog
                                       End Function
 
         DataListViewActions.DataSource = actionsBindingSource
+
+        SetStrings()
+    End Sub
+
+    Protected Overrides Sub OnLoad(e As EventArgs)
+        Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
+        Me.TopMost = True
+        MyBase.OnLoad(e)
     End Sub
 
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
@@ -156,7 +163,6 @@ Public Class TaskSettingsDialog
     End Sub
 
     Private Sub DialogTaskSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        ' Add any initialization after the InitializeComponent() call
         Initialize()
     End Sub
 

@@ -150,8 +150,13 @@ Public Class TimerSettingsDialog
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
         TrackBarVolume.DataBindings.Add("Value", time, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
-
         SetStrings()
+    End Sub
+
+    Protected Overrides Sub OnLoad(e As EventArgs)
+        Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
+        Me.TopMost = True
+        MyBase.OnLoad(e)
     End Sub
 
     Private Sub ButtonStart_Click(sender As Object, e As EventArgs) Handles ButtonStart.Click

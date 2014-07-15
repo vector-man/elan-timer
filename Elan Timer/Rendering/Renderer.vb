@@ -6,8 +6,6 @@ Namespace Rendering
 
         Private stringAlignment As StringFormat
         Private Const MaximumFontSize = Int16.MaxValue
-        Private backgroundBrush As SolidBrush
-        Private foregroundBrush As SolidBrush
         Dim _enabled As Boolean
         Private surfaceInvalidatorCancellationTokenSource As System.Threading.CancellationTokenSource
 
@@ -25,11 +23,8 @@ Namespace Rendering
         Protected Overridable Sub Dispose(disposing As Boolean)
             If Not Me.disposedValue Then
                 If disposing Then
-                    stringAlignment.Dispose()
-                    backgroundBrush.Dispose()
-                    foregroundBrush.Dispose()
-                    RemoveHandler Owner.Paint, AddressOf Surface_Paint
                     surfaceInvalidatorCancellationTokenSource.Cancel()
+                    RemoveHandler Owner.Paint, AddressOf Surface_Paint
                     Task.WaitAll()
                     Owner.Dispose()
                 End If

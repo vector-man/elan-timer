@@ -105,8 +105,6 @@ Public Class StyleSettingsDialog
     Public Property FileFilter As String
 
     Sub Initialize()
-        SetStrings()
-
         ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
         ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
@@ -116,6 +114,14 @@ Public Class StyleSettingsDialog
 
         ComboBoxDisplayFormat.DisplayMember = "Key"
         ComboBoxDisplayFormat.ValueMember = "Value"
+
+        SetStrings()
+    End Sub
+
+    Protected Overrides Sub OnLoad(e As EventArgs)
+        Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
+        Me.TopMost = True
+        MyBase.OnLoad(e)
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

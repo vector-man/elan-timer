@@ -40,6 +40,9 @@ Public Class FormMain
     ' Eascape key character (used for exiting full screen mode.)
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
+    ' Forces window to close.
+    Private forceClose As Boolean = False
+
     ' Used for benchmark and testing.
 #If DEBUG Then
     Private sw As New Stopwatch
@@ -74,7 +77,7 @@ Public Class FormMain
 #End If
         ' Execute tasks for the "Expired" timer event.
         ExecuteTasks(TimerEvent.Expired)
-        TryShowNoteAlert()
+        TryShowNoteAndAlert()
     End Sub
     ' Executes tasks for a given timer event.
     Private Sub ExecuteTasks(e As TimerEvent)
@@ -110,7 +113,7 @@ Public Class FormMain
 
     Private Sub FormMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         ' If closing to system tray is enabled.
-        If (My.Settings.CloseToSystemTray And My.Settings.ShowInSystemTray) Then
+        If (Not forceClose And (My.Settings.ShowInSystemTray And My.Settings.CloseToSystemTray)) Then
             ' Cancel exiting the application.
             e.Cancel = True
             ' Close to the system tray instead.
@@ -157,7 +160,7 @@ Public Class FormMain
 
             ' Try to set the alarm name. If it is not present on the system, sets the default alarm or nothing instead.
             Try
-                timeSettings.AlarmName = If(String.IsNullOrEmpty(timeSettings.AlarmName) OrElse Not File.Exists(Utils.GetAlarmFullPath(timeSettings.AlarmName)), Utils.GetDefaultAlarm(), timeSettings.AlarmName)
+                timeSettings.AlarmName = Utils.GetAlarmNameOrDefault(timeSettings.AlarmName)
             Catch
 
             End Try
@@ -203,12 +206,13 @@ Public Class FormMain
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExit.Click
         ' Exit the application, forcing it to close.
+        forceClose = True
         ExitApplication()
     End Sub
 
     Private Sub ToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
-        ShowLookDialog(Me)
+        ShowStyleDialog(Me)
     End Sub
 
     Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
@@ -269,53 +273,56 @@ Public Class FormMain
     Private Sub StopRendering()
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
-        PanelTimer.Controls.Clear()
+
+        renderer.Dispose()
+
+        stringFormat.Dispose()
+
+        timerObject.Dispose()
+        noteObject.Dispose()
 
         RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         RemoveHandler timerSurface.Click, AddressOf TimerSurface_Click
         timerSurface.Dispose()
 
-        Task.WaitAll()
+        PanelTimer.Controls.Clear()
     End Sub
     ' Starts up rendering of the timer.
     Private Async Sub StartRendering()
-        updateCancellationTokenSource = New System.Threading.CancellationTokenSource
-
         stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
         timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
         timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+
         noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
 
-        ToolStripLabelNote.Text = If(timeSettings.NoteEnabled, noteObject.Text, String.Empty)
+        ToolStripLabelNote.Text = timeSettings.Note
 
         timerSurface = New Surface()
         timerSurface.BackColor = styleSettings.BackgroundColor
-
-        SetToolStripStyling(My.Settings.UseToolbarStyling)
-
-
+        timerSurface.Dock = DockStyle.Fill
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         AddHandler timerSurface.Click, AddressOf TimerSurface_Click
 
-        renderer = New Renderer(timerSurface)
-        renderer.Renderables.Add(timerObject)
-        renderer.Renderables.Add(noteObject)
-
-
-        timerSurface.Dock = DockStyle.Fill
         PanelTimer.Controls.Add(timerSurface)
 
         timerObject.Rectangle = timerSurface.ClientRectangle
         noteObject.Rectangle = timerSurface.ClientRectangle
 
+        SetToolStripStyling(My.Settings.UseToolbarStyling)
 
+        renderer = New Renderer(timerSurface)
+        renderer.Renderables.Add(timerObject)
+        renderer.Renderables.Add(noteObject)
         renderer.Enabled = True
 
         UpdateToolbar()
+
+        updateCancellationTokenSource = New System.Threading.CancellationTokenSource
+
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
     Sub RestartRendering()
@@ -366,7 +373,7 @@ Public Class FormMain
         SetFullScreenNoteVisibility()
     End Sub
     ' Attempts to show note alert (if note setting is enabled.)
-    Private Sub TryShowNoteAlert()
+    Private Sub TryShowNoteAndAlert()
         Me.Invoke(New Action(Sub()
                                  ' If note is enabled, then show it.
                                  If (timeSettings.NoteEnabled) Then
@@ -395,19 +402,19 @@ Public Class FormMain
             SetFullScreen(My.Settings.WindowFullScreen)
         End If
     End Sub
-    ' Removes the event handlers for the timer.
-    Private Sub RemoveTimerHandlers()
-        RemoveHandler timer.Started, AddressOf Timer_Started
-        RemoveHandler timer.Paused, AddressOf Timer_Paused
-        RemoveHandler timer.Expired, AddressOf Timer_Expired
-        RemoveHandler timer.Restarted, AddressOf Timer_Restarted
-    End Sub
     ' Adds the event handlers for the timer.
     Private Sub AddTimerHandlers()
         AddHandler timer.Started, AddressOf Timer_Started
         AddHandler timer.Paused, AddressOf Timer_Paused
         AddHandler timer.Expired, AddressOf Timer_Expired
         AddHandler timer.Restarted, AddressOf Timer_Restarted
+    End Sub
+    ' Removes the event handlers for the timer.
+    Private Sub RemoveTimerHandlers()
+        RemoveHandler timer.Started, AddressOf Timer_Started
+        RemoveHandler timer.Paused, AddressOf Timer_Paused
+        RemoveHandler timer.Expired, AddressOf Timer_Expired
+        RemoveHandler timer.Restarted, AddressOf Timer_Restarted
     End Sub
 #If DEBUG Then
     Private Sub Started(sender As Object, e As TimerEventArgs)
@@ -420,8 +427,7 @@ Public Class FormMain
     End Sub
 #End If
     ' Updates progress in various areas of the form.
-    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of TaskModel)
-        ' TODO: better error handling.
+    Private Async Function FormMainProgressUpdateAsync(token As System.Threading.CancellationToken) As Task(Of Object)
         Try
             ' Runs while not canceled.
             While (Not token.IsCancellationRequested)
@@ -435,8 +441,6 @@ Public Class FormMain
 
                 ProgressBarMain.Value = currentProgressValue
 
-                ' Update form text on UI thread.
-
                 UpdateWindowText()
                 NotifyIconMain.Text = Utils.LimitTextLength(Me.Text, 63)
 
@@ -445,7 +449,10 @@ Public Class FormMain
             End While
         Catch ex As TaskCanceledException
 
+        Catch ex As Exception
+            MessageBox.Show(String.Format("An error has occured: {0}", ex.Message), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+        Return New Object
     End Function
     Private Sub UpdateWindowText()
         ' Assign time string if the timer is running.
@@ -474,35 +481,20 @@ Public Class FormMain
             ToolStripButtonStartPause.ImageTransparentColor = transparentColor
             ToolStripSplitButtonSettings.ImageTransparentColor = transparentColor
 
-            ToolStripSplitButtonSettings.Image = GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
-            ToolStripButtonReset.Image = GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
-            ToolStripButtonStartPause.Image = If(timer.IsPaused, GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
+            ToolStripSplitButtonSettings.Image = Utils.GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
+            ToolStripButtonReset.Image = Utils.GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
+            ToolStripButtonStartPause.Image = If(timer.IsPaused, Utils.GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), Utils.GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
             ToolStripLabelNote.ForeColor = styleSettings.ForegroundColor
             ToolStripLabelNote.BackColor = styleSettings.BackgroundColor
         End If
     End Sub
-    Private Function GetColoredImage(image As Image, c As Color) As Image
-        Dim bmp As Bitmap = New Bitmap(image)
-        bmp.MakeTransparent(Color.Red)
-        For x As Integer = 0 To bmp.Width - 1
-            For y As Integer = 0 To bmp.Height - 1
-                Dim oldColor As Color = bmp.GetPixel(x, y)
-                bmp.SetPixel(x, y, Color.FromArgb(oldColor.A, c.R, c.G, c.B))
-            Next
-        Next
-        Return bmp
-    End Function
     ' Update the form user interface.
     Private Sub UpdateUI()
-        Try
-            ToolStripButtonStartPause.Enabled = Not timer.IsExpired
-            NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
-            ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
-            NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
-            Me.Opacity = styleSettings.Opacity / 100
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-        End Try
+        ToolStripButtonStartPause.Enabled = Not timer.IsExpired
+        NotifyIconToolStripMenuItemStartTimer.Enabled = ToolStripButtonStartPause.Enabled
+        ToolStripButtonStartPause.Text = If(timer.IsPaused, My.Resources.Strings.Start, My.Resources.Strings.Pause)
+        NotifyIconToolStripMenuItemStartTimer.Text = ToolStripButtonStartPause.Text
+        Me.Opacity = styleSettings.Opacity / 100
     End Sub
 
     Private Sub LoadSettings(fileName As String)
@@ -534,7 +526,6 @@ Public Class FormMain
                 End Using
 
             End If
-            InitializeFormMain()
         Catch
 
         End Try
@@ -605,7 +596,7 @@ Public Class FormMain
                 Dim progressState = If(timer.IsPaused, TaskbarProgressBarState.Paused, TaskbarProgressBarState.Normal)
                 TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
             End If
-        Catch ex As Exception
+        Catch
 
         End Try
         UpdateToolbar()
@@ -640,13 +631,16 @@ Public Class FormMain
     Public Sub ShowTimerDialog(owner As Form, editing As Boolean)
         ContextMenuStripMain.Enabled = False
         Using dialog = New TimerSettingsDialog()
+
+            If (Not WindowVisible(owner)) Then
+                owner = Nothing
+            End If
+
+            dialog.TopMost = (owner Is Nothing)
+
             AddHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
             AddHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
-            If (owner IsNot Nothing AndAlso owner.Visible) Then
-                dialog.StartPosition = FormStartPosition.CenterParent
-            Else
-                dialog.StartPosition = FormStartPosition.CenterScreen
-            End If
+
             dialog.FileFilter = My.Settings.TimeDialogFilter
             Try
                 dialog.InitialDirectory = Utils.GetTimersPath()
@@ -666,7 +660,9 @@ Public Class FormMain
             dialog.NoteEnabled = timeSettings.NoteEnabled
             dialog.ShowAlertBoxOnTimerExpiration = timeSettings.AlertEnabled
             dialog.Editing = editing
+
             Dim result As DialogResult = dialog.ShowDialog(owner)
+
             If (Not result = Windows.Forms.DialogResult.Cancel) Then
                 timeSettings.Duration = dialog.Duration
                 timeSettings.CountUp = dialog.CountUp
@@ -692,6 +688,7 @@ Public Class FormMain
 
                 Me.UpdateToolbar()
             End If
+
             ContextMenuStripMain.Enabled = True
 
             RemoveHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
@@ -699,18 +696,21 @@ Public Class FormMain
         End Using
     End Sub
 
-    Private Sub ShowLookDialog(owner As Form)
+    Private Sub ShowStyleDialog(owner As Form)
         ContextMenuStripMain.Enabled = False
 
-        Using dialog As New StyleSettingsDialog
+        Using dialog As New StyleSettingsDialog()
+
+            If (Not WindowVisible(owner)) Then
+                owner = Nothing
+            End If
+
+            dialog.TopMost = (owner Is Nothing)
+
             AddHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
             AddHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
-            If (owner IsNot Nothing AndAlso owner.Visible) Then
-                dialog.StartPosition = FormStartPosition.CenterParent
-            Else
-                dialog.StartPosition = FormStartPosition.CenterScreen
-            End If
-            dialog.TopMost = (owner Is Nothing)
+
+
             dialog.BackgroundColor = styleSettings.BackgroundColor
             dialog.DisplayFont = styleSettings.DisplayFont
             dialog.DisplayFormats = Utils.DisplayFormats
@@ -779,19 +779,13 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowSettingsDialog(owner As Form)
-        If (owner IsNot Nothing AndAlso owner.Visible) Then
-            SettingsDialog.StartPosition = FormStartPosition.CenterParent
-        Else
-            SettingsDialog.StartPosition = FormStartPosition.CenterScreen
+        If (Not WindowVisible(owner)) Then
+            owner = Nothing
         End If
-        SettingsDialog.TopMost = (owner Is Nothing OrElse owner.TopLevel)
 
         ContextMenuStripMain.Enabled = False
-        Try
-            SettingsDialog.ShowDialog(owner)
-        Catch ex As Exception
-            MessageBox.Show(ex.InnerException.ToString)
-        End Try
+
+        SettingsDialog.ShowDialog(owner)
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
         ContextMenuStripMain.Enabled = True
 
@@ -800,14 +794,14 @@ Public Class FormMain
     End Sub
 
     Private Sub ShowTaskDialog(owner As Form)
-        Using dialog As New TaskSettingsDialog
+        Using dialog As New TaskSettingsDialog()
+
+            If (Not WindowVisible(owner)) Then
+                owner = Nothing
+            End If
+
             AddHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
             AddHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
-            If (owner IsNot Nothing AndAlso owner.Visible) Then
-                dialog.StartPosition = FormStartPosition.CenterParent
-            Else
-                dialog.StartPosition = FormStartPosition.CenterScreen
-            End If
 
             dialog.InitialDirectory = Utils.GetDataPath()
             dialog.FileFilter = My.Settings.TaskDialogFilter
@@ -852,7 +846,7 @@ Public Class FormMain
             Try
                 ' Try to stop the alarm. 
                 CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm.Stop()
-            Catch ex As Exception
+            Catch
                 ' If the alarm is null, catch the error and ignore.
             End Try
         End If
@@ -889,11 +883,12 @@ Public Class FormMain
 
     Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
         ' Show the Look Dialog.
-        ShowLookDialog(Me)
+        ShowStyleDialog(Me)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemExit_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemExit.Click
         ' Exit the application, forcing it to close.
+        forceClose = True
         ExitApplication()
     End Sub
 
@@ -935,7 +930,7 @@ Public Class FormMain
 
                 settings.Export(output)
             End Using
-        Catch ex As Exception
+        Catch
             MessageBox.Show(String.Format("Preset could not be saved to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
@@ -961,7 +956,7 @@ Public Class FormMain
                 dialog.ShowAlertBoxOnTimerExpiration = settings.AlertEnabled
 
             End Using
-        Catch ex As Exception
+        Catch
             ' Throw ex
             MessageBox.Show(String.Format("Preset could not be loaded from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
@@ -983,7 +978,7 @@ Public Class FormMain
                 dialog.GrowToFit = settings.GrowToFit
                 dialog.Transparency = 100 - settings.Opacity
             End Using
-        Catch ex As Exception
+        Catch
             MessageBox.Show(String.Format("Style could not be loaded from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
@@ -1002,7 +997,7 @@ Public Class FormMain
 
                 settings.Export(output)
             End Using
-        Catch ex As Exception
+        Catch
             MessageBox.Show(String.Format("Style could not be saved to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
@@ -1016,7 +1011,7 @@ Public Class FormMain
                 settings.Import(input)
                 dialog.Tasks.AddRange(settings.Tasks)
             End Using
-        Catch ex As Exception
+        Catch
             MessageBox.Show(String.Format("Tasks could not be imported from file: ""{0}""", e.Input), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
@@ -1029,22 +1024,20 @@ Public Class FormMain
                 settings.Tasks = e.Tasks.Tasks
                 settings.Export(output)
             End Using
-        Catch ex As Exception
+        Catch
             MessageBox.Show(String.Format("Tasks could not be exported to file: ""{0}""", e.Output), My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
 
     Private Sub FormMain_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
-
         Try
             Dim data As Array = DirectCast(e.Data.GetData(DataFormats.FileDrop), Array)
             If (data IsNot Nothing) Then
                 Dim file = data.GetValue(0).ToString()
 
-                Me.BeginInvoke(DirectCast(Function(value As String)
+                Me.BeginInvoke(DirectCast(Sub(value As String)
                                               LoadSettings(value)
-                                          End Function, Action(Of String)), New Object() {file})
-
+                                          End Sub, Action(Of String)), New Object() {file})
                 Me.Activate()
 
             End If
@@ -1096,4 +1089,8 @@ Public Class FormMain
 
         Me.ResumeLayout()
     End Sub
+
+    Private Function WindowVisible(owner As Form) As Boolean
+        Return (owner.Visible AndAlso (Not owner.WindowState = FormWindowState.Minimized))
+    End Function
 End Class
