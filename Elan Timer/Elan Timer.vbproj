@@ -95,7 +95,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>elan-green-48.ico</ApplicationIcon>
+    <ApplicationIcon>elan-timer-icon-48.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -361,6 +361,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="elan-green-48.ico" />
+    <Content Include="elan-timer-icon-48.ico" />
     <Content Include="FodyWeavers.xml" />
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
