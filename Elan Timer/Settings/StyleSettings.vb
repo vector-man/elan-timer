@@ -96,6 +96,10 @@ Namespace Settings
             Dim model As StyleModel
             model = Transporter.Import(Of StyleModel)(stream)
 
+            If (model.DisplayFont Is Nothing) Then
+                Throw New FileFormatException("DisplayFont cannot be null.")
+            End If
+
             DisplayFont = model.DisplayFont
 
             GrowToFit = model.GrowToFit
