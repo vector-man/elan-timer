@@ -48,7 +48,7 @@ Public Class FormMain
     Dim maximized As Boolean = False
     Dim fullScreen As Boolean = False
 
-    Private Property noteEnabled As Object
+    Private noteEnabled As Boolean
 
 
     ' Logging
@@ -545,6 +545,8 @@ Public Class FormMain
 
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
+        noteEnabled = Not String.IsNullOrWhiteSpace(timeSettings.Note)
+
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
     Sub RestartRendering()
@@ -953,7 +955,6 @@ Public Class FormMain
                 timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
                 timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note), dialog.Note.Replace(Environment.NewLine, String.Empty), String.Empty)
-                noteEnabled = noteEnabled = Not String.IsNullOrWhiteSpace(dialog.Note)
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
                 InitializeAlarm()
