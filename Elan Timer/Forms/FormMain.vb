@@ -159,11 +159,8 @@ Public Class FormMain
             SetStrings()
 
             ' Try to set the alarm name. If it is not present on the system, sets the default alarm or nothing instead.
-            Try
-                timeSettings.AlarmName = Utils.GetAlarmNameOrDefault(timeSettings.AlarmName)
-            Catch
+            timeSettings.AlarmName = Utils.GetAlarmNameOrDefault(timeSettings.AlarmName)
 
-            End Try
 
             ' If task bar progress bar is supported, enable it.
             If (TaskbarManager.IsPlatformSupported) Then
@@ -273,8 +270,6 @@ Public Class FormMain
         RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
         RemoveHandler timerSurface.Click, AddressOf TimerSurface_Click
         timerSurface.Dispose()
-
-        PanelTimer.Controls.Clear()
     End Sub
     ' Starts up rendering of the timer.
     Private Async Sub StartRendering()
