@@ -6,7 +6,7 @@ Imports ElanTimer.CodeIsle.Timers
 Imports ElanTimer.Settings
 Imports ElanTimer.Rendering
 Imports Microsoft
-
+Imports NLog
 Public Class FormMain
     ' Token source for cancelling rendering.
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource
@@ -50,6 +50,9 @@ Public Class FormMain
 
     Private Property noteEnabled As Object
 
+
+    ' Logging
+    Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     ' Used for benchmark and testing.
 #If DEBUG Then
