@@ -41,11 +41,6 @@ Partial Class TimerSettingsDialog
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonStart = New System.Windows.Forms.Button()
         Me.ButtonSet = New System.Windows.Forms.Button()
-        Me.CheckBoxNote = New System.Windows.Forms.CheckBox()
-        Me.TextBoxNote = New System.Windows.Forms.TextBox()
-        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
-        Me.MenuItemLoadPreset = New System.Windows.Forms.MenuItem()
-        Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
         Me.CheckedGroupBox1 = New ElanTimer.CheckedGroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxLoop = New System.Windows.Forms.CheckBox()
@@ -54,6 +49,11 @@ Partial Class TimerSettingsDialog
         Me.ComboBoxAlarmPath = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TrackBarVolume = New System.Windows.Forms.TrackBar()
+        Me.TextBoxNote = New System.Windows.Forms.TextBox()
+        Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
+        Me.MenuItemLoadPreset = New System.Windows.Forms.MenuItem()
+        Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
+        Me.LabelNote = New System.Windows.Forms.Label()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,9 +150,9 @@ Partial Class TimerSettingsDialog
         'TableLayoutPanel2
         '
         resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
+        Me.TableLayoutPanel2.Controls.Add(Me.LabelNote, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.CheckedGroupBox1, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxNote, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.GroupBoxDuration, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TextBoxNote, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 1)
@@ -193,32 +193,6 @@ Partial Class TimerSettingsDialog
         Me.ButtonSet.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.ButtonSet.Name = "ButtonSet"
         Me.ButtonSet.UseVisualStyleBackColor = True
-        '
-        'CheckBoxNote
-        '
-        resources.ApplyResources(Me.CheckBoxNote, "CheckBoxNote")
-        Me.CheckBoxNote.Name = "CheckBoxNote"
-        Me.CheckBoxNote.UseVisualStyleBackColor = True
-        '
-        'TextBoxNote
-        '
-        Me.TableLayoutPanel2.SetColumnSpan(Me.TextBoxNote, 4)
-        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
-        Me.TextBoxNote.Name = "TextBoxNote"
-        '
-        'ContextMenuOptions
-        '
-        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItemLoadPreset, Me.MenuItemSavePresetAs})
-        '
-        'MenuItemLoadPreset
-        '
-        Me.MenuItemLoadPreset.Index = 0
-        resources.ApplyResources(Me.MenuItemLoadPreset, "MenuItemLoadPreset")
-        '
-        'MenuItemSavePresetAs
-        '
-        Me.MenuItemSavePresetAs.Index = 1
-        resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
         '
         'CheckedGroupBox1
         '
@@ -280,6 +254,31 @@ Partial Class TimerSettingsDialog
         Me.TrackBarVolume.Name = "TrackBarVolume"
         Me.TrackBarVolume.TickFrequency = 10
         '
+        'TextBoxNote
+        '
+        Me.TableLayoutPanel2.SetColumnSpan(Me.TextBoxNote, 4)
+        resources.ApplyResources(Me.TextBoxNote, "TextBoxNote")
+        Me.TextBoxNote.Name = "TextBoxNote"
+        '
+        'ContextMenuOptions
+        '
+        Me.ContextMenuOptions.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItemLoadPreset, Me.MenuItemSavePresetAs})
+        '
+        'MenuItemLoadPreset
+        '
+        Me.MenuItemLoadPreset.Index = 0
+        resources.ApplyResources(Me.MenuItemLoadPreset, "MenuItemLoadPreset")
+        '
+        'MenuItemSavePresetAs
+        '
+        Me.MenuItemSavePresetAs.Index = 1
+        resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
+        '
+        'LabelNote
+        '
+        resources.ApplyResources(Me.LabelNote, "LabelNote")
+        Me.LabelNote.Name = "LabelNote"
+        '
         'TimerSettingsDialog
         '
         Me.AcceptButton = Me.ButtonSet
@@ -331,7 +330,6 @@ End Sub
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents GroupBoxDuration As System.Windows.Forms.GroupBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents CheckBoxNote As System.Windows.Forms.CheckBox
     Friend WithEvents TextBoxNote As System.Windows.Forms.TextBox
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -345,5 +343,6 @@ End Sub
     Friend WithEvents MenuItemLoadPreset As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItemSavePresetAs As System.Windows.Forms.MenuItem
     Friend WithEvents TrackBarVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents LabelNote As System.Windows.Forms.Label
 
 End Class

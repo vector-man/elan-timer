@@ -55,6 +55,9 @@ Public Class FormMain
 
 
 #Region "Timer Event Handelers"
+
+    Private Property noteEnabled As Object
+
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
 #If DEBUG Then
         sw.Start()
@@ -362,7 +365,7 @@ Public Class FormMain
     Private Sub TryShowNoteAndAlert()
         Me.Invoke(New Action(Sub()
                                  ' If note is enabled, then show it.
-                                 If (timeSettings.NoteEnabled) Then
+                                 If (noteEnabled) Then
                                      ShowNote()
                                      ' If messabe box alert is enabled, show it.
                                      If (timeSettings.AlertEnabled) Then
@@ -376,7 +379,7 @@ Public Class FormMain
     ' Sets visibility of full screen note.
     Private Sub SetFullScreenNoteVisibility()
         ' Full screen note is shown only if the timer is not expired, "Note" is enabled, and the window is full screen.
-        ToolStripLabelNote.Visible = (Not timer.IsExpired AndAlso timeSettings.NoteEnabled AndAlso fullScreen)
+        ToolStripLabelNote.Visible = (Not timer.IsExpired AndAlso noteEnabled AndAlso fullScreen)
     End Sub
     ' Adds the event handlers for the timer.
     Private Sub AddTimerHandlers()
@@ -434,9 +437,9 @@ Public Class FormMain
         ' Assign time string if the timer is running.
         Dim time As String = If(Not timer.IsExpired, timerObject.Text, String.Empty)
         ' Assign separator string if the timer is running and note is enabled.
-        Dim separator As String = If(Not timer.IsExpired AndAlso timeSettings.NoteEnabled, " - ", String.Empty)
+        Dim separator As String = If(Not timer.IsExpired AndAlso noteEnabled, " - ", String.Empty)
         ' Assign note string if the note is enabled.
-        Dim note As String = If(timeSettings.NoteEnabled, timeSettings.Note, String.Empty)
+        Dim note As String = If(noteEnabled, timeSettings.Note, String.Empty)
         ' Assign title string if nothing is in previous variables (expiration with no note.)
         Dim title As String = If(time.Length = 0 And separator.Length = 0 And note.Length = 0, My.Application.Info.AssemblyName, String.Empty)
         ' Set Form text using the localized window text format.
@@ -703,7 +706,6 @@ Public Class FormMain
             dialog.CountUp = timeSettings.CountUp
             dialog.Restarts = timeSettings.Restarts
             dialog.Note = timeSettings.Note
-            dialog.NoteEnabled = timeSettings.NoteEnabled
             dialog.ShowAlertBoxOnTimerExpiration = timeSettings.AlertEnabled
             dialog.Editing = editing
 
@@ -718,7 +720,7 @@ Public Class FormMain
                 timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
                 timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note), dialog.Note.Replace(Environment.NewLine, String.Empty), String.Empty)
-                timeSettings.NoteEnabled = dialog.NoteEnabled
+                noteEnabled = noteEnabled = Not String.IsNullOrWhiteSpace(dialog.Note)
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
                 InitializeAlarm()
@@ -975,7 +977,6 @@ Public Class FormMain
                 settings.AlarmLoop = dialog.AlarmLoop
                 settings.AlarmVolume = dialog.AlarmVolume
                 settings.Note = dialog.Note
-                settings.NoteEnabled = dialog.NoteEnabled
                 settings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
                 settings.Export(output)
@@ -1002,7 +1003,6 @@ Public Class FormMain
                 dialog.CountUp = settings.CountUp
                 dialog.Restarts = settings.Restarts
                 dialog.Note = settings.Note
-                dialog.NoteEnabled = settings.NoteEnabled
                 dialog.ShowAlertBoxOnTimerExpiration = settings.AlertEnabled
 
             End Using

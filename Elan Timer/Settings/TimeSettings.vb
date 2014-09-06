@@ -87,17 +87,6 @@ Namespace Settings
         End Property
 
         <UserScopedSetting>
-        <DefaultSettingValue("False")>
-        Public Property NoteEnabled As Boolean
-            Get
-                Return Me("NoteEnabled")
-            End Get
-            Set(value As Boolean)
-                Me("NoteEnabled") = value
-            End Set
-        End Property
-
-        <UserScopedSetting>
         Public Property Note As String
             Get
                 Return Me("Note")
@@ -130,7 +119,6 @@ Namespace Settings
             Me.AlarmName = model.AlarmName
             Me.AlarmLoop = model.AlarmLoop
             Me.AlarmVolume = model.AlarmVolume
-            Me.NoteEnabled = model.NoteEnabled
             Me.Note = model.Note
             Me.AlertEnabled = model.AlertEnabled
         End Sub
@@ -145,7 +133,6 @@ Namespace Settings
             model.CountUp = Me.CountUp
             model.Duration = Me.Duration
             model.Note = Me.Note
-            model.NoteEnabled = Me.NoteEnabled
             model.Restarts = Me.Restarts
             Transporter.Export(Of TimeModel)(model, stream)
         End Sub

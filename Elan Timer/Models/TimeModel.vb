@@ -15,8 +15,6 @@ Public Class TimeModel
 
     Public Property AlarmVolume As Integer
 
-    Public Property NoteEnabled As Boolean
-
     Public Property Note As String
 
     Public Property AlertEnabled As Boolean

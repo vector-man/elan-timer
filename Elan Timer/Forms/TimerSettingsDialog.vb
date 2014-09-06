@@ -64,14 +64,6 @@ Public Class TimerSettingsDialog
             time.CountUp = value
         End Set
     End Property
-    Public Property NoteEnabled As Boolean
-        Get
-            Return time.NoteEnabled
-        End Get
-        Set(value As Boolean)
-            time.NoteEnabled = value
-        End Set
-    End Property
     Public Property Note As String
         Get
             Return time.Note
@@ -142,7 +134,6 @@ Public Class TimerSettingsDialog
         NumericUpDownRestarts.DataBindings.Add("Value", time, "Restarts")
         CheckBoxCountUp.DataBindings.Add("Checked", time, "CountUp")
 
-        CheckBoxNote.DataBindings.Add("Checked", time, "NoteEnabled")
         TextBoxNote.DataBindings.Add("Text", time, "Note")
         CheckBoxShowNoteAlertWhenTimerExpires.DataBindings.Add("Checked", time, "AlertEnabled")
 
@@ -192,8 +183,6 @@ Public Class TimerSettingsDialog
         Me.NumericUpDownSeconds.Enabled = (Not Editing)
         Me.LabelRestarts.Enabled = (Not Editing)
         Me.NumericUpDownRestarts.Enabled = (Not Editing)
-        Me.TextBoxNote.Enabled = Me.CheckBoxNote.Checked
-        Me.CheckBoxShowNoteAlertWhenTimerExpires.Enabled = Me.CheckBoxNote.Checked
         Me.Text = If(Editing, My.Resources.Strings.EditTimer, My.Resources.Strings.NewTimer)
 
         Me.GroupBoxDuration.Enabled = Not Editing
@@ -295,7 +284,6 @@ Public Class TimerSettingsDialog
     Private Sub SetStrings()
         Me.SuspendLayout()
 
-        Me.CheckBoxNote.Text = My.Resources.Strings.Note
         Me.CheckBoxShowNoteAlertWhenTimerExpires.Text = My.Resources.Strings.ShowAlertBoxWhenTimerExpires
 
         Me.GroupBoxDuration.Text = My.Resources.Strings.Duration

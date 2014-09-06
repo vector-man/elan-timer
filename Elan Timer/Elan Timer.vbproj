@@ -177,7 +177,7 @@
   <ItemGroup>
     <Compile Include="Audio\Alarm.vb" />
     <Compile Include="Audio\LoopStream.vb" />
-    <Compile Include="BorderlessToolStripSystemRenderer.vb" />
+    <Compile Include="Rendering\BorderlessToolStripSystemRenderer.vb" />
     <Compile Include="CheckedGroupBox.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -208,8 +208,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Utils.vb" />
-    <Compile Include="LoadingEventArgs.vb" />
-    <Compile Include="LocalizedEnumConverter.vb" />
+    <Compile Include="Settings\LoadingEventArgs.vb" />
+    <Compile Include="Vendor\LocalizedEnumConverter.vb" />
     <Compile Include="Models\TaskModel.vb" />
     <Compile Include="Models\TasksModel.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -221,7 +221,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ResourceHelper.vb" />
+    <Compile Include="Vendor\ResourceHelper.vb" />
     <Compile Include="Settings\JsonNetTransporter.vb" />
     <Compile Include="Models\StyleModel.vb" />
     <Compile Include="Models\TimeModel.vb" />
@@ -269,7 +269,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.es-ES.resx</DependentUpon>
     </Compile>
-    <Compile Include="TaskImportingEventArgs.vb" />
+    <Compile Include="Settings\TaskImportingEventArgs.vb" />
     <Compile Include="Timers\AlarmTimer.vb" />
     <Compile Include="Timers\CountDownAlarmTimer.vb" />
     <Compile Include="Timers\CountUpAlarmTimer.vb" />
