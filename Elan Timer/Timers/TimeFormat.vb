@@ -37,11 +37,12 @@ Public Class TimeFormat : Implements IFormatProvider, ICustomFormatter
                 sb.Append(Math.Floor(ts.TotalHours))
                 sb.Append(ts.ToString("\:mm\:ss\.f"))
             Case "v"
+                Dim totalHours As Integer = Math.Floor(ts.TotalHours)
                 ' Show text (verbal) - format: d days format h hours m minutes s seconds.
-                If (ts.Hours > 0 And (Not ts.Minutes > 0)) Then
-                    Return String.Format(hoursSecondsFormat, ts.Hours, ts.Seconds)
-                ElseIf (ts.Hours > 0) Then
-                    Return String.Format(hoursFormat, ts.Hours, ts.Minutes, ts.Seconds)
+                If (totalHours > 0 And (Not ts.Minutes > 0)) Then
+                    Return String.Format(hoursSecondsFormat, totalHours, ts.Seconds)
+                ElseIf (totalHours > 0) Then
+                    Return String.Format(hoursFormat, totalHours, ts.Minutes, ts.Seconds)
                 ElseIf (ts.Minutes > 0) Then
                     Return String.Format(minutesFormat, ts.Minutes, ts.Seconds)
                 Else

@@ -36,6 +36,7 @@ Partial Class TimerSettingsDialog
         Me.GroupBoxDuration = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.LabelNote = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.ButtonOptions = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
@@ -53,7 +54,6 @@ Partial Class TimerSettingsDialog
         Me.ContextMenuOptions = New System.Windows.Forms.ContextMenu()
         Me.MenuItemLoadPreset = New System.Windows.Forms.MenuItem()
         Me.MenuItemSavePresetAs = New System.Windows.Forms.MenuItem()
-        Me.LabelNote = New System.Windows.Forms.Label()
         CType(Me.NumericUpDownHours, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownMinutes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDownSeconds, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,6 +157,11 @@ Partial Class TimerSettingsDialog
         Me.TableLayoutPanel2.Controls.Add(Me.TextBoxNote, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxShowNoteAlertWhenTimerExpires, 0, 1)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        '
+        'LabelNote
+        '
+        resources.ApplyResources(Me.LabelNote, "LabelNote")
+        Me.LabelNote.Name = "LabelNote"
         '
         'TableLayoutPanel3
         '
@@ -273,11 +278,6 @@ Partial Class TimerSettingsDialog
         '
         Me.MenuItemSavePresetAs.Index = 1
         resources.ApplyResources(Me.MenuItemSavePresetAs, "MenuItemSavePresetAs")
-        '
-        'LabelNote
-        '
-        resources.ApplyResources(Me.LabelNote, "LabelNote")
-        Me.LabelNote.Name = "LabelNote"
         '
         'TimerSettingsDialog
         '
