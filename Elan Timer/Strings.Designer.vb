@@ -567,7 +567,7 @@ Namespace My.Resources
                 Return ResourceManager.GetString("MessageTasksWereImported", resourceCulture)
             End Get
         End Property
-
+        
         '''<summary>
         '''  Looks up a localized string similar to The time format you entered was unrecognized. When in doubt, use one of these formats: hours:minutes:seconds, minutes:seconds, or, simply, a number for seconds. Read the help document for more recognized formats..
         '''</summary>
@@ -794,6 +794,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Standard.
+        '''</summary>
+        Public Shared ReadOnly Property Standard() As String
+            Get
+                Return ResourceManager.GetString("Standard", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Start.
         '''</summary>
         Public Shared ReadOnly Property Start() As String
@@ -884,6 +893,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Total Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property TotalSeconds() As String
+            Get
+                Return ResourceManager.GetString("TotalSeconds", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Transparency:.
         '''</summary>
         Public Shared ReadOnly Property Transparency() As String
@@ -893,11 +911,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Verbal.
+        '''</summary>
+        Public Shared ReadOnly Property Verbal() As String
+            Get
+                Return ResourceManager.GetString("Verbal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Volume:.
         '''</summary>
         Public Shared ReadOnly Property Volume() As String
             Get
                 Return ResourceManager.GetString("Volume", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Whole Seconds.
+        '''</summary>
+        Public Shared ReadOnly Property WholeSeconds() As String
+            Get
+                Return ResourceManager.GetString("WholeSeconds", resourceCulture)
             End Get
         End Property
         

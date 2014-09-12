@@ -360,6 +360,9 @@
   <data name="Sound" xml:space="preserve">
     <value>Sound:</value>
   </data>
+  <data name="Standard" xml:space="preserve">
+    <value>Standard</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
@@ -390,11 +393,20 @@
   <data name="TimerHasExpired" xml:space="preserve">
     <value>Timer has expired.</value>
   </data>
+  <data name="TotalSeconds" xml:space="preserve">
+    <value>Total Seconds</value>
+  </data>
   <data name="Transparency" xml:space="preserve">
     <value>Transparency:</value>
   </data>
+  <data name="Verbal" xml:space="preserve">
+    <value>Verbal</value>
+  </data>
   <data name="Volume" xml:space="preserve">
     <value>Volume:</value>
+  </data>
+  <data name="WholeSeconds" xml:space="preserve">
+    <value>Whole Seconds</value>
   </data>
   <data name="WindowTextFormat" xml:space="preserve">
     <value>{0}{1}{2}{3}{4}</value>
