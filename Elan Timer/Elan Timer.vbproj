@@ -342,6 +342,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd" />
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
