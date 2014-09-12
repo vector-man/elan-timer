@@ -1,8 +1,7 @@
 ﻿Imports System.Windows.Forms
-Imports ElanTimer.Prefs
 Imports System.IO
 Imports PropertyChanged
-
+Imports NLog
 <ImplementPropertyChanged>
 Public Class TimerSettingsDialog
 
@@ -12,6 +11,9 @@ Public Class TimerSettingsDialog
     Dim alarmPlayer As Alarm
     Private time As New TimeModel()
     Private toolTip As New ToolTip()
+
+    ' Logging
+    Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     Public Property Duration As TimeSpan
         Get
@@ -97,6 +99,7 @@ Public Class TimerSettingsDialog
             ComboBoxAlarmPath.DisplayMember = "Key"
             ComboBoxAlarmPath.ValueMember = "Value"
             ComboBoxAlarmPath.DataSource = GetAlarmsByPath(AlarmsPath)
+
         End Set
     End Property
     Public Property SelectedAlarm As String
@@ -105,6 +108,7 @@ Public Class TimerSettingsDialog
         End Get
         Set(value As String)
             time.AlarmName = value
+            UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
         End Set
     End Property
     Public Property AlarmVolume As Integer
@@ -141,6 +145,7 @@ Public Class TimerSettingsDialog
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
         TrackBarVolume.DataBindings.Add("Value", time, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
+
         SetStrings()
     End Sub
 
@@ -156,21 +161,16 @@ Public Class TimerSettingsDialog
 
     Private Sub ButtonAlarmPlay_Click(sender As Object, e As EventArgs) Handles ButtonAlarmPlay.Click
         Try
-            If (alarmPlayer IsNot Nothing AndAlso alarmPlayer.Playing) Then
-                alarmPlayer.Stop()
-            Else
-                If alarmPlayer IsNot Nothing Then
-                    RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
-                    alarmPlayer.Dispose()
-                    alarmPlayer = Nothing
+            If (alarmPlayer IsNot Nothing) Then
+                If (alarmPlayer.Playing) Then
+                    alarmPlayer.Stop()
+                Else
+                    ButtonAlarmPlay.Image = My.Resources.stop_red
+                    alarmPlayer.Play()
                 End If
-                alarmPlayer = New Alarm(Path.Combine(AlarmsPath, SelectedAlarm), AlarmVolume, False)
-                AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
-                alarmPlayer.Play()
-                ButtonAlarmPlay.Image = My.Resources.stop_red
             End If
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
@@ -202,24 +202,9 @@ Public Class TimerSettingsDialog
         Me.Close()
     End Sub
 
-    Private Sub NumericUpDownVolume_ValueChanged(sender As Object, e As EventArgs)
-        Try
-            alarmPlayer.Volume = TrackBarVolume.Value
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub ButtonSet_Click(sender As Object, e As EventArgs) Handles ButtonSet.Click
-
-    End Sub
-
     Private Sub DialogTimerSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         RemoveHandler Application.Idle, AddressOf UpdateUI
-    End Sub
-
-    Private Sub TimerSettingsDialog_Invalidated(sender As Object, e As InvalidateEventArgs) Handles Me.Invalidated
-
+        UpdateAlarmPlayer(Nothing)
     End Sub
 
     Private Sub DialogTimerSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -259,18 +244,19 @@ Public Class TimerSettingsDialog
 
     Private Sub TrackBarVolume_ValueChanged(sender As Object, e As EventArgs) Handles TrackBarVolume.ValueChanged
         Try
-            alarmPlayer.Volume = TrackBarVolume.Value
+            If (alarmPlayer IsNot Nothing) Then
+                alarmPlayer.Volume = TrackBarVolume.Value
+            End If
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
     Private Sub AlarmPlayer_PlaybackStopped(sender As Object, e As NAudio.Wave.StoppedEventArgs)
-        alarmPlayer.Stop()
         ButtonAlarmPlay.Image = My.Resources.play_green
     End Sub
 
-    Private Function GetAlarmsByPath(alarmPath As String)
+    Private Function GetAlarmsByPath(alarmPath As String) As List(Of KeyValuePair(Of String, String))
         Dim dict As New List(Of KeyValuePair(Of String, String))
         For Each alarm As String In My.Computer.FileSystem.GetFiles(AlarmsPath)
             dict.Add(New KeyValuePair(Of String, String)(Path.GetFileNameWithoutExtension(alarm), Path.GetFileName(alarm)))
@@ -306,5 +292,27 @@ Public Class TimerSettingsDialog
         Me.ButtonCancel.Text = My.Resources.Strings.Cancel
 
         Me.ResumeLayout()
+    End Sub
+
+    Private Sub UpdateAlarmPlayer(alarmName As String)
+        If (alarmPlayer IsNot Nothing) Then
+            ButtonAlarmPlay.Image = My.Resources.play_green
+
+            RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+            alarmPlayer.Dispose()
+        End If
+
+        If (alarmName IsNot Nothing) Then
+            alarmPlayer = New Alarm(Path.Combine(AlarmsPath, alarmName), AlarmVolume, False)
+            AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+        End If
+    End Sub
+
+    Private Sub ComboBoxAlarmPath_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxAlarmPath.SelectedValueChanged
+        Try
+            UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
+        Catch ex As Exception
+            logger.Error(ex)
+        End Try
     End Sub
 End Class

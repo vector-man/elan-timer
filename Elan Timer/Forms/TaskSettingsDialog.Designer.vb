@@ -30,11 +30,11 @@ Partial Class TaskSettingsDialog
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonOptions = New System.Windows.Forms.Button()
-        Me.DataListViewActions = New BrightIdeasSoftware.DataListView()
-        Me.OlvColumnName = CType(New BrightIdeasSoftware.OLVColumn(),BrightIdeasSoftware.OLVColumn)
-        Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(),BrightIdeasSoftware.OLVColumn)
-        Me.OlvColumnCommand = CType(New BrightIdeasSoftware.OLVColumn(),BrightIdeasSoftware.OLVColumn)
-        Me.OlvColumnArguments = CType(New BrightIdeasSoftware.OLVColumn(),BrightIdeasSoftware.OLVColumn)
+        Me.DataListViewTasks = New BrightIdeasSoftware.DataListView()
+        Me.OlvColumnName = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumnCommand = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumnArguments = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.ButtonBrowseForFile = New System.Windows.Forms.Button()
         Me.TextBoxArguments = New System.Windows.Forms.TextBox()
         Me.LabelArguments = New System.Windows.Forms.Label()
@@ -51,28 +51,28 @@ Partial Class TaskSettingsDialog
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
         Me.MenuItemExportSelected = New System.Windows.Forms.MenuItem()
         Me.MenuItemExportAll = New System.Windows.Forms.MenuItem()
-        Me.TableLayoutPanelActions.SuspendLayout
-        Me.TableLayoutPanel2.SuspendLayout
-        CType(Me.DataListViewActions,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.TableLayoutPanelActions.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        CType(Me.DataListViewTasks, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'ButtonAdd
         '
         resources.ApplyResources(Me.ButtonAdd, "ButtonAdd")
         Me.ButtonAdd.Name = "ButtonAdd"
-        Me.ButtonAdd.UseVisualStyleBackColor = true
+        Me.ButtonAdd.UseVisualStyleBackColor = True
         '
         'ButtonRemove
         '
         resources.ApplyResources(Me.ButtonRemove, "ButtonRemove")
         Me.ButtonRemove.Name = "ButtonRemove"
-        Me.ButtonRemove.UseVisualStyleBackColor = true
+        Me.ButtonRemove.UseVisualStyleBackColor = True
         '
         'TableLayoutPanelActions
         '
         resources.ApplyResources(Me.TableLayoutPanelActions, "TableLayoutPanelActions")
         Me.TableLayoutPanelActions.Controls.Add(Me.TableLayoutPanel2, 0, 9)
-        Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewActions, 0, 0)
+        Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewTasks, 0, 0)
         Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
         Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 7)
         Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 8)
@@ -102,58 +102,58 @@ Partial Class TaskSettingsDialog
         resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
         Me.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.ButtonCancel.Name = "ButtonCancel"
-        Me.ButtonCancel.UseVisualStyleBackColor = true
+        Me.ButtonCancel.UseVisualStyleBackColor = True
         '
         'ButtonOK
         '
         resources.ApplyResources(Me.ButtonOK, "ButtonOK")
         Me.ButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.UseVisualStyleBackColor = true
+        Me.ButtonOK.UseVisualStyleBackColor = True
         '
         'ButtonOptions
         '
         resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
         Me.ButtonOptions.Name = "ButtonOptions"
-        Me.ButtonOptions.UseVisualStyleBackColor = true
+        Me.ButtonOptions.UseVisualStyleBackColor = True
         '
         'DataListViewActions
         '
-        Me.DataListViewActions.AllColumns.Add(Me.OlvColumnName)
-        Me.DataListViewActions.AllColumns.Add(Me.OlvColumnEvent)
-        Me.DataListViewActions.AllColumns.Add(Me.OlvColumnCommand)
-        Me.DataListViewActions.AllColumns.Add(Me.OlvColumnArguments)
-        Me.DataListViewActions.AutoGenerateColumns = false
-        Me.DataListViewActions.CheckBoxes = true
-        Me.DataListViewActions.CheckedAspectName = "Enabled"
-        Me.DataListViewActions.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnName, Me.OlvColumnEvent})
-        Me.TableLayoutPanelActions.SetColumnSpan(Me.DataListViewActions, 2)
-        Me.DataListViewActions.DataSource = Nothing
-        resources.ApplyResources(Me.DataListViewActions, "DataListViewActions")
-        Me.DataListViewActions.FullRowSelect = true
-        Me.DataListViewActions.HideSelection = false
-        Me.DataListViewActions.Name = "DataListViewActions"
-        Me.DataListViewActions.OwnerDraw = true
-        Me.TableLayoutPanelActions.SetRowSpan(Me.DataListViewActions, 5)
-        Me.DataListViewActions.ShowGroups = false
-        Me.DataListViewActions.ShowItemToolTips = true
-        Me.DataListViewActions.UseCompatibleStateImageBehavior = false
-        Me.DataListViewActions.UseExplorerTheme = true
-        Me.DataListViewActions.View = System.Windows.Forms.View.Details
+        Me.DataListViewTasks.AllColumns.Add(Me.OlvColumnName)
+        Me.DataListViewTasks.AllColumns.Add(Me.OlvColumnEvent)
+        Me.DataListViewTasks.AllColumns.Add(Me.OlvColumnCommand)
+        Me.DataListViewTasks.AllColumns.Add(Me.OlvColumnArguments)
+        Me.DataListViewTasks.AutoGenerateColumns = False
+        Me.DataListViewTasks.CheckBoxes = True
+        Me.DataListViewTasks.CheckedAspectName = "Enabled"
+        Me.DataListViewTasks.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnName, Me.OlvColumnEvent})
+        Me.TableLayoutPanelActions.SetColumnSpan(Me.DataListViewTasks, 2)
+        Me.DataListViewTasks.DataSource = Nothing
+        resources.ApplyResources(Me.DataListViewTasks, "DataListViewActions")
+        Me.DataListViewTasks.FullRowSelect = True
+        Me.DataListViewTasks.HideSelection = False
+        Me.DataListViewTasks.Name = "DataListViewActions"
+        Me.DataListViewTasks.OwnerDraw = True
+        Me.TableLayoutPanelActions.SetRowSpan(Me.DataListViewTasks, 5)
+        Me.DataListViewTasks.ShowGroups = False
+        Me.DataListViewTasks.ShowItemToolTips = True
+        Me.DataListViewTasks.UseCompatibleStateImageBehavior = False
+        Me.DataListViewTasks.UseExplorerTheme = True
+        Me.DataListViewTasks.View = System.Windows.Forms.View.Details
         '
         'OlvColumnName
         '
         Me.OlvColumnName.AspectName = "Name"
         Me.OlvColumnName.CellPadding = Nothing
-        Me.OlvColumnName.FillsFreeSpace = true
-        Me.OlvColumnName.Sortable = false
+        Me.OlvColumnName.FillsFreeSpace = True
+        Me.OlvColumnName.Sortable = False
         resources.ApplyResources(Me.OlvColumnName, "OlvColumnName")
         '
         'OlvColumnEvent
         '
         Me.OlvColumnEvent.AspectName = "Event"
         Me.OlvColumnEvent.CellPadding = Nothing
-        Me.OlvColumnEvent.Sortable = false
+        Me.OlvColumnEvent.Sortable = False
         resources.ApplyResources(Me.OlvColumnEvent, "OlvColumnEvent")
         '
         'OlvColumnCommand
@@ -161,22 +161,22 @@ Partial Class TaskSettingsDialog
         Me.OlvColumnCommand.AspectName = "Command"
         Me.OlvColumnCommand.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnCommand, "OlvColumnCommand")
-        Me.OlvColumnCommand.IsVisible = false
-        Me.OlvColumnCommand.Sortable = false
+        Me.OlvColumnCommand.IsVisible = False
+        Me.OlvColumnCommand.Sortable = False
         '
         'OlvColumnArguments
         '
         Me.OlvColumnArguments.AspectName = "Arguments"
         Me.OlvColumnArguments.CellPadding = Nothing
         resources.ApplyResources(Me.OlvColumnArguments, "OlvColumnArguments")
-        Me.OlvColumnArguments.IsVisible = false
-        Me.OlvColumnArguments.Sortable = false
+        Me.OlvColumnArguments.IsVisible = False
+        Me.OlvColumnArguments.Sortable = False
         '
         'ButtonBrowseForFile
         '
         resources.ApplyResources(Me.ButtonBrowseForFile, "ButtonBrowseForFile")
         Me.ButtonBrowseForFile.Name = "ButtonBrowseForFile"
-        Me.ButtonBrowseForFile.UseVisualStyleBackColor = true
+        Me.ButtonBrowseForFile.UseVisualStyleBackColor = True
         '
         'TextBoxArguments
         '
@@ -206,7 +206,7 @@ Partial Class TaskSettingsDialog
         'ComboBoxEvent
         '
         Me.ComboBoxEvent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBoxEvent.FormattingEnabled = true
+        Me.ComboBoxEvent.FormattingEnabled = True
         resources.ApplyResources(Me.ComboBoxEvent, "ComboBoxEvent")
         Me.ComboBoxEvent.Name = "ComboBoxEvent"
         '
@@ -224,13 +224,13 @@ Partial Class TaskSettingsDialog
         '
         resources.ApplyResources(Me.ButtonMoveDown, "ButtonMoveDown")
         Me.ButtonMoveDown.Name = "ButtonMoveDown"
-        Me.ButtonMoveDown.UseVisualStyleBackColor = true
+        Me.ButtonMoveDown.UseVisualStyleBackColor = True
         '
         'ButtonMoveUp
         '
         resources.ApplyResources(Me.ButtonMoveUp, "ButtonMoveUp")
         Me.ButtonMoveUp.Name = "ButtonMoveUp"
-        Me.ButtonMoveUp.UseVisualStyleBackColor = true
+        Me.ButtonMoveUp.UseVisualStyleBackColor = True
         '
         'ContextMenuExport
         '
@@ -264,26 +264,26 @@ Partial Class TaskSettingsDialog
         Me.CancelButton = Me.ButtonCancel
         Me.Controls.Add(Me.TableLayoutPanelActions)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.MaximizeBox = false
-        Me.MinimizeBox = false
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "TaskSettingsDialog"
-        Me.ShowInTaskbar = false
-        Me.TableLayoutPanelActions.ResumeLayout(false)
-        Me.TableLayoutPanelActions.PerformLayout
-        Me.TableLayoutPanel2.ResumeLayout(false)
-        Me.TableLayoutPanel2.PerformLayout
-        CType(Me.DataListViewActions,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.ShowInTaskbar = False
+        Me.TableLayoutPanelActions.ResumeLayout(False)
+        Me.TableLayoutPanelActions.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
+        CType(Me.DataListViewTasks, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents ButtonAdd As System.Windows.Forms.Button
     Friend WithEvents ButtonRemove As System.Windows.Forms.Button
     Friend WithEvents ContextMenuExport As System.Windows.Forms.ContextMenu
     Friend WithEvents MenuItemExportSelected As System.Windows.Forms.MenuItem
     Friend WithEvents MenuItemExportAll As System.Windows.Forms.MenuItem
     Friend WithEvents TableLayoutPanelActions As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents DataListViewActions As BrightIdeasSoftware.DataListView
+    Friend WithEvents DataListViewTasks As BrightIdeasSoftware.DataListView
     Friend WithEvents OlvColumnName As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumnEvent As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumnCommand As BrightIdeasSoftware.OLVColumn

@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports System.IO
 Imports ElanTimer.Infralution.Localization
+Imports NLog
 
 Public Class TaskSettingsDialog
 
@@ -8,8 +9,11 @@ Public Class TaskSettingsDialog
     Private actionsBindingSource As BindingSource
     Private model As New TasksModel()
     Private taskToolTip As ToolTip
-    Sub New()
 
+    ' Logging
+    Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
+
+    Sub New()
         ' This call is required by the designer.
         InitializeComponent()
     End Sub
@@ -25,7 +29,7 @@ Public Class TaskSettingsDialog
     End Property
 
     Public Sub UpdateStates(sender As Object, e As EventArgs)
-        Dim enabled As Boolean = (DataListViewActions.SelectedObjects.Count = 1)
+        Dim enabled As Boolean = (DataListViewTasks.SelectedObjects.Count = 1)
         LabelEvent.Enabled = enabled
         ComboBoxEvent.Enabled = enabled
         LabelName.Enabled = enabled
@@ -38,36 +42,38 @@ Public Class TaskSettingsDialog
         ButtonMoveUp.Enabled = enabled
         ButtonMoveDown.Enabled = enabled
 
-        ButtonRemove.Enabled = (DataListViewActions.SelectedObjects.Count > 0)
+        ButtonRemove.Enabled = (DataListViewTasks.SelectedObjects.Count > 0)
 
-        MenuItemExportSelected.Enabled = (Not DataListViewActions.SelectedIndices.Count = 0)
-        MenuItemExportAll.Enabled = (DataListViewActions.GetItemCount() > 0)
+        MenuItemExportSelected.Enabled = (Not DataListViewTasks.SelectedIndices.Count = 0)
+        MenuItemExportAll.Enabled = (DataListViewTasks.GetItemCount() > 0)
     End Sub
     Private Sub ButtonAdd_Click(sender As Object, e As EventArgs) Handles ButtonAdd.Click
         actionsBindingSource.Add(New TaskModel(TimerEvent.Started, My.Resources.Strings.NewTask, "", "", False, "", True))
     End Sub
 
     Private Sub ButtonRemove_Click(sender As Object, e As EventArgs) Handles ButtonRemove.Click
-        Dim selectedObjects = DataListViewActions.SelectedObjects
+        Try
+            Dim selectedObjects = DataListViewTasks.SelectedObjects
 
-        For Each obj In selectedObjects
-            actionsBindingSource.Remove(obj)
-        Next
+            For Each obj In selectedObjects
+                actionsBindingSource.Remove(obj)
+            Next
+        Catch ex As Exception
+            logger.Error(ex)
+        End Try
     End Sub
 
-    Private Function CloneActions(actions As List(Of TaskModel))
-        Return actions.ConvertAll(Function(action) New TaskModel(action.Event, action.Name, action.Command, action.Arguments, action.UseScript, action.Script, action.Enabled))
+    Private Function CloneTasks(tasks As List(Of TaskModel))
+        Return tasks.ConvertAll(Function(task) New TaskModel(task.Event, task.Name, task.Command, task.Arguments, task.UseScript, task.Script, task.Enabled))
     End Function
     Private Sub Initialize()
         taskToolTip = New ToolTip()
         AddHandler Application.Idle, AddressOf UpdateStates
 
-        If model.Tasks Is Nothing Then
-            model.Tasks = New List(Of TaskModel)
-        End If
-
+        model.Tasks = If(model.Tasks, New List(Of TaskModel))
         actionsBindingSource = New BindingSource()
         actionsBindingSource.DataSource = model.Tasks
+        DataListViewTasks.DataSource = actionsBindingSource
 
         ComboBoxEvent.DataSource = [Enum].GetValues(GetType(TimerEvent))
         ComboBoxEvent.DataBindings.Add("Text", actionsBindingSource, "Event", True, DataSourceUpdateMode.OnPropertyChanged)
@@ -81,8 +87,6 @@ Public Class TaskSettingsDialog
                                           Return ResourceEnumConverter.ConvertToString(DirectCast(obj, TaskModel).Event)
                                       End Function
 
-        DataListViewActions.DataSource = actionsBindingSource
-
         SetStrings()
     End Sub
 
@@ -93,27 +97,24 @@ Public Class TaskSettingsDialog
     End Sub
 
     Private Sub ExportTasks(Optional exportSelected As Boolean = False)
-
         Using saveDialog As New SaveFileDialog
             saveDialog.InitialDirectory = InitialDirectory
             saveDialog.Filter = FileFilter
             saveDialog.OverwritePrompt = True
-            If saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+            If (saveDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 Dim tasksToExport As New List(Of TaskModel)
-                Dim objects
-                If exportSelected Then
-                    objects = DataListViewActions.SelectedObjects
-                Else
-                    objects = DataListViewActions.Objects
-                End If
+
+                Dim objects = If(exportSelected,
+                                 DataListViewTasks.SelectedObjects,
+                                 DataListViewTasks.Objects)
 
                 For Each obj In objects
                     tasksToExport.Add(obj)
                 Next
-                Dim tsk As New TasksModel()
-                tsk.Tasks = tasksToExport
+                Dim task As New TasksModel()
+                task.Tasks = tasksToExport
 
-                RaiseEvent Exporting(Me, New TaskExportingEventArgs(saveDialog.FileName, tsk))
+                RaiseEvent Exporting(Me, New TaskExportingEventArgs(saveDialog.FileName, task))
             End If
         End Using
     End Sub
@@ -167,7 +168,6 @@ Public Class TaskSettingsDialog
     End Sub
 
     Private Sub MenuItem1_Click(sender As Object, e As EventArgs) Handles MenuItemImport.Click
-
         Using openDialog As New OpenFileDialog
             openDialog.InitialDirectory = InitialDirectory
             openDialog.Filter = FileFilter
@@ -207,13 +207,12 @@ Public Class TaskSettingsDialog
         Me.MenuItemExportSelected.Text = My.Resources.Strings.ExportSelected
         Me.MenuItemImport.Text = My.Resources.Strings.Import
 
-
-
         taskToolTip.SetToolTip(Me.ButtonAdd, My.Resources.Strings.Add)
         taskToolTip.SetToolTip(Me.ButtonRemove, My.Resources.Strings.Remove)
         taskToolTip.SetToolTip(Me.ButtonMoveUp, My.Resources.Strings.MoveUp)
         taskToolTip.SetToolTip(Me.ButtonMoveDown, My.Resources.Strings.MoveDown)
         taskToolTip.SetToolTip(Me.ButtonBrowseForFile, My.Resources.Strings.BrowseForFile)
+
         Me.ResumeLayout()
     End Sub
 

@@ -106,13 +106,10 @@
         Protected Overridable Sub Dispose(disposing As Boolean)
             If Not Me.disposedValue Then
                 If disposing Then
-                    Try
+                    If (_alarm IsNot Nothing) Then
                         _alarm.Dispose()
-                    Catch ex As Exception
-
-                    Finally
-                        _alarm = Nothing
-                    End Try
+                    End If
+                    _alarm = Nothing
 
                     RemoveHandler MyBase.Started, AddressOf AlarmTimer_Started
                     RemoveHandler MyBase.Expired, AddressOf AlarmTimer_Expired

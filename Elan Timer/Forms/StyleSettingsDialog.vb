@@ -5,6 +5,7 @@ Imports System.IO
 
 Imports ElanTimer.Rendering
 Imports System.Drawing.Drawing2D
+Imports NLog
 
 Public Class StyleSettingsDialog
     ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
@@ -21,6 +22,9 @@ Public Class StyleSettingsDialog
     Private toolTip As New ToolTip()
     Private Const CountUpPrefix As String = "+"
     Dim _customStyleColors As Integer()
+
+    ' Logging
+    Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     Sub New()
         ' This call is required by the designer.
@@ -129,34 +133,29 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub StartUpRendering()
+        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
+        stringFormat.Alignment = StringAlignment.Center
+        stringFormat.LineAlignment = StringAlignment.Center
+        timerObject = New TimerTextRenderable(_previewTimer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
+        timerObject.Prefix = If(TypeOf _previewTimer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+        checkerBoardObject = New BackgroundRenderable(Nothing, True)
 
-        Try
-            stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
-            stringFormat.Alignment = StringAlignment.Center
-            stringFormat.LineAlignment = StringAlignment.Center
-            timerObject = New TimerTextRenderable(_previewTimer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
-            timerObject.Prefix = If(TypeOf _previewTimer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
-            checkerBoardObject = New BackgroundRenderable(Nothing, True)
+        timerSurface = New Surface()
+        timerSurface.BackColor = BackgroundColor
+        timerSurface.Dock = DockStyle.Fill
+        PanelRenderPreview.Controls.Add(timerSurface)
 
-            timerSurface = New Surface()
-            timerSurface.BackColor = BackgroundColor
-            timerSurface.Dock = DockStyle.Fill
-            PanelRenderPreview.Controls.Add(timerSurface)
+        timerObject.Rectangle = timerSurface.ClientRectangle
+        checkerBoardObject.Rectangle = timerSurface.ClientRectangle
 
-            timerObject.Rectangle = timerSurface.ClientRectangle
-            checkerBoardObject.Rectangle = timerSurface.ClientRectangle
+        renderer = New Renderer(timerSurface)
+        renderer.FramesPerSecond = Utils.Framerate
 
-            renderer = New Renderer(timerSurface)
-            renderer.FramesPerSecond = Utils.Framerate
+        renderer.Renderables.Add(timerObject)
+        renderer.Renderables.Add(checkerBoardObject)
 
-            renderer.Renderables.Add(timerObject)
-            renderer.Renderables.Add(checkerBoardObject)
-
-            UpdateOpacity()
-            renderer.Enabled = True
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString())
-        End Try
+        UpdateOpacity()
+        renderer.Enabled = True
     End Sub
     Private Sub ShutDownRendering()
         PanelRenderPreview.Controls.Clear()
@@ -167,7 +166,7 @@ Public Class StyleSettingsDialog
             timerObject.Color = e.color
             ColorComboBoxBackgroundColor.CustomColors = ColorComboBoxForegrounColor.CustomColors
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
@@ -176,16 +175,18 @@ Public Class StyleSettingsDialog
             timerSurface.BackColor = e.color
             ColorComboBoxForegrounColor.CustomColors = ColorComboBoxBackgroundColor.CustomColors
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
     Private Sub FontPickerFont_ValueChanged(sender As Object, e As EventArgs) Handles FontPickerFont.ValueChanged
         Try
-            Dim fnt = FontPickerFont.Value
-            timerObject.Font = New Font(fnt.FontFamily.Name, 1, fnt.Style)
+            Dim font As Font = TryCast(FontPickerFont.Value, Font)
+            If (font IsNot Nothing AndAlso timerObject IsNot Nothing) Then
+                timerObject.Font = New Font(font.FontFamily.Name, 1, font.Style)
+            End If
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
@@ -201,9 +202,12 @@ Public Class StyleSettingsDialog
     End Sub
     Private Sub ComboBoxDisplayFormat_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedValueChanged
         Try
-            timerObject.Format = ComboBoxDisplayFormat.SelectedValue
+            Dim format As String = TryCast(ComboBoxDisplayFormat.SelectedValue, String)
+            If (format IsNot Nothing AndAlso timerObject IsNot Nothing) Then
+                timerObject.Format = format
+            End If
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
 
@@ -216,7 +220,6 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
-
         Using dialogOpen As New OpenFileDialog()
             dialogOpen.InitialDirectory = InitialDirectory
             dialogOpen.CheckPathExists = True
@@ -247,11 +250,11 @@ Public Class StyleSettingsDialog
         Try
             UpdateOpacity()
         Catch ex As Exception
-
+            logger.Error(ex)
         End Try
     End Sub
     Private Sub UpdateOpacity()
-        Dim transparency As Integer = 255 - (((100 - TrackBarTransparency.Value) / 100) * 255)
+        Dim transparency As Integer = 255 - (((100 - Int16.Parse(TrackBarTransparency.Value)) / 100) * 255)
         checkerBoardObject.Brush = New HatchBrush(Drawing2D.HatchStyle.LargeCheckerBoard, Color.FromArgb(transparency, Color.Gray), Color.FromArgb(transparency, Color.White))
     End Sub
     Public Event Loading As EventHandler(Of LoadingEventArgs)
