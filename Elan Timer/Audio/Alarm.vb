@@ -84,6 +84,7 @@ Public Class Alarm : Implements IDisposable
 #End Region
 
     Private Sub OnPlaybackStopped(sender As Object, e As StoppedEventArgs)
+        Me.Stop()
         RaiseEvent PlaybackStopped(sender, e)
     End Sub
 
