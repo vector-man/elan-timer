@@ -38,7 +38,7 @@ Namespace Settings
         End Property
 
         <UserScopedSetting>
-        <DefaultSettingValue("204, 236, 2")>
+        <DefaultSettingValue("255, 128, 0")>
         Public Property BackgroundColor As Color
             Get
                 Return Me("BackgroundColor")
@@ -49,7 +49,7 @@ Namespace Settings
         End Property
 
         <UserScopedSetting>
-        <DefaultSettingValue("9, 21, 0")>
+        <DefaultSettingValue("White")>
         Public Property ForegroundColor As Color
             Get
                 Return Me("ForegroundColor")
