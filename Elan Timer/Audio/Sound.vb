@@ -1,20 +1,44 @@
 ﻿Imports NAudio.Wave
-Public Class Alarm : Implements IDisposable
+Public Class Sound : Implements IDisposable
     Private reader As WaveFileReader
     Private loopStream As LoopStream
     Private waveOut As WaveOut
     Private _enabled As Boolean
     Public Event PlaybackStopped(sender As Object, e As StoppedEventArgs)
-    Sub New(path As String, volume As Integer, [loop] As Boolean)
-        reader = New WaveFileReader(path)
-        loopStream = New LoopStream(reader)
-        waveOut = New WaveOut()
-        Me.Volume = volume
+    Sub New(sound As String, volume As Integer, [loop] As Boolean)
         Me.Loop = [loop]
-        waveOut.Init(loopStream)
-        AddHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
+        Me.Load(sound)
     End Sub
 
+    Public Sub Load(sound As String)
+        DisposeObjects()
+        reader = New WaveFileReader(sound)
+        loopStream = New LoopStream(reader)
+        waveOut = New WaveOut()
+        Me.Volume = Volume
+        Me.Loop = [Loop]
+        waveOut.Init(loopStream)
+
+        AddHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
+    End Sub
+    Private Sub DisposeObjects()
+        If (waveOut IsNot Nothing) Then
+            RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
+            waveOut.Stop()
+            waveOut.Dispose()
+            waveOut = Nothing
+        End If
+
+        If (loopStream IsNot Nothing) Then
+            loopStream.Dispose()
+            loopStream = Nothing
+        End If
+
+        If (reader IsNot Nothing) Then
+            reader.Dispose()
+            reader = Nothing
+        End If
+    End Sub
     Public Sub Play()
         ' Rewind stream.
         loopStream.Position = 0
@@ -59,16 +83,7 @@ Public Class Alarm : Implements IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
         If (Not Me.disposedValue) Then
             If disposing Then
-                RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
-                waveOut.Stop()
-                waveOut.Dispose()
-                waveOut = Nothing
-
-                loopStream.Dispose()
-                loopStream = Nothing
-
-                reader.Dispose()
-                reader = Nothing
+                DisposeObjects()
             End If
         End If
         Me.disposedValue = True
