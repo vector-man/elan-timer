@@ -8,7 +8,7 @@ Imports ElanTimer.Rendering
 Imports Microsoft
 Imports NLog
 Imports System.Collections.Specialized
-
+Imports PSTaskDialog
 Public Class FormMain
     ' Token source for cancelling rendering.
     Public updateCancellationTokenSource As System.Threading.CancellationTokenSource

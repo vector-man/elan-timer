@@ -143,8 +143,9 @@
       <HintPath>..\packages\PropertyChanged.Fody.1.48.2.0\Lib\NET35\PropertyChanged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="PSTaskDialog">
-      <HintPath>..\..\..\..\..\Downloads\Programming\PSTaskDialog\PSTaskDialog\bin\PSTaskDialog.dll</HintPath>
+    <Reference Include="PSTaskDialog, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PSTaskDialog\PSTaskDialog\bin\PSTaskDialog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
