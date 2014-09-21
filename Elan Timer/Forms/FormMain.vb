@@ -989,6 +989,8 @@ Public Class FormMain
                 If (Not editing) Then
                     InitializeTimer()
                     RestartRendering()
+                Else
+                    timer.Alarm = alarm
                 End If
 
                 If (result = Windows.Forms.DialogResult.Yes) Then
