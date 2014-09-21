@@ -35,7 +35,7 @@ Public Class FormMain
     ' Main alarm.
     Private alarm As Alarm
     ' Main timer.
-    Public timer As CodeIsle.Timers.AlarmTimer
+    Public timer As AlarmTimer
     ' Reports progress to update UI when timer is running.
     Private reporter As IProgress(Of Integer)
 
@@ -48,12 +48,12 @@ Public Class FormMain
     Private forceExit As Boolean = False
 
     Dim maximized As Boolean = False
+
     Dim fullScreen As Boolean = False
 
     Private noteEnabled As Boolean
 
-
-    ' Logging
+    ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     ' Used for benchmark and testing.
@@ -145,7 +145,10 @@ Public Class FormMain
         If (My.Settings.ShowInSystemTray And My.Settings.ClickingTrayIconStopsAlarm And timerObject.Timer.IsExpired) Then
             Try
                 ' Try to stop the alarm. 
-                CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm.Stop()
+                Dim alarm As Alarm = CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm
+                If (alarm IsNot Nothing) Then
+                    alarm.Stop()
+                End If
             Catch ex As Exception
                 logger.Warn(ex)
             End Try
@@ -218,6 +221,7 @@ Public Class FormMain
         Try
             Dim dialog As TimerSettingsDialog = sender
             Dim settings As New TimeSettings(transporter)
+
             Using output As Stream = File.OpenWrite(e.Output)
                 settings.Duration = dialog.Duration
                 settings.CountUp = dialog.CountUp
@@ -241,6 +245,7 @@ Public Class FormMain
         Try
             Dim dialog As TimerSettingsDialog = sender
             Dim settings As New TimeSettings(transporter)
+
             Using input As Stream = File.OpenRead(e.Input)
                 settings.Import(input)
 
@@ -392,7 +397,7 @@ Public Class FormMain
 
     Private Sub FormMain_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
         ' If escape key is pressed...
-        If e.KeyChar = EscapeKeyChar Then
+        If (e.KeyChar = EscapeKeyChar) Then
             ' Exit full screen mode.
             SetWindowFullScreen(False)
         End If
@@ -407,7 +412,6 @@ Public Class FormMain
         Catch ex As Exception
             logger.Warn("No alarms could be found.", ex)
         End Try
-
 
         ' If task bar progress bar is supported, enable it.
         If (TaskbarManager.IsPlatformSupported) Then
@@ -594,7 +598,7 @@ Public Class FormMain
     ' Show the timer note and hide the time.
     Private Sub ShowNote()
         ' If the note text is empty, set it to "Expired."
-        If noteObject.Text = String.Empty Then
+        If (noteObject.Text = String.Empty) Then
             noteObject.Text = My.Resources.Strings.TimerHasExpired
         End If
         ' Show the note.
@@ -775,7 +779,6 @@ Public Class FormMain
 
         SetWindowFullScreen(My.Settings.WindowFullScreen)
 
-
         Me.ToolStripButtonReset.Text = My.Resources.Strings.Reset
 
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
@@ -800,7 +803,7 @@ Public Class FormMain
     End Sub
     ' Toggles timer between paused and not paused.
     Private Sub SetTimerState(enabled As Boolean)
-        If enabled Then
+        If (enabled) Then
             timer.Start()
         Else
             timer.Pause()
@@ -889,7 +892,7 @@ Public Class FormMain
 
     Private Sub SetWindowFullScreen(enabled As Boolean)
         fullScreen = enabled
-        If enabled Then
+        If (enabled) Then
             Me.TopMost = True
             Me.WindowState = FormWindowState.Normal
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -972,7 +975,9 @@ Public Class FormMain
                 timeSettings.AlarmName = If(dialog.SelectedAlarm, String.Empty)
                 timeSettings.AlarmLoop = dialog.AlarmLoop
                 timeSettings.AlarmVolume = dialog.AlarmVolume
-                timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note), dialog.Note.Replace(Environment.NewLine, String.Empty), String.Empty)
+                timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note),
+                                       dialog.Note.Replace(Environment.NewLine, String.Empty),
+                                       String.Empty)
                 timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
 
                 InitializeAlarm()
@@ -982,7 +987,7 @@ Public Class FormMain
                     RestartRendering()
                 End If
 
-                If result = Windows.Forms.DialogResult.Yes Then
+                If (result = Windows.Forms.DialogResult.Yes) Then
                     SetTimerState(True)
                 End If
 
@@ -1142,5 +1147,4 @@ Public Class FormMain
         ' MessageBox.Show("Elan Timer has encountered a problem and needs to close. We are sorry for the inconvenience.", My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Environment.FailFast(ex.Message, ex)
     End Sub
-
 End Class

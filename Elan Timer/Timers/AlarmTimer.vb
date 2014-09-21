@@ -7,51 +7,33 @@
         Private _alarm As Alarm
         Private _alarmEnabled As Boolean
         Sub New(duration As TimeSpan)
-            MyClass.New(duration, Nothing, False)
+            Me.New(duration, Nothing, False)
         End Sub
         Sub New(duration As TimeSpan, alarm As Alarm)
-            MyClass.New(duration, alarm, True)
+            Me.New(duration, alarm, True)
         End Sub
         Sub New(duration As TimeSpan, alarm As Alarm, alarmEnabled As Boolean)
-            MyClass.New(duration, alarm, alarmEnabled, 0)
+            Me.New(duration, alarm, alarmEnabled, 0)
         End Sub
         Sub New(duration As TimeSpan, alarm As Alarm, alarmEnabled As Boolean, restarts As Integer)
-            MyClass.New(duration, alarm, alarmEnabled, restarts, 1)
+            Me.New(duration, alarm, alarmEnabled, restarts, 1)
         End Sub
         Sub New(duration As TimeSpan, alarm As Alarm, alarmEnabled As Boolean, restarts As Integer, expirationPollRate As Integer)
             MyBase.New(duration, restarts, expirationPollRate)
-            MyClass.Alarm = alarm
-            MyClass.AlarmEnabled = alarmEnabled
+            Me.Alarm = alarm
+            Me.AlarmEnabled = alarmEnabled
         End Sub
         Private Sub AlarmTimer_Expired(sender As Object, e As TimerEventArgs)
-            Try
+            If (_alarm IsNot Nothing) Then
                 _alarm.Play()
-            Catch ex As Exception
-
-            End Try
+            End If
         End Sub
-        Private Sub AlarmTimer_Paused(sender As Object, e As TimerEventArgs)
-                Try
+
+        Private Sub StopAlarm(sender As Object, e As EventArgs)
+            If (_alarm IsNot Nothing) Then
                 _alarm.Stop()
-                Catch ex As Exception
-
-                End Try
+            End If
         End Sub
-        Private Sub AlarmTimer_Started(sender As Object, e As TimerEventArgs)
-                Try
-                    _alarm.Stop()
-                Catch ex As Exception
-
-                End Try
-        End Sub
-        Private Sub AlarmTimer_Restarted(sender As Object, e As TimerEventArgs)
-            Try
-                _alarm.Stop()
-            Catch ex As Exception
-
-            End Try
-        End Sub
-
 
         Public Property AlarmEnabled() As Boolean
             Get
@@ -60,15 +42,17 @@
 
             Set(value As Boolean)
                 _alarmEnabled = value
-                RemoveHandler MyBase.Started, AddressOf AlarmTimer_Started
+
+                RemoveHandler MyBase.Started, AddressOf StopAlarm
                 RemoveHandler MyBase.Expired, AddressOf AlarmTimer_Expired
-                RemoveHandler MyBase.Paused, AddressOf AlarmTimer_Paused
-                RemoveHandler MyBase.Restarted, AddressOf AlarmTimer_Restarted
-                If _alarmEnabled Then
-                    AddHandler MyBase.Started, AddressOf AlarmTimer_Started
+                RemoveHandler MyBase.Paused, AddressOf StopAlarm
+                RemoveHandler MyBase.Restarted, AddressOf StopAlarm
+
+                If (_alarmEnabled) Then
+                    AddHandler MyBase.Started, AddressOf StopAlarm
                     AddHandler MyBase.Expired, AddressOf AlarmTimer_Expired
-                    AddHandler MyBase.Paused, AddressOf AlarmTimer_Paused
-                    AddHandler MyBase.Restarted, AddressOf AlarmTimer_Restarted
+                    AddHandler MyBase.Paused, AddressOf StopAlarm
+                    AddHandler MyBase.Restarted, AddressOf StopAlarm
                 End If
             End Set
         End Property
@@ -77,7 +61,7 @@
                 Return _alarm
             End Get
             Set(value As Alarm)
-                If _alarm IsNot Nothing Then
+                If (_alarm IsNot Nothing) Then
                     _alarm.Dispose()
                     _alarm = Nothing
                 End If
@@ -87,15 +71,12 @@
 
         Public Overrides Sub Reset()
             MyBase.Reset()
-            Try
-                _alarm.Stop()
-            Catch ex As Exception
-
-            End Try
+            StopAlarm(Me, Nothing)
         End Sub
+
         Public Overrides ReadOnly Property Current As TimeSpan
             Get
-
+                Return Nothing
             End Get
         End Property
 
@@ -104,17 +85,17 @@
 
         ' IDisposable
         Protected Overridable Sub Dispose(disposing As Boolean)
-            If Not Me.disposedValue Then
+            If (Not Me.disposedValue) Then
                 If disposing Then
                     If (_alarm IsNot Nothing) Then
                         _alarm.Dispose()
                     End If
                     _alarm = Nothing
 
-                    RemoveHandler MyBase.Started, AddressOf AlarmTimer_Started
+                    RemoveHandler MyBase.Started, AddressOf StopAlarm
                     RemoveHandler MyBase.Expired, AddressOf AlarmTimer_Expired
-                    RemoveHandler MyBase.Paused, AddressOf AlarmTimer_Paused
-                    RemoveHandler MyBase.Restarted, AddressOf AlarmTimer_Restarted
+                    RemoveHandler MyBase.Paused, AddressOf StopAlarm
+                    RemoveHandler MyBase.Restarted, AddressOf StopAlarm
                 End If
             End If
             Me.disposedValue = True

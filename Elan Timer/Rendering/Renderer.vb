@@ -21,8 +21,8 @@ Namespace Rendering
 
         ' IDisposable
         Protected Overridable Sub Dispose(disposing As Boolean)
-            If Not Me.disposedValue Then
-                If disposing Then
+            If (Not Me.disposedValue) Then
+                If (disposing) Then
                     surfaceInvalidatorCancellationTokenSource.Cancel()
                     RemoveHandler Owner.Paint, AddressOf Surface_Paint
                     Task.WaitAll()
@@ -66,7 +66,7 @@ Namespace Rendering
             End Get
             Set(value As Boolean)
                 _enabled = value
-                If _enabled = False Then
+                If (Not _enabled) Then
                     surfaceInvalidatorCancellationTokenSource.Cancel()
                 Else
                     surfaceInvalidatorCancellationTokenSource = New System.Threading.CancellationTokenSource

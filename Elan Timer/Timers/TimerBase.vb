@@ -87,14 +87,14 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Private Sub StartEnabledPoll()
             expiredCancellationTokenSource = New Threading.CancellationTokenSource
-            Task.Factory.StartNew(Sub() ExpiredPollAsync(expiredCancellationTokenSource.Token), expiredCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
+            Task.Factory.StartNew(Sub() ExpiredPoll(expiredCancellationTokenSource.Token), expiredCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
         End Sub
         ''' <summary>
         ''' Used to stop polling if the timer should be enabled.
         ''' </summary>
         ''' <remarks></remarks>
         Private Sub StopEnabledPoll()
-            If expiredCancellationTokenSource IsNot Nothing Then
+            If (expiredCancellationTokenSource IsNot Nothing) Then
                 expiredCancellationTokenSource.Cancel()
             End If
             Task.WaitAll()
@@ -140,8 +140,8 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Start()
-            If Not Enabled Then
-                If Remaining.TotalMilliseconds > 0 Then
+            If (Not Enabled) Then
+                If (Remaining.TotalMilliseconds > 0) Then
                     Enabled = True
                     timerStopwatch.Start()
                     OnStarted(Me, New TimerEventArgs(Current, _duration))
@@ -274,7 +274,7 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Public Overridable ReadOnly Property Elapsed
             Get
-                If timerStopwatch.Elapsed > Duration Then
+                If (timerStopwatch.Elapsed > Duration) Then
                     Return Duration
                 End If
                 Return timerStopwatch.Elapsed
@@ -289,7 +289,7 @@ Namespace CodeIsle.Timers
         Public Overridable ReadOnly Property Remaining As TimeSpan
             Get
 
-                If Duration < Elapsed Then
+                If (Duration < Elapsed) Then
                     Return New TimeSpan()
                 End If
                 Return Duration - Elapsed
@@ -307,11 +307,11 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <param name="token"></param>
         ''' <remarks></remarks>
-        Private Async Sub ExpiredPollAsync(token As Threading.CancellationToken)
+        Private Sub ExpiredPoll(token As Threading.CancellationToken)
             While Not token.IsCancellationRequested Or Enabled
-                Await TaskEx.Delay(_expirationPollRate)
-                If Remaining.TotalMilliseconds <= 0 Then
-                    If restartCount > 0 Then
+                Threading.Thread.Sleep(_expirationPollRate)
+                If (Remaining.TotalMilliseconds <= 0) Then
+                    If (restartCount > 0) Then
                         restartCount -= 1
                         Restart()
                         Exit Sub

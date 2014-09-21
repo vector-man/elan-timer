@@ -57,7 +57,7 @@ Public Class Alarm : Implements IDisposable
 
     ' IDisposable
     Protected Overridable Sub Dispose(disposing As Boolean)
-        If Not Me.disposedValue Then
+        If (Not Me.disposedValue) Then
             If disposing Then
                 RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
                 waveOut.Stop()
@@ -69,7 +69,6 @@ Public Class Alarm : Implements IDisposable
 
                 reader.Dispose()
                 reader = Nothing
-
             End If
         End If
         Me.disposedValue = True

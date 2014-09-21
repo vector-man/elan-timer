@@ -1,16 +1,12 @@
 ﻿Imports System.Windows.Forms
-Imports ElanTimer.Prefs
 Imports ElanTimer.CodeIsle.Timers
 Imports System.IO
-
 Imports ElanTimer.Rendering
 Imports System.Drawing.Drawing2D
 Imports NLog
-
+Imports PropertyChanged
+<ImplementPropertyChanged>
 Public Class StyleSettingsDialog
-    ' Preview time is 1 hour 33 minutes and 7 seconds (5587 seconds total), or 1337. Add a second, so it can be seen.
-    Private Const PreviewTime As Long = 5588
-
     Private timerObject As TimerTextRenderable
     Private _previewTimer As AlarmTimer
     Private checkerBoardObject As BackgroundRenderable
@@ -18,12 +14,11 @@ Public Class StyleSettingsDialog
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
     Private timerSurface As Rendering.Surface
     Private loaded As Boolean = False
-    Private style As New StyleModel()
     Private toolTip As New ToolTip()
     Private Const CountUpPrefix As String = "+"
     Dim _customStyleColors As Integer()
 
-    ' Logging
+    ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     Sub New()
@@ -32,6 +27,7 @@ Public Class StyleSettingsDialog
 
         Initialize()
     End Sub
+#Region "Properties"
     Public Property DisplayFormats As List(Of KeyValuePair(Of String, String))
         Get
             Return ComboBoxDisplayFormat.DataSource
@@ -42,40 +38,12 @@ Public Class StyleSettingsDialog
     End Property
 
     Public Property DisplayFormat As String
-        Get
-            Return style.DisplayFormat
-        End Get
-        Set(value As String)
-            style.DisplayFormat = value
-        End Set
-    End Property
 
     Public Property ForegroundColor As Color
-        Get
-            Return style.ForegroundColor
-        End Get
-        Set(value As Color)
-            style.ForegroundColor = value
-        End Set
-    End Property
 
     Public Property BackgroundColor As Color
-        Get
-            Return style.BackgroundColor
-        End Get
-        Set(value As Color)
-            style.BackgroundColor = value
-        End Set
-    End Property
 
     Public Property DisplayFont As Font
-        Get
-            Return style.DisplayFont
-        End Get
-        Set(value As Font)
-            style.DisplayFont = value
-        End Set
-    End Property
 
     Public Property CustomStyleColors As Integer()
         Get
@@ -88,36 +56,39 @@ Public Class StyleSettingsDialog
     End Property
 
     Public Property GrowToFit As Boolean
-        Get
-            Return style.GrowToFit
-        End Get
-        Set(value As Boolean)
-            style.GrowToFit = value
-        End Set
-    End Property
 
     Public Property Transparency As Integer
-        Get
-            Return style.Transparency
-        End Get
-        Set(value As Integer)
-            style.Transparency = value
-        End Set
-    End Property
+
     Public Property Timer As AlarmTimer
+
     Public Property InitialDirectory As String
+
     Public Property FileFilter As String
-
+#End Region
+#Region "Events"
+    Public Event Loading As EventHandler(Of LoadingEventArgs)
+    Public Event Saving As EventHandler(Of SavingEventArgs)
+#End Region
     Sub Initialize()
-        ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
-        ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
-        ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
-        FontPickerFont.DataBindings.Add("Value", style, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
-        CheckBoxGrowToFit.DataBindings.Add("Checked", style, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
-        TrackBarTransparency.DataBindings.Add("Value", style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
-
+        ComboBoxDisplayFormat.DataBindings.Clear()
+        ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", Me, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
         ComboBoxDisplayFormat.DisplayMember = "Key"
         ComboBoxDisplayFormat.ValueMember = "Value"
+
+        ColorComboBoxForegrounColor.DataBindings.Clear()
+        ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", Me, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+
+        ColorComboBoxBackgroundColor.DataBindings.Clear()
+        ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", Me, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+
+        FontPickerFont.DataBindings.Clear()
+        FontPickerFont.DataBindings.Add("Value", Me, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
+
+        CheckBoxGrowToFit.DataBindings.Clear()
+        CheckBoxGrowToFit.DataBindings.Add("Checked", Me, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
+
+        TrackBarTransparency.DataBindings.Clear()
+        TrackBarTransparency.DataBindings.Add("Value", Me, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
 
         SetStrings()
     End Sub
@@ -224,7 +195,7 @@ Public Class StyleSettingsDialog
             dialogOpen.InitialDirectory = InitialDirectory
             dialogOpen.CheckPathExists = True
             dialogOpen.Filter = FileFilter
-            If dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+            If (dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
                 UpdateUI()
             End If
@@ -236,7 +207,7 @@ Public Class StyleSettingsDialog
             dialogSave.InitialDirectory = Utils.GetStylesPath()
             dialogSave.CheckPathExists = True
             dialogSave.Filter = My.Settings.StyleDialogFilter
-            If dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+            If (dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
                 RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
             End If
         End Using
@@ -255,10 +226,10 @@ Public Class StyleSettingsDialog
     End Sub
     Private Sub UpdateOpacity()
         Dim transparency As Integer = 255 - (((100 - Int16.Parse(TrackBarTransparency.Value)) / 100) * 255)
-        checkerBoardObject.Brush = New HatchBrush(Drawing2D.HatchStyle.LargeCheckerBoard, Color.FromArgb(transparency, Color.Gray), Color.FromArgb(transparency, Color.White))
+        If (checkerBoardObject IsNot Nothing) Then
+            checkerBoardObject.Brush = New HatchBrush(Drawing2D.HatchStyle.LargeCheckerBoard, Color.FromArgb(transparency, Color.Gray), Color.FromArgb(transparency, Color.White))
+        End If
     End Sub
-    Public Event Loading As EventHandler(Of LoadingEventArgs)
-    Public Event Saving As EventHandler(Of SavingEventArgs)
 
     Private Sub SetStrings()
         Me.SuspendLayout()

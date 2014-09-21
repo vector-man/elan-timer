@@ -5,24 +5,19 @@ Imports NLog
 <ImplementPropertyChanged>
 Public Class TimerSettingsDialog
 
-    Dim _alarmsPath As String
+    Private _alarmsPath As String
 
-    Public Property Editing As Boolean = False
-    Dim alarmPlayer As Alarm
-    Private time As New TimeModel()
+    Private alarmPlayer As Alarm
+
     Private toolTip As New ToolTip()
 
     ' Logging
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
+#Region "Properties"
+    Public Property Editing As Boolean = False
 
     Public Property Duration As TimeSpan
-        Get
-            Return time.Duration
-        End Get
-        Set(value As TimeSpan)
-            time.Duration = value
-        End Set
-    End Property
+
     Public Property Hours As Integer
         Get
             Return Math.Floor(Duration.TotalHours)
@@ -31,6 +26,7 @@ Public Class TimerSettingsDialog
             Duration = New TimeSpan(value, Minutes, Seconds)
         End Set
     End Property
+
     Public Property Minutes As Integer
         Get
             Return Duration.Minutes
@@ -48,48 +44,16 @@ Public Class TimerSettingsDialog
         End Set
     End Property
 
-
-
     Public Property Restarts As Integer
-        Get
-            Return time.Restarts
-        End Get
-        Set(value As Integer)
-            time.Restarts = value
-        End Set
-    End Property
+
     Public Property CountUp As Boolean
-        Get
-            Return time.CountUp
-        End Get
-        Set(value As Boolean)
-            time.CountUp = value
-        End Set
-    End Property
+
     Public Property Note As String
-        Get
-            Return time.Note
-        End Get
-        Set(value As String)
-            time.Note = value
-        End Set
-    End Property
+
     Public Property ShowAlertBoxOnTimerExpiration As Boolean
-        Get
-            Return time.AlertEnabled
-        End Get
-        Set(value As Boolean)
-            time.AlertEnabled = value
-        End Set
-    End Property
+
     Public Property AlarmEnabled As Boolean
-        Get
-            Return time.AlarmEnabled
-        End Get
-        Set(value As Boolean)
-            time.AlarmEnabled = value
-        End Set
-    End Property
+
     Public Property AlarmsPath As String
         Get
             Return _alarmsPath
@@ -98,53 +62,45 @@ Public Class TimerSettingsDialog
             _alarmsPath = value
             ComboBoxAlarmPath.DisplayMember = "Key"
             ComboBoxAlarmPath.ValueMember = "Value"
-            ComboBoxAlarmPath.DataSource = GetAlarmsByPath(AlarmsPath)
-
+            ComboBoxAlarmPath.DataSource = GetAlarmsByPath(AlarmsPath).ToList()
         End Set
     End Property
+
     Public Property SelectedAlarm As String
         Get
-            Return time.AlarmName
+            Return ComboBoxAlarmPath.SelectedValue
         End Get
         Set(value As String)
-            time.AlarmName = value
+            ComboBoxAlarmPath.SelectedValue = value
             UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
         End Set
     End Property
+
     Public Property AlarmVolume As Integer
-        Get
-            Return time.AlarmVolume
-        End Get
-        Set(value As Integer)
-            time.AlarmVolume = value
-        End Set
-    End Property
+
     Public Property AlarmLoop As Boolean
-        Get
-            Return time.AlarmLoop
-        End Get
-        Set(value As Boolean)
-            time.AlarmLoop = value
-        End Set
-    End Property
+
     Public Property FileFilter As String
+
     Public Property InitialDirectory
 
-    Public Sub Initialize()
+    Public Event Saving As EventHandler(Of SavingEventArgs)
 
+    Public Event Loading As EventHandler(Of LoadingEventArgs)
+#End Region
+
+    Public Sub Initialize()
         NumericUpDownHours.DataBindings.Add("Value", Me, "Hours")
         NumericUpDownMinutes.DataBindings.Add("Value", Me, "Minutes")
         NumericUpDownSeconds.DataBindings.Add("Value", Me, "Seconds")
-        NumericUpDownRestarts.DataBindings.Add("Value", time, "Restarts")
-        CheckBoxCountUp.DataBindings.Add("Checked", time, "CountUp")
-
-        TextBoxNote.DataBindings.Add("Text", time, "Note")
-        CheckBoxShowNoteAlertWhenTimerExpires.DataBindings.Add("Checked", time, "AlertEnabled")
-
-        CheckedGroupBox1.DataBindings.Add("Checked", time, "AlarmEnabled")
-        ComboBoxAlarmPath.DataBindings.Add("SelectedValue", time, "AlarmName")
-        TrackBarVolume.DataBindings.Add("Value", time, "AlarmVolume")
-        CheckBoxLoop.DataBindings.Add("Checked", time, "AlarmLoop")
+        NumericUpDownRestarts.DataBindings.Add("Value", Me, "Restarts")
+        CheckBoxCountUp.DataBindings.Add("Checked", Me, "CountUp")
+        TextBoxNote.DataBindings.Add("Text", Me, "Note")
+        CheckBoxShowNoteAlertWhenTimerExpires.DataBindings.Add("Checked", Me, "ShowAlertBoxOnTimerExpiration")
+        CheckedGroupBox1.DataBindings.Add("Checked", Me, "AlarmEnabled")
+        TrackBarVolume.DataBindings.Add("Value", Me, "AlarmVolume")
+        CheckBoxLoop.DataBindings.Add("Checked", Me, "AlarmLoop")
+        ComboBoxAlarmPath.DataBindings.Add("SelectedValue", Me, "SelectedAlarm")
 
         SetStrings()
     End Sub
@@ -187,14 +143,9 @@ Public Class TimerSettingsDialog
 
         Me.GroupBoxDuration.Enabled = Not Editing
 
-
-        Me.ComboBoxAlarmPath.Enabled = Me.CheckedGroupBox1.Checked
-        Me.CheckBoxLoop.Enabled = Me.ComboBoxAlarmPath.Enabled
-        Me.ButtonAlarmPlay.Enabled = Me.CheckBoxLoop.Enabled
         Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         Me.ButtonStart.Enabled = (Me.ButtonSet.Enabled And Not Editing)
         Me.MenuItemLoadPreset.Enabled = (Not Editing)
-
     End Sub
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
@@ -258,14 +209,15 @@ Public Class TimerSettingsDialog
 
     Private Function GetAlarmsByPath(alarmPath As String) As List(Of KeyValuePair(Of String, String))
         Dim dict As New List(Of KeyValuePair(Of String, String))
-        For Each alarm As String In My.Computer.FileSystem.GetFiles(AlarmsPath)
-            dict.Add(New KeyValuePair(Of String, String)(Path.GetFileNameWithoutExtension(alarm), Path.GetFileName(alarm)))
-        Next
+
+        If (Directory.Exists(AlarmsPath)) Then
+            For Each alarm As String In My.Computer.FileSystem.GetFiles(AlarmsPath)
+                dict.Add(New KeyValuePair(Of String, String)(Path.GetFileNameWithoutExtension(alarm), Path.GetFileName(alarm)))
+            Next
+        End If
+
         Return dict
     End Function
-
-    Public Event Saving As EventHandler(Of SavingEventArgs)
-    Public Event Loading As EventHandler(Of LoadingEventArgs)
 
     Private Sub SetStrings()
         Me.SuspendLayout()

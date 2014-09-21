@@ -64,8 +64,8 @@ Public Class LoopStream
 
         While totalBytesRead < count
             Dim bytesRead As Integer = sourceStream.Read(buffer, offset + totalBytesRead, count - totalBytesRead)
-            If bytesRead = 0 Then
-                If sourceStream.Position = 0 OrElse Not EnableLooping Then
+            If (bytesRead = 0) Then
+                If (sourceStream.Position = 0 OrElse Not EnableLooping) Then
                     ' something wrong with the source stream
                     Exit While
                 End If

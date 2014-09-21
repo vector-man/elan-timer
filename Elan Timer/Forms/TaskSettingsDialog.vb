@@ -8,17 +8,20 @@ Public Class TaskSettingsDialog
     Private actionsData As List(Of TaskModel)
     Private actionsBindingSource As BindingSource
     Private model As New TasksModel()
-    Private taskToolTip As ToolTip
+    Private taskToolTip As New ToolTip
 
-    ' Logging
+    ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
     Sub New()
         ' This call is required by the designer.
         InitializeComponent()
     End Sub
+#Region "Properties"
     Public Property InitialDirectory As String
+
     Public Property FileFilter As String
+
     Public Property Tasks As List(Of TaskModel)
         Get
             Return model.Tasks
@@ -27,7 +30,7 @@ Public Class TaskSettingsDialog
             model.Tasks = value
         End Set
     End Property
-
+#End Region
     Public Sub UpdateStates(sender As Object, e As EventArgs)
         Dim enabled As Boolean = (DataListViewTasks.SelectedObjects.Count = 1)
         LabelEvent.Enabled = enabled
@@ -67,18 +70,31 @@ Public Class TaskSettingsDialog
         Return tasks.ConvertAll(Function(task) New TaskModel(task.Event, task.Name, task.Command, task.Arguments, task.UseScript, task.Script, task.Enabled))
     End Function
     Private Sub Initialize()
-        taskToolTip = New ToolTip()
+        RemoveHandler Application.Idle, AddressOf UpdateStates
         AddHandler Application.Idle, AddressOf UpdateStates
 
         model.Tasks = If(model.Tasks, New List(Of TaskModel))
+
+        If (actionsBindingSource IsNot Nothing) Then
+            actionsBindingSource.Dispose()
+        End If
         actionsBindingSource = New BindingSource()
+
         actionsBindingSource.DataSource = model.Tasks
+
         DataListViewTasks.DataSource = actionsBindingSource
 
+        ComboBoxEvent.DataBindings.Clear()
         ComboBoxEvent.DataSource = [Enum].GetValues(GetType(TimerEvent))
         ComboBoxEvent.DataBindings.Add("Text", actionsBindingSource, "Event", True, DataSourceUpdateMode.OnPropertyChanged)
+
+        TextBoxName.DataBindings.Clear()
         TextBoxName.DataBindings.Add("Text", actionsBindingSource, "Name", True, DataSourceUpdateMode.OnPropertyChanged)
+
+        TextBoxCommand.Clear()
         TextBoxCommand.DataBindings.Add("Text", actionsBindingSource, "Command", True, DataSourceUpdateMode.OnPropertyChanged)
+
+        TextBoxArguments.Clear()
         TextBoxArguments.DataBindings.Add("Text", actionsBindingSource, "Arguments", True, DataSourceUpdateMode.OnPropertyChanged)
 
         ' Used to fix localization issue for "Event" column.
