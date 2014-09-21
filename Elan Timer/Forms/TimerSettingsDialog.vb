@@ -7,7 +7,7 @@ Public Class TimerSettingsDialog
 
     Private _alarmsPath As String
 
-    Private alarmPlayer As Alarm
+    Private alarmPlayer As Sound
 
     Private toolTip As New ToolTip()
 
@@ -255,7 +255,7 @@ Public Class TimerSettingsDialog
         End If
 
         If (alarmName IsNot Nothing) Then
-            alarmPlayer = New Alarm(Path.Combine(AlarmsPath, alarmName), AlarmVolume, False)
+            alarmPlayer = New Sound(Path.Combine(AlarmsPath, alarmName), AlarmVolume, False)
             AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
         End If
     End Sub

@@ -182,7 +182,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audio\Alarm.vb" />
+    <Compile Include="Audio\Sound.vb" />
     <Compile Include="Audio\LoopStream.vb" />
     <Compile Include="Rendering\BorderlessToolStripSystemRenderer.vb" />
     <Compile Include="CheckedGroupBox.vb">

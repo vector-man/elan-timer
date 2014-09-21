@@ -5,9 +5,12 @@ Public Class Sound : Implements IDisposable
     Private waveOut As WaveOut
     Private _enabled As Boolean
     Public Event PlaybackStopped(sender As Object, e As StoppedEventArgs)
+    Sub New()
+
+    End Sub
     Sub New(sound As String, volume As Integer, [loop] As Boolean)
-        Me.Loop = [loop]
         Me.Load(sound)
+        Me.Loop = [loop]
     End Sub
 
     Public Sub Load(sound As String)

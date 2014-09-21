@@ -33,7 +33,7 @@ Public Class FormMain
     ' Settings object for styles.
     Private styleSettings As StyleSettings = New StyleSettings(transporter)
     ' Main alarm.
-    Private alarm As Alarm
+    Private ReadOnly alarm As New Sound()
     ' Main timer.
     Public timer As AlarmTimer
     ' Reports progress to update UI when timer is running.
@@ -142,17 +142,19 @@ Public Class FormMain
 
     Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
         ' If the icon is shown in the system tray and clicking the icon should turn the alarm off...
-        If (My.Settings.ShowInSystemTray And My.Settings.ClickingTrayIconStopsAlarm And timerObject.Timer.IsExpired) Then
-            Try
-                ' Try to stop the alarm. 
-                Dim alarm As Alarm = CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm
-                If (alarm IsNot Nothing) Then
-                    alarm.Stop()
-                End If
-            Catch ex As Exception
-                logger.Warn(ex)
-            End Try
-        End If
+        If (Not My.Settings.ShowInSystemTray) Then Return
+        If (Not My.Settings.ClickingTrayIconStopsAlarm) Then Return
+        If (Not timerObject.Timer.IsExpired) Then Return
+
+        Try
+            ' Try to stop the alarm. 
+            Dim alarm As Sound = CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm
+            If (alarm IsNot Nothing) Then
+                alarm.Stop()
+            End If
+        Catch ex As Exception
+            logger.Warn(ex)
+        End Try
     End Sub
 
 
@@ -341,16 +343,16 @@ Public Class FormMain
 
     Private Sub FormMain_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
         Try
-            Dim data As Array = DirectCast(e.Data.GetData(DataFormats.FileDrop), Array)
-            If (data IsNot Nothing) Then
-                Dim file = data.GetValue(0).ToString()
+            Dim data As Array = TryCast(e.Data.GetData(DataFormats.FileDrop), Array)
+            If (data Is Nothing) Then Return
 
-                Me.BeginInvoke(DirectCast(Sub(value As String)
-                                              LoadSettings(value)
-                                          End Sub, Action(Of String)), New Object() {file})
-                Me.Activate()
+            Dim file = data.GetValue(0).ToString()
 
-            End If
+            Me.BeginInvoke(DirectCast(Sub(value As String)
+                                          LoadSettings(value)
+                                      End Sub, Action(Of String)), New Object() {file})
+            Me.Activate()
+
         Catch ex As Exception
             logger.Error(ex)
         End Try
@@ -415,12 +417,18 @@ Public Class FormMain
 
         ' If task bar progress bar is supported, enable it.
         If (TaskbarManager.IsPlatformSupported) Then
-            reporter = New Progress(Of Integer)(Sub(progress)
-                                                    TaskbarManager.Instance.SetProgressValue(progress, 1000, Me.Handle)
-                                                End Sub)
+            reporter = New Progress(Of Integer) _
+                (Sub(progress)
+                     TaskbarManager.Instance.SetProgressValue(progress, 1000, Me.Handle)
+                 End Sub)
             ' Else, set reporter to an empty progress reporter instead (nothing will be reported.)
         Else
             reporter = New Progress(Of Integer)()
+        End If
+
+        ' If a single argument is in command line (assumed to be a file), then load settings file.
+        If (My.Application.CommandLineArgs.Count = 1) Then
+            LoadSettings(My.Application.CommandLineArgs(0))
         End If
 
         ' Initialize the alarm.
@@ -438,11 +446,6 @@ Public Class FormMain
 
         ' Add handler for UpdateUI.
         AddHandler Application.Idle, AddressOf UpdateUI
-
-        ' If a single argument is in command line (assumed to be a file), then load settings file.
-        If (My.Application.CommandLineArgs.Count = 1) Then
-            LoadSettings(My.Application.CommandLineArgs(0))
-        End If
 
         formInitialized = True
     End Sub
@@ -619,10 +622,6 @@ Public Class FormMain
                                          ' If message is empty, show a default message. Else, show the note message.
                                          Dim message As String = If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text)
                                          cTaskDialog.MessageBox(Me, My.Application.Info.ProductName, message, String.Format("The timer has expired at: {0}", Date.Now().ToString()), eTaskDialogButtons.OK, eSysIcons.Information)
-                                         'cTaskDialog.MessageBox(New Form() With {.TopMost = True, .StartPosition = FormStartPosition.CenterScreen}, My.Application.Info.ProductName, message, String.Format("The timer has expired at: {0}", Date.Now().ToString()), eTaskDialogButtons.OK, eSysIcons.Information)
-                                         'cTaskDialog.ShowCommandBox(Me, My.Application.Info.ProductName, message,
-                                         '                           "The timer has expired. What would you like to do?",
-                                         '                           "Reset|Restart|Exit", True)
                                      End If
                                  End If
                              End Sub))
@@ -726,39 +725,29 @@ Public Class FormMain
     End Sub
 
     Private Sub LoadSettings(fileName As String)
-        If (System.IO.File.Exists(fileName)) Then
-            Using stream As FileStream = File.OpenRead(fileName)
-                Select Case System.IO.Path.GetExtension(fileName)
-                    Case My.Settings.StyleFileExtension
-                        styleSettings.Import(stream)
-                    Case My.Settings.TaskFileExtension
-                        Dim settings As New TaskSettings(transporter)
-                        settings.Import(stream)
-                        settings.Tasks.ForEach(Sub(i) i.Enabled = False)
-                        taskSettings.Tasks.AddRange(settings.Tasks)
-                        MessageBox.Show(My.Resources.Strings.MessageTasksWereImported, My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Case My.Settings.TimeFileExtension
-                        timeSettings.Import(stream)
-                        RemoveTimerHandlers()
-                        Dim alarm As Alarm = Nothing
-                        Try
-                            alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
-                        Catch ex As Exception
-                            logger.Error(ex)
-                        End Try
-                        InitializeAlarm()
-                        InitializeTimer()
-                End Select
-                RestartRendering()
-            End Using
-        End If
+        If (Not System.IO.File.Exists(fileName)) Then Return
+
+        Using stream As FileStream = File.OpenRead(fileName)
+            Select Case System.IO.Path.GetExtension(fileName)
+                Case My.Settings.StyleFileExtension
+                    styleSettings.Import(stream)
+                Case My.Settings.TaskFileExtension
+                    Dim settings As New TaskSettings(transporter)
+                    settings.Import(stream)
+                    settings.Tasks.ForEach(Sub(i) i.Enabled = False)
+                    taskSettings.Tasks.AddRange(settings.Tasks)
+                    MessageBox.Show(My.Resources.Strings.MessageTasksWereImported, My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Case My.Settings.TimeFileExtension
+                    timeSettings.Import(stream)
+            End Select
+            RestartRendering()
+        End Using
     End Sub
     Sub InitializeAlarm()
         Try
-            If (alarm IsNot Nothing) Then
-                alarm.Dispose()
-            End If
-            alarm = New Alarm(Utils.GetAlarmFullPath(timeSettings.AlarmName), timeSettings.AlarmVolume, timeSettings.AlarmLoop)
+            alarm.Load(Utils.GetAlarmFullPath(timeSettings.AlarmName))
+            alarm.Volume = timeSettings.AlarmVolume
+            alarm.Loop = timeSettings.AlarmLoop
         Catch ex As Exception
             logger.Error(ex)
         End Try
@@ -813,7 +802,9 @@ Public Class FormMain
             timer.Pause()
         End If
         If (TaskbarManager.IsPlatformSupported) Then
-            Dim progressState = If(timer.IsPaused, TaskbarProgressBarState.Paused, TaskbarProgressBarState.Normal)
+            Dim progressState = If(timer.IsPaused,
+                                   TaskbarProgressBarState.Paused,
+                                   TaskbarProgressBarState.Normal)
             TaskbarManager.Instance.SetProgressState(progressState, Me.Handle)
         End If
         UpdateToolbar()
@@ -909,25 +900,28 @@ Public Class FormMain
         SetFullScreenNoteVisibility()
     End Sub
     Private Function GetColorsAsIntegerArray(colors As StringCollection) As Integer()
-        If (colors IsNot Nothing) Then
-            Return colors.Cast(Of String)().ToList().ConvertAll(Function(c)
-                                                                    Return Convert.ToInt32(c)
-                                                                End Function).ToArray()
-        Else
-            Return Nothing
-        End If
+        If (colors Is Nothing) Then Return Nothing
+
+        Return colors.Cast(Of String)() _
+        .ToList() _
+        .ConvertAll(Function(c)
+                        Return Convert.ToInt32(c)
+                    End Function) _
+        .ToArray()
     End Function
 
     Private Function GetColorsAsStringCollection(colors As Integer()) As StringCollection
-        If (colors IsNot Nothing OrElse colors.Length > 0) Then
-            Dim colorsCollection As StringCollection = New StringCollection()
-            colorsCollection.AddRange(colors.ToList().ConvertAll(Function(c)
-                                                                     Return c.ToString()
-                                                                 End Function).ToArray())
-            Return colorsCollection
-        Else
-            Return Nothing
-        End If
+        If (colors Is Nothing) Then Return Nothing
+        If (colors.Length = 0) Then Return Nothing
+
+        Dim colorsCollection As StringCollection = New StringCollection()
+        colorsCollection.AddRange(colors.ToList() _
+                                  .ConvertAll(Function(c)
+                                                  Return c.ToString()
+                                              End Function) _
+                                          .ToArray())
+        Return colorsCollection
+
     End Function
 
     Private Function CloneTasks(tasks As List(Of TaskModel)) As List(Of TaskModel)
@@ -989,9 +983,8 @@ Public Class FormMain
                 If (Not editing) Then
                     InitializeTimer()
                     RestartRendering()
-                Else
-                    timer.Alarm = alarm
                 End If
+                timer.AlarmEnabled = timeSettings.AlarmEnabled
 
                 If (result = Windows.Forms.DialogResult.Yes) Then
                     SetTimerState(True)
@@ -1123,12 +1116,11 @@ Public Class FormMain
     Private Sub ExitApplication()
         Me.Close()
     End Sub
-#End Region
 
     Private Sub ShowErrorMessage(msg As String)
         MessageBox.Show(msg, My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
-
+#End Region
     Public Sub New()
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf UnhandledException
         AddHandler Application.ThreadException, AddressOf UnhandledThreadException
