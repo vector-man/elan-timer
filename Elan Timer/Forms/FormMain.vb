@@ -618,7 +618,11 @@ Public Class FormMain
                                      If (timeSettings.AlertEnabled) Then
                                          ' If message is empty, show a default message. Else, show the note message.
                                          Dim message As String = If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text)
-                                         MessageBox.Show(Me, message, My.Application.Info.AssemblyName, MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                         cTaskDialog.MessageBox(Me, My.Application.Info.ProductName, message, String.Format("The timer has expired at: {0}", Date.Now().ToString()), eTaskDialogButtons.OK, eSysIcons.Information)
+                                         'cTaskDialog.MessageBox(New Form() With {.TopMost = True, .StartPosition = FormStartPosition.CenterScreen}, My.Application.Info.ProductName, message, String.Format("The timer has expired at: {0}", Date.Now().ToString()), eTaskDialogButtons.OK, eSysIcons.Information)
+                                         'cTaskDialog.ShowCommandBox(Me, My.Application.Info.ProductName, message,
+                                         '                           "The timer has expired. What would you like to do?",
+                                         '                           "Reset|Restart|Exit", True)
                                      End If
                                  End If
                              End Sub))
