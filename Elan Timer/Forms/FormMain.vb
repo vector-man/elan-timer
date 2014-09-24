@@ -90,7 +90,9 @@ Public Class FormMain
 #End If
         ' Execute tasks for the "Expired" timer event.
         ExecuteTasks(TimerEvent.Expired)
-        TryShowNoteAndAlert()
+        Task.Factory.StartNew(Sub()
+                                  TryShowNoteAndAlert()
+                              End Sub)
     End Sub
     ' Executes tasks for a given timer event.
     Private Sub ExecuteTasks(e As TimerEvent)
