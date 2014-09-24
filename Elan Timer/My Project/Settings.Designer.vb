@@ -279,9 +279,9 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property ShowInSystemTray() As String
+        Public Property ShowInSystemTray() As Boolean
             Get
-                Return CType(Me("ShowInSystemTray"),String)
+                Return CType(Me("ShowInSystemTray"),Boolean)
             End Get
             Set
                 Me("ShowInSystemTray") = value

@@ -62,7 +62,7 @@
     <Setting Name="ShowNoteAlertWhenTimerExpires" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ShowInSystemTray" Type="System.String" Scope="User">
+    <Setting Name="ShowInSystemTray" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ClickingTrayIconStopsAlarm" Type="System.Boolean" Scope="User">
