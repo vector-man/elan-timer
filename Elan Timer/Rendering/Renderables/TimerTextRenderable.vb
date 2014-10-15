@@ -3,7 +3,9 @@
 Namespace Rendering
     Public Class TimerTextRenderable
         Inherits TextRenderable
+        Sub New()
 
+        End Sub
         Sub New(timer As TimerBase, font As Font, format As String, formatProvider As IFormatProvider, sizeToFit As Boolean, color As Color, stringFormat As StringFormat, visible As Boolean)
             MyBase.New(String.Empty, font, sizeToFit, color, stringFormat, visible)
             Me.Format = format

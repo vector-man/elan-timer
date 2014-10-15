@@ -143,7 +143,7 @@ Public Class FormMain
     End Sub
 
     Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
-        ' If the icon is shown in the system tray and clicking the icon should turn the alarm off...
+        ' If the icon is shown in the system tray and clicking the icon should turn the alarm off.
         If (Not My.Settings.ShowInSystemTray) Then Return
         If (Not My.Settings.ClickingTrayIconStopsAlarm) Then Return
         If (Not timerObject.Timer.IsExpired) Then Return
@@ -182,12 +182,10 @@ Public Class FormMain
 
 
     Private Sub NotifyIconToolStripMenuItemTasks_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemTasks.Click
-        ' Show the task dialog with current form as parent.
         ShowTaskDialog(Me)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
-        ' Show the Style Dialog.
         ShowStyleDialog(Me)
     End Sub
 
@@ -198,7 +196,6 @@ Public Class FormMain
     End Sub
 
     Private Sub ToolNotifyIconStripMenuItemResetTimer_Click(sender As Object, e As EventArgs) Handles ToolNotifyIconStripMenuItemResetTimer.Click
-        ' Reset the timer.
         ResetTimer()
     End Sub
 
@@ -208,7 +205,6 @@ Public Class FormMain
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemSettings.Click
-        ' Show the Settings dialog.
         ShowSettingsDialog(Me)
     End Sub
 
@@ -216,9 +212,8 @@ Public Class FormMain
         If (timerObject IsNot Nothing) Then timerObject.Rectangle = timerSurface.ClientRectangle
         If (noteObject IsNot Nothing) Then noteObject.Rectangle = timerSurface.ClientRectangle
 
-        If (Not fullScreen) Then
-            maximized = (Me.WindowState = FormWindowState.Maximized)
-        End If
+        If (fullScreen) Then Return
+        maximized = (Me.WindowState = FormWindowState.Maximized)
     End Sub
 
     Private Sub TimerSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
@@ -361,7 +356,6 @@ Public Class FormMain
     End Sub
 
     Private Sub ToolStripButtonReset_Click(sender As Object, e As EventArgs) Handles ToolStripButtonReset.Click
-        ' Reset the timer.
         ResetTimer()
     End Sub
 
@@ -373,18 +367,12 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        ' If closing to system tray is enabled.
+        ' If closing to system tray is enabled, then only close the window (don't exit the application).
         If (Not forceExit And (My.Settings.ShowInSystemTray And My.Settings.CloseToSystemTray)) Then
-            ' Cancel exiting the application.
             e.Cancel = True
-            ' Close to the system tray instead.
             CloseToSystemTray()
-            ' Else, close the application
         Else
-            ' Stop rendering the timer display.
             StopRendering()
-
-            ' Save application settings.
             SaveSettings()
         End If
     End Sub
@@ -400,9 +388,8 @@ Public Class FormMain
     End Sub
 
     Private Sub FormMain_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
-        ' If escape key is pressed...
+        ' If escape key is pressed, then exit full screen mode.
         If (e.KeyChar = EscapeKeyChar) Then
-            ' Exit full screen mode.
             SetWindowFullScreen(False)
         End If
     End Sub
@@ -418,12 +405,12 @@ Public Class FormMain
         End Try
 
         ' If task bar progress bar is supported, enable it.
+        ' Else, set reporter to an empty progress reporter instead (nothing will be reported.)
         If (TaskbarManager.IsPlatformSupported) Then
             reporter = New Progress(Of Integer) _
                 (Sub(progress)
                      TaskbarManager.Instance.SetProgressValue(progress, 1000, Me.Handle)
                  End Sub)
-            ' Else, set reporter to an empty progress reporter instead (nothing will be reported.)
         Else
             reporter = New Progress(Of Integer)()
         End If
@@ -433,15 +420,14 @@ Public Class FormMain
             LoadSettings(My.Application.CommandLineArgs(0))
         End If
 
-        ' Initialize the alarm.
         InitializeAlarm()
 
-        ' Initialize the timer.
         InitializeTimer()
 
-        ' Restart rendering.
+        InitializeRendering()
+
         StartRendering()
-        ' Initialize the main form.
+
         InitializeFormMain()
         ' Get rid of the toolstrip highlight bug that occurs for some reason.
         ToolStripMain.Select()
@@ -490,9 +476,8 @@ Public Class FormMain
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
         ' Exit fullscreen mode (when the timer display area is clicked).
-        If (fullScreen) Then
-            SetWindowFullScreen(False)
-        End If
+        If (Not fullScreen) Then Return
+        SetWindowFullScreen(False)
     End Sub
     ' Toggle timer between paused/not paused.
     Private Sub ToolStripButtonStartPause_Click(sender As Object, e As EventArgs) Handles ToolStripButtonStartPause.Click
@@ -501,9 +486,8 @@ Public Class FormMain
     End Sub
     ' Set timer form to or from fullscreen.
     Private Sub FullScreenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemFullScreen.Click
-        If (Not fullScreen) Then
-            SetWindowFullScreen(True)
-        End If
+        If (fullScreen) Then Return
+        SetWindowFullScreen(True)
     End Sub
 #End Region
 
@@ -515,30 +499,14 @@ Public Class FormMain
         updateCancellationTokenSource.Cancel()
         Task.WaitAll()
 
-        renderer.Dispose()
+        updateCancellationTokenSource.Dispose()
 
-        stringFormat.Dispose()
+        renderer.Enabled = False
 
-        timerObject.Dispose()
-        noteObject.Dispose()
-
-        RemoveHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
-        RemoveHandler timerSurface.Click, AddressOf TimerSurface_Click
-        timerSurface.Dispose()
+        timerObject.Visible = False
+        noteObject.Visible = False
     End Sub
-    ' Starts up rendering of the timer.
-    Private Async Sub StartRendering()
-        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
-        stringFormat.Alignment = StringAlignment.Center
-        stringFormat.LineAlignment = StringAlignment.Center
-
-        timerObject = New TimerTextRenderable(timer, styleSettings.DisplayFont, styleSettings.DisplayFormat, New TimeFormat(), styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, True)
-        timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
-
-        noteObject = New TextRenderable(timeSettings.Note, styleSettings.DisplayFont, styleSettings.GrowToFit, styleSettings.ForegroundColor, stringFormat, False)
-
-        ToolStripLabelNote.Text = timeSettings.Note
-
+    Private Sub InitializeRendering()
         timerSurface = New Surface()
         timerSurface.BackColor = styleSettings.BackgroundColor
         timerSurface.Dock = DockStyle.Fill
@@ -548,14 +516,43 @@ Public Class FormMain
 
         PanelTimer.Controls.Add(timerSurface)
 
-        timerObject.Rectangle = timerSurface.ClientRectangle
-        noteObject.Rectangle = timerSurface.ClientRectangle
+        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
+        stringFormat.Alignment = StringAlignment.Center
+        stringFormat.LineAlignment = StringAlignment.Center
 
-        SetToolStripStyling(My.Settings.UseToolbarStyling)
+        timerObject = New TimerTextRenderable()
+        timerObject.FormatProvider = New TimeFormat()
+
+        noteObject = New TextRenderable()
 
         renderer = New Renderer(timerSurface)
         renderer.Renderables.Add(timerObject)
         renderer.Renderables.Add(noteObject)
+    End Sub
+    ' Starts up rendering of the timer.
+    Private Async Sub StartRendering()
+        timerObject.Color = styleSettings.ForegroundColor
+        timerObject.Font = styleSettings.DisplayFont
+        timerObject.Format = styleSettings.DisplayFormat
+        timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+        timerObject.Rectangle = timerSurface.ClientRectangle
+        timerObject.SizeToFit = styleSettings.GrowToFit
+        timerObject.StringFormat = stringFormat
+        timerObject.Timer = timer
+        timerObject.Visible = True
+
+        noteObject.Color = styleSettings.ForegroundColor
+        noteObject.Font = styleSettings.DisplayFont
+        noteObject.Rectangle = timerSurface.ClientRectangle
+        noteObject.SizeToFit = styleSettings.GrowToFit
+        noteObject.StringFormat = stringFormat
+        noteObject.Text = timeSettings.Note
+        noteObject.Visible = False
+
+        ToolStripLabelNote.Text = timeSettings.Note
+
+        SetToolStripStyling(My.Settings.UseToolbarStyling)
+
         renderer.Enabled = True
 
         UpdateToolbar()
@@ -563,6 +560,8 @@ Public Class FormMain
         updateCancellationTokenSource = New System.Threading.CancellationTokenSource
 
         noteEnabled = Not String.IsNullOrWhiteSpace(timeSettings.Note)
+
+        ToolStripLabelNote.Text = timeSettings.Note
 
         Await FormMainProgressUpdateAsync(updateCancellationTokenSource.Token)
     End Sub
@@ -573,21 +572,13 @@ Public Class FormMain
     ' Enable or disable tool strip styling.
     Private Sub SetToolStripStyling(enabled As Boolean)
         If (enabled) Then
-            ' Set tool strip back color.
             ToolStripMain.BackColor = styleSettings.BackgroundColor
-            ' Create a new custom tool strip renderer object.
             Dim renderer = New BorderlessToolStripSystemRenderer()
-            ' Set separator back color.
             renderer.SeparatorBackColor = styleSettings.ForegroundColor
-            ' Set separator fore color.
             renderer.SeparatorForeColor = styleSettings.ForegroundColor
-            ' Set tool strip to custom renderer.
             ToolStripMain.Renderer = renderer
-            ' Else, disable tool strip styling.
         Else
-            ' Set tool strip back color to default.
             ToolStripMain.BackColor = ToolStrip.DefaultBackColor
-            ' Set tool strip renderer to professional.
             ToolStripMain.Renderer = New ToolStripProfessionalRenderer()
         End If
     End Sub
@@ -617,15 +608,21 @@ Public Class FormMain
     Private Sub TryShowNoteAndAlert()
         Me.Invoke(New Action(Sub()
                                  ' If note is enabled, then show it.
-                                 If (noteEnabled) Then
-                                     ShowNote()
-                                     ' If messabe box alert is enabled, show it.
-                                     If (timeSettings.AlertEnabled) Then
-                                         ' If message is empty, show a default message. Else, show the note message.
-                                         Dim message As String = If(noteObject.Text = String.Empty, My.Resources.Strings.TimerHasExpired, noteObject.Text)
-                                         cTaskDialog.MessageBox(Me, My.Application.Info.ProductName, message, String.Format("The timer has expired at: {0}", Date.Now().ToString()), eTaskDialogButtons.OK, eSysIcons.Information)
-                                     End If
-                                 End If
+                                 If (Not noteEnabled) Then Return
+                                 ShowNote()
+                                 ' If messabe box alert is enabled, show it.
+                                 If (Not timeSettings.AlertEnabled) Then Return
+                                 ' If message is empty, show a default message. Else, show the note message.
+                                 Dim message As String = If(noteObject.Text = String.Empty,
+                                                            My.Resources.Strings.TimerHasExpired,
+                                                            noteObject.Text)
+                                 cTaskDialog.MessageBox(Me,
+                                                        My.Application.Info.ProductName,
+                                                        message,
+                                                        String.Format("The timer has expired at: {0}",
+                                                        Date.Now().ToString()),
+                                                        eTaskDialogButtons.OK,
+                                                        eSysIcons.Information)
                              End Sub))
     End Sub
     ' Sets visibility of full screen note.

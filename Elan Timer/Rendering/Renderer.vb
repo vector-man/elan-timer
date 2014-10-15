@@ -26,7 +26,6 @@ Namespace Rendering
                     surfaceInvalidatorCancellationTokenSource.Cancel()
                     RemoveHandler Owner.Paint, AddressOf Surface_Paint
                     Task.WaitAll()
-                    Owner.Dispose()
                 End If
 
                 ' TODO: free unmanaged resources (unmanaged objects) and override Finalize() below.

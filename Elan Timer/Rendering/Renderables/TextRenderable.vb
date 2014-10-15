@@ -3,6 +3,9 @@
         Implements IRenderable, IDisposable
         Const MaximumFontSize = 1000
         Private colorBrush As SolidBrush
+        Sub New()
+            Me.New(String.Empty, System.Drawing.SystemFonts.DefaultFont, False, System.Drawing.Color.Black, New StringFormat(), True)
+        End Sub
         Sub New(text As String, font As Font, sizeToFit As Boolean, color As Color, stringFormat As StringFormat, visible As Boolean)
             MyClass.Text = text
             MyClass.Font = font

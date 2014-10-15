@@ -128,9 +128,6 @@ Public Class StyleSettingsDialog
         UpdateOpacity()
         renderer.Enabled = True
     End Sub
-    Private Sub ShutDownRendering()
-        PanelRenderPreview.Controls.Clear()
-    End Sub
 
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
         Try
