@@ -8,7 +8,7 @@ Namespace Settings
         Sub New()
             MyClass.New(Nothing)
         End Sub
-        Sub New(transporter As ITransporter)
+        Sub New(transporter As IImporterExporter)
             MyBase.New()
             Me.Transporter = transporter
         End Sub
@@ -22,7 +22,7 @@ Namespace Settings
                 Me("Tasks") = value
             End Set
         End Property
-        Public Property Transporter As ITransporter
+        Public Property Transporter As IImporterExporter
         Public Sub Export(stream As IO.Stream) Implements IExportable.Export
             Dim model As New TasksModel()
 

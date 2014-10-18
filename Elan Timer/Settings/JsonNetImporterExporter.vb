@@ -1,10 +1,10 @@
 ﻿Imports Newtonsoft.Json
 Imports System.IO
 Imports System.Reflection
-Public Class JsonNetTransporter
-    Implements ITransporter
+Public Class JsonNetImporterExporter
+    Implements IImporterExporter
 
-    Public Function Import(Of T)(stream As IO.Stream) Implements ITransporter.Import
+    Public Function Import(Of T)(stream As IO.Stream) Implements IImporterExporter.Import
         stream.Seek(0, SeekOrigin.Begin)
         Using sr As New StreamReader(stream)
             Dim text As String = sr.ReadToEnd()
@@ -16,7 +16,7 @@ Public Class JsonNetTransporter
         End Using
     End Function
 
-    Public Sub Export(Of T)(ByRef obj As Object, stream As IO.Stream) Implements ITransporter.Export
+    Public Sub Export(Of T)(ByRef obj As Object, stream As IO.Stream) Implements IImporterExporter.Export
         stream.SetLength(0)
 
         Try

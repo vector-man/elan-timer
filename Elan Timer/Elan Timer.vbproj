@@ -229,18 +229,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Vendor\ResourceHelper.vb" />
-    <Compile Include="Settings\JsonNetTransporter.vb" />
+    <Compile Include="Settings\JsonNetImporterExporter.vb" />
     <Compile Include="Models\StyleModel.vb" />
     <Compile Include="Models\TimeModel.vb" />
     <Compile Include="Settings\IExportable.vb" />
     <Compile Include="Settings\IImportable.vb" />
-    <Compile Include="Settings\ITransporter.vb" />
+    <Compile Include="Settings\IImporterExporter.vb" />
     <Compile Include="Rendering\Renderer.vb" />
-    <Compile Include="Rendering\RenderObjects\ClearRenderable.vb" />
-    <Compile Include="Rendering\RenderObjects\IRenderable.vb" />
-    <Compile Include="Rendering\RenderObjects\BackgroundRenderable.vb" />
-    <Compile Include="Rendering\RenderObjects\TextRenderable.vb" />
-    <Compile Include="Rendering\RenderObjects\TimerTextRenderable.vb" />
+    <Compile Include="Rendering\Renderables\ClearRenderable.vb" />
+    <Compile Include="Rendering\Renderables\IRenderable.vb" />
+    <Compile Include="Rendering\Renderables\BackgroundRenderable.vb" />
+    <Compile Include="Rendering\Renderables\TextRenderable.vb" />
     <Compile Include="Rendering\Surface.vb">
       <SubType>Component</SubType>
     </Compile>

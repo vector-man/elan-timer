@@ -17,7 +17,7 @@ Public Class FormMain
     ' Renderer for timer.
     Private renderer As Renderer
     ' The timer object to render.
-    Private timerObject As TimerTextRenderable
+    Private timerObject As TextRenderable
     ' The note object to render.
     Private noteObject As TextRenderable
     ' String format for rendering text.
@@ -25,7 +25,7 @@ Public Class FormMain
     ' Prefix to display on timer when counting up.
     Private Const CountUpPrefix As String = "+"
     ' Used for importing or exporting data (in JSON format.)
-    Private transporter As ITransporter = New JsonNetTransporter()
+    Private transporter As IImporterExporter = New JsonNetImporterExporter()
     ' Settings object for timer.
     Private timeSettings As TimeSettings = New TimeSettings(transporter)
     ' Settings object for tasks.
@@ -53,6 +53,10 @@ Public Class FormMain
 
     Private noteEnabled As Boolean
 
+
+    Private timeFormat As New TimeFormat()
+    Private lastTextRenderedTime As String = String.Empty
+
     ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
@@ -63,6 +67,7 @@ Public Class FormMain
 
 
 #Region "Timer Event Handelers"
+
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
 #If DEBUG Then
         sw.Start()
@@ -146,11 +151,11 @@ Public Class FormMain
         ' If the icon is shown in the system tray and clicking the icon should turn the alarm off.
         If (Not My.Settings.ShowInSystemTray) Then Return
         If (Not My.Settings.ClickingTrayIconStopsAlarm) Then Return
-        If (Not timerObject.Timer.IsExpired) Then Return
+        If (Not timer.IsExpired) Then Return
 
         Try
             ' Try to stop the alarm. 
-            Dim alarm As Sound = CType(timerObject.Timer, CodeIsle.Timers.AlarmTimer).Alarm
+            Dim alarm As Sound = CType(timer, CodeIsle.Timers.AlarmTimer).Alarm
             If (alarm IsNot Nothing) Then
                 alarm.Stop()
             End If
@@ -508,7 +513,6 @@ Public Class FormMain
     End Sub
     Private Sub InitializeRendering()
         timerSurface = New Surface()
-        timerSurface.BackColor = styleSettings.BackgroundColor
         timerSurface.Dock = DockStyle.Fill
 
         AddHandler timerSurface.DoubleClick, AddressOf TimerSurface_DoubleClick
@@ -520,8 +524,7 @@ Public Class FormMain
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
-        timerObject = New TimerTextRenderable()
-        timerObject.FormatProvider = New TimeFormat()
+        timerObject = New TextRenderable()
 
         noteObject = New TextRenderable()
 
@@ -531,14 +534,21 @@ Public Class FormMain
     End Sub
     ' Starts up rendering of the timer.
     Private Async Sub StartRendering()
+        timerSurface.BackColor = styleSettings.BackgroundColor
+
         timerObject.Color = styleSettings.ForegroundColor
         timerObject.Font = styleSettings.DisplayFont
-        timerObject.Format = styleSettings.DisplayFormat
-        timerObject.Prefix = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+
+        Dim prefix As String = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+        timerObject.TextRenderFormat = Function()
+                                           lastTextRenderedTime = String.Format(timeFormat, String.Concat(prefix, "{0:", styleSettings.DisplayFormat, "}"), Me.timer.Current)
+                                           Return lastTextRenderedTime
+                                       End Function
+
+
         timerObject.Rectangle = timerSurface.ClientRectangle
         timerObject.SizeToFit = styleSettings.GrowToFit
         timerObject.StringFormat = stringFormat
-        timerObject.Timer = timer
         timerObject.Visible = True
 
         noteObject.Color = styleSettings.ForegroundColor
@@ -546,7 +556,7 @@ Public Class FormMain
         noteObject.Rectangle = timerSurface.ClientRectangle
         noteObject.SizeToFit = styleSettings.GrowToFit
         noteObject.StringFormat = stringFormat
-        noteObject.Text = timeSettings.Note
+        noteObject.TextRenderFormat = Function() timeSettings.Note
         noteObject.Visible = False
 
         ToolStripLabelNote.Text = timeSettings.Note
@@ -594,8 +604,8 @@ Public Class FormMain
     ' Show the timer note and hide the time.
     Private Sub ShowNote()
         ' If the note text is empty, set it to "Expired."
-        If (noteObject.Text = String.Empty) Then
-            noteObject.Text = My.Resources.Strings.TimerHasExpired
+        If (timeSettings.Note = String.Empty) Then
+            noteObject.TextRenderFormat = Function() My.Resources.Strings.TimerHasExpired
         End If
         ' Show the note.
         noteObject.Visible = True
@@ -608,14 +618,16 @@ Public Class FormMain
     Private Sub TryShowNoteAndAlert()
         Me.Invoke(New Action(Sub()
                                  ' If note is enabled, then show it.
-                                 If (Not noteEnabled) Then Return
-                                 ShowNote()
+                                 If (noteEnabled) Then
+                                     ShowNote()
+                                 End If
                                  ' If messabe box alert is enabled, show it.
                                  If (Not timeSettings.AlertEnabled) Then Return
                                  ' If message is empty, show a default message. Else, show the note message.
-                                 Dim message As String = If(noteObject.Text = String.Empty,
+                                 Dim note As String = noteObject.TextRenderFormat.Invoke()
+                                 Dim message As String = If(note = String.Empty,
                                                             My.Resources.Strings.TimerHasExpired,
-                                                            noteObject.Text)
+                                                            note)
                                  cTaskDialog.MessageBox(Me,
                                                         My.Application.Info.ProductName,
                                                         message,
@@ -666,7 +678,6 @@ Public Class FormMain
                 reporter.Report(currentProgressValue)
 
                 ' Update form progress bar on UI thread.
-
                 ProgressBarMain.Value = currentProgressValue
 
                 UpdateWindowText()
@@ -682,15 +693,20 @@ Public Class FormMain
     End Function
     Private Sub UpdateWindowText()
         ' Assign time string if the timer is running.
-        Dim time As String = If(Not timer.IsExpired, timerObject.Text, String.Empty)
+        If (WindowState = FormWindowState.Minimized OrElse Not Visible) Then
+            lastTextRenderedTime = timerObject.TextRenderFormat().Invoke()
+        End If
+
+        Dim time As String = If(Not timer.IsExpired, lastTextRenderedTime, String.Empty)
+
         ' Assign separator string if the timer is running and note is enabled.
         Dim separator As String = If(Not timer.IsExpired AndAlso noteEnabled, " - ", String.Empty)
         ' Assign note string if the note is enabled.
         Dim note As String = If(noteEnabled, timeSettings.Note, String.Empty)
         ' Assign title string if nothing is in previous variables (expiration with no note.)
-        Dim title As String = If(time.Length = 0 And separator.Length = 0 And note.Length = 0, My.Application.Info.AssemblyName, String.Empty)
+        Dim title As String = If(time.Length = 0 AndAlso separator.Length = 0 AndAlso note.Length = 0, My.Application.Info.AssemblyName, String.Empty)
         ' Set Form text using the localized window text format.
-        Me.Text = String.Format(My.Resources.Strings.WindowTextFormat, timerObject.Prefix, time, separator, note, title)
+        Me.Text = String.Format("{0}{1}{2}{3}", title, time, separator, note)
     End Sub
 
     Private Sub UpdateToolbar()
@@ -1044,7 +1060,8 @@ Public Class FormMain
 
                 timerObject.Color = styleSettings.ForegroundColor
                 timerObject.Font = styleSettings.DisplayFont
-                timerObject.Format = styleSettings.DisplayFormat
+
+                'timerObject.Format = styleSettings.DisplayFormat
                 timerObject.SizeToFit = styleSettings.GrowToFit
 
                 noteObject.Color = styleSettings.ForegroundColor

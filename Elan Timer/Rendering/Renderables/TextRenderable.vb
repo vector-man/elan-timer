@@ -4,10 +4,10 @@
         Const MaximumFontSize = 1000
         Private colorBrush As SolidBrush
         Sub New()
-            Me.New(String.Empty, System.Drawing.SystemFonts.DefaultFont, False, System.Drawing.Color.Black, New StringFormat(), True)
+            Me.New(Nothing, System.Drawing.SystemFonts.DefaultFont, False, System.Drawing.Color.Black, New StringFormat(), True)
         End Sub
-        Sub New(text As String, font As Font, sizeToFit As Boolean, color As Color, stringFormat As StringFormat, visible As Boolean)
-            MyClass.Text = text
+        Sub New(textRenderFormat As Func(Of String), font As Font, sizeToFit As Boolean, color As Color, stringFormat As StringFormat, visible As Boolean)
+            MyClass.TextRenderFormat = textRenderFormat
             MyClass.Font = font
             colorBrush = New SolidBrush(color)
             MyClass.SizeToFit = sizeToFit
@@ -17,10 +17,7 @@
 
         Public Property Visible As Boolean Implements IRenderable.Visible
         Public Property SizeToFit As Boolean
-        Public Overridable Property Text As String
         Public Property Font As Font
-        Public Property Prefix As String
-        Public Property Suffix As String
         Public Property Color As Color Implements IRenderable.Color
             Get
                 Return colorBrush.Color
@@ -92,18 +89,10 @@
 #End Region
 
         Public Property Rectangle As Rectangle Implements IRenderable.Rectangle
-
+        Public Property TextRenderFormat As Func(Of String)
         Public Sub Render(e As PaintEventArgs) Implements IRenderable.Render
             e.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
             If (Visible) Then
-
-                Dim textToPrint As String = String.Empty
-                If (Not My.Application.Culture.TextInfo.IsRightToLeft) Then
-                    textToPrint = Prefix & Text & Suffix
-                Else
-                    textToPrint = Suffix & Text & Prefix
-                End If
-
                 Dim largestFontSize As Long
 
                 If (SizeToFit) Then
@@ -111,9 +100,10 @@
                 Else
                     largestFontSize = Font.Size
                 End If
-
-                Using textFont = AppropriateFont(e.Graphics, Font.Size, largestFontSize, Rectangle.Size, textToPrint, Font)
-                    e.Graphics.DrawString(textToPrint, textFont, colorBrush, Rectangle, StringFormat)
+                Dim text As String
+                text = Me.TextRenderFormat().Invoke()
+                Using textFont = AppropriateFont(e.Graphics, Font.Size, largestFontSize, Rectangle.Size, text, Font)
+                    e.Graphics.DrawString(text, textFont, colorBrush, Rectangle, StringFormat)
                 End Using
             End If
         End Sub

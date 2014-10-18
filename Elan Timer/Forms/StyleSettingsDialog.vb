@@ -7,7 +7,7 @@ Imports NLog
 Imports PropertyChanged
 <ImplementPropertyChanged>
 Public Class StyleSettingsDialog
-    Private timerObject As TimerTextRenderable
+    Private timerObject As New TextRenderable
     Private _previewTimer As AlarmTimer
     Private checkerBoardObject As BackgroundRenderable
     Private renderer As Renderer
@@ -17,6 +17,7 @@ Public Class StyleSettingsDialog
     Private toolTip As New ToolTip()
     Private Const CountUpPrefix As String = "+"
     Dim _customStyleColors As Integer()
+    Private timeFormat As New TimeFormat()
 
     ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
@@ -104,20 +105,28 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub StartUpRendering()
-        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
-        stringFormat.Alignment = StringAlignment.Center
-        stringFormat.LineAlignment = StringAlignment.Center
-        timerObject = New TimerTextRenderable(_previewTimer, New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style), DisplayFormat, New TimeFormat(), True, ForegroundColor, stringFormat, True)
-        timerObject.Prefix = If(TypeOf _previewTimer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
-        checkerBoardObject = New BackgroundRenderable(Nothing, True)
-
         timerSurface = New Surface()
         timerSurface.BackColor = BackgroundColor
         timerSurface.Dock = DockStyle.Fill
         PanelRenderPreview.Controls.Add(timerSurface)
 
-        timerObject.Rectangle = timerSurface.ClientRectangle
-        checkerBoardObject.Rectangle = timerSurface.ClientRectangle
+        stringFormat = New StringFormat(System.Drawing.StringFormat.GenericTypographic)
+        stringFormat.Alignment = StringAlignment.Center
+        stringFormat.LineAlignment = StringAlignment.Center
+
+        timerObject = New TextRenderable() With {
+            .Color = ForegroundColor,
+            .Font = New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style),
+            .StringFormat = stringFormat,
+            .SizeToFit = True,
+            .Visible = True,
+            .Rectangle = timerSurface.ClientRectangle}
+
+        Dim prefix As String = If(TypeOf Timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
+        timerObject.TextRenderFormat = Function() String.Format(timeFormat, String.Concat(prefix, "{0:", DisplayFormat, "}"), _previewTimer.Current)
+
+        checkerBoardObject = New BackgroundRenderable(Nothing, True) With {.Rectangle = timerSurface.ClientRectangle}
+
 
         renderer = New Renderer(timerSurface)
         renderer.FramesPerSecond = Utils.Framerate
@@ -172,7 +181,8 @@ Public Class StyleSettingsDialog
         Try
             Dim format As String = TryCast(ComboBoxDisplayFormat.SelectedValue, String)
             If (format IsNot Nothing AndAlso timerObject IsNot Nothing) Then
-                timerObject.Format = format
+                ' TODO: Remove line.
+                ' timerObject.Format = format
             End If
         Catch ex As Exception
             logger.Error(ex)
