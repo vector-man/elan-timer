@@ -272,7 +272,7 @@ Namespace CodeIsle.Timers
         ''' <value></value>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Overridable ReadOnly Property Elapsed
+        Public Overridable ReadOnly Property Elapsed As TimeSpan
             Get
                 If (timerStopwatch.Elapsed > Duration) Then
                     Return Duration
