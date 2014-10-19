@@ -282,7 +282,6 @@
     <Compile Include="Timers\TimeFormat.vb" />
     <Compile Include="Timers\TimerBase.vb" />
     <Compile Include="Timers\TimerEventArgs.vb" />
-    <Compile Include="Timers\TimerFactory.vb" />
     <Compile Include="Vendor\ResourceEnumConverter.vb" />
   </ItemGroup>
   <ItemGroup>
