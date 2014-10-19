@@ -8,7 +8,7 @@ Imports PropertyChanged
 <ImplementPropertyChanged>
 Public Class StyleSettingsDialog
     Private timerObject As New TextRenderable
-    Private _previewTimer As AlarmTimer
+    Private _previewTimer As New CountDownAlarmTimer(TimeSpan.Zero)
     Private checkerBoardObject As BackgroundRenderable
     Private renderer As Renderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
@@ -60,11 +60,13 @@ Public Class StyleSettingsDialog
 
     Public Property Transparency As Integer
 
-    Public Property Timer As AlarmTimer
+    Public Property Timer As CountDownAlarmTimer
 
     Public Property InitialDirectory As String
 
     Public Property FileFilter As String
+
+    Public Property CountUp As Boolean
 #End Region
 #Region "Events"
     Public Event Loading As EventHandler(Of LoadingEventArgs)
@@ -122,8 +124,7 @@ Public Class StyleSettingsDialog
             .Visible = True,
             .Rectangle = timerSurface.ClientRectangle}
 
-        Dim prefix As String = If(TypeOf Timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
-        timerObject.TextRenderFormat = Function() String.Format(timeFormat, String.Concat(prefix, "{0:", DisplayFormat, "}"), _previewTimer.Current)
+        timerObject.TextRenderFormat = GetTimerTextRenderFunc(CountUp)
 
         checkerBoardObject = New BackgroundRenderable(Nothing, True) With {.Rectangle = timerSurface.ClientRectangle}
 
@@ -137,6 +138,15 @@ Public Class StyleSettingsDialog
         UpdateOpacity()
         renderer.Enabled = True
     End Sub
+
+    Private Function GetTimerTextRenderFunc(countUp As Boolean) As Func(Of String)
+        If (countUp) Then
+            Return Function() String.Format(timeFormat, String.Concat("+", "{0:", DisplayFormat, "}"), _previewTimer.Elapsed)
+
+        Else
+            Return Function() String.Format(timeFormat, String.Concat("{0:", DisplayFormat, "}"), _previewTimer.Current)
+        End If
+    End Function
 
     Private Sub ColorComboBoxForegrounColor_ColorChanged(sender As Object, e As ColorComboTestApp.ColorChangeArgs) Handles ColorComboBoxForegrounColor.ColorChanged
         Try
@@ -188,11 +198,13 @@ Public Class StyleSettingsDialog
             logger.Error(ex)
         End Try
     End Sub
-
-    Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        _previewTimer = TimerFactory.CreateInstance(Timer.Duration, (TypeOf Timer Is CountUpAlarmTimer), Integer.MaxValue, Nothing, False)
-        StartUpRendering()
+    Private Sub RestartTimer()
+        _previewTimer.Reset(Timer.Duration)
         _previewTimer.Start()
+    End Sub
+    Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        StartUpRendering()
+        RestartTimer()
 
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
     End Sub

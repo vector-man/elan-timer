@@ -47,8 +47,7 @@ Partial Class FormMain
         Me.ToolStripMenuItemCheckForUpdates = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButtonCountUp = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButtonCountDown = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButtonCountUpDown = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButtonNewTimer = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonStartPause = New System.Windows.Forms.ToolStripButton()
@@ -78,7 +77,7 @@ Partial Class FormMain
         'ToolStripMain
         '
         Me.ToolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripButtonCountUp, Me.ToolStripButtonCountDown, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset, Me.ToolStripLabelNote})
+        Me.ToolStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSplitButtonSettings, Me.ToolStripButtonCountUpDown, Me.ToolStripSeparator1, Me.ToolStripButtonNewTimer, Me.ToolStripButtonStartPause, Me.ToolStripButtonReset, Me.ToolStripLabelNote})
         resources.ApplyResources(Me.ToolStripMain, "ToolStripMain")
         Me.ToolStripMain.Name = "ToolStripMain"
         Me.ToolStripMain.TabStop = True
@@ -201,17 +200,11 @@ Partial Class FormMain
         Me.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit"
         resources.ApplyResources(Me.ToolStripMenuItemExit, "ToolStripMenuItemExit")
         '
-        'ToolStripButtonCountUp
+        'ToolStripButtonCountUpDown
         '
-        Me.ToolStripButtonCountUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        resources.ApplyResources(Me.ToolStripButtonCountUp, "ToolStripButtonCountUp")
-        Me.ToolStripButtonCountUp.Name = "ToolStripButtonCountUp"
-        '
-        'ToolStripButtonCountDown
-        '
-        Me.ToolStripButtonCountDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        resources.ApplyResources(Me.ToolStripButtonCountDown, "ToolStripButtonCountDown")
-        Me.ToolStripButtonCountDown.Name = "ToolStripButtonCountDown"
+        Me.ToolStripButtonCountUpDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        resources.ApplyResources(Me.ToolStripButtonCountUpDown, "ToolStripButtonCountUpDown")
+        Me.ToolStripButtonCountUpDown.Name = "ToolStripButtonCountUpDown"
         '
         'ToolStripSeparator1
         '
@@ -341,21 +334,21 @@ Partial Class FormMain
         '
         'FormMain
         '
-        Me.AllowDrop = true
+        Me.AllowDrop = True
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ProgressBarMain)
         Me.Controls.Add(Me.PanelTimer)
         Me.Controls.Add(Me.ToolStripMain)
-        Me.KeyPreview = true
+        Me.KeyPreview = True
         Me.Name = "FormMain"
-        Me.ToolStripMain.ResumeLayout(false)
-        Me.ToolStripMain.PerformLayout
-        Me.ContextMenuStripMain.ResumeLayout(false)
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.ToolStripMain.ResumeLayout(False)
+        Me.ToolStripMain.PerformLayout()
+        Me.ContextMenuStripMain.ResumeLayout(False)
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents ToolStripMain As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButtonStartPause As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButtonReset As System.Windows.Forms.ToolStripButton
@@ -401,7 +394,6 @@ End Sub
     Friend WithEvents ToolStripMenuItemAlwaysOnTop As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripLabelNote As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents ToolStripButtonCountUp As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButtonCountDown As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButtonCountUpDown As System.Windows.Forms.ToolStripButton
 
 End Class

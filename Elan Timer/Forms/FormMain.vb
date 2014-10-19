@@ -554,7 +554,7 @@ Public Class FormMain
         timerObject.Color = styleSettings.ForegroundColor
         timerObject.Font = styleSettings.DisplayFont
 
-        timerObject.TextRenderFormat = GetTimerTextRenderFunc(timeSettings.CountUp)
+        SetTextRenderFunc()
 
         timerObject.Rectangle = timerSurface.ClientRectangle
         timerObject.SizeToFit = styleSettings.GrowToFit
@@ -722,28 +722,30 @@ Public Class FormMain
     Private Sub UpdateToolbar()
         SetFullScreenNoteVisibility()
 
-        ToolStripButtonCountUp.Visible = timeSettings.CountUp
-        ToolStripButtonCountDown.Visible = Not timeSettings.CountUp
-
         If (Not My.Settings.UseToolbarStyling) Then
             ToolStripSplitButtonSettings.Image = My.Resources.menu
             ToolStripButtonReset.Image = My.Resources.repeat
-            ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
-            ToolStripButtonCountUp.Image = My.Resources.arrow_up
-            ToolStripButtonCountDown.Image = My.Resources.arrow_down
+            ToolStripButtonStartPause.Image = If(timer.IsPaused AndAlso Not (timer.IsExpired), My.Resources.play, My.Resources.pause)
+            ToolStripButtonCountUpDown.Image = If(timeSettings.CountUp, My.Resources.arrow_up, My.Resources.arrow_down)
             ToolStripLabelNote.ForeColor = Label.DefaultForeColor
             ToolStripLabelNote.BackColor = Label.DefaultBackColor
         Else
-            Dim transparentColor As Color = If(styleSettings.ForegroundColor = Color.Fuchsia, Color.AliceBlue, Color.Fuchsia)
+            Dim transparentColor As Color = If(styleSettings.ForegroundColor = Color.Fuchsia,
+                                               Color.AliceBlue,
+                                               Color.Fuchsia)
             ToolStripButtonReset.ImageTransparentColor = transparentColor
             ToolStripButtonStartPause.ImageTransparentColor = transparentColor
             ToolStripSplitButtonSettings.ImageTransparentColor = transparentColor
 
             ToolStripSplitButtonSettings.Image = Utils.GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
             ToolStripButtonReset.Image = Utils.GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
-            ToolStripButtonStartPause.Image = If(timer.IsPaused, Utils.GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), Utils.GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
-            ToolStripButtonCountUp.Image = Utils.GetColoredImage(My.Resources.arrow_up, styleSettings.ForegroundColor)
-            ToolStripButtonCountDown.Image = Utils.GetColoredImage(My.Resources.arrow_down, styleSettings.ForegroundColor)
+            ToolStripButtonStartPause.Image = If(timer.IsPaused AndAlso Not (timer.IsExpired),
+                                                 Utils.GetColoredImage(My.Resources.play, styleSettings.ForegroundColor),
+                                                 Utils.GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
+
+            ToolStripButtonCountUpDown.Image = If(timeSettings.CountUp,
+                                                 Utils.GetColoredImage(My.Resources.arrow_up, styleSettings.ForegroundColor),
+                                                  Utils.GetColoredImage(My.Resources.arrow_down, styleSettings.ForegroundColor))
             ToolStripLabelNote.ForeColor = styleSettings.ForegroundColor
             ToolStripLabelNote.BackColor = styleSettings.BackgroundColor
         End If
@@ -1050,6 +1052,7 @@ Public Class FormMain
             dialog.InitialDirectory = Utils.GetStylesPath()
             dialog.FileFilter = My.Settings.StyleDialogFilter
             dialog.CustomStyleColors = GetColorsAsIntegerArray(My.Settings.CustomStyleColors)
+            dialog.CountUp = timeSettings.CountUp
 
             If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
                 Dim timeVisible = timerObject.Visible
@@ -1174,21 +1177,14 @@ Public Class FormMain
         Environment.FailFast(ex.Message, ex)
     End Sub
 
-    Private Sub ToolStripButtonCountDown_VisibleChanged(sender As Object, e As EventArgs) Handles ToolStripButtonCountDown.VisibleChanged
-        ToolStripButtonCountUp.Visible = Not ToolStripButtonCountDown.Visible
+    Private Sub ToolStripButtonCountUp_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountUpDown.Click
+        timeSettings.CountUp = Not timeSettings.CountUp
+        UpdateToolbar()
+        SetTextRenderFunc()
     End Sub
 
-    Private Sub ToolStripButtonCountUp_VisibleChanged(sender As Object, e As EventArgs) Handles ToolStripButtonCountUp.VisibleChanged
-        ToolStripButtonCountDown.Visible = Not ToolStripButtonCountUp.Visible
+    Private Sub SetTextRenderFunc()
+        timerObject.TextRenderFormat = GetTimerTextRenderFunc(timeSettings.CountUp)
     End Sub
 
-    Private Sub ToolStripButtonCountUp_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountUp.Click
-        timeSettings.CountUp = False
-        RestartRendering()
-    End Sub
-
-    Private Sub ToolStripButtonCountDown_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountDown.Click
-        timeSettings.CountUp = True
-        RestartRendering()
-    End Sub
 End Class

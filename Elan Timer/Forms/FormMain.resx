@@ -130,7 +130,7 @@
   <data name="ToolStripSplitButtonSettings.Text" xml:space="preserve">
     <value>Customize and control Elan Timer</value>
   </data>
-  <data name="ToolStripButtonCountUp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ToolStripButtonCountUpDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI5SURBVFhHxZfNRkZRFIYPERFNo2kXEN1BRESjRk2jK4lG
@@ -146,43 +146,14 @@
         3HleOwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="ToolStripButtonCountUp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="ToolStripButtonCountUpDown.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="ToolStripButtonCountUp.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripButtonCountUpDown.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 22</value>
   </data>
-  <data name="ToolStripButtonCountUp.Text" xml:space="preserve">
+  <data name="ToolStripButtonCountUpDown.Text" xml:space="preserve">
     <value>ToolStripButton1</value>
-  </data>
-  <data name="ToolStripButtonCountDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIzSURBVFhHxZfPRkVRFIcPERFNo2kPED1AREQ0atQ0epJo
-        FBHRYzTqDSKiUTSKiGgUERH1+457rnVXa++zzi314+PYe/3Z96x9196nGaAZsSmOxJW4Fh8jeGaMOWyw
-        /TUtijPxIj6TYIsPvlNrThyIVxElyYAvMYg1SKycVxoFnQZipd/GingQUaBHcSKo86qg1sAzY8xhU/Il
-        dlWsMgrwJPZFZnNhgy0+Pg6xi29iVkSv/ULMi6HCB18fjxzk+iY2izc+Fj8VMXxcck1oSfjdfi5qr3xN
-        8GuA55KIQSwbm1zkHIvNYw2o1YKoydaY55qI5fcWOVtRqzdhJ9lEfbL20CdiWntytntrdzTQwV8ws9ut
-        D/SJmP7vTe62ZdrBQ5GR9YGMiG19yN1cmgFYFxlZH8hoQ1gfcjfPZgAmdmdF1gcyIrb1IXfzbgYgbBKB
-        rA9kRGzrQ+70Auj1d8LaRmCDbaRwAdkSRL29RKkvhCXIbsLokCqBbaRwE2b/hluC65e1jcBmW0QK/4a+
-        Ed2LUiPaEbVFMIdNJGIS29q3jWhoKy4tgg1VSo6KrRidCjtJDceTgfwi+pITq3gYIXZndBzXRJ3Z7VCq
-        eafe4xj964UEcXW+Fd6Y1dfKURI+/pcDOYrX9GXhGxNQvz2ROaaxwTbqG8QmR1VcsSNnYNxeyztlr+XW
-        p6p//TDpRJ3oXL5HDAFfYgz+NLNi5bTMP/849eIo5TygznyO34guIc+MMYdN8k7RNF8pvb2rm3vltwAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ToolStripButtonCountDown.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ToolStripButtonCountDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ToolStripButtonCountDown.Text" xml:space="preserve">
-    <value>ToolStripButton1</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ToolStripButtonCountDown.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
@@ -190,21 +161,21 @@
   <data name="ToolStripButtonNewTimer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMwSURBVDhPZZJ9SBNhHMcfiuif/gqiKOxNSiowCgsyevuj
-        P4qgV7LRC5jRegGNWSGUbpqNamVM59TKtqUVSVHGtL+sEVPSUhIrNuw9rc272213u+7mbvft7jpI6As/
-        7ne/5/l8H57vHdEEK5nEdxBb0k8GOT/pUzrJVH1hgvh2MlNbV/f1Jp6RHGOswk1kSuwRuRJ/bRoZp19A
-        eLU3yjfND8rFJwPiieOMaD7KSEWHA3HX3JfCmyP07w9lTOwh6WUekyzdIHKfnIv3HhxNRTrABQvY2I3Z
-        vOCoBtd0HWxrI9iWBiTcV8FdOA366jSBe2sR+LelY5G7pF87nHz3kHKuv4z5FShgv9TPSSdu14F7cg8p
-        px2K5TiU4iOQLpcj8cAHpvEMXrSuyLx7Z5V/PVkSHrmlXuXTDbLus3tyOKS6J27XQmjzItlyC9LId6RT
-        45ClFMRvX8E7ayA01yFSX4CRpunSp7pJA5/dRhZcqcmRdFjBPb6LZLMbmmRZBkVReq9JyWSQsF9EvOUm
-        aEsh2A1rLuqwJvmkOZBorIFkL8fvj18MBPB4PEilUnrf1dUFdmAQ4okiMPZKxFfmBwycEC1p9k4DlMMm
-        ZMbTOqDJarWivb0dFRUV6OvrA8+wUDbmg2q4jujyFYyBqwYHDjCszw2lYDvSoqTDoijC4XDo8NDQkD5L
-        RCgo6/Iw5lYNsicYSIcOBeK1lyGVHEOsf1DfnE6n0dPTA57n9Xctk+jzboj7doGqPA96ce6EK5hMNq68
-        DMw9L9izp5GRMzo0UdqMMZvx09MMurAQzIIlNgMnRNi9O0/YsfN9rPYKYs5ruknyQwiKouiVDIURs5Rg
-        7JIdlL1KhXPeU1k5eQb+V8LWbeaoxSJQTgd+tnohFpmgbMmHsnk1xP278MPrxajLidAek0BlLTIb2D8F
-        g8FNWli9Xc9luqQYdLUVY/U1elHW8xgtOYVqm025UFWldHd3rzewv+rs7Jzh9/v54eFh7bMx7Kq1lfHc
-        VQEt6Wh2LkMvXBpg5uXYOp4+5cLhsPZ/pFUm28AJaWtrm+b1ekMulyulPpcZ4/+kgvN9Pl9crVG1n0UI
-        IX8AwzRxw1U0gh4AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMvSURBVDhPZZJbaNNQHMYPivjikyCKMm9DhwoTZQpOvD34
+        oAhecRYvMCfWC2xSLwx0y+qlqNVJt67b1NnWTcWh6KSbT9Mi3XDTiWMqLfPupu2SNG3SmHRN85nEgAM/
+        +JN//uf8vsP5EqILFBkntJOqVID08wHSq3aQicbCGAltZKq+ru3rST4leeZYgxvJhPhDcjnxyjI0yjyH
+        +HJnTGicHVJKjwalI4dZyXqQlUv2BxPumS/E1weY3x/K2fgD0sM+IjmGQfQeOZ3o2TucjraDDxVx8evT
+        BdF5HnzjNXAtDeCa65H0XAF/7gSYK5NE/q1NFN4eH4neIX364eS7l1TwfeXsr2AR96VuRiZ5qxb847tI
+        uxxQbYehlh6AfKkCyft+sA0n8bxlSfbdO0r59XhBZOimdpVP18mqz57xkbDmnrxVA7HVh1TzTchD35FJ
+        j0KR05C+fYXgqobYVItoXRGGGifLn2rHvfnsMbPgj1ucKScF/tEdpJo80KUoCmiaNnpdajaLpOMCEs03
+        wNiKwa1ZccGAdSlHrcFkQzVkRwV+f/xiIoDX60U6nTb6zs5OcG/6IR0pAeuwI7G0MGjihOhJc7froe63
+        IDuaMQBdFEWhra0NlZWV6O3thcByUNcWgq6/htjiJayJawZ79rCc3wO1aDMykmzAkiTB6XQa8MDAgDFL
+        Rmmoqwow4tEMcscYyPv2BRM1lyCXHUK8r9/YnMlk0N3dDUEQjHc9k9izLki7toG2nwEzP3/MFSyWKr6i
+        HOxdH7hTJ5BVsgY0VvqMtVrx09sEprgY7JwFVSZOiLh9e4G4Zev7eM1lxF1XDZPUhzBUVTUqFY4gbivD
+        yEUHaMdZDc57T+fkFZj4X4kbN1ljNptIu5z42eKDVGKBuqEQ6vrlkHZvww+fD8NuF8I7LCKdM89qYv8U
+        CoXW6WH1dD5TmLJSMOcpjNRVG0VTZzBcdgznKEo9a7erXV1dq03srzo6OqYEAgFhcHBQ/2wst2ylPZG/
+        LKgnHcvNZ5m5C4PsrLyq9idP+Egkov8fGY3JNXFCWltbJ/l8vrDb7U5rz0Xm+D9p4Gy/35/QaljrpxFC
+        yB+/wnG9y3OQ6gAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ToolStripButtonNewTimer.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -216,6 +187,7 @@
   <data name="ToolStripButtonNewTimer.Text" xml:space="preserve">
     <value>New timer...</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ToolStripButtonNewTimer.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -875,16 +847,10 @@
   <data name="&gt;&gt;ToolStripMenuItemExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripButtonCountUp.Name" xml:space="preserve">
-    <value>ToolStripButtonCountUp</value>
+  <data name="&gt;&gt;ToolStripButtonCountUpDown.Name" xml:space="preserve">
+    <value>ToolStripButtonCountUpDown</value>
   </data>
-  <data name="&gt;&gt;ToolStripButtonCountUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButtonCountDown.Name" xml:space="preserve">
-    <value>ToolStripButtonCountDown</value>
-  </data>
-  <data name="&gt;&gt;ToolStripButtonCountDown.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolStripButtonCountUpDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
