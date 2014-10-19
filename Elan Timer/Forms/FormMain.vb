@@ -35,7 +35,7 @@ Public Class FormMain
     ' Main alarm.
     Private ReadOnly alarm As New Sound()
     ' Main timer.
-    Public timer As AlarmTimer
+    Public ReadOnly timer As New CountDownAlarmTimer(TimeSpan.Zero)
     ' Reports progress to update UI when timer is running.
     Private reporter As IProgress(Of Integer)
 
@@ -427,9 +427,11 @@ Public Class FormMain
 
         InitializeAlarm()
 
-        InitializeTimer()
-
         InitializeRendering()
+
+        ResetTimer()
+
+        AddTimerHandlers()
 
         StartRendering()
 
@@ -532,6 +534,19 @@ Public Class FormMain
         renderer.Renderables.Add(timerObject)
         renderer.Renderables.Add(noteObject)
     End Sub
+    Private Function GetTimerTextRenderFunc(countUp As Boolean) As Func(Of String)
+        If (countUp) Then
+            Return Function()
+                       lastTextRenderedTime = String.Format(timeFormat, String.Concat("+", "{0:", styleSettings.DisplayFormat, "}"), Me.timer.Elapsed)
+                       Return lastTextRenderedTime
+                   End Function
+        Else
+            Return Function()
+                       lastTextRenderedTime = String.Format(timeFormat, String.Concat("{0:", styleSettings.DisplayFormat, "}"), Me.timer.Current)
+                       Return lastTextRenderedTime
+                   End Function
+        End If
+    End Function
     ' Starts up rendering of the timer.
     Private Async Sub StartRendering()
         timerSurface.BackColor = styleSettings.BackgroundColor
@@ -539,12 +554,7 @@ Public Class FormMain
         timerObject.Color = styleSettings.ForegroundColor
         timerObject.Font = styleSettings.DisplayFont
 
-        Dim prefix As String = If(TypeOf timer Is CountUpAlarmTimer, CountUpPrefix, String.Empty)
-        timerObject.TextRenderFormat = Function()
-                                           lastTextRenderedTime = String.Format(timeFormat, String.Concat(prefix, "{0:", styleSettings.DisplayFormat, "}"), Me.timer.Current)
-                                           Return lastTextRenderedTime
-                                       End Function
-
+        timerObject.TextRenderFormat = GetTimerTextRenderFunc(timeSettings.CountUp)
 
         timerObject.Rectangle = timerSurface.ClientRectangle
         timerObject.SizeToFit = styleSettings.GrowToFit
@@ -711,10 +721,16 @@ Public Class FormMain
 
     Private Sub UpdateToolbar()
         SetFullScreenNoteVisibility()
+
+        ToolStripButtonCountUp.Visible = timeSettings.CountUp
+        ToolStripButtonCountDown.Visible = Not timeSettings.CountUp
+
         If (Not My.Settings.UseToolbarStyling) Then
             ToolStripSplitButtonSettings.Image = My.Resources.menu
             ToolStripButtonReset.Image = My.Resources.repeat
             ToolStripButtonStartPause.Image = If(timer.IsPaused, My.Resources.play, My.Resources.pause)
+            ToolStripButtonCountUp.Image = My.Resources.arrow_up
+            ToolStripButtonCountDown.Image = My.Resources.arrow_down
             ToolStripLabelNote.ForeColor = Label.DefaultForeColor
             ToolStripLabelNote.BackColor = Label.DefaultBackColor
         Else
@@ -726,6 +742,8 @@ Public Class FormMain
             ToolStripSplitButtonSettings.Image = Utils.GetColoredImage(My.Resources.menu, styleSettings.ForegroundColor)
             ToolStripButtonReset.Image = Utils.GetColoredImage(My.Resources.repeat, styleSettings.ForegroundColor)
             ToolStripButtonStartPause.Image = If(timer.IsPaused, Utils.GetColoredImage(My.Resources.play, styleSettings.ForegroundColor), Utils.GetColoredImage(My.Resources.pause, styleSettings.ForegroundColor))
+            ToolStripButtonCountUp.Image = Utils.GetColoredImage(My.Resources.arrow_up, styleSettings.ForegroundColor)
+            ToolStripButtonCountDown.Image = Utils.GetColoredImage(My.Resources.arrow_down, styleSettings.ForegroundColor)
             ToolStripLabelNote.ForeColor = styleSettings.ForegroundColor
             ToolStripLabelNote.BackColor = styleSettings.BackgroundColor
         End If
@@ -766,16 +784,6 @@ Public Class FormMain
         Catch ex As Exception
             logger.Error(ex)
         End Try
-    End Sub
-    Sub InitializeTimer()
-        If (timer IsNot Nothing) Then
-            RemoveTimerHandlers()
-            timer.Dispose()
-        End If
-        ' Create a new timer object.
-        timer = TimerFactory.CreateInstance(timeSettings.Duration, timeSettings.CountUp, timeSettings.Restarts, alarm, timeSettings.AlarmEnabled)
-        ' Add event handlers for the timer.
-        AddTimerHandlers()
     End Sub
     Private Sub InitializeFormMain()
         Me.Size = My.Settings.WindowSize
@@ -825,7 +833,11 @@ Public Class FormMain
         UpdateToolbar()
     End Sub
     Private Sub ResetTimer()
-        timer.Reset()
+        timer.Alarm = alarm
+        timer.AlarmEnabled = timeSettings.AlarmEnabled
+        timer.Restarts = timeSettings.Restarts
+        timer.Reset(timeSettings.Duration)
+
         UpdateToolbar()
         HideNote()
     End Sub
@@ -996,7 +1008,7 @@ Public Class FormMain
                 InitializeAlarm()
 
                 If (Not editing) Then
-                    InitializeTimer()
+                    ResetTimer()
                     RestartRendering()
                 End If
                 timer.AlarmEnabled = timeSettings.AlarmEnabled
@@ -1160,5 +1172,23 @@ Public Class FormMain
         End If
         ' MessageBox.Show("Elan Timer has encountered a problem and needs to close. We are sorry for the inconvenience.", My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Environment.FailFast(ex.Message, ex)
+    End Sub
+
+    Private Sub ToolStripButtonCountDown_VisibleChanged(sender As Object, e As EventArgs) Handles ToolStripButtonCountDown.VisibleChanged
+        ToolStripButtonCountUp.Visible = Not ToolStripButtonCountDown.Visible
+    End Sub
+
+    Private Sub ToolStripButtonCountUp_VisibleChanged(sender As Object, e As EventArgs) Handles ToolStripButtonCountUp.VisibleChanged
+        ToolStripButtonCountDown.Visible = Not ToolStripButtonCountUp.Visible
+    End Sub
+
+    Private Sub ToolStripButtonCountUp_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountUp.Click
+        timeSettings.CountUp = False
+        RestartRendering()
+    End Sub
+
+    Private Sub ToolStripButtonCountDown_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountDown.Click
+        timeSettings.CountUp = True
+        RestartRendering()
     End Sub
 End Class
