@@ -6,19 +6,34 @@ Namespace CodeIsle.Timers
         Private _enabled As Boolean
         ' Holds vale telling if the timer has expired.
         Private _isExpired As Boolean
-        ' Used to cancel ExpilredPollAsync's loop.
+        ''' <summary>
+        ''' Cancels ExpilredPollAsync loop.
+        ''' </summary>
+        ''' <remarks></remarks>
         Private expiredCancellationTokenSource As System.Threading.CancellationTokenSource
-        ' Stopwatch to hold elapsed time.
+        ''' <summary>
+        ''' Stopwatch that keeops track of the elapsed time.
+        ''' </summary>
+        ''' <remarks></remarks>
         Private timerStopwatch As Stopwatch
-        ' Holds value of remaining time.
+        ''' <summary>
+        ''' Value of remaining time.
+        ''' </summary>
+        ''' <remarks></remarks>
         Private _remaining As TimeSpan
-        ' Holds restart count. Is decremented on each restart.
-        Private restartCount As Integer
-        ' Holders total restarts.
+        ''' <summary>
+        ''' Number of remaining restarts before timer expiration.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private _remainingRestarts As Integer
+        ''' <summary>
+        ''' Total restarts before timer expiration.
+        ''' </summary>
+        ''' <remarks></remarks>
         Private _restarts As Integer
-        ' Holds the time in milliseconds to poll for expiration.
-        Private _expirationPollRate As Integer = 1
 #Region "Events"
+        Dim _elapsed As TimeSpan
+
         ''' <summary>
         ''' Event fires when the timer is started.
         ''' </summary>
@@ -86,6 +101,9 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <remarks></remarks>
         Private Sub StartEnabledPoll()
+            If (expiredCancellationTokenSource IsNot Nothing) Then
+                expiredCancellationTokenSource.Dispose()
+            End If
             expiredCancellationTokenSource = New Threading.CancellationTokenSource
             Task.Factory.StartNew(Sub() ExpiredPoll(expiredCancellationTokenSource.Token), expiredCancellationTokenSource.Token, TaskCreationOptions.LongRunning)
         End Sub
@@ -102,41 +120,41 @@ Namespace CodeIsle.Timers
         ''' <summary>
         ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time.
         ''' </summary>
-        ''' <param name="duration"></param>
+        ''' <param name="duration">The duration.</param>
         ''' <remarks></remarks>
         Sub New(duration As TimeSpan)
-            _isExpired = False
-            _duration = duration
-            timerStopwatch = New Stopwatch
+            Me.New(duration, TimeSpan.Zero)
         End Sub
         ''' <summary>
         ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time.
         ''' </summary>
-        ''' <param name="duration"></param>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <param name="restarts">The number of restarts.</param>
         ''' <remarks></remarks>
-        Sub New(duration As TimeSpan, restarts As Integer)
-            _isExpired = False
-            _duration = duration
-            MyClass.Restarts = restarts
-            timerStopwatch = New Stopwatch
+        Sub New(duration As TimeSpan, elapsed As TimeSpan)
+            Me.New(duration, elapsed, 0)
         End Sub
         ''' <summary>
         ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time.
         ''' </summary>
-        ''' <param name="duration"></param>
-        ''' <param name="restarts"></param>
-        ''' <param name="expirationPollRate"></param>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <param name="restarts">The number of restarts.</param>
         ''' <remarks></remarks>
-        Sub New(duration As TimeSpan, restarts As Integer, expirationPollRate As Integer)
-            _isExpired = False
-            _duration = duration
-            MyClass.Restarts = restarts
-            timerStopwatch = New Stopwatch
-            _expirationPollRate = expirationPollRate
+        Sub New(duration As TimeSpan, elapsed As TimeSpan, restarts As Integer)
+            timerStopwatch = New Stopwatch()
+            Reset(duration, elapsed, restarts)
         End Sub
-
         ''' <summary>
-        ''' Starts, or resumes, measuring elapsed time for an interval.
+        ''' Controls the poll rate for timer expiration in milliseconds.
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Protected Property ExpirationPollRate As Integer = 10
+        ''' <summary>
+        ''' Starts or resumes measuring elapsed time for an interval.
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Start()
@@ -144,7 +162,7 @@ Namespace CodeIsle.Timers
                 If (Remaining.TotalMilliseconds > 0) Then
                     Enabled = True
                     timerStopwatch.Start()
-                    OnStarted(Me, New TimerEventArgs(Current, _duration))
+                    OnStarted(Me, New TimerEventArgs(Elapsed, Duration))
                     StartEnabledPoll()
                 End If
             End If
@@ -157,7 +175,7 @@ Namespace CodeIsle.Timers
             _enabled = False
             StopEnabledPoll()
             timerStopwatch.Stop()
-            OnExpired(Me, New TimerEventArgs(Current, Duration))
+            OnExpired(Me, New TimerEventArgs(Elapsed, Duration))
         End Sub
         ''' <summary>
         ''' Stops measuring elapsed time for an interval.
@@ -167,10 +185,10 @@ Namespace CodeIsle.Timers
             _enabled = False
             StopEnabledPoll()
             timerStopwatch.Stop()
-            OnPaused(Me, New TimerEventArgs(Current, _duration))
+            OnPaused(Me, New TimerEventArgs(Elapsed, Duration))
         End Sub
         ''' <summary>
-        ''' Gets the value indicating if the tiner is paused.
+        ''' Gets a value indicating whether the timer is paused.
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>
@@ -181,7 +199,7 @@ Namespace CodeIsle.Timers
             End Get
         End Property
         ''' <summary>
-        ''' Gets the value indicating if the timer is expired.
+        ''' Gets a value indicating whether the timer is expired.
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>
@@ -196,11 +214,7 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Reset()
-            StopEnabledPoll()
-            timerStopwatch.Reset()
-            _enabled = False
-            _isExpired = False
-            restartCount = MyClass.Restarts
+            Me.Reset(_duration)
         End Sub
         ''' <summary>
         ''' Stops the timer, resets the elapsed time to zero, and sets duration.
@@ -208,8 +222,27 @@ Namespace CodeIsle.Timers
         ''' <param name="duration"></param>
         ''' <remarks></remarks>
         Public Overridable Sub Reset(duration As TimeSpan)
-            Me.Reset()
+            Me.Reset(duration, TimeSpan.Zero)
+        End Sub
+        ''' <summary>
+        ''' Stops the timer, then sets the duration and elapsed time.
+        ''' </summary>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <remarks></remarks>
+        Public Overridable Sub Reset(duration As TimeSpan, elapsed As TimeSpan)
+            Me.Reset(duration, elapsed, 0)
+        End Sub
+
+        Public Overridable Sub Reset(duration As TimeSpan, elapsed As TimeSpan, restarts As Integer)
             _duration = duration
+            _elapsed = elapsed
+            _restarts = restarts
+            _remainingRestarts = _restarts
+            StopEnabledPoll()
+            timerStopwatch.Reset()
+            _enabled = False
+            _isExpired = False
         End Sub
 
         ''' <summary>
@@ -217,22 +250,25 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Restart()
-            StopEnabledPoll()
+            Me.Reset()
             StartEnabledPoll()
-            timerStopwatch.Restart()
-            OnRestarted(Me, New TimerEventArgs(Current, _duration))
+            timerStopwatch.Start()
+
+            OnRestarted(Me, New TimerEventArgs(Elapsed, Duration))
         End Sub
-        Public Overridable Property Restarts As Integer
+        Public Overridable ReadOnly Property Restarts As Integer
             Get
                 Return _restarts
             End Get
-            Set(value As Integer)
-                _restarts = value
-                restartCount = _restarts
-            End Set
         End Property
+        Public ReadOnly Property RemainingRestarts As Integer
+            Get
+                Return _remainingRestarts
+            End Get
+        End Property
+
         ''' <summary>
-        ''' Gets the value indicating whether the timer is running.
+        ''' Gets a value indicating whether the timer is enabled.
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>
@@ -254,7 +290,6 @@ Namespace CodeIsle.Timers
                 End If
             End Set
         End Property
-
         ''' <summary>
         ''' Gets the duration measured by the current instance.
         ''' </summary>
@@ -274,10 +309,13 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Public Overridable ReadOnly Property Elapsed As TimeSpan
             Get
-                If (timerStopwatch.Elapsed > Duration) Then
+                Dim current As TimeSpan = timerStopwatch.Elapsed + _elapsed
+
+                If (current > Duration) Then
                     Return Duration
+                Else
+                    Return current
                 End If
-                Return timerStopwatch.Elapsed
             End Get
         End Property
         ''' <summary>
@@ -288,7 +326,6 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Public Overridable ReadOnly Property Remaining As TimeSpan
             Get
-
                 If (Duration < Elapsed) Then
                     Return New TimeSpan()
                 End If
@@ -296,23 +333,16 @@ Namespace CodeIsle.Timers
             End Get
         End Property
         ''' <summary>
-        ''' Gets the current display time measured by the current instance.
-        ''' </summary>
-        ''' <value></value>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
-        Public MustOverride ReadOnly Property Current As TimeSpan
-        ''' <summary>
         ''' Polls whether the timer has expired.
         ''' </summary>
-        ''' <param name="token"></param>
+        ''' <param name="token">The cancellation token.</param>
         ''' <remarks></remarks>
         Private Sub ExpiredPoll(token As Threading.CancellationToken)
             While Not token.IsCancellationRequested Or Enabled
                 Threading.Thread.Sleep(_expirationPollRate)
                 If (Remaining.TotalMilliseconds <= 0) Then
-                    If (restartCount > 0) Then
-                        restartCount -= 1
+                    If (_remainingRestarts > 0) Then
+                        _remainingRestarts -= 1
                         Restart()
                         Exit Sub
                     Else

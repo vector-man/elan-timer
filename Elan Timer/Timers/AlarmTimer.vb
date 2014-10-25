@@ -1,6 +1,6 @@
 ﻿Imports NLog
 Namespace CodeIsle.Timers
-    Public MustInherit Class AlarmTimer
+    Public Class AlarmTimer
         Inherits TimerBase
         Implements IDisposable
 
@@ -10,28 +10,73 @@ Namespace CodeIsle.Timers
 
         ' Logging.
         Private logger As Logger = LogManager.GetCurrentClassLogger()
-
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' </summary>
+        ''' <param name="duration"></param>
+        ''' <remarks></remarks>
         Sub New(duration As TimeSpan)
-            Me.New(duration, Nothing, False)
+            Me.New(duration, TimeSpan.Zero, Nothing, False)
         End Sub
-        Sub New(duration As TimeSpan, alarm As Sound)
-            Me.New(duration, alarm, True)
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' </summary>
+        ''' <param name="duration"></param>
+        ''' <param name="elapsed"></param>
+        ''' <remarks></remarks>
+        Sub New(duration As TimeSpan, elapsed As TimeSpan)
+            Me.New(duration, elapsed, Nothing, False)
         End Sub
-        Sub New(duration As TimeSpan, alarm As Sound, alarmEnabled As Boolean)
-            Me.New(duration, alarm, alarmEnabled, 0)
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' </summary>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <param name="alarm">The alarm.</param>
+        ''' <remarks></remarks>
+        Sub New(duration As TimeSpan, elapsed As TimeSpan, alarm As Sound)
+            Me.New(duration, elapsed, alarm, True)
         End Sub
-        Sub New(duration As TimeSpan, alarm As Sound, alarmEnabled As Boolean, restarts As Integer)
-            Me.New(duration, alarm, alarmEnabled, restarts, 1)
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' </summary>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <param name="alarm">The alarm.</param>
+        ''' <param name="alarmEnabled">The value indication whether the alarm is enabled.</param>
+        ''' <remarks></remarks>
+        Sub New(duration As TimeSpan, elapsed As TimeSpan, alarm As Sound, alarmEnabled As Boolean)
+            Me.New(duration, elapsed, alarm, alarmEnabled, 0)
         End Sub
-        Sub New(duration As TimeSpan, alarm As Sound, alarmEnabled As Boolean, restarts As Integer, expirationPollRate As Integer)
-            MyBase.New(duration, restarts, expirationPollRate)
+        ''' <summary>
+        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' </summary>
+        ''' <param name="duration">The duration.</param>
+        ''' <param name="elapsed">The elapsed time.</param>
+        ''' <param name="alarm">The alarm.</param>
+        ''' <param name="alarmEnabled">The value indication whether the alarm is enabled.</param>
+        ''' <param name="restarts">The number of restarts.</param>
+        ''' <remarks></remarks>
+        Sub New(duration As TimeSpan, elapsed As TimeSpan, alarm As Sound, alarmEnabled As Boolean, restarts As Integer)
+            MyBase.New(duration, elapsed, restarts)
             Me.Alarm = alarm
             Me.AlarmEnabled = alarmEnabled
         End Sub
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <param name="sender"></param>
+        ''' <param name="e"></param>
+        ''' <remarks></remarks>
         Private Sub AlarmTimer_Expired(sender As Object, e As TimerEventArgs)
             PlayAlarm()
         End Sub
-
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <param name="sender"></param>
+        ''' <param name="e"></param>
+        ''' <remarks></remarks>
         Private Sub StopAlarm(sender As Object, e As EventArgs)
             If (_alarm IsNot Nothing) Then
                 Try
@@ -41,6 +86,10 @@ Namespace CodeIsle.Timers
                 End Try
             End If
         End Sub
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <remarks></remarks>
         Private Sub PlayAlarm()
             Try
                 If (_alarm IsNot Nothing) Then
@@ -50,7 +99,12 @@ Namespace CodeIsle.Timers
                 logger.Warn(ex)
             End Try
         End Sub
-
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         Public Property AlarmEnabled() As Boolean
             Get
                 Return _alarmEnabled
@@ -72,6 +126,12 @@ Namespace CodeIsle.Timers
                 End If
             End Set
         End Property
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         Public Property Alarm As Sound
             Get
                 Return _alarm
@@ -82,18 +142,14 @@ Namespace CodeIsle.Timers
                 End If
             End Set
         End Property
-
+        ''' <summary>
+        ''' 
+        ''' </summary>
+        ''' <remarks></remarks>
         Public Overrides Sub Reset()
             MyBase.Reset()
             StopAlarm(Me, Nothing)
         End Sub
-
-        Public Overrides ReadOnly Property Current As TimeSpan
-            Get
-                Return Nothing
-            End Get
-        End Property
-
 #Region "IDisposable Support"
         Private disposedValue As Boolean ' To detect redundant calls
 
