@@ -285,7 +285,7 @@
     <Compile Include="Timers\AlarmTimer.vb" />
     <Compile Include="Timers\Stopwatch.vb" />
     <Compile Include="Timers\TimeFormat.vb" />
-    <Compile Include="Timers\TimerBase.vb" />
+    <Compile Include="Timers\Timer.vb" />
     <Compile Include="Timers\TimerEventArgs.vb" />
     <Compile Include="Vendor\ResourceEnumConverter.vb" />
   </ItemGroup>
