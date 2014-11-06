@@ -60,13 +60,13 @@ Namespace Settings
         End Property
 
         <UserScopedSetting>
-        <DefaultSettingValue("100")>
-        Public Property Opacity As Integer
+        <DefaultSettingValue("0")>
+        Public Property Transparency As Integer
             Get
-                Return Me("Opacity")
+                Return Me("Transparency")
             End Get
             Set(value As Integer)
-                Me("Opacity") = value
+                Me("Transparency") = value
             End Set
         End Property
 
@@ -88,7 +88,7 @@ Namespace Settings
             model.DisplayFormat = Me.DisplayFormat
             model.ForegroundColor = Me.ForegroundColor
             model.GrowToFit = Me.GrowToFit
-            model.Transparency = 100 - Me.Opacity
+            model.Transparency = 100 - Me.Transparency
             Transporter.Export(Of StyleModel)(model, stream)
         End Sub
 
@@ -108,7 +108,7 @@ Namespace Settings
 
             ForegroundColor = model.ForegroundColor
 
-            Opacity = 100 - model.Transparency
+            Transparency = model.Transparency
 
             DisplayFormat = model.DisplayFormat
         End Sub

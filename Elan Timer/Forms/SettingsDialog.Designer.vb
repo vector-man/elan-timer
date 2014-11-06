@@ -29,17 +29,24 @@ Partial Class SettingsDialog
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.ButtonOK = New System.Windows.Forms.Button()
         Me.ButtonCancel = New System.Windows.Forms.Button()
-        Me.CheckBoxEnableToolbarStyling = New System.Windows.Forms.CheckBox()
+        Me.ButtonOK = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBoxEnableToolbarStyling = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckedGroupBoxShowInSystemTray = New ElanTimer.CheckedGroupBox()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxCloseToSystemTray = New System.Windows.Forms.CheckBox()
         Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.CheckedGroupBoxShowInSystemTray.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -78,13 +85,6 @@ Partial Class SettingsDialog
         Me.Button6.Name = "Button6"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'ButtonOK
-        '
-        resources.ApplyResources(Me.ButtonOK, "ButtonOK")
-        Me.ButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.ButtonOK.Name = "ButtonOK"
-        Me.ButtonOK.UseVisualStyleBackColor = True
-        '
         'ButtonCancel
         '
         resources.ApplyResources(Me.ButtonCancel, "ButtonCancel")
@@ -92,37 +92,74 @@ Partial Class SettingsDialog
         Me.ButtonCancel.Name = "ButtonCancel"
         Me.ButtonCancel.UseVisualStyleBackColor = True
         '
-        'CheckBoxEnableToolbarStyling
+        'ButtonOK
         '
-        resources.ApplyResources(Me.CheckBoxEnableToolbarStyling, "CheckBoxEnableToolbarStyling")
-        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckBoxEnableToolbarStyling, 3)
-        Me.CheckBoxEnableToolbarStyling.Name = "CheckBoxEnableToolbarStyling"
-        Me.CheckBoxEnableToolbarStyling.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.ButtonOK, "ButtonOK")
+        Me.ButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.ButtonOK.Name = "ButtonOK"
+        Me.ButtonOK.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
         resources.ApplyResources(Me.TableLayoutPanel1, "TableLayoutPanel1")
-        Me.TableLayoutPanel1.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.CheckBoxEnableToolbarStyling, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonOK, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ButtonCancel, 2, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        '
+        'CheckBoxEnableToolbarStyling
+        '
+        resources.ApplyResources(Me.CheckBoxEnableToolbarStyling, "CheckBoxEnableToolbarStyling")
+        Me.CheckBoxEnableToolbarStyling.Name = "CheckBoxEnableToolbarStyling"
+        Me.CheckBoxEnableToolbarStyling.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox4)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.CheckedListBox1)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'CheckBox4
+        '
+        resources.ApplyResources(Me.CheckBox4, "CheckBox4")
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.Name = "Label3"
+        '
+        'CheckedListBox1
+        '
+        Me.CheckedListBox1.FormattingEnabled = True
+        Me.CheckedListBox1.Items.AddRange(New Object() {resources.GetString("CheckedListBox1.Items"), resources.GetString("CheckedListBox1.Items1"), resources.GetString("CheckedListBox1.Items2"), resources.GetString("CheckedListBox1.Items3"), resources.GetString("CheckedListBox1.Items4"), resources.GetString("CheckedListBox1.Items5")})
+        resources.ApplyResources(Me.CheckedListBox1, "CheckedListBox1")
+        Me.CheckedListBox1.Name = "CheckedListBox1"
+        '
+        'TableLayoutPanel4
+        '
+        resources.ApplyResources(Me.TableLayoutPanel4, "TableLayoutPanel4")
+        Me.TableLayoutPanel4.Controls.Add(Me.CheckedGroupBoxShowInSystemTray, 0, 0)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         '
         'CheckedGroupBoxShowInSystemTray
         '
         resources.ApplyResources(Me.CheckedGroupBoxShowInSystemTray, "CheckedGroupBoxShowInSystemTray")
         Me.CheckedGroupBoxShowInSystemTray.Checked = False
-        Me.TableLayoutPanel1.SetColumnSpan(Me.CheckedGroupBoxShowInSystemTray, 3)
-        Me.CheckedGroupBoxShowInSystemTray.Controls.Add(Me.TableLayoutPanel2)
+        Me.TableLayoutPanel4.SetColumnSpan(Me.CheckedGroupBoxShowInSystemTray, 3)
+        Me.CheckedGroupBoxShowInSystemTray.Controls.Add(Me.TableLayoutPanel9)
         Me.CheckedGroupBoxShowInSystemTray.Name = "CheckedGroupBoxShowInSystemTray"
         Me.CheckedGroupBoxShowInSystemTray.TabStop = False
         '
-        'TableLayoutPanel2
+        'TableLayoutPanel9
         '
-        resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
-        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 1)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        resources.ApplyResources(Me.TableLayoutPanel9, "TableLayoutPanel9")
+        Me.TableLayoutPanel9.Controls.Add(Me.CheckBoxCloseToSystemTray, 0, 0)
+        Me.TableLayoutPanel9.Controls.Add(Me.CheckBoxClickingTrayIconStopsAlarm, 0, 1)
+        Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         '
         'CheckBoxCloseToSystemTray
         '
@@ -142,6 +179,9 @@ Partial Class SettingsDialog
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.ButtonCancel
+        Me.Controls.Add(Me.CheckBoxEnableToolbarStyling)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.TableLayoutPanel4)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -150,10 +190,14 @@ Partial Class SettingsDialog
         Me.ShowInTaskbar = False
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.CheckedGroupBoxShowInSystemTray.ResumeLayout(False)
         Me.CheckedGroupBoxShowInSystemTray.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
+        Me.TableLayoutPanel9.ResumeLayout(False)
+        Me.TableLayoutPanel9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,12 +208,17 @@ Partial Class SettingsDialog
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents ButtonCancel As System.Windows.Forms.Button
     Friend WithEvents ButtonOK As System.Windows.Forms.Button
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CheckBoxEnableToolbarStyling As System.Windows.Forms.CheckBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
+    Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CheckedGroupBoxShowInSystemTray As ElanTimer.CheckedGroupBox
+    Friend WithEvents TableLayoutPanel9 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
-    Friend WithEvents ButtonCancel As System.Windows.Forms.Button
-    Friend WithEvents CheckBoxEnableToolbarStyling As System.Windows.Forms.CheckBox
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents CheckedGroupBoxShowInSystemTray As ElanTimer.CheckedGroupBox
-    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
 End Class

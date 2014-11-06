@@ -6,9 +6,9 @@ Namespace Settings
         Sub New()
             MyClass.New(Nothing)
         End Sub
-        Sub New(transporter As IImporterExporter)
+        Sub New(importerExporter As IImporterExporter)
             MyBase.New()
-            Me.Transporter = transporter
+            Me.ImporterExporter = importerExporter
         End Sub
         <UserScopedSetting>
         <DefaultSettingValue("0:5:0")>
@@ -23,12 +23,12 @@ Namespace Settings
 
         <UserScopedSetting>
         <DefaultSettingValue("False")>
-        Public Property CountUp As Boolean
+        Public Property CountUpwards As Boolean
             Get
-                Return Me("CountUp")
+                Return Me("CountUpwards")
             End Get
             Set(value As Boolean)
-                Me("CountUp") = value
+                Me("CountUpwards") = value
             End Set
         End Property
 
@@ -44,49 +44,6 @@ Namespace Settings
         End Property
 
         <UserScopedSetting>
-        <DefaultSettingValue("True")>
-        Public Property AlarmEnabled As Boolean
-            Get
-                Return Me("AlarmEnabled")
-            End Get
-            Set(value As Boolean)
-                Me("AlarmEnabled") = value
-            End Set
-        End Property
-
-        <UserScopedSetting>
-        Public Property AlarmName As String
-            Get
-                Return Me("AlarmName")
-            End Get
-            Set(value As String)
-                Me("AlarmName") = value
-            End Set
-        End Property
-
-        <UserScopedSetting>
-        <DefaultSettingValue("False")>
-        Public Property AlarmLoop As Boolean
-            Get
-                Return Me("AlarmLoop")
-            End Get
-            Set(value As Boolean)
-                Me("AlarmLoop") = value
-            End Set
-        End Property
-
-        <UserScopedSetting>
-        <DefaultSettingValue("100")>
-        Public Property AlarmVolume As Integer
-            Get
-                Return Me("AlarmVolume")
-            End Get
-            Set(value As Integer)
-                Me("AlarmVolume") = value
-            End Set
-        End Property
-
-        <UserScopedSetting>
         Public Property Note As String
             Get
                 Return Me("Note")
@@ -95,46 +52,39 @@ Namespace Settings
                 Me("Note") = value
             End Set
         End Property
-
         <UserScopedSetting>
         <DefaultSettingValue("False")>
-        Public Property AlertEnabled As Boolean
+        Public Property Synchronize As Boolean
             Get
-                Return Me("AlertEnabled")
+                Return Me("Synchronize")
             End Get
             Set(value As Boolean)
-                Me("AlertEnabled") = value
+                Me("Synchronize") = value
             End Set
         End Property
 
-        Public Property Transporter As IImporterExporter
+
+        Public Property ImporterExporter As IImporterExporter
 
         Public Sub Import(stream As IO.Stream) Implements IImportable.Import
             Dim model As TimeModel
-            model = Transporter.Import(Of TimeModel)(stream)
-            Me.Duration = model.Duration
-            Me.CountUp = model.CountUp
-            Me.Restarts = model.Restarts
-            Me.AlarmEnabled = model.AlarmEnabled
-            Me.AlarmName = model.AlarmName
-            Me.AlarmLoop = model.AlarmLoop
-            Me.AlarmVolume = model.AlarmVolume
+            model = ImporterExporter.Import(Of TimeModel)(stream)
             Me.Note = model.Note
-            Me.AlertEnabled = model.AlertEnabled
+            Me.Duration = model.Duration
+            Me.CountUpwards = model.CountUpwards
+            Me.Restarts = model.Restarts
+            Me.Synchronize = model.Synchronize
         End Sub
 
         Public Sub Export(stream As IO.Stream) Implements IExportable.Export
             Dim model As New TimeModel()
-            model.AlarmEnabled = Me.AlarmEnabled
-            model.AlarmLoop = Me.AlarmLoop
-            model.AlarmName = Me.AlarmName
-            model.AlarmVolume = Me.AlarmVolume
-            model.AlertEnabled = Me.AlertEnabled
-            model.CountUp = Me.CountUp
+            model.CountUpwards = Me.CountUpwards
             model.Duration = Me.Duration
             model.Note = Me.Note
             model.Restarts = Me.Restarts
-            Transporter.Export(Of TimeModel)(model, stream)
+            model.Synchronize = Me.Synchronize
+
+            ImporterExporter.Export(Of TimeModel)(model, stream)
         End Sub
     End Class
 End Namespace

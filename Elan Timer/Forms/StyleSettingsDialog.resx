@@ -118,310 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Panel1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="TableLayoutPanel8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Panel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+  <data name="TableLayoutPanel8.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="Panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>317, 0</value>
-  </data>
-  <data name="Panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Name" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LabelForegroundColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="LabelForegroundColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelForegroundColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 221</value>
-  </data>
-  <data name="LabelForegroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 2, 0</value>
-  </data>
-  <data name="LabelForegroundColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 13</value>
-  </data>
-  <data name="LabelForegroundColor.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="LabelForegroundColor.Text" xml:space="preserve">
-    <value>Foreground Color:</value>
-  </data>
-  <data name="&gt;&gt;LabelForegroundColor.Name" xml:space="preserve">
-    <value>LabelForegroundColor</value>
-  </data>
-  <data name="&gt;&gt;LabelForegroundColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelForegroundColor.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;LabelForegroundColor.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="ColorComboBoxForegrounColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 220</value>
-  </data>
-  <data name="ColorComboBoxForegrounColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 2, 0, 7</value>
-  </data>
-  <data name="ColorComboBoxForegrounColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 21</value>
-  </data>
-  <data name="ColorComboBoxForegrounColor.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxForegrounColor.Name" xml:space="preserve">
-    <value>ColorComboBoxForegrounColor</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxForegrounColor.Type" xml:space="preserve">
-    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5291.27877, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxForegrounColor.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxForegrounColor.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="LabelBackgroundColor.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="LabelBackgroundColor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelBackgroundColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 198</value>
-  </data>
-  <data name="LabelBackgroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 2, 0</value>
-  </data>
-  <data name="LabelBackgroundColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 13</value>
-  </data>
-  <data name="LabelBackgroundColor.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
-  </data>
-  <data name="LabelBackgroundColor.Text" xml:space="preserve">
-    <value>Background Color:</value>
-  </data>
-  <data name="&gt;&gt;LabelBackgroundColor.Name" xml:space="preserve">
-    <value>LabelBackgroundColor</value>
-  </data>
-  <data name="&gt;&gt;LabelBackgroundColor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelBackgroundColor.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;LabelBackgroundColor.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="ColorComboBoxBackgroundColor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 195</value>
-  </data>
-  <data name="ColorComboBoxBackgroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 0, 2</value>
-  </data>
-  <data name="ColorComboBoxBackgroundColor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 21</value>
-  </data>
-  <data name="ColorComboBoxBackgroundColor.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Name" xml:space="preserve">
-    <value>ColorComboBoxBackgroundColor</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Type" xml:space="preserve">
-    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5291.27877, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;ColorComboBoxBackgroundColor.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="LabelFont.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="LabelFont.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelFont.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 148</value>
-  </data>
-  <data name="LabelFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 2, 0</value>
-  </data>
-  <data name="LabelFont.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
-  </data>
-  <data name="LabelFont.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="LabelFont.Text" xml:space="preserve">
-    <value>Font: </value>
-  </data>
-  <data name="&gt;&gt;LabelFont.Name" xml:space="preserve">
-    <value>LabelFont</value>
-  </data>
-  <data name="&gt;&gt;LabelFont.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelFont.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;LabelFont.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="FontPickerFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="FontPickerFont.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 147</value>
-  </data>
-  <data name="FontPickerFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 0, 2</value>
-  </data>
-  <data name="FontPickerFont.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 20</value>
-  </data>
-  <data name="FontPickerFont.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="FontPickerFont.Text" xml:space="preserve">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="&gt;&gt;FontPickerFont.Name" xml:space="preserve">
-    <value>FontPickerFont</value>
-  </data>
-  <data name="&gt;&gt;FontPickerFont.Type" xml:space="preserve">
-    <value>Com.Windows.Forms.FontPicker, Picker, Version=1.0.4836.37702, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;FontPickerFont.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;FontPickerFont.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="CheckBoxGrowToFit.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CheckBoxGrowToFit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 171</value>
-  </data>
-  <data name="CheckBoxGrowToFit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 0, 7</value>
-  </data>
-  <data name="CheckBoxGrowToFit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 17</value>
-  </data>
-  <data name="CheckBoxGrowToFit.TabIndex" type="System.Int32, mscorlib">
+  <data name="TableLayoutPanel8.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="CheckBoxGrowToFit.Text" xml:space="preserve">
-    <value>Grow to fit</value>
+  <data name="TrackBarTransparency.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;CheckBoxGrowToFit.Name" xml:space="preserve">
-    <value>CheckBoxGrowToFit</value>
+  <data name="TrackBarTransparency.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;CheckBoxGrowToFit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="TrackBarTransparency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 252</value>
   </data>
-  <data name="&gt;&gt;CheckBoxGrowToFit.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+  <data name="TrackBarTransparency.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="&gt;&gt;CheckBoxGrowToFit.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="TrackBarTransparency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 21</value>
   </data>
-  <data name="LabelTransparency.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="TrackBarTransparency.TabIndex" type="System.Int32, mscorlib">
+    <value>101</value>
   </data>
-  <data name="LabelTransparency.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;TrackBarTransparency.Name" xml:space="preserve">
+    <value>TrackBarTransparency</value>
   </data>
-  <data name="LabelTransparency.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 251</value>
+  <data name="&gt;&gt;TrackBarTransparency.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="LabelTransparency.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 3, 2, 0</value>
+  <data name="&gt;&gt;TrackBarTransparency.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
   </data>
-  <data name="LabelTransparency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
-  <data name="LabelTransparency.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="LabelTransparency.Text" xml:space="preserve">
-    <value>Transparency:</value>
-  </data>
-  <data name="&gt;&gt;LabelTransparency.Name" xml:space="preserve">
-    <value>LabelTransparency</value>
-  </data>
-  <data name="&gt;&gt;LabelTransparency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelTransparency.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;LabelTransparency.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="ComboBoxDisplayFormat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ComboBoxDisplayFormat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 117</value>
-  </data>
-  <data name="ComboBoxDisplayFormat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 0, 7</value>
-  </data>
-  <data name="ComboBoxDisplayFormat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 21</value>
-  </data>
-  <data name="ComboBoxDisplayFormat.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;TrackBarTransparency.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxDisplayFormat.Name" xml:space="preserve">
-    <value>ComboBoxDisplayFormat</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxDisplayFormat.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxDisplayFormat.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;ComboBoxDisplayFormat.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="LabelRenderer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
   </data>
   <data name="LabelRenderer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -430,7 +166,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelRenderer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 120</value>
+    <value>0, 124</value>
   </data>
   <data name="LabelRenderer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 2, 0</value>
@@ -451,172 +187,22 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelRenderer.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+    <value>TableLayoutPanel8</value>
   </data>
   <data name="&gt;&gt;LabelRenderer.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="TableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TableLayoutPanel1.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="TableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TrackBarTransparency.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="TrackBarTransparency.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="TrackBarTransparency.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="TrackBarTransparency.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 248</value>
-  </data>
-  <data name="TrackBarTransparency.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="TrackBarTransparency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 21</value>
-  </data>
-  <data name="TrackBarTransparency.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="&gt;&gt;TrackBarTransparency.Name" xml:space="preserve">
-    <value>TrackBarTransparency</value>
-  </data>
-  <data name="&gt;&gt;TrackBarTransparency.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TrackBarTransparency.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TrackBarTransparency.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TableLayoutPanel2.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="TableLayoutPanel2.ColumnCount" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
-    <value>ButtonCancel</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ButtonOptions.Name" xml:space="preserve">
-    <value>ButtonOptions</value>
-  </data>
-  <data name="&gt;&gt;ButtonOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonOptions.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ButtonOptions.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
-    <value>ButtonOK</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="TableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 276</value>
-  </data>
-  <data name="TableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 7, 0, 0</value>
-  </data>
-  <data name="TableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="TableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 23</value>
-  </data>
-  <data name="TableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>57</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel2.Name" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel2.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel2.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ButtonCancel" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOptions" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ButtonOK" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0,AutoSize,0,Absolute,20,Absolute,20" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="TableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 7</value>
-  </data>
-  <data name="TableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="TableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="TableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 299</value>
-  </data>
-  <data name="TableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>57</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Name" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TrackBarTransparency" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelRenderer" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="PanelRenderPreview" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="ComboBoxDisplayFormat" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelFont" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="FontPickerFont" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxGrowToFit" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="TableLayoutPanel2" Row="7" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="LabelTransparency" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelForegroundColor" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelBackgroundColor" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ColorComboBoxForegrounColor" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="ColorComboBoxBackgroundColor" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="PanelRenderPreview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="PanelRenderPreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>0, 4</value>
   </data>
   <data name="PanelRenderPreview.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 7</value>
+    <value>0, 4, 0, 7</value>
   </data>
   <data name="PanelRenderPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 110</value>
+    <value>340, 110</value>
   </data>
   <data name="PanelRenderPreview.TabIndex" type="System.Int32, mscorlib">
     <value>56</value>
@@ -628,133 +214,313 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PanelRenderPreview.Parent" xml:space="preserve">
-    <value>TableLayoutPanel1</value>
+    <value>TableLayoutPanel8</value>
   </data>
   <data name="&gt;&gt;PanelRenderPreview.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="ButtonCancel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="ComboBoxDisplayFormat.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="ButtonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="ComboBoxDisplayFormat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 121</value>
   </data>
-  <data name="ButtonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 0</value>
+  <data name="ComboBoxDisplayFormat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 0, 7</value>
   </data>
-  <data name="ButtonCancel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 0, 0</value>
+  <data name="ComboBoxDisplayFormat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 21</value>
   </data>
-  <data name="ButtonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
-  </data>
-  <data name="ButtonCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="ButtonCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Name" xml:space="preserve">
-    <value>ButtonCancel</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ButtonCancel.ZOrder" xml:space="preserve">
+  <data name="ComboBoxDisplayFormat.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="ButtonOptions.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Name" xml:space="preserve">
+    <value>ComboBoxDisplayFormat</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxDisplayFormat.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxDisplayFormat.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="LabelFont.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonOptions.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="ButtonOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAp0lEQVQ4T6WOQQoCMQxFu/Y6
-        XfYqrlpooXdTQZDZ6ey8g7pRHPAWcX5GkDZZGAw8SF4+JI6I/kKVFlRpQZUWVGlBiFrrOedMKSWKMTLo
-        4bDr880ASil0ud7oOb3o/pgY9HDY9flmYOGcT/PV42mk/WFg0MNhJ/JCLOXx9ma7Y9DDYSHyQnzL42UQ
-        Qlh/nMwL0RaughVPc4l8L6yo0oIqLajSgip/h9wboJi7L/oK2XwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ButtonOptions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="LabelFont.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="LabelFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 152</value>
   </data>
-  <data name="ButtonOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="LabelFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 2, 0</value>
   </data>
-  <data name="ButtonOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 23</value>
+  <data name="LabelFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 13</value>
   </data>
-  <data name="ButtonOptions.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="LabelFont.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
-  <data name="ButtonOptions.Text" xml:space="preserve">
-    <value>Options</value>
+  <data name="LabelFont.Text" xml:space="preserve">
+    <value>Font: </value>
   </data>
-  <data name="ButtonOptions.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>TextBeforeImage</value>
+  <data name="&gt;&gt;LabelFont.Name" xml:space="preserve">
+    <value>LabelFont</value>
   </data>
-  <data name="&gt;&gt;ButtonOptions.Name" xml:space="preserve">
-    <value>ButtonOptions</value>
+  <data name="&gt;&gt;LabelFont.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ButtonOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;LabelFont.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
   </data>
-  <data name="&gt;&gt;ButtonOptions.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
+  <data name="&gt;&gt;LabelFont.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;ButtonOptions.ZOrder" xml:space="preserve">
+  <data name="FontPickerFont.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="FontPickerFont.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 151</value>
+  </data>
+  <data name="FontPickerFont.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 0, 2</value>
+  </data>
+  <data name="FontPickerFont.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 20</value>
+  </data>
+  <data name="FontPickerFont.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="ButtonOK.AutoSize" type="System.Boolean, mscorlib">
+  <data name="FontPickerFont.Text" xml:space="preserve">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="&gt;&gt;FontPickerFont.Name" xml:space="preserve">
+    <value>FontPickerFont</value>
+  </data>
+  <data name="&gt;&gt;FontPickerFont.Type" xml:space="preserve">
+    <value>Com.Windows.Forms.FontPicker, Picker, Version=1.0.4836.37702, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;FontPickerFont.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;FontPickerFont.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CheckBoxGrowToFit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ButtonOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="CheckBoxGrowToFit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ButtonOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 0</value>
+  <data name="CheckBoxGrowToFit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 175</value>
   </data>
-  <data name="ButtonOK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="CheckBoxGrowToFit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 0, 7</value>
   </data>
-  <data name="ButtonOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
+  <data name="CheckBoxGrowToFit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 17</value>
   </data>
-  <data name="ButtonOK.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="ButtonOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Name" xml:space="preserve">
-    <value>ButtonOK</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.Parent" xml:space="preserve">
-    <value>TableLayoutPanel2</value>
-  </data>
-  <data name="&gt;&gt;ButtonOK.ZOrder" xml:space="preserve">
+  <data name="CheckBoxGrowToFit.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <metadata name="ContextMenuOptions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="MenuItemLoadStyle.Text" xml:space="preserve">
-    <value>Load Style...</value>
+  <data name="CheckBoxGrowToFit.Text" xml:space="preserve">
+    <value>Grow to fit</value>
   </data>
-  <data name="MenuItemSaveStyleAs.Text" xml:space="preserve">
-    <value>Save Style As...</value>
+  <data name="&gt;&gt;CheckBoxGrowToFit.Name" xml:space="preserve">
+    <value>CheckBoxGrowToFit</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxGrowToFit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxGrowToFit.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;CheckBoxGrowToFit.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="LabelTransparency.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelTransparency.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelTransparency.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 255</value>
+  </data>
+  <data name="LabelTransparency.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 2, 0</value>
+  </data>
+  <data name="LabelTransparency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 13</value>
+  </data>
+  <data name="LabelTransparency.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="LabelTransparency.Text" xml:space="preserve">
+    <value>Transparency:</value>
+  </data>
+  <data name="&gt;&gt;LabelTransparency.Name" xml:space="preserve">
+    <value>LabelTransparency</value>
+  </data>
+  <data name="&gt;&gt;LabelTransparency.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelTransparency.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;LabelTransparency.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="LabelForegroundColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelForegroundColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelForegroundColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 225</value>
+  </data>
+  <data name="LabelForegroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 2, 0</value>
+  </data>
+  <data name="LabelForegroundColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 13</value>
+  </data>
+  <data name="LabelForegroundColor.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="LabelForegroundColor.Text" xml:space="preserve">
+    <value>Foreground Color:</value>
+  </data>
+  <data name="&gt;&gt;LabelForegroundColor.Name" xml:space="preserve">
+    <value>LabelForegroundColor</value>
+  </data>
+  <data name="&gt;&gt;LabelForegroundColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelForegroundColor.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;LabelForegroundColor.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="LabelBackgroundColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelBackgroundColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelBackgroundColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 202</value>
+  </data>
+  <data name="LabelBackgroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 3, 2, 0</value>
+  </data>
+  <data name="LabelBackgroundColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="LabelBackgroundColor.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="LabelBackgroundColor.Text" xml:space="preserve">
+    <value>Background Color:</value>
+  </data>
+  <data name="&gt;&gt;LabelBackgroundColor.Name" xml:space="preserve">
+    <value>LabelBackgroundColor</value>
+  </data>
+  <data name="&gt;&gt;LabelBackgroundColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelBackgroundColor.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;LabelBackgroundColor.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ColorComboBoxForegrounColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 224</value>
+  </data>
+  <data name="ColorComboBoxForegrounColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 2, 0, 7</value>
+  </data>
+  <data name="ColorComboBoxForegrounColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 21</value>
+  </data>
+  <data name="ColorComboBoxForegrounColor.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxForegrounColor.Name" xml:space="preserve">
+    <value>ColorComboBoxForegrounColor</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxForegrounColor.Type" xml:space="preserve">
+    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5291.27877, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxForegrounColor.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxForegrounColor.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="ColorComboBoxBackgroundColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 199</value>
+  </data>
+  <data name="ColorComboBoxBackgroundColor.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 0, 2</value>
+  </data>
+  <data name="ColorComboBoxBackgroundColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 21</value>
+  </data>
+  <data name="ColorComboBoxBackgroundColor.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Name" xml:space="preserve">
+    <value>ColorComboBoxBackgroundColor</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Type" xml:space="preserve">
+    <value>ColorComboTestApp.ColorComboBox, ColorComboBox, Version=1.0.5291.27877, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxBackgroundColor.Parent" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;ColorComboBoxBackgroundColor.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="TableLayoutPanel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="TableLayoutPanel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="TableLayoutPanel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="TableLayoutPanel8.RowCount" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="TableLayoutPanel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 273</value>
+  </data>
+  <data name="TableLayoutPanel8.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel8.Name" xml:space="preserve">
+    <value>TableLayoutPanel8</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TableLayoutPanel8.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TableLayoutPanel8.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="TrackBarTransparency" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelRenderer" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="PanelRenderPreview" Row="0" RowSpan="1" Column="0" ColumnSpan="2" /&gt;&lt;Control Name="ComboBoxDisplayFormat" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelFont" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="FontPickerFont" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="CheckBoxGrowToFit" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="LabelTransparency" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelForegroundColor" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="LabelBackgroundColor" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ColorComboBoxForegrounColor" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="ColorComboBoxBackgroundColor" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -765,11 +531,8 @@
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>331, 310</value>
+    <value>354, 292</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>7, 7, 7, 7</value>
@@ -780,28 +543,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Look</value>
   </data>
-  <data name="&gt;&gt;ContextMenuOptions.Name" xml:space="preserve">
-    <value>ContextMenuOptions</value>
-  </data>
-  <data name="&gt;&gt;ContextMenuOptions.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenu, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuItemLoadStyle.Name" xml:space="preserve">
-    <value>MenuItemLoadStyle</value>
-  </data>
-  <data name="&gt;&gt;MenuItemLoadStyle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuItemSaveStyleAs.Name" xml:space="preserve">
-    <value>MenuItemSaveStyleAs</value>
-  </data>
-  <data name="&gt;&gt;MenuItemSaveStyleAs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>StyleSettingsDialog</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>ElanTimer.TransparentForm, Elan Timer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

@@ -126,6 +126,9 @@
   <data name="Alarm" xml:space="preserve">
     <value>Alarm</value>
   </data>
+  <data name="Alerts" xml:space="preserve">
+    <value>Alerts</value>
+  </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background color:</value>
   </data>
@@ -145,7 +148,7 @@
     <value>Close to system tray</value>
   </data>
   <data name="CountUp" xml:space="preserve">
-    <value>Count up</value>
+    <value>Count upwards</value>
   </data>
   <data name="CountUpFormat" xml:space="preserve">
     <value>{0}{1}</value>
@@ -267,11 +270,11 @@
   <data name="MenuHelpOnline" xml:space="preserve">
     <value>Help Online</value>
   </data>
-  <data name="MenuMisc" xml:space="preserve">
-    <value>Misc...</value>
-  </data>
   <data name="MenuNewTimer" xml:space="preserve">
     <value>New...</value>
+  </data>
+  <data name="MenuOptions" xml:space="preserve">
+    <value>Options...</value>
   </data>
   <data name="MenuStyle" xml:space="preserve">
     <value>Style...</value>
@@ -352,7 +355,7 @@
     <value>Set</value>
   </data>
   <data name="ShowAlertBoxWhenTimerExpires" xml:space="preserve">
-    <value>Show alert box when timer expires</value>
+    <value>Show note alert box when timer expires</value>
   </data>
   <data name="ShowInSystemTray" xml:space="preserve">
     <value>Show in system tray</value>
@@ -377,6 +380,9 @@
   </data>
   <data name="Tasks" xml:space="preserve">
     <value>Tasks</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
   </data>
   <data name="TimerEvent_Expired" xml:space="preserve">
     <value>Expired</value>

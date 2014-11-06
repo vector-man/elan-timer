@@ -526,6 +526,17 @@ Namespace My
                 Me("WindowPosition") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property RecentPresets() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("RecentPresets"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("RecentPresets") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

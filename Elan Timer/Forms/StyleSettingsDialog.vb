@@ -5,10 +5,12 @@ Imports ElanTimer.Rendering
 Imports System.Drawing.Drawing2D
 Imports NLog
 Imports PropertyChanged
+Imports System.ComponentModel
+
 <ImplementPropertyChanged>
 Public Class StyleSettingsDialog
     Private timerObject As New TextRenderable
-    Private _previewTimer As New CountDownAlarmTimer(TimeSpan.Zero)
+    Private _previewTimer As New AlarmTimer(TimeSpan.Zero)
     Private checkerBoardObject As BackgroundRenderable
     Private renderer As Renderer
     Private stringFormat As New StringFormat(System.Drawing.StringFormat.GenericTypographic)
@@ -25,10 +27,65 @@ Public Class StyleSettingsDialog
     Sub New()
         ' This call is required by the designer.
         InitializeComponent()
-
-        Initialize()
     End Sub
+
 #Region "Properties"
+    Public Property Style As New StyleModel()
+
+    Public Property BackgroundColor As Color
+        Get
+            Return Style.BackgroundColor
+        End Get
+        Set(value As Color)
+            Style.BackgroundColor = value
+        End Set
+    End Property
+
+    Public Property ForegroundColor As Color
+        Get
+            Return Style.ForegroundColor
+        End Get
+        Set(value As Color)
+            Style.ForegroundColor = value
+        End Set
+    End Property
+
+    Public Property DisplayFont As Font
+        Get
+            Return Style.DisplayFont
+        End Get
+        Set(value As Font)
+            Style.DisplayFont = value
+        End Set
+    End Property
+
+    Public Property DisplayFormat As String
+        Get
+            Return Style.DisplayFormat
+        End Get
+        Set(value As String)
+            Style.DisplayFormat = value
+        End Set
+    End Property
+
+    Public Property GrowToFit As Boolean
+        Get
+            Return Style.GrowToFit
+        End Get
+        Set(value As Boolean)
+            Style.GrowToFit = value
+        End Set
+    End Property
+
+    Public Property Transparency As Integer
+        Get
+            Return Style.Transparency
+        End Get
+        Set(value As Integer)
+            Style.Transparency = value
+        End Set
+    End Property
+
     Public Property DisplayFormats As List(Of KeyValuePair(Of String, String))
         Get
             Return ComboBoxDisplayFormat.DataSource
@@ -37,14 +94,6 @@ Public Class StyleSettingsDialog
             ComboBoxDisplayFormat.DataSource = value
         End Set
     End Property
-
-    Public Property DisplayFormat As String
-
-    Public Property ForegroundColor As Color
-
-    Public Property BackgroundColor As Color
-
-    Public Property DisplayFont As Font
 
     Public Property CustomStyleColors As Integer()
         Get
@@ -56,59 +105,48 @@ Public Class StyleSettingsDialog
         End Set
     End Property
 
-    Public Property GrowToFit As Boolean
-
-    Public Property Transparency As Integer
-
-    Public Property Timer As CountDownAlarmTimer
-
-    Public Property InitialDirectory As String
-
-    Public Property FileFilter As String
-
-    Public Property CountUp As Boolean
+    Public Property Time As New TimeModel()
 #End Region
 #Region "Events"
     Public Event Loading As EventHandler(Of LoadingEventArgs)
     Public Event Saving As EventHandler(Of SavingEventArgs)
 #End Region
     Sub Initialize()
-        ComboBoxDisplayFormat.DataBindings.Clear()
-        ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", Me, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
-        ComboBoxDisplayFormat.DisplayMember = "Key"
-        ComboBoxDisplayFormat.ValueMember = "Value"
+        Try
+            ComboBoxDisplayFormat.ValueMember = "Value"
+            ComboBoxDisplayFormat.DataBindings.Clear()
+            ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", Style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
+            ComboBoxDisplayFormat.DisplayMember = "Key"
+            ComboBoxDisplayFormat.ValueMember = "Value"
 
-        ColorComboBoxForegrounColor.DataBindings.Clear()
-        ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", Me, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+            ColorComboBoxForegrounColor.DataBindings.Clear()
+            ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", Style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
 
-        ColorComboBoxBackgroundColor.DataBindings.Clear()
-        ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", Me, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+            ColorComboBoxBackgroundColor.DataBindings.Clear()
+            ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", Style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
 
-        FontPickerFont.DataBindings.Clear()
-        FontPickerFont.DataBindings.Add("Value", Me, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
+            FontPickerFont.DataBindings.Clear()
+            FontPickerFont.DataBindings.Add("Value", Style, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
 
-        CheckBoxGrowToFit.DataBindings.Clear()
-        CheckBoxGrowToFit.DataBindings.Add("Checked", Me, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
+            CheckBoxGrowToFit.DataBindings.Clear()
+            CheckBoxGrowToFit.DataBindings.Add("Checked", Style, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
 
-        TrackBarTransparency.DataBindings.Clear()
-        TrackBarTransparency.DataBindings.Add("Value", Me, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
+            TrackBarTransparency.DataBindings.Clear()
+            TrackBarTransparency.DataBindings.Add("Value", Style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
+        Catch ex As Exception
+            Throw ex
+        End Try
 
         SetStrings()
-    End Sub
-
-    Protected Overrides Sub OnLoad(e As EventArgs)
-        Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
-        Me.TopMost = True
-        MyBase.OnLoad(e)
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         _previewTimer.Dispose()
     End Sub
 
-    Private Sub StartUpRendering()
+    Private Sub InitializeRendering()
         timerSurface = New Surface()
-        timerSurface.BackColor = BackgroundColor
+        timerSurface.BackColor = Style.BackgroundColor
         timerSurface.Dock = DockStyle.Fill
         PanelRenderPreview.Controls.Add(timerSurface)
 
@@ -116,21 +154,20 @@ Public Class StyleSettingsDialog
         stringFormat.Alignment = StringAlignment.Center
         stringFormat.LineAlignment = StringAlignment.Center
 
+        checkerBoardObject = New BackgroundRenderable(Nothing, True) With {.Rectangle = timerSurface.ClientRectangle}
+
+        renderer = New Renderer(timerSurface)
+        renderer.FramesPerSecond = Utils.Framerate
+
         timerObject = New TextRenderable() With {
-            .Color = ForegroundColor,
-            .Font = New Font(DisplayFont.FontFamily.Name, 1, DisplayFont.Style),
+            .Color = Style.ForegroundColor,
+            .Font = New Font(Style.DisplayFont.FontFamily.Name, 1, Style.DisplayFont.Style),
             .StringFormat = stringFormat,
             .SizeToFit = True,
             .Visible = True,
             .Rectangle = timerSurface.ClientRectangle}
 
-        timerObject.TextRenderFormat = GetTimerTextRenderFunc(CountUp)
-
-        checkerBoardObject = New BackgroundRenderable(Nothing, True) With {.Rectangle = timerSurface.ClientRectangle}
-
-
-        renderer = New Renderer(timerSurface)
-        renderer.FramesPerSecond = Utils.Framerate
+        timerObject.TextRenderFormat = GetTimerTextRenderFunc(Time.CountUpwards)
 
         renderer.Renderables.Add(timerObject)
         renderer.Renderables.Add(checkerBoardObject)
@@ -138,13 +175,23 @@ Public Class StyleSettingsDialog
         UpdateOpacity()
         renderer.Enabled = True
     End Sub
+    Private Sub DeinitializeRendering()
+        If (renderer IsNot Nothing) Then renderer.Dispose()
+        If (timerSurface IsNot Nothing) Then timerSurface.Dispose()
+        If (timerObject IsNot Nothing) Then timerObject.Dispose()
+    End Sub
 
-    Private Function GetTimerTextRenderFunc(countUp As Boolean) As Func(Of String)
-        If (countUp) Then
-            Return Function() String.Format(timeFormat, String.Concat("+", "{0:", DisplayFormat, "}"), _previewTimer.Elapsed)
+    Private Sub RestartRendering()
+        DeinitializeRendering()
+        InitializeRendering()
+    End Sub
+
+    Private Function GetTimerTextRenderFunc(countUpwards As Boolean) As Func(Of String)
+        If (countUpwards) Then
+            Return Function() String.Format(timeFormat, String.Concat("+", "{0:", Style.DisplayFormat, "}"), _previewTimer.Elapsed)
 
         Else
-            Return Function() String.Format(timeFormat, String.Concat("{0:", DisplayFormat, "}"), _previewTimer.Current)
+            Return Function() String.Format(timeFormat, String.Concat("{0:", Style.DisplayFormat, "}"), _previewTimer.Remaining)
         End If
     End Function
 
@@ -177,60 +224,45 @@ Public Class StyleSettingsDialog
         End Try
     End Sub
 
-    Private Sub ButtonOptions_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
-        ContextMenuOptions.Show(ButtonOptions, New Point(0, ButtonOptions.Height))
-    End Sub
-
     Private Sub UpdateUI()
-        timerObject.Color = ForegroundColor
-        timerSurface.BackColor = BackgroundColor
+        timerObject.Color = Style.ForegroundColor
+        timerSurface.BackColor = Style.BackgroundColor
         ColorComboBoxBackgroundColor.Refresh()
         ColorComboBoxForegrounColor.Refresh()
     End Sub
-    Private Sub ComboBoxDisplayFormat_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxDisplayFormat.SelectedValueChanged
-        Try
-            Dim format As String = TryCast(ComboBoxDisplayFormat.SelectedValue, String)
-            If (format IsNot Nothing AndAlso timerObject IsNot Nothing) Then
-                ' TODO: Remove line.
-                ' timerObject.Format = format
-            End If
-        Catch ex As Exception
-            logger.Error(ex)
-        End Try
-    End Sub
+
     Private Sub RestartTimer()
-        _previewTimer.Reset(Timer.Duration)
+        _previewTimer.Reset(Time.Duration, TimeSpan.Zero, Integer.MaxValue)
         _previewTimer.Start()
     End Sub
-    Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        StartUpRendering()
-        RestartTimer()
 
+    Private Sub DialogStyleSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Initialize()
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
     End Sub
-
-    Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs) Handles MenuItemLoadStyle.Click
-        Using dialogOpen As New OpenFileDialog()
-            dialogOpen.InitialDirectory = InitialDirectory
-            dialogOpen.CheckPathExists = True
-            dialogOpen.Filter = FileFilter
-            If (dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
-                UpdateUI()
-            End If
-        End Using
-    End Sub
-
-    Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs) Handles MenuItemSaveStyleAs.Click
-        Using dialogSave As New SaveFileDialog()
-            dialogSave.InitialDirectory = Utils.GetStylesPath()
-            dialogSave.CheckPathExists = True
-            dialogSave.Filter = My.Settings.StyleDialogFilter
-            If (dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
-            End If
-        End Using
-    End Sub
+    'TODO: Remove.
+    'Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs)
+    '    Using dialogOpen As New OpenFileDialog()
+    '        dialogOpen.InitialDirectory = InitialDirectory
+    '        dialogOpen.CheckPathExists = True
+    '        dialogOpen.Filter = FileFilter
+    '        If (dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+    '            RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
+    '            UpdateUI()
+    '        End If
+    '    End Using
+    'End Sub
+    'TODO: Remove.
+    'Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs)
+    '    Using dialogSave As New SaveFileDialog()
+    '        dialogSave.InitialDirectory = Utils.GetStylesPath()
+    '        dialogSave.CheckPathExists = True
+    '        dialogSave.Filter = My.Settings.StyleDialogFilter
+    '        If (dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+    '            RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
+    '        End If
+    '    End Using
+    'End Sub
 
     Private Sub TrackBarTransparency_Scroll(sender As Object, e As EventArgs) Handles TrackBarTransparency.Scroll
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
@@ -260,12 +292,12 @@ Public Class StyleSettingsDialog
         Me.LabelBackgroundColor.Text = My.Resources.Strings.BackgroundColor
         Me.LabelForegroundColor.Text = My.Resources.Strings.ForegroundColor
         Me.LabelTransparency.Text = My.Resources.Strings.Transparency
-        Me.ButtonOptions.Text = My.Resources.Strings.Options
-        Me.MenuItemLoadStyle.Text = My.Resources.Strings.LoadStyle
-        Me.MenuItemSaveStyleAs.Text = My.Resources.Strings.SaveStyleAs
-        Me.ButtonOK.Text = My.Resources.Strings.Ok
-        Me.ButtonCancel.Text = My.Resources.Strings.Cancel
         ' TODO: Figure out how to localize Font selection.
         Me.ResumeLayout()
+    End Sub
+
+    Private Sub StyleSettingsDialog_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        RestartRendering()
+        RestartTimer()
     End Sub
 End Class

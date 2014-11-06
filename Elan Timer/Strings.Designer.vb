@@ -92,6 +92,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Alerts.
+        '''</summary>
+        Public Shared ReadOnly Property Alerts() As String
+            Get
+                Return ResourceManager.GetString("Alerts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Background color:.
         '''</summary>
         Public Shared ReadOnly Property BackgroundColor() As String
@@ -146,7 +155,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Count up.
+        '''  Looks up a localized string similar to Count upwards.
         '''</summary>
         Public Shared ReadOnly Property CountUp() As String
             Get
@@ -515,20 +524,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Misc....
-        '''</summary>
-        Public Shared ReadOnly Property MenuMisc() As String
-            Get
-                Return ResourceManager.GetString("MenuMisc", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to New....
         '''</summary>
         Public Shared ReadOnly Property MenuNewTimer() As String
             Get
                 Return ResourceManager.GetString("MenuNewTimer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Options....
+        '''</summary>
+        Public Shared ReadOnly Property MenuOptions() As String
+            Get
+                Return ResourceManager.GetString("MenuOptions", resourceCulture)
             End Get
         End Property
         
@@ -767,7 +776,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Show alert box when timer expires.
+        '''  Looks up a localized string similar to Show note alert box when timer expires.
         '''</summary>
         Public Shared ReadOnly Property ShowAlertBoxWhenTimerExpires() As String
             Get
@@ -844,6 +853,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property Tasks() As String
             Get
                 Return ResourceManager.GetString("Tasks", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Time.
+        '''</summary>
+        Public Shared ReadOnly Property Time() As String
+            Get
+                Return ResourceManager.GetString("Time", resourceCulture)
             End Get
         End Property
         

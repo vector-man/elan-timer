@@ -184,12 +184,21 @@
   <ItemGroup>
     <Compile Include="Audio\Sound.vb" />
     <Compile Include="Audio\LoopStream.vb" />
+    <Compile Include="Forms\AlertsSettingsDialog.Designer.vb">
+      <DependentUpon>AlertsSettingsDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AlertsSettingsDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ImpementPropertyChangedAttribute.vb" />
     <Compile Include="Forms\NewEditDialog.Designer.vb">
       <DependentUpon>NewEditDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\NewEditDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Mapper.vb" />
+    <Compile Include="Models\AlertsModel.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -226,7 +235,17 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Utils.vb" />
+    <Compile Include="Settings\AlertsSettings.vb" />
     <Compile Include="Settings\LoadingEventArgs.vb" />
+    <Compile Include="Forms\TransparentForm.Designer.vb">
+      <DependentUpon>TransparentForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TransparentForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendor\DropDownButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Vendor\LocalizedEnumConverter.vb" />
     <Compile Include="Models\TaskModel.vb" />
     <Compile Include="Models\TasksModel.vb" />
@@ -294,6 +313,9 @@
       <DependentUpon>AboutDialog.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlertsSettingsDialog.resx">
+      <DependentUpon>AlertsSettingsDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewEditDialog.resx">
       <DependentUpon>NewEditDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -335,6 +357,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\package.png" />
+    <None Include="Resources\sheduled_task.png" />
+    <None Include="Resources\smartart_change_color_gallery.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\time.png" />
+    <None Include="Resources\sheduled_task.ico" />
+    <None Include="Resources\time.ico" />
+    <None Include="Resources\color_swatch.ico" />
+    <None Include="Resources\exclamation.ico" />
+    <None Include="Resources\color_wheel.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\folder.png" />
     <None Include="Resources\arrow-down.png" />
     <None Include="Resources\arrow-up.png" />
     <None Include="My Project\app.manifest" />

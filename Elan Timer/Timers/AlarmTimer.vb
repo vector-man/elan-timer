@@ -138,6 +138,9 @@ Namespace CodeIsle.Timers
             End Get
             Set(value As Sound)
                 If (Not Object.ReferenceEquals(_alarm, value)) Then
+                    If (_alarm IsNot Nothing) Then
+                        _alarm.Dispose()
+                    End If
                     _alarm = value
                 End If
             End Set
@@ -146,8 +149,8 @@ Namespace CodeIsle.Timers
         ''' 
         ''' </summary>
         ''' <remarks></remarks>
-        Public Overrides Sub Reset()
-            MyBase.Reset()
+        Public Overrides Sub Reset(duration As TimeSpan, elapsed As TimeSpan, restarts As Integer)
+            MyBase.Reset(duration, elapsed, restarts)
             StopAlarm(Me, Nothing)
         End Sub
 #Region "IDisposable Support"
