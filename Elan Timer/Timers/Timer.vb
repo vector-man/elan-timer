@@ -250,7 +250,7 @@ Namespace CodeIsle.Timers
         ''' </summary>
         ''' <remarks></remarks>
         Public Overridable Sub Restart()
-            Me.Reset()
+            Me.timerStopwatch.Reset()
             StartEnabledPoll()
             timerStopwatch.Start()
 
