@@ -1,24 +1,18 @@
 ﻿Imports PropertyChanged
 <ImplementPropertyChanged>
 Public Class TimeModel
-    Public Property Duration As TimeSpan
-
-    Public Property CountUp As Boolean
-
-    Public Property Restarts As Integer
     Implements ICloneable
 
-    Public Property AlarmEnabled As Boolean
+    Public Property Duration As TimeSpan
 
-    Public Property AlarmName As String
-
-    Public Property AlarmLoop As Boolean
-
-    Public Property AlarmVolume As Integer
+    Public Property CountUpwards As Boolean
 
     Public Property Note As String
 
-    Public Property AlertEnabled As Boolean
+    Public Property Restarts As Integer
+
+    Public Property Synchronize As Boolean
+
     Sub New()
     End Sub
 
