@@ -159,12 +159,10 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Public Overridable Sub Start()
             If (Not Enabled) Then
-                If (Remaining.TotalMilliseconds > 0) Then
-                    Enabled = True
-                    timerStopwatch.Start()
-                    OnStarted(Me, New TimerEventArgs(Elapsed, Duration))
-                    StartEnabledPoll()
-                End If
+                Enabled = True
+                timerStopwatch.Start()
+                OnStarted(Me, New TimerEventArgs(Elapsed, Duration))
+                StartEnabledPoll()
             End If
         End Sub
         ''' <summary>
