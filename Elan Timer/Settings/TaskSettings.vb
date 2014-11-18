@@ -4,7 +4,7 @@ Imports System.IO
 Namespace Settings
     Public Class TaskSettings
         Inherits ApplicationSettingsBase
-        Implements IImportable, IExportable
+        Implements ISettings
         Sub New()
             MyClass.New(Nothing)
         End Sub
