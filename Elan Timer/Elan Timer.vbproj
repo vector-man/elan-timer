@@ -147,6 +147,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\PSTaskDialog\PSTaskDialog\bin\PSTaskDialog.dll</HintPath>
     </Reference>
+    <Reference Include="SharpCompress">
+      <HintPath>..\packages\p3-sharpcompress.0.10.5.2\lib\net40\SharpCompress.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -236,6 +239,8 @@
     </Compile>
     <Compile Include="Forms\Utils.vb" />
     <Compile Include="Settings\AlertsSettings.vb" />
+    <Compile Include="Settings\Bundler.vb" />
+    <Compile Include="Settings\ISettings.vb" />
     <Compile Include="Settings\LoadingEventArgs.vb" />
     <Compile Include="Forms\TransparentForm.Designer.vb">
       <DependentUpon>TransparentForm.vb</DependentUpon>
@@ -243,6 +248,7 @@
     <Compile Include="Forms\TransparentForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings\SettingsInfo.vb" />
     <Compile Include="Vendor\DropDownButton.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -357,6 +363,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\page_gear.png" />
+    <None Include="Resources\saved_exports.png" />
+    <None Include="Resources\saved_imports.png" />
+    <None Include="Resources\document_import.png" />
+    <None Include="Resources\document_export.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\clock.png" />
+    <None Include="Resources\clock_add.png" />
+    <None Include="Resources\clock_edit.png" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\title_window.png" />
+    <None Include="Resources\switch.png" />
+    <None Include="Resources\help1.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\cog.png" />
+    <None Include="Resources\wrench.png" />
     <None Include="Resources\package.png" />
     <None Include="Resources\sheduled_task.png" />
     <None Include="Resources\smartart_change_color_gallery.png" />
