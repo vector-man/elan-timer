@@ -40,9 +40,7 @@ Public Class FormMain
     ' Reports progress to update UI when timer is running.
     Private reporter As IProgress(Of Integer)
 
-    Private formInitialized As Boolean = False
-
-    ' Eascape key character (used for exiting full screen mode.)
+    ' Escape key character (used for exiting full screen mode.)
     Private ReadOnly EscapeKeyChar = Convert.ToChar(27)
 
     ' Forces window to close.
@@ -62,6 +60,10 @@ Public Class FormMain
 
     Private presetsMenu As New ContextMenuStrip()
 
+    Private bundler As New Bundler()
+
+    Private selectedTabIndex As Integer = 0
+
     ' Logging.
     Private Shared logger As Logger = LogManager.GetCurrentClassLogger()
 
@@ -71,7 +73,7 @@ Public Class FormMain
 #End If
 
 
-#Region "Timer Event Handelers"
+#Region "Timer Event Handlers"
 
     Public Sub Timer_Started(sender As Object, e As TimerEventArgs)
 #If DEBUG Then
@@ -92,10 +94,10 @@ Public Class FormMain
         HideNote()
     End Sub
     Public Sub Timer_Expired(sender As Object, e As TimerEventArgs)
-        ' Prints the ellapsed time in milliseconds (to check timer accuracy.)
+        ' Prints the elapsed time in milliseconds (to check timer accuracy.)
 #If DEBUG Then
         sw.Stop()
-        Debug.Print("Ellapsed time (MS): {0}. Timer time (MS): {1}", sw.Elapsed.TotalMilliseconds, timer.Duration.TotalMilliseconds)
+        Debug.Print("Elapsed time (MS): {0}. Timer time (MS): {1}", sw.Elapsed.TotalMilliseconds, timer.Duration.TotalMilliseconds)
         sw.Reset()
 #End If
         ' Execute tasks for the "Expired" timer event.
@@ -123,7 +125,7 @@ Public Class FormMain
                    End Sub)
     End Sub
 #End Region
-#Region "Form Event Handelers"
+#Region "Form Event Handlers"
     Private Sub FormMain_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
         If (e.Data.GetDataPresent(DataFormats.FileDrop)) Then
             e.Effect = DragDropEffects.Copy
@@ -135,56 +137,6 @@ Public Class FormMain
     Private Sub ToolStripMenuItemAboutElanTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAboutElanTimer.Click
         ' Show 'About' dialog with current form as parent.
         AboutDialog.ShowDialog(Me)
-    End Sub
-
-    Private Sub ToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemNewTimer.Click
-        'TODO: Fix
-        'Boolean '' Show 'New Timer' dialog.
-        ''ShowTimerDialog(Me, False)
-        'Using dialog As New NewEditDialog()
-        '    Dim time As New TimeModel() With {.AlarmEnabled = timeSettings.AlarmEnabled,
-        '                                       .AlarmLoop = timeSettings.AlarmLoop,
-        '                                       .AlarmName = timeSettings.AlarmName,
-        '                                       .AlarmVolume = timeSettings.AlarmVolume,
-        '                                       .CountUp = timeSettings.CountUp,
-        '                                       .Duration = timeSettings.Duration,
-        '                                       .Note = timeSettings.Note,
-        '                                       .Restarts = timeSettings.Restarts}
-        '    dialog.Time = time
-
-        '    Dim tasks As List(Of TaskModel) = CloneTasks(taskSettings.Tasks)
-
-        '    dialog.Tasks = tasks
-
-        '    dialog.DisplayFormats = Utils.DisplayFormats
-
-
-        '    If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-        '        timeSettings.AlarmEnabled = time.AlarmEnabled
-        '        timeSettings.AlarmLoop = time.AlarmLoop
-        '        timeSettings.AlarmName = time.AlarmName
-        '        timeSettings.AlarmVolume = time.AlarmVolume
-        '        timeSettings.AlertEnabled = time.AlertEnabled
-        '        timeSettings.CountUp = time.CountUp
-        '        timeSettings.Duration = time.Duration
-        '        timeSettings.Note = time.Note
-
-        '        taskSettings.Tasks = tasks
-
-        '        ResetTimer()
-        '        RestartRendering()
-        '    End If
-        'End Using
-        ShowNewEditDialog(False)
-    End Sub
-
-    Private Sub ToolStripButtonNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripButtonNewTimer.Click
-        ' Show 'New Timer' dialog.
-        ShowTimerDialog(Me, False)
-    End Sub
-
-    Private Sub ToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditTimer.Click
-        ShowNewEditDialog(True)
     End Sub
 
     Private Sub NotifyIconMain_Click(sender As Object, e As EventArgs) Handles NotifyIconMain.Click
@@ -204,35 +156,9 @@ Public Class FormMain
         End Try
     End Sub
 
-
     Private Sub NotifyIconMain_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIconMain.MouseDoubleClick
         Me.Show()
         Me.WindowState = FormWindowState.Normal
-    End Sub
-
-    Private Sub NotifyIconToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemNewTimer.Click
-        ' Show 'New Timer' dialog.
-        ShowTimerDialog(Me, False)
-    End Sub
-
-    Private Sub NotifyIconToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemEditTimer.Click
-        ' Show 'Edit Timer' dialog.
-        ShowTimerDialog(Me, True)
-    End Sub
-
-    Private Sub NotifyIconToolStripMenuItemStartTimer_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStartTimer.Click
-        ' Set timer state to the opposite of its current state (toggle start/pause). 
-        SetTimerState(Not timer.Enabled)
-    End Sub
-
-
-    Private Sub NotifyIconToolStripMenuItemTasks_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemTasks.Click
-        ShowTaskDialog(Me)
-    End Sub
-
-    Private Sub NotifyIconToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemStyle.Click
-        'TODO: Fix or remove.
-        'ShowStyleDialog(Me)
     End Sub
 
     Private Sub NotifyIconToolStripMenuItemExit_Click(sender As Object, e As EventArgs) Handles NotifyIconToolStripMenuItemExit.Click
@@ -262,102 +188,6 @@ Public Class FormMain
         maximized = (Me.WindowState = FormWindowState.Maximized)
     End Sub
 
-    Private Sub TimerSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
-        'TODO: Fix saving.
-        'Try
-        '    Dim dialog As TimerSettingsDialog = sender
-        '    Dim settings As New TimeSettings(transporter)
-
-        '    Using output As Stream = File.OpenWrite(e.Output)
-        '        settings.Duration = dialog.Duration
-        '        settings.CountUp = dialog.CountUp
-        '        settings.Restarts = dialog.Restarts
-        '        settings.AlarmEnabled = dialog.AlarmEnabled
-        '        'TODO: Remove.
-        '        'settings.AlarmName = dialog.SelectedAlarm
-        '        settings.AlarmLoop = dialog.AlarmLoop
-        '        settings.AlarmVolume = dialog.AlarmVolume
-        '        settings.Note = dialog.Note
-        '        settings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
-
-        '        settings.Export(output)
-        '    End Using
-        'Catch ex As Exception
-        '    logger.Error(ex)
-        '    ShowErrorMessage(String.Format("Preset could not be saved to file: ""{0}""", e.Output))
-        'End Try
-    End Sub
-
-    Private Sub TimerSettingsDialog_Loading(sender As Object, e As LoadingEventArgs)
-        'TODO: Fix loading.
-        'Try
-        '    Dim dialog As TimerSettingsDialog = sender
-        '    Dim settings As New TimeSettings(transporter)
-
-        '    Using input As Stream = File.OpenRead(e.Input)
-        '        settings.Import(input)
-        '        'TODO: Remove.
-        '        'dialog.AlarmsPath = Utils.GetAlarmsPath
-        '        'dialog.SelectedAlarm = settings.AlarmName
-        '        dialog.AlarmEnabled = settings.AlarmEnabled
-        '        dialog.AlarmLoop = settings.AlarmLoop
-        '        dialog.AlarmVolume = settings.AlarmVolume
-
-        '        dialog.Duration = settings.Duration
-        '        dialog.CountUp = settings.CountUp
-        '        dialog.Restarts = settings.Restarts
-        '        dialog.Note = settings.Note
-        '        dialog.ShowAlertBoxOnTimerExpiration = settings.AlertEnabled
-
-        '    End Using
-        'Catch ex As Exception
-        '    logger.Error(ex)
-        '    ShowErrorMessage(String.Format("Preset could not be loaded from file: ""{0}""", e.Input))
-        'End Try
-    End Sub
-    'TODO: Fix.
-    'Private Sub StyleSettingsDialog_Loading(sender As Object, e As LoadingEventArgs)
-    '    Try
-    '        Dim dialog As StyleSettingsDialog = sender
-    '        Dim settings As New StyleSettings(transporter)
-    '        Using input As Stream = File.OpenRead(e.Input)
-    '            settings.Import(input)
-
-    '            dialog.BackgroundColor = settings.BackgroundColor
-    '            dialog.DisplayFont = settings.DisplayFont
-    '            dialog.DisplayFormats = Utils.DisplayFormats
-    '            dialog.DisplayFormat = settings.DisplayFormat
-    '            dialog.ForegroundColor = settings.ForegroundColor
-    '            dialog.Timer = timer
-    '            dialog.GrowToFit = settings.GrowToFit
-    '            dialog.Transparency = 100 - settings.Opacity
-    '        End Using
-    '    Catch ex As Exception
-    '        logger.Error(ex)
-    '        ShowErrorMessage(String.Format("Style could not be loaded from file: ""{0}""", e.Input))
-    '    End Try
-    'End Sub
-    'TODO: Fix.
-    'Private Sub StyleSettingsDialog_Saving(sender As Object, e As SavingEventArgs)
-    '    Try
-    '        Dim dialog As StyleSettingsDialog = sender
-    '        Dim settings As New StyleSettings(transporter)
-    '        Using output As Stream = File.OpenWrite(e.Output)
-    '            settings.BackgroundColor = dialog.BackgroundColor
-    '            settings.DisplayFormat = dialog.DisplayFormat
-    '            settings.DisplayFont = dialog.DisplayFont
-    '            settings.ForegroundColor = dialog.ForegroundColor
-    '            settings.GrowToFit = dialog.GrowToFit
-    '            settings.Opacity = 100 - dialog.Transparency
-
-    '            settings.Export(output)
-    '        End Using
-    '    Catch ex As Exception
-    '        logger.Error(ex)
-    '        ShowErrorMessage(String.Format("Style could not be saved to file: ""{0}""", e.Output))
-    '    End Try
-    'End Sub
-
     Private Sub TaskSettingsDialog_Importing(sender As Object, e As TaskImportingEventArgs)
         Try
             Dim dialog As TaskSettingsDialog = sender
@@ -378,7 +208,7 @@ Public Class FormMain
             Dim dialog As TaskSettingsDialog = sender
             Dim settings As New TaskSettings(importerExporter)
             Using output As Stream = File.OpenWrite(e.Output)
-                settings.Tasks = e.Tasks.Tasks
+                settings.Tasks = e.Tasks
                 settings.Export(output)
             End Using
         Catch ex As Exception
@@ -395,7 +225,7 @@ Public Class FormMain
             Dim file = data.GetValue(0).ToString()
 
             Me.BeginInvoke(DirectCast(Sub(value As String)
-                                          LoadSettings(value)
+                                          LoadPresets(value)
                                       End Sub, Action(Of String)), New Object() {file})
             Me.Activate()
 
@@ -466,7 +296,8 @@ Public Class FormMain
 
         ' If a single argument is in command line (assumed to be a file), then load settings file.
         If (My.Application.CommandLineArgs.Count = 1) Then
-            LoadSettings(My.Application.CommandLineArgs(0))
+            LoadPresets(My.Application.CommandLineArgs(0))
+            My.Settings.Running = False
         End If
 
         InitializeAlarm()
@@ -498,10 +329,26 @@ Public Class FormMain
         Mapper.Create(Of TimeSettings, TimerSettingsDialog)()
         Mapper.Create(Of StyleSettings, StyleSettingsDialog)()
         Mapper.Create(Of AlertsSettings, AlertsSettingsDialog)()
+
+        bundler.SettingsInfos.Add(New SettingsInfo() With {
+                                  .Description = "Styles",
+                                  .FileExtension = ".look",
+                                  .Settings = styleSettings})
+        bundler.SettingsInfos.Add(New SettingsInfo() With {
+                          .Description = "Time",
+                          .FileExtension = ".time",
+                          .Settings = timeSettings})
+
+        'If (My.Settings.SettingsInfos Is Nothing) Then
+        '    My.Settings.SettingsInfos = New OrderedDictionary()
+
+        'For Each info As SettingsInfo In bundler.SettingsInfos
+        '    My.Settings.SettingsInfos.Add(True, info)
+        'Next
+        'End If
+
         ' Add handler for UpdateUI.
         AddHandler Application.Idle, AddressOf UpdateUI
-
-        formInitialized = True
     End Sub
 
     Private Sub ToolStripMenuItemSettings_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemMisc.Click
@@ -515,19 +362,6 @@ Public Class FormMain
         ExitApplication()
     End Sub
 
-    Private Sub ToolStripMenuItemStyle_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemStyle.Click
-        ' Show the Look Dialog.
-        'TODO: Fix or remove.
-        'ShowStyleDialog(Me)
-    End Sub
-
-    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemTasks.Click
-        ' Show the task dialog with current form as parent.
-        ContextMenuStripMain.Enabled = False
-        ShowTaskDialog(Me)
-        ContextMenuStripMain.Enabled = True
-    End Sub
-
     Private Sub DefaultToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemDefault.Click
         SetWindowDefault()
     End Sub
@@ -539,7 +373,7 @@ Public Class FormMain
 
     Private Sub TimerSurface_DoubleClick(sender As Object, e As EventArgs)
         ' Show timer dialog without editing ('New Timer' mode).
-        ShowTimerDialog(Me, False)
+        ShowNewEditDialog(Me, False)
     End Sub
     Private Sub TimerSurface_Click(sender As Object, e As EventArgs)
         ' Exit fullscreen mode (when the timer display area is clicked).
@@ -555,6 +389,14 @@ Public Class FormMain
     Private Sub FullScreenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemFullScreen.Click
         If (fullScreen) Then Return
         SetWindowFullScreen(True)
+    End Sub
+
+    Private Sub ToolStripMenuItemNewTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemNewTimer.Click
+        ShowNewEditDialog(Me, False)
+    End Sub
+
+    Private Sub ToolStripMenuItemEditTimer_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditTimer.Click
+        ShowNewEditDialog(Me, True)
     End Sub
 #End Region
 
@@ -597,12 +439,17 @@ Public Class FormMain
     Private Function GetTimerTextRenderFunc(countUp As Boolean) As Func(Of String)
         If (countUp) Then
             Return Function()
-                       lastTextRenderedTime = String.Format(timeFormat, String.Concat("+", "{0:", styleSettings.DisplayFormat, "}"), Me.timer.Elapsed)
+
+                       Dim remaining As String = If(timer.RemainingRestarts > 0, "[{0}]", String.Empty)
+
+                       lastTextRenderedTime = String.Format(timeFormat, String.Concat(remaining, "+", "{1:", styleSettings.DisplayFormat, "}"), timer.RemainingRestarts, Me.timer.Elapsed)
                        Return lastTextRenderedTime
                    End Function
         Else
             Return Function()
-                       lastTextRenderedTime = String.Format(timeFormat, String.Concat("{0:", styleSettings.DisplayFormat, "}"), Me.timer.Remaining)
+                       Dim remaining As String = If(timer.RemainingRestarts > 0, "[{0}]", String.Empty)
+
+                       lastTextRenderedTime = String.Format(timeFormat, String.Concat(remaining, "{1:", styleSettings.DisplayFormat, "}"), timer.RemainingRestarts, Me.timer.Remaining)
                        Return lastTextRenderedTime
                    End Function
         End If
@@ -688,11 +535,11 @@ Public Class FormMain
     Private Sub TryShowNoteAndAlert()
         Me.Invoke(New Action(Sub()
                                  ' If note is enabled, then show it.
-                                 If (noteEnabled) Then
-                                     ShowNote()
-                                 End If
-                                 ' If messabe box alert is enabled, show it.
+                                 If (alertsSettings.DisplayNoteEnabled) Then ShowNote()
+
+                                 ' If message box alert is enabled, show it.
                                  If (Not alertsSettings.AlertEnabled) Then Return
+
                                  ' If message is empty, show a default message. Else, show the note message.
                                  Dim note As String = noteObject.TextRenderFormat.Invoke()
                                  Dim message As String = If(note = String.Empty,
@@ -705,6 +552,8 @@ Public Class FormMain
                                                         Date.Now().ToString()),
                                                         eTaskDialogButtons.OK,
                                                         eSysIcons.Information)
+
+
                              End Sub))
     End Sub
     ' Sets visibility of full screen note.
@@ -782,6 +631,8 @@ Public Class FormMain
     Private Sub UpdateToolbar()
         SetFullScreenNoteVisibility()
 
+        ToolStripButtonCountUpDown.Text = If(timeSettings.CountUpwards, "Change display to counting downwards", "Change display to counting upwards")
+
         If (Not My.Settings.UseToolbarStyling) Then
             ToolStripSplitButtonSettings.Image = My.Resources.menu
             ToolStripButtonReset.Image = My.Resources.repeat
@@ -819,24 +670,134 @@ Public Class FormMain
         Me.Opacity = (100 - styleSettings.Transparency) / 100
     End Sub
 
-    Private Sub LoadSettings(fileName As String)
-        If (Not System.IO.File.Exists(fileName)) Then Return
-
+    Private Sub LoadPresets(fileName As String)
         Using stream As FileStream = File.OpenRead(fileName)
-            Select Case System.IO.Path.GetExtension(fileName)
-                Case My.Settings.StyleFileExtension
-                    styleSettings.Import(stream)
-                Case My.Settings.TaskFileExtension
-                    Dim settings As New TaskSettings(importerExporter)
-                    settings.Import(stream)
-                    settings.Tasks.ForEach(Sub(i) i.Enabled = False)
-                    taskSettings.Tasks.AddRange(settings.Tasks)
-                    MessageBox.Show(My.Resources.Strings.MessageTasksWereImported, My.Application.Info.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Case My.Settings.TimeFileExtension
-                    timeSettings.Import(stream)
-            End Select
+            Dim ext As String = Path.GetExtension(fileName)
+            Dim containedFiles() As String = New String() {}
+            If (ext = bundler.FileExtension) Then
+                bundler.Unbundle(fileName, containedFiles)
+            Else
+                Dim settings As SettingsInfo = bundler.SettingsInfos.Where(Function(s) s.FileExtension = ext).FirstOrDefault()
+                If (settings Is Nothing) Then
+                    Throw New FileFormatException()
+                End If
+                Using fs As FileStream = File.OpenRead(fileName)
+                    settings.Settings.Import(fs)
+                End Using
+            End If
+
+            InitializeAlarm()
+
+            If (ext = ".time" OrElse containedFiles.Where(Function(f) Path.GetExtension(f) = ".time").Count > 0) Then
+                ResetTimer()
+            End If
+
+            UpdateUI()
             RestartRendering()
+
+            AddRecentPreset(fileName)
         End Using
+    End Sub
+
+    Public Sub SavePresets(fileName As String)
+        Try
+            Dim ext As String = Path.GetExtension(fileName)
+            If (ext = bundler.FileExtension) Then
+                bundler.Bundle(fileName)
+            Else
+                Dim setting As SettingsInfo = bundler.SettingsInfos().Where(Function(s) s.FileExtension = ext).First()
+
+                Using fs As FileStream = File.OpenWrite(fileName)
+                    setting.Settings.Export(fs)
+                End Using
+            End If
+
+            AddRecentPreset(fileName)
+
+        Catch ex As Exception
+            Try
+                File.Delete(fileName)
+            Catch ex2 As Exception
+                logger.Warn(ex2)
+            End Try
+
+            Throw New Exception(ex.Message, ex)
+        End Try
+    End Sub
+
+    Public Function GetFilesFilter(bundler As Bundler) As String
+        Dim extensions As New StringBuilder()
+
+        For Each ext In bundler.GetExtensions()
+            extensions.Append("*")
+            extensions.Append(ext)
+            extensions.Append("; ")
+        Next
+
+        extensions.Remove(extensions.Length - 1, 1)
+
+        Dim supportedFilter As String = String.Format("Supported Files ({0})|{0}", extensions)
+
+        Return String.Format("{0}|{1}", supportedFilter, String.Join("|", bundler.GetFilters()))
+    End Function
+
+    Private Function GetPresetIcon(preset As String) As Image
+        Select Case Path.GetExtension(preset)
+            Case ".box"
+                Return My.Resources.package
+            Case ".time"
+                Return My.Resources.time
+            Case ".task"
+                Return My.Resources.sheduled_task
+            Case ".look"
+                Return My.Resources.smartart_change_color_gallery
+        End Select
+        Return Nothing
+    End Function
+
+    Sub AddRecentPreset(fileName As String)
+        If (My.Settings.RecentPresets Is Nothing) Then
+            My.Settings.RecentPresets = New StringCollection()
+        End If
+        Dim presets As List(Of String) = My.Settings.RecentPresets.Cast(Of String).ToList()
+        presets.Insert(0, fileName)
+        presets = presets.Take(My.Settings.MaximumRecentPresets).Distinct().ToList()
+
+        My.Settings.RecentPresets.Clear()
+        My.Settings.RecentPresets.AddRange(presets.ToArray())
+
+        RefreshPresetsMenu()
+    End Sub
+    Private PresetMenuItems As New List(Of ToolStripMenuItem)
+    Sub RefreshPresetsMenu()
+        For Each itemToDelete In PresetMenuItems
+            RemoveHandler itemToDelete.Click, AddressOf PresetMenuItem_Click
+            itemToDelete.Dispose()
+        Next
+
+        PresetMenuItems = New List(Of ToolStripMenuItem)
+
+        For Each preset In My.Settings.RecentPresets
+            Dim item As New ToolStripMenuItem()
+            item.Text = Path.GetFileNameWithoutExtension(preset)
+            item.Tag = preset
+            item.Image = GetPresetIcon(preset)
+            AddHandler item.Click, AddressOf PresetMenuItem_Click
+            PresetsToolStripMenuItem.DropDownItems.Add(item)
+            PresetMenuItems.Add(item)
+        Next
+    End Sub
+    Sub PresetMenuItem_Click(sender As Object, e As EventArgs)
+        Dim item As ToolStripMenuItem = DirectCast(sender, ToolStripMenuItem)
+        Try
+            LoadPresets(item.Tag.ToString())
+        Catch ex As Exception
+            RemoveHandler item.Click, AddressOf PresetMenuItem_Click
+            My.Settings.RecentPresets.Remove(item.Tag)
+            item.Dispose()
+            ShowErrorMessage(String.Format("Failed to load preset: ""{0}."" It will be removed from the Presets list.", item.Text))
+            logger.Error(ex)
+        End Try
     End Sub
     Sub InitializeAlarm()
         Try
@@ -864,6 +825,8 @@ Public Class FormMain
         Me.Location = My.Settings.WindowPosition
         ' Get rid of selection on toolstrip.
         Me.Focus()
+
+        RefreshPresetsMenu()
     End Sub
     Private Sub SaveSettings()
         My.Settings.WindowMaximized = maximized
@@ -874,10 +837,17 @@ Public Class FormMain
         My.Settings.WindowSize = Me.Size
         My.Settings.WindowPosition = Me.Location
 
+        My.Settings.Running = (Not (timer.IsPaused Or timer.IsExpired))
+
+        My.Settings.Timestamp = DateTime.Now - timer.Elapsed.Add(TimeSpan.FromTicks(timeSettings.Duration.Ticks * timer.ElapsedRestarts))
+
+        My.Settings.Save()
+
         ' Save setting files
         styleSettings.Save()
         timeSettings.Save()
         taskSettings.Save()
+        alertsSettings.Save()
     End Sub
     ' Toggles timer between paused and not paused.
     Private Sub SetTimerState(enabled As Boolean)
@@ -895,9 +865,13 @@ Public Class FormMain
         UpdateToolbar()
     End Sub
     Private Sub ResetTimer()
-        timer.Reset(timeSettings.Duration, TimeSpan.Zero, timeSettings.Restarts)
+        ResetTimer(TimeSpan.Zero)
+    End Sub
+    Private Sub ResetTimer(elapsed As TimeSpan)
+        timer.Reset(timeSettings.Duration, elapsed, timeSettings.Restarts)
         timer.Alarm = alarm
         timer.AlarmEnabled = alertsSettings.AlarmEnabled
+        timer.AlarmPerRestart = alertsSettings.AlarmPerRestart
 
         UpdateToolbar()
         HideNote()
@@ -1013,148 +987,6 @@ Public Class FormMain
     End Function
 #End Region
 #Region "Dialogs"
-    ' Shows the 'New Timer' or 'Edit Timer' dialogs.
-    Public Sub ShowTimerDialog(owner As Form, editing As Boolean)
-        ContextMenuStripMain.Enabled = False
-
-        Using dialog = New TimerSettingsDialog()
-
-            If (Not WindowVisible(owner)) Then
-                owner = Nothing
-            End If
-
-            dialog.TopMost = (owner Is Nothing)
-
-            AddHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
-            AddHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
-
-            ' TODO: Remove.
-            'dialog.FileFilter = My.Settings.TimeDialogFilter
-
-            'dialog.InitialDirectory = Utils.GetTimersPath()
-            'TODO: Move.
-            'dialog.AlarmsPath = Utils.GetAlarmsPath()
-            'TODO: Remove.
-            'dialog.SelectedAlarm = timeSettings.AlarmName
-            'TODO: Fix Timer.
-            'dialog.AlarmEnabled = timeSettings.AlarmEnabled
-            'dialog.AlarmLoop = timeSettings.AlarmLoop
-            'dialog.AlarmVolume = timeSettings.AlarmVolume
-
-            'dialog.Duration = timeSettings.Duration
-            'dialog.CountUp = timeSettings.CountUp
-            'dialog.Restarts = timeSettings.Restarts
-            'dialog.Note = timeSettings.Note
-            'dialog.ShowAlertBoxOnTimerExpiration = timeSettings.AlertEnabled
-            dialog.Editing = editing
-
-            Dim result As DialogResult = dialog.ShowDialog(owner)
-
-            If (Not result = Windows.Forms.DialogResult.Cancel) Then
-                'timeSettings.Duration = dialog.Duration
-                'timeSettings.CountUp = dialog.CountUp
-                'timeSettings.Restarts = dialog.Restarts
-                'timeSettings.AlarmEnabled = dialog.AlarmEnabled
-                'TODO: Remove.
-                'timeSettings.AlarmName = If(dialog.SelectedAlarm, String.Empty)
-                'timeSettings.AlarmLoop = dialog.AlarmLoop
-                'timeSettings.AlarmVolume = dialog.AlarmVolume
-                'timeSettings.Note = If(Not String.IsNullOrEmpty(dialog.Note),
-                '                       dialog.Note.Replace(Environment.NewLine, String.Empty),
-                '                       String.Empty)
-                'timeSettings.AlertEnabled = dialog.ShowAlertBoxOnTimerExpiration
-
-                InitializeAlarm()
-
-                If (Not editing) Then
-                    ResetTimer()
-                    RestartRendering()
-                End If
-                timer.AlarmEnabled = alertsSettings.AlarmEnabled
-
-                If (result = Windows.Forms.DialogResult.Yes) Then
-                    SetTimerState(True)
-                End If
-
-                Me.UpdateToolbar()
-            End If
-
-            RemoveHandler dialog.Loading, AddressOf TimerSettingsDialog_Loading
-            RemoveHandler dialog.Saving, AddressOf TimerSettingsDialog_Saving
-        End Using
-
-        ContextMenuStripMain.Enabled = True
-    End Sub
-    'TODO: Fix.
-    'Private Sub ShowStyleDialog(owner As Form)
-    '    ContextMenuStripMain.Enabled = False
-
-    '    Using dialog As New StyleSettingsDialog()
-    '        AddHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
-    '        AddHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
-
-    '        If (Not WindowVisible(owner)) Then
-    '            owner = Nothing
-    '            dialog.TopMost = True
-    '        End If
-
-    '        dialog.BackgroundColor = styleSettings.BackgroundColor
-    '        dialog.DisplayFont = styleSettings.DisplayFont
-    '        dialog.DisplayFormats = Utils.DisplayFormats
-    '        dialog.DisplayFormat = styleSettings.DisplayFormat
-    '        dialog.ForegroundColor = styleSettings.ForegroundColor
-    '        dialog.Timer = timer
-    '        dialog.GrowToFit = styleSettings.GrowToFit
-    '        dialog.Transparency = 100 - styleSettings.Opacity
-    '        dialog.InitialDirectory = Utils.GetStylesPath()
-    '        dialog.FileFilter = My.Settings.StyleDialogFilter
-    '        dialog.CustomStyleColors = GetColorsAsIntegerArray(My.Settings.CustomStyleColors)
-    '        dialog.CountUp = timeSettings.CountUp
-
-    '        If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
-    '            Dim timeVisible = timerObject.Visible
-    '            timerObject.Visible = False
-
-    '            Dim noteVisible = noteObject.Visible
-    '            noteObject.Visible = False
-
-    '            styleSettings.BackgroundColor = dialog.BackgroundColor
-    '            styleSettings.DisplayFormat = dialog.DisplayFormat
-    '            styleSettings.DisplayFont = dialog.DisplayFont
-    '            styleSettings.ForegroundColor = dialog.ForegroundColor
-    '            styleSettings.GrowToFit = dialog.GrowToFit
-    '            styleSettings.Opacity = 100 - dialog.Transparency
-    '            My.Settings.CustomStyleColors = If(dialog.CustomStyleColors IsNot Nothing,
-    '                                               GetColorsAsStringCollection(dialog.CustomStyleColors),
-    '                                               New StringCollection())
-
-    '            timerSurface.BackColor = styleSettings.BackgroundColor
-
-    '            timerObject.Color = styleSettings.ForegroundColor
-    '            timerObject.Font = styleSettings.DisplayFont
-
-    '            'timerObject.Format = styleSettings.DisplayFormat
-    '            timerObject.SizeToFit = styleSettings.GrowToFit
-
-    '            noteObject.Color = styleSettings.ForegroundColor
-    '            noteObject.Font = styleSettings.DisplayFont
-    '            noteObject.SizeToFit = styleSettings.GrowToFit
-
-    '            timerObject.Visible = timeVisible
-    '            noteObject.Visible = noteVisible
-
-    '            Me.Opacity = styleSettings.Opacity / 100
-
-    '            SetToolStripStyling(My.Settings.UseToolbarStyling)
-    '            UpdateToolbar()
-    '        End If
-
-    '        RemoveHandler dialog.Loading, AddressOf StyleSettingsDialog_Loading
-    '        RemoveHandler dialog.Saving, AddressOf StyleSettingsDialog_Saving
-    '    End Using
-
-    '    ContextMenuStripMain.Enabled = True
-    'End Sub
 
     Private Sub ShowSettingsDialog(owner As Form)
         ContextMenuStripMain.Enabled = False
@@ -1170,33 +1002,12 @@ Public Class FormMain
 
         NotifyIconMain.Visible = My.Settings.ShowInSystemTray
 
+        If (Not My.Settings.ShowInSystemTray) Then
+            Me.Show()
+        End If
+
         SetToolStripStyling(My.Settings.UseToolbarStyling)
         UpdateToolbar()
-
-        ContextMenuStripMain.Enabled = True
-    End Sub
-
-    Private Sub ShowTaskDialog(owner As Form)
-        ContextMenuStripMain.Enabled = False
-
-        Using dialog As New TaskSettingsDialog()
-            AddHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
-            AddHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
-
-            If (Not WindowVisible(owner)) Then
-                owner = Nothing
-                dialog.TopMost = True
-            End If
-
-            dialog.InitialDirectory = Utils.GetDataPath()
-            dialog.FileFilter = My.Settings.TaskDialogFilter
-            dialog.Tasks = New TasksModel(taskSettings.Tasks).Clone()
-            If (dialog.ShowDialog(owner) = Windows.Forms.DialogResult.OK) Then
-                taskSettings.Tasks = dialog.Tasks
-            End If
-            RemoveHandler dialog.Importing, AddressOf TaskSettingsDialog_Importing
-            RemoveHandler dialog.Exporting, AddressOf TaskSettingsDialog_Exporting
-        End Using
 
         ContextMenuStripMain.Enabled = True
     End Sub
@@ -1234,18 +1045,18 @@ Public Class FormMain
     End Sub
 
     Private Sub ToolStripButtonCountUp_Click(sender As Object, e As EventArgs) Handles ToolStripButtonCountUpDown.Click
+        ToolStripButtonCountUpDown.Visible = False
         timeSettings.CountUpwards = Not timeSettings.CountUpwards
         UpdateToolbar()
         SetTextRenderFunc()
+        ToolStripButtonCountUpDown.Visible = True
     End Sub
 
     Private Sub SetTextRenderFunc()
         timerObject.TextRenderFormat = GetTimerTextRenderFunc(timeSettings.CountUpwards)
     End Sub
 
-    Private Models As New Dictionary(Of String, Form)
-
-    Private Sub ShowNewEditDialog(editing As Boolean)
+    Private Sub ShowNewEditDialog(owner As IWin32Window, editing As Boolean)
 
         Using timeDialog As New TimerSettingsDialog(),
         alertsDialog As New AlertsSettingsDialog(),
@@ -1264,24 +1075,26 @@ Public Class FormMain
 
             tasksDialog.Text = My.Resources.Strings.Tasks
             tasksDialog.Tasks = New TasksModel(taskSettings.Tasks).Clone()
+            AddHandler tasksDialog.Importing, AddressOf TaskSettingsDialog_Importing
+            AddHandler tasksDialog.Exporting, AddressOf TaskSettingsDialog_Exporting
 
             Mapper.Map(timeSettings, timeDialog)
             Mapper.Map(alertsSettings, alertsDialog)
             Mapper.Map(styleSettings, styleDialog)
-
-            Models.Clear()
-            Models.Add(".time", timeDialog)
-            Models.Add(".task", tasksDialog)
-            Models.Add(".look", styleDialog)
 
             Using dialog As NewEditDialog = CreateNewEditDialog(editing,
                                                                 New KeyValuePair(Of Image, Form)(My.Resources.time, timeDialog),
                                                                 New KeyValuePair(Of Image, Form)(My.Resources.exclamation, alertsDialog),
                                                                 New KeyValuePair(Of Image, Form)(My.Resources.sheduled_task, tasksDialog),
                                                                 New KeyValuePair(Of Image, Form)(My.Resources.smartart_change_color_gallery, styleDialog))
-                Dim result = dialog.ShowDialog(Me)
+
+                dialog.SelectedTabIndex = If(editing, selectedTabIndex, 0)
+
+                Dim result = dialog.ShowDialog(owner)
 
                 If (result = Windows.Forms.DialogResult.Cancel) Then Return
+
+                selectedTabIndex = If(editing, dialog.SelectedTabIndex, 0)
 
                 Mapper.Map(styleDialog, styleSettings)
                 Mapper.Map(alertsDialog, alertsSettings)
@@ -1294,12 +1107,15 @@ Public Class FormMain
 
                 If (Not editing) Then ResetTimer()
 
-                If (result = Windows.Forms.DialogResult.Yes) Then timer.Start()
+                If (result = Windows.Forms.DialogResult.Yes) Then SetTimerState(True)
 
                 UpdateUI()
 
                 RestartRendering()
             End Using
+
+            RemoveHandler tasksDialog.Importing, AddressOf TaskSettingsDialog_Importing
+            RemoveHandler tasksDialog.Exporting, AddressOf TaskSettingsDialog_Exporting
         End Using
     End Sub
     Private Function CreateNewEditDialog(editing As Boolean, ParamArray dialogs() As KeyValuePair(Of Image, Form)) As NewEditDialog
@@ -1314,95 +1130,51 @@ Public Class FormMain
             dialog.AddTab(dlg.Value.Text, dlg.Key, dlg.Value)
         Next
 
-        presetsMenu.Items.Clear()
-        presetsMenu.Items.Add("Load preset...", My.Resources.folder, AddressOf LoadPreset_Click).Enabled = Not editing
-        presetsMenu.Items.Add("Save preset as...", My.Resources.diskette, SavePreset_Click)
-        presetsMenu.Items.Add(New ToolStripSeparator())
-
-        If (My.Settings.RecentPresets IsNot Nothing) Then
-            For Each preset As String In My.Settings.RecentPresets
-                Dim name As String = Path.GetFileNameWithoutExtension(preset)
-                Dim item As New ToolStripMenuItem(name, GetPresetIcon(preset), AddressOf LoadPreset_Click)
-                item.Tag = preset
-                item.Enabled = Not editing
-
-                presetsMenu.Items.Add(item)
-            Next
-        End If
-
-        'presetsMenu.Items.Add("Dummy preset", My.Resources.exclamation).Enabled = Not editing
-        'presetsMenu.Items.Add("Dummy preset", My.Resources.sheduled_task).Enabled = Not editing
-        'presetsMenu.Items.Add("Dummy preset", My.Resources.smartart_change_color_gallery).Enabled = Not editing
-        'presetsMenu.Items.Add("Dummy preset", My.Resources.time).Enabled = Not editing
-        dialog.PresetsMenu = presetsMenu
-
         Return dialog
     End Function
 
-    Private Sub LoadPreset_Click(sender As Object, e As EventArgs)
-        Try '
+    Private Sub LoadPresetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadPresetToolStripMenuItem.Click
+        Dim fileName As String = Nothing
+
+        Try
             Using dialog As New OpenFileDialog()
 
+                dialog.Filter = GetFilesFilter(bundler)
                 If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.Cancel) Then Return
 
-                Dim settings = GetSettingsFromFile(dialog.FileName)
+                fileName = dialog.FileName
 
-                If (settings IsNot Nothing) Then
+                LoadPresets(fileName)
 
-                    Dim ext As String = Path.GetExtension(dialog.FileName)
+                Dim ext As String = Path.GetExtension(fileName)
 
-                    Dim model As Form = Models(ext)
-
-                    Mapper.Map(settings, model)
-                    model.Refresh()
+                If (ext = ".time") Then
+                    ResetTimer()
                 End If
 
+                UpdateUI()
             End Using
         Catch ex As Exception
-            Throw ex
+            ShowErrorMessage(String.Format("Failed to load preset: ""{0}""", fileName))
+            logger.Error(ex)
         End Try
     End Sub
 
-    Private Function SavePreset_Click() As Object
+    Private Sub SavePresetAsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SavePresetAsToolStripMenuItem.Click
+        Dim fileName As String = Nothing
 
-    End Function
-
-    Public Function GetSettingsFromFile(fileName As String) As Object
         Try
-            Using s = File.OpenRead(fileName)
-                Select Case Path.GetExtension(fileName)
-                    Case ".box"
-                        ' Return My.Resources.package
-                    Case ".time"
-                        Dim settings As New TimeSettings(importerExporter)
-                        settings.Import(s)
-                        Return settings
-                    Case ".task"
-                        Dim settings As New TaskSettings(importerExporter)
-                        settings.Import(s)
-                        Return settings
-                    Case ".look"
-                        Dim settings As New StyleSettings(importerExporter)
-                        settings.Import(s)
-                        Return settings
-                End Select
-            End Using
-            Return Nothing
-        Catch ex As Exception
-            Throw ex
-        End Try
-    End Function
-    Private Function GetPresetIcon(preset As String) As Image
-        Select Case Path.GetExtension(preset)
-            Case ".box"
-                Return My.Resources.package
-            Case ".time"
-                Return My.Resources.time
-            Case ".task"
-                Return My.Resources.sheduled_task
-            Case ".look"
-                Return My.Resources.smartart_change_color_gallery
-        End Select
-    End Function
+            Using dialog As New SaveFileDialog()
+                dialog.Filter = String.Join("|", bundler.GetFilters())
 
+                If (dialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                    fileName = dialog.FileName
+                    SavePresets(fileName)
+                End If
+            End Using
+        Catch ex As Exception
+            logger.Error(ex)
+            ShowErrorMessage(String.Format("Failed to save file: ""{0}""", fileName))
+        End Try
+    End Sub
 End Class

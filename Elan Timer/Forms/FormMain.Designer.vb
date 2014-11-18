@@ -25,25 +25,6 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.ToolStripMain = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
-        Me.PanelTimer = New System.Windows.Forms.Panel()
-        Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
-        Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.ContextMenuStripMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.NotifyIconToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemStartTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolNotifyIconStripMenuItemResetTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSplitButtonSettings = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,9 +53,28 @@ Partial Class FormMain
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButtonCountUpDown = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButtonNewTimer = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonStartPause = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonReset = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
+        Me.PanelTimer = New System.Windows.Forms.Panel()
+        Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
+        Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStripMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.NotifyIconToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemStartTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolNotifyIconStripMenuItemResetTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMain.SuspendLayout()
         Me.ContextMenuStripMain.SuspendLayout()
         Me.SuspendLayout()
@@ -86,109 +86,6 @@ Partial Class FormMain
         resources.ApplyResources(Me.ToolStripMain, "ToolStripMain")
         Me.ToolStripMain.Name = "ToolStripMain"
         Me.ToolStripMain.TabStop = True
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
-        '
-        'ToolStripLabelNote
-        '
-        Me.ToolStripLabelNote.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.ToolStripLabelNote.AutoToolTip = True
-        Me.ToolStripLabelNote.Name = "ToolStripLabelNote"
-        resources.ApplyResources(Me.ToolStripLabelNote, "ToolStripLabelNote")
-        '
-        'PanelTimer
-        '
-        resources.ApplyResources(Me.PanelTimer, "PanelTimer")
-        Me.PanelTimer.Name = "PanelTimer"
-        Me.PanelTimer.TabStop = True
-        '
-        'ProgressBarMain
-        '
-        resources.ApplyResources(Me.ProgressBarMain, "ProgressBarMain")
-        Me.ProgressBarMain.Maximum = 1000
-        Me.ProgressBarMain.Name = "ProgressBarMain"
-        Me.ProgressBarMain.Style = System.Windows.Forms.ProgressBarStyle.Continuous
-        '
-        'NotifyIconMain
-        '
-        Me.NotifyIconMain.ContextMenuStrip = Me.ContextMenuStripMain
-        resources.ApplyResources(Me.NotifyIconMain, "NotifyIconMain")
-        '
-        'ContextMenuStripMain
-        '
-        Me.ContextMenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotifyIconToolStripMenuItemNewTimer, Me.NotifyIconToolStripMenuItemEditTimer, Me.ToolStripMenuItem8, Me.NotifyIconToolStripMenuItemStartTimer, Me.ToolNotifyIconStripMenuItemResetTimer, Me.ToolStripMenuItem9, Me.NotifyIconToolStripMenuItemTasks, Me.NotifyIconToolStripMenuItemStyle, Me.NotifyIconToolStripMenuItemSettings, Me.ToolStripMenuItem3, Me.NotifyIconToolStripMenuItemShow, Me.ToolStripMenuItem6, Me.NotifyIconToolStripMenuItemExit})
-        Me.ContextMenuStripMain.Name = "ContextMenuStripMain"
-        resources.ApplyResources(Me.ContextMenuStripMain, "ContextMenuStripMain")
-        '
-        'NotifyIconToolStripMenuItemNewTimer
-        '
-        Me.NotifyIconToolStripMenuItemNewTimer.Name = "NotifyIconToolStripMenuItemNewTimer"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemNewTimer, "NotifyIconToolStripMenuItemNewTimer")
-        '
-        'NotifyIconToolStripMenuItemEditTimer
-        '
-        Me.NotifyIconToolStripMenuItemEditTimer.Name = "NotifyIconToolStripMenuItemEditTimer"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemEditTimer, "NotifyIconToolStripMenuItemEditTimer")
-        '
-        'ToolStripMenuItem8
-        '
-        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        resources.ApplyResources(Me.ToolStripMenuItem8, "ToolStripMenuItem8")
-        '
-        'NotifyIconToolStripMenuItemStartTimer
-        '
-        Me.NotifyIconToolStripMenuItemStartTimer.Name = "NotifyIconToolStripMenuItemStartTimer"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStartTimer, "NotifyIconToolStripMenuItemStartTimer")
-        '
-        'ToolNotifyIconStripMenuItemResetTimer
-        '
-        Me.ToolNotifyIconStripMenuItemResetTimer.Name = "ToolNotifyIconStripMenuItemResetTimer"
-        resources.ApplyResources(Me.ToolNotifyIconStripMenuItemResetTimer, "ToolNotifyIconStripMenuItemResetTimer")
-        '
-        'ToolStripMenuItem9
-        '
-        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
-        resources.ApplyResources(Me.ToolStripMenuItem9, "ToolStripMenuItem9")
-        '
-        'NotifyIconToolStripMenuItemTasks
-        '
-        Me.NotifyIconToolStripMenuItemTasks.Name = "NotifyIconToolStripMenuItemTasks"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemTasks, "NotifyIconToolStripMenuItemTasks")
-        '
-        'NotifyIconToolStripMenuItemStyle
-        '
-        Me.NotifyIconToolStripMenuItemStyle.Name = "NotifyIconToolStripMenuItemStyle"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStyle, "NotifyIconToolStripMenuItemStyle")
-        '
-        'NotifyIconToolStripMenuItemSettings
-        '
-        Me.NotifyIconToolStripMenuItemSettings.Name = "NotifyIconToolStripMenuItemSettings"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemSettings, "NotifyIconToolStripMenuItemSettings")
-        '
-        'ToolStripMenuItem3
-        '
-        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        resources.ApplyResources(Me.ToolStripMenuItem3, "ToolStripMenuItem3")
-        '
-        'NotifyIconToolStripMenuItemShow
-        '
-        Me.NotifyIconToolStripMenuItemShow.Name = "NotifyIconToolStripMenuItemShow"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemShow, "NotifyIconToolStripMenuItemShow")
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        resources.ApplyResources(Me.ToolStripMenuItem6, "ToolStripMenuItem6")
-        '
-        'NotifyIconToolStripMenuItemExit
-        '
-        Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
-        resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
         'ToolStripSplitButtonSettings
         '
@@ -349,6 +246,13 @@ Partial Class FormMain
         resources.ApplyResources(Me.ToolStripButtonCountUpDown, "ToolStripButtonCountUpDown")
         Me.ToolStripButtonCountUpDown.Name = "ToolStripButtonCountUpDown"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
+        '
         'ToolStripButtonNewTimer
         '
         Me.ToolStripButtonNewTimer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -371,6 +275,102 @@ Partial Class FormMain
         resources.ApplyResources(Me.ToolStripButtonReset, "ToolStripButtonReset")
         Me.ToolStripButtonReset.Name = "ToolStripButtonReset"
         Me.ToolStripButtonReset.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
+        'ToolStripLabelNote
+        '
+        Me.ToolStripLabelNote.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.ToolStripLabelNote.AutoToolTip = True
+        Me.ToolStripLabelNote.Name = "ToolStripLabelNote"
+        resources.ApplyResources(Me.ToolStripLabelNote, "ToolStripLabelNote")
+        '
+        'PanelTimer
+        '
+        resources.ApplyResources(Me.PanelTimer, "PanelTimer")
+        Me.PanelTimer.Name = "PanelTimer"
+        Me.PanelTimer.TabStop = True
+        '
+        'ProgressBarMain
+        '
+        resources.ApplyResources(Me.ProgressBarMain, "ProgressBarMain")
+        Me.ProgressBarMain.Maximum = 1000
+        Me.ProgressBarMain.Name = "ProgressBarMain"
+        Me.ProgressBarMain.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        '
+        'NotifyIconMain
+        '
+        Me.NotifyIconMain.ContextMenuStrip = Me.ContextMenuStripMain
+        resources.ApplyResources(Me.NotifyIconMain, "NotifyIconMain")
+        '
+        'ContextMenuStripMain
+        '
+        Me.ContextMenuStripMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NotifyIconToolStripMenuItemNewTimer, Me.NotifyIconToolStripMenuItemEditTimer, Me.ToolStripMenuItem8, Me.NotifyIconToolStripMenuItemStartTimer, Me.ToolNotifyIconStripMenuItemResetTimer, Me.ToolStripMenuItem9, Me.NotifyIconToolStripMenuItemTasks, Me.NotifyIconToolStripMenuItemStyle, Me.NotifyIconToolStripMenuItemSettings, Me.ToolStripMenuItem3, Me.NotifyIconToolStripMenuItemShow, Me.ToolStripMenuItem6, Me.NotifyIconToolStripMenuItemExit})
+        Me.ContextMenuStripMain.Name = "ContextMenuStripMain"
+        resources.ApplyResources(Me.ContextMenuStripMain, "ContextMenuStripMain")
+        '
+        'NotifyIconToolStripMenuItemNewTimer
+        '
+        Me.NotifyIconToolStripMenuItemNewTimer.Name = "NotifyIconToolStripMenuItemNewTimer"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemNewTimer, "NotifyIconToolStripMenuItemNewTimer")
+        '
+        'NotifyIconToolStripMenuItemEditTimer
+        '
+        Me.NotifyIconToolStripMenuItemEditTimer.Name = "NotifyIconToolStripMenuItemEditTimer"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemEditTimer, "NotifyIconToolStripMenuItemEditTimer")
+        '
+        'ToolStripMenuItem8
+        '
+        Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
+        resources.ApplyResources(Me.ToolStripMenuItem8, "ToolStripMenuItem8")
+        '
+        'NotifyIconToolStripMenuItemStartTimer
+        '
+        Me.NotifyIconToolStripMenuItemStartTimer.Name = "NotifyIconToolStripMenuItemStartTimer"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStartTimer, "NotifyIconToolStripMenuItemStartTimer")
+        '
+        'ToolNotifyIconStripMenuItemResetTimer
+        '
+        Me.ToolNotifyIconStripMenuItemResetTimer.Name = "ToolNotifyIconStripMenuItemResetTimer"
+        resources.ApplyResources(Me.ToolNotifyIconStripMenuItemResetTimer, "ToolNotifyIconStripMenuItemResetTimer")
+        '
+        'ToolStripMenuItem9
+        '
+        Me.ToolStripMenuItem9.Name = "ToolStripMenuItem9"
+        resources.ApplyResources(Me.ToolStripMenuItem9, "ToolStripMenuItem9")
+        '
+        'NotifyIconToolStripMenuItemTasks
+        '
+        Me.NotifyIconToolStripMenuItemTasks.Name = "NotifyIconToolStripMenuItemTasks"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemTasks, "NotifyIconToolStripMenuItemTasks")
+        '
+        'NotifyIconToolStripMenuItemStyle
+        '
+        Me.NotifyIconToolStripMenuItemStyle.Name = "NotifyIconToolStripMenuItemStyle"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemStyle, "NotifyIconToolStripMenuItemStyle")
+        '
+        'NotifyIconToolStripMenuItemSettings
+        '
+        Me.NotifyIconToolStripMenuItemSettings.Name = "NotifyIconToolStripMenuItemSettings"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemSettings, "NotifyIconToolStripMenuItemSettings")
+        '
+        'ToolStripMenuItem3
+        '
+        Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
+        resources.ApplyResources(Me.ToolStripMenuItem3, "ToolStripMenuItem3")
+        '
+        'NotifyIconToolStripMenuItemShow
+        '
+        Me.NotifyIconToolStripMenuItemShow.Name = "NotifyIconToolStripMenuItemShow"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemShow, "NotifyIconToolStripMenuItemShow")
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        resources.ApplyResources(Me.ToolStripMenuItem6, "ToolStripMenuItem6")
+        '
+        'NotifyIconToolStripMenuItemExit
+        '
+        Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
+        resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
         'FormMain
         '
