@@ -88,7 +88,7 @@ Namespace Settings
             model.DisplayFormat = Me.DisplayFormat
             model.ForegroundColor = Me.ForegroundColor
             model.GrowToFit = Me.GrowToFit
-            model.Transparency = 100 - Me.Transparency
+            model.Transparency = Me.Transparency
             Transporter.Export(Of StyleModel)(model, stream)
         End Sub
 
