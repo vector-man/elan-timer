@@ -262,6 +262,7 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Public Overridable Sub Restart()
             Me.timerStopwatch.Reset()
+            _elapsed = TimeSpan.Zero
             StartEnabledPoll()
             timerStopwatch.Start()
 
