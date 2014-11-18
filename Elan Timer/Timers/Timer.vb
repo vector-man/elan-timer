@@ -239,6 +239,17 @@ Namespace CodeIsle.Timers
             _elapsed = elapsed
             _restarts = restarts
             _remainingRestarts = _restarts
+
+            If (_elapsed > _duration AndAlso _restarts > 0) Then
+                _remainingRestarts -= Math.Floor(_elapsed.Ticks / _duration.Ticks)
+                If (_remainingRestarts < 0) Then
+                    _remainingRestarts = 0
+                    _elapsed = _duration
+                Else
+                    _elapsed = TimeSpan.FromTicks(_elapsed.Ticks Mod _duration.Ticks)
+                End If
+            End If
+
             StopEnabledPoll()
             timerStopwatch.Reset()
             _enabled = False
