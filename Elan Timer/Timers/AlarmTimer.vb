@@ -7,9 +7,13 @@ Namespace CodeIsle.Timers
         Private _enabled As Boolean
         Private _alarm As Sound
         Private _alarmEnabled As Boolean
+        Private singleAlarm As Sound
 
         ' Logging.
         Private logger As Logger = LogManager.GetCurrentClassLogger()
+
+        Public Property AlarmPerRestart As Boolean
+
         ''' <summary>
         ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
@@ -61,6 +65,7 @@ Namespace CodeIsle.Timers
             MyBase.New(duration, elapsed, restarts)
             Me.Alarm = alarm
             Me.AlarmEnabled = alarmEnabled
+            singleAlarm = New Sound()
         End Sub
         ''' <summary>
         ''' 
@@ -69,7 +74,8 @@ Namespace CodeIsle.Timers
         ''' <param name="e"></param>
         ''' <remarks></remarks>
         Private Sub AlarmTimer_Expired(sender As Object, e As TimerEventArgs)
-            PlayAlarm()
+            StopAlarm(singleAlarm)
+            PlayAlarm(Alarm)
         End Sub
         ''' <summary>
         ''' 
@@ -78,27 +84,23 @@ Namespace CodeIsle.Timers
         ''' <param name="e"></param>
         ''' <remarks></remarks>
         Private Sub StopAlarm(sender As Object, e As EventArgs)
-            If (_alarm IsNot Nothing) Then
-                Try
-                    _alarm.Stop()
-                Catch ex As Exception
-                    logger.Warn(ex)
-                End Try
-            End If
+            StopAlarm(singleAlarm)
+            StopAlarm(Alarm)
         End Sub
         ''' <summary>
         ''' 
         ''' </summary>
         ''' <remarks></remarks>
-        Private Sub PlayAlarm()
+        Private Sub PlayAlarm(sound As Sound)
             Try
-                If (_alarm IsNot Nothing) Then
-                    _alarm.Play()
+                If (sound IsNot Nothing) Then
+                    sound.Play()
                 End If
             Catch ex As Exception
                 logger.Warn(ex)
             End Try
         End Sub
+
         ''' <summary>
         ''' 
         ''' </summary>
@@ -116,13 +118,13 @@ Namespace CodeIsle.Timers
                 RemoveHandler MyBase.Started, AddressOf StopAlarm
                 RemoveHandler MyBase.Expired, AddressOf AlarmTimer_Expired
                 RemoveHandler MyBase.Paused, AddressOf StopAlarm
-                RemoveHandler MyBase.Restarted, AddressOf StopAlarm
+                RemoveHandler MyBase.Restarted, AddressOf AlarmTimer_Restarted
 
                 If (_alarmEnabled) Then
                     AddHandler MyBase.Started, AddressOf StopAlarm
                     AddHandler MyBase.Expired, AddressOf AlarmTimer_Expired
                     AddHandler MyBase.Paused, AddressOf StopAlarm
-                    AddHandler MyBase.Restarted, AddressOf StopAlarm
+                    AddHandler MyBase.Restarted, AddressOf AlarmTimer_Restarted
                 End If
             End Set
         End Property
@@ -177,5 +179,35 @@ Namespace CodeIsle.Timers
         End Sub
 #End Region
 
+        Private Sub AlarmTimer_Restarted(sender As Object, e As TimerEventArgs)
+            If (Alarm Is Nothing) Then Return
+
+            StopAlarm(Me, New EventArgs())
+
+            If (AlarmPerRestart AndAlso
+                AlarmEnabled AndAlso
+                Restarts > 0) Then
+
+                Try
+                    singleAlarm.Load(Me.Alarm.Sound)
+                    singleAlarm.Loop = False
+                    singleAlarm.Volume = Alarm.Volume
+                Catch ex As Exception
+                    logger.Warn(ex)
+                End Try
+
+
+                PlayAlarm(singleAlarm)
+            End If
+        End Sub
+
+        Private Sub StopAlarm(sound As Sound)
+            If (sound Is Nothing) Then Return
+            Try
+                sound.Stop()
+            Catch ex As Exception
+                logger.Warn(ex)
+            End Try
+        End Sub
     End Class
 End Namespace
