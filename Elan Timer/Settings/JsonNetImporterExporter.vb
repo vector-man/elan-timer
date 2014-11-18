@@ -1,6 +1,8 @@
 ﻿Imports Newtonsoft.Json
 Imports System.IO
 Imports System.Reflection
+Imports System.Text
+
 Public Class JsonNetImporterExporter
     Implements IImporterExporter
 
@@ -20,10 +22,12 @@ Public Class JsonNetImporterExporter
         stream.SetLength(0)
 
         Try
-            Using sw As New StreamWriter(stream)
-                Dim text As String = JsonConvert.SerializeObject(obj)
-                sw.Write(text)
-            End Using
+
+            Dim text As String = JsonConvert.SerializeObject(obj)
+            Dim data() As Byte = Encoding.UTF8.GetBytes(text)
+
+            stream.Write(data, 0, data.Length)
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
         End Try
