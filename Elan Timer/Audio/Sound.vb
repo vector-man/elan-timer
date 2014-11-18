@@ -32,6 +32,7 @@ Public Class Sound : Implements IDisposable
         Me.Loop = [Loop]
         waveOut.Init(loopStream)
 
+        RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
         AddHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
     End Sub
     Private Sub DisposeObjects()
@@ -39,17 +40,14 @@ Public Class Sound : Implements IDisposable
             RemoveHandler waveOut.PlaybackStopped, AddressOf OnPlaybackStopped
             waveOut.Stop()
             waveOut.Dispose()
-            waveOut = Nothing
         End If
 
         If (loopStream IsNot Nothing) Then
             loopStream.Dispose()
-            loopStream = Nothing
         End If
 
         If (reader IsNot Nothing) Then
             reader.Dispose()
-            reader = Nothing
         End If
     End Sub
     Public Sub Play()
