@@ -266,16 +266,6 @@ Namespace CodeIsle.Timers
 
             OnRestarted(Me, New TimerEventArgs(Elapsed, Duration))
         End Sub
-        Public Overridable ReadOnly Property Restarts As Integer
-            Get
-                Return _restarts
-            End Get
-        End Property
-        Public ReadOnly Property RemainingRestarts As Integer
-            Get
-                Return _remainingRestarts
-            End Get
-        End Property
 
         ''' <summary>
         ''' Gets a value indicating whether the timer is enabled.
@@ -340,6 +330,37 @@ Namespace CodeIsle.Timers
                     Return New TimeSpan()
                 End If
                 Return Duration - Elapsed
+            End Get
+        End Property
+        ''' <summary>
+        ''' Total restarts before timer expiration.
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public ReadOnly Property Restarts
+            Get
+                Return _restarts
+            End Get
+        End Property
+        Public ReadOnly Property ElapsedRestarts As Integer
+            Get
+                If (Restarts > 0) Then
+                    Return Restarts - RemainingRestarts
+                Else
+                    Return 0
+                End If
+            End Get
+        End Property
+        ''' <summary>
+        ''' Number of remaining restarts before timer expiration.
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public ReadOnly Property RemainingRestarts As Integer
+            Get
+                Return _remainingRestarts
             End Get
         End Property
         ''' <summary>
