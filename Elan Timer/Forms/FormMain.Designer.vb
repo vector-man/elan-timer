@@ -25,10 +25,34 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.ToolStripMain = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
+        Me.PanelTimer = New System.Windows.Forms.Panel()
+        Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
+        Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStripMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.NotifyIconToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemStartTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolNotifyIconStripMenuItemResetTimer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotifyIconToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSplitButtonSettings = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PresetsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadPresetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SavePresetAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem10 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItemMisc = New System.Windows.Forms.ToolStripMenuItem()
@@ -48,28 +72,9 @@ Partial Class FormMain
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButtonCountUpDown = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButtonNewTimer = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonStartPause = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButtonReset = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripLabelNote = New System.Windows.Forms.ToolStripLabel()
-        Me.PanelTimer = New System.Windows.Forms.Panel()
-        Me.ProgressBarMain = New System.Windows.Forms.ProgressBar()
-        Me.NotifyIconMain = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.ContextMenuStripMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.NotifyIconToolStripMenuItemNewTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemEditTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemStartTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolNotifyIconStripMenuItemResetTimer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemTasks = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemStyle = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotifyIconToolStripMenuItemSettings = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemShow = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NotifyIconToolStripMenuItemExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMain.SuspendLayout()
         Me.ContextMenuStripMain.SuspendLayout()
         Me.SuspendLayout()
@@ -82,159 +87,12 @@ Partial Class FormMain
         Me.ToolStripMain.Name = "ToolStripMain"
         Me.ToolStripMain.TabStop = True
         '
-        'ToolStripSplitButtonSettings
-        '
-        Me.ToolStripSplitButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItem7, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripMenuItemMisc, Me.ToolStripMenuItem2, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
-        Me.ToolStripSplitButtonSettings.Image = Global.ElanTimer.My.Resources.Resources.menu
-        resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
-        Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
-        Me.ToolStripSplitButtonSettings.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        Me.ToolStripSplitButtonSettings.ShowDropDownArrow = False
-        '
-        'ToolStripMenuItemNewTimer
-        '
-        Me.ToolStripMenuItemNewTimer.Name = "ToolStripMenuItemNewTimer"
-        resources.ApplyResources(Me.ToolStripMenuItemNewTimer, "ToolStripMenuItemNewTimer")
-        '
-        'ToolStripMenuItemEditTimer
-        '
-        Me.ToolStripMenuItemEditTimer.Name = "ToolStripMenuItemEditTimer"
-        resources.ApplyResources(Me.ToolStripMenuItemEditTimer, "ToolStripMenuItemEditTimer")
-        '
-        'ToolStripMenuItem7
-        '
-        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        resources.ApplyResources(Me.ToolStripMenuItem7, "ToolStripMenuItem7")
-        '
-        'ToolStripMenuItemTasks
-        '
-        Me.ToolStripMenuItemTasks.Name = "ToolStripMenuItemTasks"
-        resources.ApplyResources(Me.ToolStripMenuItemTasks, "ToolStripMenuItemTasks")
-        '
-        'ToolStripMenuItemStyle
-        '
-        Me.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle"
-        resources.ApplyResources(Me.ToolStripMenuItemStyle, "ToolStripMenuItemStyle")
-        '
-        'ToolStripMenuItemMisc
-        '
-        Me.ToolStripMenuItemMisc.Name = "ToolStripMenuItemMisc"
-        resources.ApplyResources(Me.ToolStripMenuItemMisc, "ToolStripMenuItemMisc")
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        resources.ApplyResources(Me.ToolStripMenuItem2, "ToolStripMenuItem2")
-        '
-        'ToolStripMenuItemWindow
-        '
-        Me.ToolStripMenuItemWindow.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItem1, Me.ToolStripMenuItemDefault, Me.ToolStripMenuItemCompact, Me.ToolStripMenuItemFullScreen})
-        Me.ToolStripMenuItemWindow.Name = "ToolStripMenuItemWindow"
-        resources.ApplyResources(Me.ToolStripMenuItemWindow, "ToolStripMenuItemWindow")
-        '
-        'ToolStripMenuItemAlwaysOnTop
-        '
-        Me.ToolStripMenuItemAlwaysOnTop.CheckOnClick = True
-        Me.ToolStripMenuItemAlwaysOnTop.Name = "ToolStripMenuItemAlwaysOnTop"
-        resources.ApplyResources(Me.ToolStripMenuItemAlwaysOnTop, "ToolStripMenuItemAlwaysOnTop")
-        '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
-        '
-        'ToolStripMenuItemDefault
-        '
-        Me.ToolStripMenuItemDefault.Name = "ToolStripMenuItemDefault"
-        resources.ApplyResources(Me.ToolStripMenuItemDefault, "ToolStripMenuItemDefault")
-        '
-        'ToolStripMenuItemCompact
-        '
-        Me.ToolStripMenuItemCompact.Name = "ToolStripMenuItemCompact"
-        resources.ApplyResources(Me.ToolStripMenuItemCompact, "ToolStripMenuItemCompact")
-        '
-        'ToolStripMenuItemFullScreen
-        '
-        Me.ToolStripMenuItemFullScreen.Name = "ToolStripMenuItemFullScreen"
-        resources.ApplyResources(Me.ToolStripMenuItemFullScreen, "ToolStripMenuItemFullScreen")
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
-        '
-        'ToolStripMenuItemHelp
-        '
-        Me.ToolStripMenuItemHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemHelpOnline, Me.ToolStripMenuItemAboutElanTimer, Me.ToolStripMenuItem4, Me.ToolStripMenuItemCheckForUpdates})
-        Me.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp"
-        resources.ApplyResources(Me.ToolStripMenuItemHelp, "ToolStripMenuItemHelp")
-        '
-        'ToolStripMenuItemHelpOnline
-        '
-        Me.ToolStripMenuItemHelpOnline.Name = "ToolStripMenuItemHelpOnline"
-        resources.ApplyResources(Me.ToolStripMenuItemHelpOnline, "ToolStripMenuItemHelpOnline")
-        '
-        'ToolStripMenuItemAboutElanTimer
-        '
-        Me.ToolStripMenuItemAboutElanTimer.Name = "ToolStripMenuItemAboutElanTimer"
-        resources.ApplyResources(Me.ToolStripMenuItemAboutElanTimer, "ToolStripMenuItemAboutElanTimer")
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        resources.ApplyResources(Me.ToolStripMenuItem4, "ToolStripMenuItem4")
-        '
-        'ToolStripMenuItemCheckForUpdates
-        '
-        Me.ToolStripMenuItemCheckForUpdates.Name = "ToolStripMenuItemCheckForUpdates"
-        resources.ApplyResources(Me.ToolStripMenuItemCheckForUpdates, "ToolStripMenuItemCheckForUpdates")
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        resources.ApplyResources(Me.ToolStripMenuItem5, "ToolStripMenuItem5")
-        '
-        'ToolStripMenuItemExit
-        '
-        Me.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit"
-        resources.ApplyResources(Me.ToolStripMenuItemExit, "ToolStripMenuItemExit")
-        '
-        'ToolStripButtonCountUpDown
-        '
-        Me.ToolStripButtonCountUpDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        resources.ApplyResources(Me.ToolStripButtonCountUpDown, "ToolStripButtonCountUpDown")
-        Me.ToolStripButtonCountUpDown.Name = "ToolStripButtonCountUpDown"
-        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
-        '
-        'ToolStripButtonNewTimer
-        '
-        Me.ToolStripButtonNewTimer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        resources.ApplyResources(Me.ToolStripButtonNewTimer, "ToolStripButtonNewTimer")
-        Me.ToolStripButtonNewTimer.Name = "ToolStripButtonNewTimer"
-        Me.ToolStripButtonNewTimer.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        '
-        'ToolStripButtonStartPause
-        '
-        Me.ToolStripButtonStartPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButtonStartPause.Image = Global.ElanTimer.My.Resources.Resources.play
-        resources.ApplyResources(Me.ToolStripButtonStartPause, "ToolStripButtonStartPause")
-        Me.ToolStripButtonStartPause.Name = "ToolStripButtonStartPause"
-        Me.ToolStripButtonStartPause.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
-        '
-        'ToolStripButtonReset
-        '
-        Me.ToolStripButtonReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButtonReset.Image = Global.ElanTimer.My.Resources.Resources.repeat
-        resources.ApplyResources(Me.ToolStripButtonReset, "ToolStripButtonReset")
-        Me.ToolStripButtonReset.Name = "ToolStripButtonReset"
-        Me.ToolStripButtonReset.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         '
         'ToolStripLabelNote
         '
@@ -332,6 +190,188 @@ Partial Class FormMain
         Me.NotifyIconToolStripMenuItemExit.Name = "NotifyIconToolStripMenuItemExit"
         resources.ApplyResources(Me.NotifyIconToolStripMenuItemExit, "NotifyIconToolStripMenuItemExit")
         '
+        'ToolStripSplitButtonSettings
+        '
+        Me.ToolStripSplitButtonSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripSplitButtonSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemNewTimer, Me.ToolStripMenuItemEditTimer, Me.ToolStripMenuItem7, Me.PresetsToolStripMenuItem, Me.ToolStripMenuItem10, Me.ToolStripMenuItemTasks, Me.ToolStripMenuItemStyle, Me.ToolStripMenuItemMisc, Me.ToolStripMenuItem2, Me.ToolStripMenuItemWindow, Me.ToolStripSeparator3, Me.ToolStripMenuItemHelp, Me.ToolStripMenuItem5, Me.ToolStripMenuItemExit})
+        Me.ToolStripSplitButtonSettings.Image = Global.ElanTimer.My.Resources.Resources.menu
+        resources.ApplyResources(Me.ToolStripSplitButtonSettings, "ToolStripSplitButtonSettings")
+        Me.ToolStripSplitButtonSettings.Name = "ToolStripSplitButtonSettings"
+        Me.ToolStripSplitButtonSettings.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        Me.ToolStripSplitButtonSettings.ShowDropDownArrow = False
+        '
+        'ToolStripMenuItemNewTimer
+        '
+        Me.ToolStripMenuItemNewTimer.Image = Global.ElanTimer.My.Resources.Resources.clock
+        Me.ToolStripMenuItemNewTimer.Name = "ToolStripMenuItemNewTimer"
+        resources.ApplyResources(Me.ToolStripMenuItemNewTimer, "ToolStripMenuItemNewTimer")
+        '
+        'ToolStripMenuItemEditTimer
+        '
+        Me.ToolStripMenuItemEditTimer.Image = Global.ElanTimer.My.Resources.Resources.clock_edit
+        Me.ToolStripMenuItemEditTimer.Name = "ToolStripMenuItemEditTimer"
+        resources.ApplyResources(Me.ToolStripMenuItemEditTimer, "ToolStripMenuItemEditTimer")
+        '
+        'ToolStripMenuItem7
+        '
+        Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
+        resources.ApplyResources(Me.ToolStripMenuItem7, "ToolStripMenuItem7")
+        '
+        'PresetsToolStripMenuItem
+        '
+        Me.PresetsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadPresetToolStripMenuItem, Me.SavePresetAsToolStripMenuItem, Me.ToolStripMenuItem11})
+        Me.PresetsToolStripMenuItem.Image = Global.ElanTimer.My.Resources.Resources.switch
+        Me.PresetsToolStripMenuItem.Name = "PresetsToolStripMenuItem"
+        resources.ApplyResources(Me.PresetsToolStripMenuItem, "PresetsToolStripMenuItem")
+        '
+        'LoadPresetToolStripMenuItem
+        '
+        Me.LoadPresetToolStripMenuItem.Image = Global.ElanTimer.My.Resources.Resources.folder
+        Me.LoadPresetToolStripMenuItem.Name = "LoadPresetToolStripMenuItem"
+        resources.ApplyResources(Me.LoadPresetToolStripMenuItem, "LoadPresetToolStripMenuItem")
+        '
+        'SavePresetAsToolStripMenuItem
+        '
+        Me.SavePresetAsToolStripMenuItem.Image = Global.ElanTimer.My.Resources.Resources.diskette
+        Me.SavePresetAsToolStripMenuItem.Name = "SavePresetAsToolStripMenuItem"
+        resources.ApplyResources(Me.SavePresetAsToolStripMenuItem, "SavePresetAsToolStripMenuItem")
+        '
+        'ToolStripMenuItem11
+        '
+        Me.ToolStripMenuItem11.Name = "ToolStripMenuItem11"
+        resources.ApplyResources(Me.ToolStripMenuItem11, "ToolStripMenuItem11")
+        '
+        'ToolStripMenuItem10
+        '
+        Me.ToolStripMenuItem10.Name = "ToolStripMenuItem10"
+        resources.ApplyResources(Me.ToolStripMenuItem10, "ToolStripMenuItem10")
+        '
+        'ToolStripMenuItemTasks
+        '
+        Me.ToolStripMenuItemTasks.Name = "ToolStripMenuItemTasks"
+        resources.ApplyResources(Me.ToolStripMenuItemTasks, "ToolStripMenuItemTasks")
+        '
+        'ToolStripMenuItemStyle
+        '
+        Me.ToolStripMenuItemStyle.Name = "ToolStripMenuItemStyle"
+        resources.ApplyResources(Me.ToolStripMenuItemStyle, "ToolStripMenuItemStyle")
+        '
+        'ToolStripMenuItemMisc
+        '
+        Me.ToolStripMenuItemMisc.Image = Global.ElanTimer.My.Resources.Resources.cog
+        Me.ToolStripMenuItemMisc.Name = "ToolStripMenuItemMisc"
+        resources.ApplyResources(Me.ToolStripMenuItemMisc, "ToolStripMenuItemMisc")
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        resources.ApplyResources(Me.ToolStripMenuItem2, "ToolStripMenuItem2")
+        '
+        'ToolStripMenuItemWindow
+        '
+        Me.ToolStripMenuItemWindow.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemAlwaysOnTop, Me.ToolStripMenuItem1, Me.ToolStripMenuItemDefault, Me.ToolStripMenuItemCompact, Me.ToolStripMenuItemFullScreen})
+        Me.ToolStripMenuItemWindow.Image = Global.ElanTimer.My.Resources.Resources.title_window
+        Me.ToolStripMenuItemWindow.Name = "ToolStripMenuItemWindow"
+        resources.ApplyResources(Me.ToolStripMenuItemWindow, "ToolStripMenuItemWindow")
+        '
+        'ToolStripMenuItemAlwaysOnTop
+        '
+        Me.ToolStripMenuItemAlwaysOnTop.CheckOnClick = True
+        Me.ToolStripMenuItemAlwaysOnTop.Name = "ToolStripMenuItemAlwaysOnTop"
+        resources.ApplyResources(Me.ToolStripMenuItemAlwaysOnTop, "ToolStripMenuItemAlwaysOnTop")
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
+        '
+        'ToolStripMenuItemDefault
+        '
+        Me.ToolStripMenuItemDefault.Name = "ToolStripMenuItemDefault"
+        resources.ApplyResources(Me.ToolStripMenuItemDefault, "ToolStripMenuItemDefault")
+        '
+        'ToolStripMenuItemCompact
+        '
+        Me.ToolStripMenuItemCompact.Name = "ToolStripMenuItemCompact"
+        resources.ApplyResources(Me.ToolStripMenuItemCompact, "ToolStripMenuItemCompact")
+        '
+        'ToolStripMenuItemFullScreen
+        '
+        Me.ToolStripMenuItemFullScreen.Name = "ToolStripMenuItemFullScreen"
+        resources.ApplyResources(Me.ToolStripMenuItemFullScreen, "ToolStripMenuItemFullScreen")
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
+        '
+        'ToolStripMenuItemHelp
+        '
+        Me.ToolStripMenuItemHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemHelpOnline, Me.ToolStripMenuItemAboutElanTimer, Me.ToolStripMenuItem4, Me.ToolStripMenuItemCheckForUpdates})
+        Me.ToolStripMenuItemHelp.Image = Global.ElanTimer.My.Resources.Resources.help
+        Me.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp"
+        resources.ApplyResources(Me.ToolStripMenuItemHelp, "ToolStripMenuItemHelp")
+        '
+        'ToolStripMenuItemHelpOnline
+        '
+        Me.ToolStripMenuItemHelpOnline.Name = "ToolStripMenuItemHelpOnline"
+        resources.ApplyResources(Me.ToolStripMenuItemHelpOnline, "ToolStripMenuItemHelpOnline")
+        '
+        'ToolStripMenuItemAboutElanTimer
+        '
+        Me.ToolStripMenuItemAboutElanTimer.Name = "ToolStripMenuItemAboutElanTimer"
+        resources.ApplyResources(Me.ToolStripMenuItemAboutElanTimer, "ToolStripMenuItemAboutElanTimer")
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        resources.ApplyResources(Me.ToolStripMenuItem4, "ToolStripMenuItem4")
+        '
+        'ToolStripMenuItemCheckForUpdates
+        '
+        Me.ToolStripMenuItemCheckForUpdates.Name = "ToolStripMenuItemCheckForUpdates"
+        resources.ApplyResources(Me.ToolStripMenuItemCheckForUpdates, "ToolStripMenuItemCheckForUpdates")
+        '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        resources.ApplyResources(Me.ToolStripMenuItem5, "ToolStripMenuItem5")
+        '
+        'ToolStripMenuItemExit
+        '
+        Me.ToolStripMenuItemExit.Image = Global.ElanTimer.My.Resources.Resources.cancel
+        Me.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit"
+        resources.ApplyResources(Me.ToolStripMenuItemExit, "ToolStripMenuItemExit")
+        '
+        'ToolStripButtonCountUpDown
+        '
+        Me.ToolStripButtonCountUpDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        resources.ApplyResources(Me.ToolStripButtonCountUpDown, "ToolStripButtonCountUpDown")
+        Me.ToolStripButtonCountUpDown.Name = "ToolStripButtonCountUpDown"
+        '
+        'ToolStripButtonNewTimer
+        '
+        Me.ToolStripButtonNewTimer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        resources.ApplyResources(Me.ToolStripButtonNewTimer, "ToolStripButtonNewTimer")
+        Me.ToolStripButtonNewTimer.Name = "ToolStripButtonNewTimer"
+        Me.ToolStripButtonNewTimer.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
+        'ToolStripButtonStartPause
+        '
+        Me.ToolStripButtonStartPause.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButtonStartPause.Image = Global.ElanTimer.My.Resources.Resources.play
+        resources.ApplyResources(Me.ToolStripButtonStartPause, "ToolStripButtonStartPause")
+        Me.ToolStripButtonStartPause.Name = "ToolStripButtonStartPause"
+        Me.ToolStripButtonStartPause.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
+        'ToolStripButtonReset
+        '
+        Me.ToolStripButtonReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButtonReset.Image = Global.ElanTimer.My.Resources.Resources.repeat
+        resources.ApplyResources(Me.ToolStripButtonReset, "ToolStripButtonReset")
+        Me.ToolStripButtonReset.Name = "ToolStripButtonReset"
+        Me.ToolStripButtonReset.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
         'FormMain
         '
         Me.AllowDrop = True
@@ -395,5 +435,10 @@ Partial Class FormMain
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripLabelNote As System.Windows.Forms.ToolStripLabel
     Friend WithEvents ToolStripButtonCountUpDown As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripMenuItem10 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents PresetsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoadPresetToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SavePresetAsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem11 As System.Windows.Forms.ToolStripSeparator
 
 End Class

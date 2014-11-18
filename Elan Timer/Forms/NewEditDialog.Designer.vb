@@ -27,8 +27,8 @@ Partial Class NewEditDialog
         Me.ButtonCancel = New System.Windows.Forms.Button()
         Me.ButtonStart = New System.Windows.Forms.Button()
         Me.ButtonOk = New System.Windows.Forms.Button()
-        Me.DowpDownButtonPresets = New ElanTimer.DowpDownButton()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.DowpDownButtonPresets = New ElanTimer.DowpDownButton()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
@@ -108,6 +108,16 @@ Partial Class NewEditDialog
         Me.ButtonOk.Text = "OK"
         Me.ButtonOk.UseVisualStyleBackColor = True
         '
+        'TabControl1
+        '
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(351, 314)
+        Me.TabControl1.TabIndex = 0
+        '
         'DowpDownButtonPresets
         '
         Me.DowpDownButtonPresets.AutoSize = True
@@ -120,16 +130,7 @@ Partial Class NewEditDialog
         Me.DowpDownButtonPresets.TabIndex = 9
         Me.DowpDownButtonPresets.Text = "Presets"
         Me.DowpDownButtonPresets.UseVisualStyleBackColor = True
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(351, 314)
-        Me.TabControl1.TabIndex = 0
+        Me.DowpDownButtonPresets.Visible = False
         '
         'NewEditDialog
         '

@@ -29,7 +29,13 @@ Public Class TimerSettingsDialog
             Return Math.Floor(Duration.TotalHours)
         End Get
         Set(value As Integer)
-            _time.Duration = New TimeSpan(value, Minutes, Seconds)
+            Dim dur As TimeSpan = New TimeSpan(value, Minutes, Seconds)
+            If (dur > TimeSpan.Zero) Then
+                Duration = dur
+            Else
+                Duration = dur
+                Minutes = 1
+            End If
         End Set
     End Property
 
@@ -38,7 +44,13 @@ Public Class TimerSettingsDialog
             Return Duration.Minutes
         End Get
         Set(value As Integer)
-            _time.Duration = New TimeSpan(Hours, value, Seconds)
+            Dim dur As TimeSpan = New TimeSpan(Hours, value, Seconds)
+            If (dur > TimeSpan.Zero) Then
+                Duration = dur
+            Else
+                Duration = dur
+                Seconds = 1
+            End If
         End Set
     End Property
     Public Property Seconds As Integer
@@ -46,7 +58,13 @@ Public Class TimerSettingsDialog
             Return Duration.Seconds
         End Get
         Set(value As Integer)
-            _time.Duration = New TimeSpan(Hours, Minutes, value)
+            Dim dur As TimeSpan = New TimeSpan(Hours, Minutes, value)
+            If (dur > TimeSpan.Zero) Then
+                Duration = dur
+            Else
+                Duration = dur
+                Minutes = 1
+            End If
         End Set
     End Property
     Public Property Duration As TimeSpan
@@ -106,13 +124,13 @@ Public Class TimerSettingsDialog
 
     Public Sub Initialize()
         NumericUpDownHours.DataBindings.Clear()
-        NumericUpDownHours.DataBindings.Add("Value", Me, "Hours")
+        NumericUpDownHours.DataBindings.Add("Value", Me, "Hours", False, DataSourceUpdateMode.OnPropertyChanged)
 
         NumericUpDownMinutes.DataBindings.Clear()
-        NumericUpDownMinutes.DataBindings.Add("Value", Me, "Minutes")
+        NumericUpDownMinutes.DataBindings.Add("Value", Me, "Minutes", False, DataSourceUpdateMode.OnPropertyChanged)
 
         NumericUpDownSeconds.DataBindings.Clear()
-        NumericUpDownSeconds.DataBindings.Add("Value", Me, "Seconds")
+        NumericUpDownSeconds.DataBindings.Add("Value", Me, "Seconds", False, DataSourceUpdateMode.OnPropertyChanged)
 
         NumericUpDownRestarts.DataBindings.Clear()
         NumericUpDownRestarts.DataBindings.Add("Value", Me, "Restarts")
@@ -145,7 +163,12 @@ Public Class TimerSettingsDialog
         ' Me.ButtonSet.Enabled = (Me.NumericUpDownHours.Value Or Me.NumericUpDownMinutes.Value Or Me.NumericUpDownSeconds.Value)
         'Me.ButtonStart.Enabled = (Me.ButtonSet.Enabled And Not Editing)
         'Me.MenuItemLoadPreset.Enabled = (Not Editing)
+
+        'Acceptable = (Me.NumericUpDownHours.Value > 0 Or Me.NumericUpDownMinutes.Value > 0 Or Me.NumericUpDownSeconds.Value > 0)
     End Sub
+
+    'Public Property Acceptable As Boolean
+
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs)
         Me.DialogResult = Windows.Forms.DialogResult.Cancel

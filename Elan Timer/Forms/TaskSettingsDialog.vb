@@ -38,9 +38,9 @@ Public Class TaskSettingsDialog
         ButtonMoveDown.Enabled = enabled
 
         ButtonRemove.Enabled = (DataListViewTasks.SelectedObjects.Count > 0)
-        'TODO: Fix.
-        'MenuItemExportSelected.Enabled = (Not DataListViewTasks.SelectedIndices.Count = 0)
-        'MenuItemExportAll.Enabled = (DataListViewTasks.GetItemCount() > 0)
+
+        ToolStripMenuItemExportSelected.Enabled = (Not DataListViewTasks.SelectedIndices.Count = 0)
+        ToolStripMenuItemExportAll.Enabled = (DataListViewTasks.GetItemCount() > 0)
     End Sub
     Private Sub ButtonAdd_Click(sender As Object, e As EventArgs) Handles ButtonAdd.Click
         actionsBindingSource.Add(New TaskModel() With {.Event = TimerEvent.Started,
@@ -116,20 +116,12 @@ Public Class TaskSettingsDialog
                 For Each obj In objects
                     tasksToExport.Add(obj)
                 Next
-                Dim task As New TasksModel()
-                task.Tasks = tasksToExport
+                Dim task As New List(Of TaskModel)
+                task = tasksToExport
 
                 RaiseEvent Exporting(Me, New TaskExportingEventArgs(saveDialog.FileName, task))
             End If
         End Using
-    End Sub
-
-    Private Sub MenuItemExportSelected_Click(sender As Object, e As EventArgs)
-        ExportTasks(True)
-    End Sub
-
-    Private Sub MenuItemExportAll_Click(sender As Object, e As EventArgs)
-        ExportTasks(False)
     End Sub
 
     Private Sub ButtonMoveUp_Click(sender As Object, e As EventArgs) Handles ButtonMoveUp.Click
@@ -172,17 +164,6 @@ Public Class TaskSettingsDialog
         Initialize()
     End Sub
 
-    Private Sub MenuItem1_Click(sender As Object, e As EventArgs)
-        Using openDialog As New OpenFileDialog
-            openDialog.InitialDirectory = InitialDirectory
-            openDialog.Filter = FileFilter
-            openDialog.CheckFileExists = True
-            If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-                RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, New TasksModel(Me.Tasks)))
-                actionsBindingSource.ResetBindings(True)
-            End If
-        End Using
-    End Sub
     Public Event Exporting As EventHandler(Of TaskExportingEventArgs)
     Public Event Importing As EventHandler(Of TaskImportingEventArgs)
 
@@ -207,5 +188,30 @@ Public Class TaskSettingsDialog
         taskToolTip.SetToolTip(Me.ButtonBrowseForFile, My.Resources.Strings.BrowseForFile)
 
         Me.ResumeLayout()
+    End Sub
+
+    Private Sub ButtonOptions_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
+        Dim control As Button = sender
+        ContextMenuStripOptions.Show(control, 0, control.Height)
+    End Sub
+
+    Private Sub ToolStripMenuItemImport_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemImport.Click
+        Using openDialog As New OpenFileDialog
+            openDialog.InitialDirectory = InitialDirectory
+            openDialog.Filter = FileFilter
+            openDialog.CheckFileExists = True
+            If (openDialog.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
+                RaiseEvent Importing(Me, New TaskImportingEventArgs(openDialog.FileName, Me.Tasks))
+                actionsBindingSource.ResetBindings(True)
+            End If
+        End Using
+    End Sub
+
+    Private Sub ToolStripMenuItemExportAll_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExportAll.Click
+        ExportTasks(False)
+    End Sub
+
+    Private Sub ToolStripMenuItemExportSelected_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemExportSelected.Click
+        ExportTasks(True)
     End Sub
 End Class

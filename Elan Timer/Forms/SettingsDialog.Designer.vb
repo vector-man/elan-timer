@@ -36,7 +36,6 @@ Partial Class SettingsDialog
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckedGroupBoxShowInSystemTray = New ElanTimer.CheckedGroupBox()
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel()
@@ -116,7 +115,6 @@ Partial Class SettingsDialog
         '
         Me.GroupBox1.Controls.Add(Me.CheckBox4)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.CheckedListBox1)
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
@@ -131,13 +129,6 @@ Partial Class SettingsDialog
         '
         resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
-        '
-        'CheckedListBox1
-        '
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {resources.GetString("CheckedListBox1.Items"), resources.GetString("CheckedListBox1.Items1"), resources.GetString("CheckedListBox1.Items2"), resources.GetString("CheckedListBox1.Items3"), resources.GetString("CheckedListBox1.Items4"), resources.GetString("CheckedListBox1.Items5")})
-        resources.ApplyResources(Me.CheckedListBox1, "CheckedListBox1")
-        Me.CheckedListBox1.Name = "CheckedListBox1"
         '
         'TableLayoutPanel4
         '
@@ -215,7 +206,6 @@ Partial Class SettingsDialog
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents CheckedListBox1 As System.Windows.Forms.CheckedListBox
     Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckedGroupBoxShowInSystemTray As ElanTimer.CheckedGroupBox
     Friend WithEvents TableLayoutPanel9 As System.Windows.Forms.TableLayoutPanel

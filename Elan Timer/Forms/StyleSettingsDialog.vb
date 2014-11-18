@@ -112,35 +112,35 @@ Public Class StyleSettingsDialog
     Public Event Saving As EventHandler(Of SavingEventArgs)
 #End Region
     Sub Initialize()
-        Try
-            ComboBoxDisplayFormat.ValueMember = "Value"
-            ComboBoxDisplayFormat.DataBindings.Clear()
-            ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", Style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
-            ComboBoxDisplayFormat.DisplayMember = "Key"
-            ComboBoxDisplayFormat.ValueMember = "Value"
+        RemoveHandler _previewTimer.Expired, AddressOf PreviewTimer_Expired
+        AddHandler _previewTimer.Expired, AddressOf PreviewTimer_Expired
+        ComboBoxDisplayFormat.ValueMember = "Value"
+        ComboBoxDisplayFormat.DataBindings.Clear()
+        ComboBoxDisplayFormat.DataBindings.Add("SelectedValue", Style, "DisplayFormat", False, DataSourceUpdateMode.OnPropertyChanged)
+        ComboBoxDisplayFormat.DisplayMember = "Key"
+        ComboBoxDisplayFormat.ValueMember = "Value"
 
-            ColorComboBoxForegrounColor.DataBindings.Clear()
-            ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", Style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+        ColorComboBoxForegrounColor.DataBindings.Clear()
+        ColorComboBoxForegrounColor.DataBindings.Add("SelectedColor", Style, "ForegroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
 
-            ColorComboBoxBackgroundColor.DataBindings.Clear()
-            ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", Style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
+        ColorComboBoxBackgroundColor.DataBindings.Clear()
+        ColorComboBoxBackgroundColor.DataBindings.Add("SelectedColor", Style, "BackgroundColor", False, DataSourceUpdateMode.OnPropertyChanged)
 
-            FontPickerFont.DataBindings.Clear()
-            FontPickerFont.DataBindings.Add("Value", Style, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
+        FontPickerFont.DataBindings.Clear()
+        FontPickerFont.DataBindings.Add("Value", Style, "DisplayFont", False, DataSourceUpdateMode.OnPropertyChanged)
 
-            CheckBoxGrowToFit.DataBindings.Clear()
-            CheckBoxGrowToFit.DataBindings.Add("Checked", Style, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
+        CheckBoxGrowToFit.DataBindings.Clear()
+        CheckBoxGrowToFit.DataBindings.Add("Checked", Style, "GrowToFit", False, DataSourceUpdateMode.OnPropertyChanged)
 
-            TrackBarTransparency.DataBindings.Clear()
-            TrackBarTransparency.DataBindings.Add("Value", Style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
-        Catch ex As Exception
-            Throw ex
-        End Try
+        TrackBarTransparency.DataBindings.Clear()
+        TrackBarTransparency.DataBindings.Add("Value", Style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
+
 
         SetStrings()
     End Sub
 
     Private Sub DialogLookSettings_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        RemoveHandler _previewTimer.Expired, AddressOf PreviewTimer_Expired
         _previewTimer.Dispose()
     End Sub
 
@@ -188,10 +188,18 @@ Public Class StyleSettingsDialog
 
     Private Function GetTimerTextRenderFunc(countUpwards As Boolean) As Func(Of String)
         If (countUpwards) Then
-            Return Function() String.Format(timeFormat, String.Concat("+", "{0:", Style.DisplayFormat, "}"), _previewTimer.Elapsed)
+
+            Return Function()
+                       Dim remaining As String = If(_previewTimer.RemainingRestarts > 0, "[{0}]", String.Empty)
+                       Return String.Format(timeFormat, String.Concat(remaining, "+", "{1:", Style.DisplayFormat, "}"), _previewTimer.RemainingRestarts, _previewTimer.Elapsed)
+                   End Function
 
         Else
-            Return Function() String.Format(timeFormat, String.Concat("{0:", Style.DisplayFormat, "}"), _previewTimer.Remaining)
+
+            Return Function()
+                       Dim remaining As String = If(_previewTimer.RemainingRestarts > 0, "[{0}]", String.Empty)
+                       Return String.Format(timeFormat, String.Concat(remaining, "{1:", Style.DisplayFormat, "}"), _previewTimer.RemainingRestarts, _previewTimer.Remaining)
+                   End Function
         End If
     End Function
 
@@ -232,7 +240,7 @@ Public Class StyleSettingsDialog
     End Sub
 
     Private Sub RestartTimer()
-        _previewTimer.Reset(Time.Duration, TimeSpan.Zero, Integer.MaxValue)
+        _previewTimer.Reset(Time.Duration, TimeSpan.Zero, Time.Restarts)
         _previewTimer.Start()
     End Sub
 
@@ -300,4 +308,9 @@ Public Class StyleSettingsDialog
         RestartRendering()
         RestartTimer()
     End Sub
+
+    Private Sub PreviewTimer_Expired(sender As Object, e As TimerEventArgs)
+        RestartTimer()
+    End Sub
+
 End Class

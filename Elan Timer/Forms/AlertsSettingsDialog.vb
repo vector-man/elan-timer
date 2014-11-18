@@ -12,6 +12,70 @@ Public Class AlertsSettingsDialog
 
     Public Property Alerts As New AlertsModel
 
+    Public Property AlarmEnabled As Boolean
+        Get
+            Return Alerts.AlarmEnabled
+        End Get
+        Set(value As Boolean)
+            Alerts.AlarmEnabled = value
+        End Set
+    End Property
+
+    Public Property AlarmPerRestart As Boolean
+        Get
+            Return Alerts.AlarmPerRestart
+        End Get
+        Set(value As Boolean)
+            Alerts.AlarmPerRestart = value
+        End Set
+    End Property
+
+    Public Property DisplayNoteEnabled As Boolean
+        Get
+            Return Alerts.DisplayNoteEnabled
+        End Get
+        Set(value As Boolean)
+            Alerts.DisplayNoteEnabled = value
+        End Set
+    End Property
+
+    Public Property AlarmLoop As Boolean
+        Get
+            Return Alerts.AlarmLoop
+        End Get
+        Set(value As Boolean)
+            Alerts.AlarmLoop = value
+        End Set
+    End Property
+
+    Public Property AlarmName As String
+        Get
+            Return Alerts.AlarmName
+        End Get
+        Set(value As String)
+            Alerts.AlarmName = value
+        End Set
+    End Property
+
+    Public Property AlarmVolume As Integer
+        Get
+            Return Alerts.AlarmVolume
+        End Get
+        Set(value As Integer)
+            Alerts.AlarmVolume = value
+        End Set
+    End Property
+
+    Public Property AlertEnabled As Boolean
+        Get
+            Return Alerts.AlertEnabled
+        End Get
+        Set(value As Boolean)
+            Alerts.AlertEnabled = value
+        End Set
+    End Property
+
+
     Public Property SoundsPath As String
 
     Public Property SelectedSound As New KeyValuePair(Of String, String)
@@ -30,19 +94,17 @@ Public Class AlertsSettingsDialog
 
 
     Private Sub Initialize()
-        Try
-            ComboBoxAlarmPath.DataSource = If(GetSoundsByPath(SoundsPath), New List(Of KeyValuePair(Of String, String)))
-            ComboBoxAlarmPath.ValueMember = "Value"
-            ComboBoxAlarmPath.DisplayMember = "Key"
-            CheckBoxShowNoteAlertWhenTimerExpires.DataBindings.Add("Checked", Alerts, "AlertEnabled")
-            CheckedGroupBox1.DataBindings.Add("Checked", Alerts, "AlarmEnabled")
-            TrackBarVolume.DataBindings.Add("Value", Alerts, "AlarmVolume")
-            CheckBoxLoop.DataBindings.Add("Checked", Alerts, "AlarmLoop")
-            ComboBoxAlarmPath.DataBindings.Add("SelectedValue", Alerts, "AlarmName")
-            UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
-        Catch ex As Exception
-            Throw ex
-        End Try
+        ComboBoxAlarmPath.DataSource = If(GetSoundsByPath(SoundsPath), New List(Of KeyValuePair(Of String, String)))
+        ComboBoxAlarmPath.ValueMember = "Value"
+        ComboBoxAlarmPath.DisplayMember = "Key"
+        CheckBoxAlertEnabled.DataBindings.Add("Checked", Me, "AlertEnabled")
+        CheckBoxDisplayNoteEnabled.DataBindings.Add("Checked", Me, "DisplayNoteEnabled")
+        CheckedGroupBox1.DataBindings.Add("Checked", Me, "AlarmEnabled")
+        TrackBarVolume.DataBindings.Add("Value", Me, "AlarmVolume")
+        CheckBoxLoop.DataBindings.Add("Checked", Me, "AlarmLoop")
+        CheckBoxAlarmPerRestart.DataBindings.Add("Checked", Me, "AlarmPerRestart")
+        ComboBoxAlarmPath.DataBindings.Add("SelectedValue", Me, "AlarmName")
+        UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
     End Sub
 
     Private Sub ButtonAlarmPlay_Click(sender As Object, e As EventArgs) Handles ButtonAlarmPlay.Click

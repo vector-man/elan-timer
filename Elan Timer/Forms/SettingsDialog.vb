@@ -2,6 +2,8 @@
 
     Private applicationBindingSource As BindingSource
 
+    Public Property SettingsInfos As New Dictionary(Of SettingsInfo, Boolean)
+
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
         My.Settings.ShowInSystemTray = CheckedGroupBoxShowInSystemTray.Checked
@@ -25,14 +27,14 @@
     End Sub
 
     Private Sub FormConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
-            CheckedGroupBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
-            CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
-            CheckBoxEnableToolbarStyling.Checked = My.Settings.UseToolbarStyling
-        Catch ex As Exception
+        CheckBoxCloseToSystemTray.Checked = My.Settings.CloseToSystemTray
+        CheckedGroupBoxShowInSystemTray.Checked = My.Settings.ShowInSystemTray
+        CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
+        CheckBoxEnableToolbarStyling.Checked = My.Settings.UseToolbarStyling
 
-        End Try
+        'For Each info As KeyValuePair(Of SettingsInfo, Boolean) In SettingsInfos
+        '    CheckedListBox1.Items.Add(info.Key, info.Value)
+        'Next
     End Sub
 
     Private Sub CheckBoxShowInSystemTray_CheckedChanged(sender As Object, e As EventArgs)

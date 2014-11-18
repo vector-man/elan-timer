@@ -22,50 +22,66 @@ Partial Class TaskSettingsDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TaskSettingsDialog))
         Me.TableLayoutPanelActions = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonOptions = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.DataListViewTasks = New BrightIdeasSoftware.DataListView()
         Me.OlvColumnEnabled = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnName = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.OlvColumnEvent = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
-        Me.ButtonRemove = New System.Windows.Forms.Button()
-        Me.ButtonBrowseForFile = New System.Windows.Forms.Button()
         Me.LabelArguments = New System.Windows.Forms.Label()
         Me.TextBoxCommand = New System.Windows.Forms.TextBox()
         Me.LabelName = New System.Windows.Forms.Label()
         Me.ComboBoxEvent = New System.Windows.Forms.ComboBox()
         Me.LabelCommand = New System.Windows.Forms.Label()
         Me.LabelEvent = New System.Windows.Forms.Label()
+        Me.TextBoxArguments = New System.Windows.Forms.TextBox()
+        Me.TextBoxName = New System.Windows.Forms.TextBox()
+        Me.ButtonRemove = New System.Windows.Forms.Button()
+        Me.ButtonBrowseForFile = New System.Windows.Forms.Button()
         Me.ButtonAdd = New System.Windows.Forms.Button()
         Me.ButtonMoveDown = New System.Windows.Forms.Button()
         Me.ButtonMoveUp = New System.Windows.Forms.Button()
-        Me.TextBoxArguments = New System.Windows.Forms.TextBox()
-        Me.TextBoxName = New System.Windows.Forms.TextBox()
+        Me.ContextMenuStripOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItemImport = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItemExportAll = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItemExportSelected = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.TableLayoutPanelActions.SuspendLayout()
         CType(Me.DataListViewTasks, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStripOptions.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanelActions
         '
         resources.ApplyResources(Me.TableLayoutPanelActions, "TableLayoutPanelActions")
         Me.TableLayoutPanelActions.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanelActions.Controls.Add(Me.TableLayoutPanel7, 0, 9)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TableLayoutPanel7, 0, 10)
         Me.TableLayoutPanelActions.Controls.Add(Me.DataListViewTasks, 0, 0)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelArguments, 0, 8)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxCommand, 1, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelName, 0, 6)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ComboBoxEvent, 1, 5)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelCommand, 0, 7)
-        Me.TableLayoutPanelActions.Controls.Add(Me.LabelEvent, 0, 5)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonBrowseForFile, 2, 8)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelArguments, 0, 9)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxCommand, 1, 8)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelName, 0, 7)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ComboBoxEvent, 1, 6)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelCommand, 0, 8)
+        Me.TableLayoutPanelActions.Controls.Add(Me.LabelEvent, 0, 6)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 9)
+        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxName, 1, 7)
         Me.TableLayoutPanelActions.Controls.Add(Me.ButtonAdd, 2, 0)
-        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveDown, 2, 4)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonRemove, 2, 1)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonOptions, 2, 5)
         Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveUp, 2, 3)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxArguments, 1, 8)
-        Me.TableLayoutPanelActions.Controls.Add(Me.TextBoxName, 1, 6)
+        Me.TableLayoutPanelActions.Controls.Add(Me.ButtonMoveDown, 2, 4)
         Me.TableLayoutPanelActions.Name = "TableLayoutPanelActions"
+        '
+        'ButtonOptions
+        '
+        resources.ApplyResources(Me.ButtonOptions, "ButtonOptions")
+        Me.ButtonOptions.Image = Global.ElanTimer.My.Resources.Resources.page_gear
+        Me.ButtonOptions.Name = "ButtonOptions"
+        Me.ButtonOptions.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel7
         '
@@ -86,10 +102,11 @@ Partial Class TaskSettingsDialog
         Me.DataListViewTasks.DataSource = Nothing
         resources.ApplyResources(Me.DataListViewTasks, "DataListViewTasks")
         Me.DataListViewTasks.FullRowSelect = True
+        Me.DataListViewTasks.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.DataListViewTasks.HideSelection = False
         Me.DataListViewTasks.Name = "DataListViewTasks"
         Me.DataListViewTasks.OwnerDraw = True
-        Me.TableLayoutPanelActions.SetRowSpan(Me.DataListViewTasks, 5)
+        Me.TableLayoutPanelActions.SetRowSpan(Me.DataListViewTasks, 6)
         Me.DataListViewTasks.ShowGroups = False
         Me.DataListViewTasks.ShowItemToolTips = True
         Me.DataListViewTasks.UseCompatibleStateImageBehavior = False
@@ -98,11 +115,10 @@ Partial Class TaskSettingsDialog
         '
         'OlvColumnEnabled
         '
-        Me.OlvColumnEnabled.AspectName = "Enabled"
+        Me.OlvColumnEnabled.AspectName = ""
         Me.OlvColumnEnabled.CellPadding = Nothing
-        Me.OlvColumnEnabled.CheckBoxes = True
-        Me.OlvColumnEnabled.MaximumWidth = 16
-        Me.OlvColumnEnabled.MinimumWidth = 16
+        Me.OlvColumnEnabled.MaximumWidth = 22
+        Me.OlvColumnEnabled.MinimumWidth = 22
         Me.OlvColumnEnabled.ShowTextInHeader = False
         Me.OlvColumnEnabled.Sortable = False
         resources.ApplyResources(Me.OlvColumnEnabled, "OlvColumnEnabled")
@@ -120,18 +136,6 @@ Partial Class TaskSettingsDialog
         Me.OlvColumnEvent.CellPadding = Nothing
         Me.OlvColumnEvent.Sortable = False
         resources.ApplyResources(Me.OlvColumnEvent, "OlvColumnEvent")
-        '
-        'ButtonRemove
-        '
-        resources.ApplyResources(Me.ButtonRemove, "ButtonRemove")
-        Me.ButtonRemove.Name = "ButtonRemove"
-        Me.ButtonRemove.UseVisualStyleBackColor = True
-        '
-        'ButtonBrowseForFile
-        '
-        resources.ApplyResources(Me.ButtonBrowseForFile, "ButtonBrowseForFile")
-        Me.ButtonBrowseForFile.Name = "ButtonBrowseForFile"
-        Me.ButtonBrowseForFile.UseVisualStyleBackColor = True
         '
         'LabelArguments
         '
@@ -165,6 +169,28 @@ Partial Class TaskSettingsDialog
         resources.ApplyResources(Me.LabelEvent, "LabelEvent")
         Me.LabelEvent.Name = "LabelEvent"
         '
+        'TextBoxArguments
+        '
+        resources.ApplyResources(Me.TextBoxArguments, "TextBoxArguments")
+        Me.TextBoxArguments.Name = "TextBoxArguments"
+        '
+        'TextBoxName
+        '
+        resources.ApplyResources(Me.TextBoxName, "TextBoxName")
+        Me.TextBoxName.Name = "TextBoxName"
+        '
+        'ButtonRemove
+        '
+        resources.ApplyResources(Me.ButtonRemove, "ButtonRemove")
+        Me.ButtonRemove.Name = "ButtonRemove"
+        Me.ButtonRemove.UseVisualStyleBackColor = True
+        '
+        'ButtonBrowseForFile
+        '
+        resources.ApplyResources(Me.ButtonBrowseForFile, "ButtonBrowseForFile")
+        Me.ButtonBrowseForFile.Name = "ButtonBrowseForFile"
+        Me.ButtonBrowseForFile.UseVisualStyleBackColor = True
+        '
         'ButtonAdd
         '
         resources.ApplyResources(Me.ButtonAdd, "ButtonAdd")
@@ -183,15 +209,31 @@ Partial Class TaskSettingsDialog
         Me.ButtonMoveUp.Name = "ButtonMoveUp"
         Me.ButtonMoveUp.UseVisualStyleBackColor = True
         '
-        'TextBoxArguments
+        'ContextMenuStripOptions
         '
-        resources.ApplyResources(Me.TextBoxArguments, "TextBoxArguments")
-        Me.TextBoxArguments.Name = "TextBoxArguments"
+        Me.ContextMenuStripOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemImport, Me.ToolStripMenuItem1, Me.ToolStripMenuItemExportAll, Me.ToolStripMenuItemExportSelected})
+        Me.ContextMenuStripOptions.Name = "ContextMenuStripOptions"
+        resources.ApplyResources(Me.ContextMenuStripOptions, "ContextMenuStripOptions")
         '
-        'TextBoxName
+        'ToolStripMenuItemImport
         '
-        resources.ApplyResources(Me.TextBoxName, "TextBoxName")
-        Me.TextBoxName.Name = "TextBoxName"
+        Me.ToolStripMenuItemImport.Name = "ToolStripMenuItemImport"
+        resources.ApplyResources(Me.ToolStripMenuItemImport, "ToolStripMenuItemImport")
+        '
+        'ToolStripMenuItemExportAll
+        '
+        Me.ToolStripMenuItemExportAll.Name = "ToolStripMenuItemExportAll"
+        resources.ApplyResources(Me.ToolStripMenuItemExportAll, "ToolStripMenuItemExportAll")
+        '
+        'ToolStripMenuItemExportSelected
+        '
+        Me.ToolStripMenuItemExportSelected.Name = "ToolStripMenuItemExportSelected"
+        resources.ApplyResources(Me.ToolStripMenuItemExportSelected, "ToolStripMenuItemExportSelected")
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         '
         'TaskSettingsDialog
         '
@@ -206,6 +248,7 @@ Partial Class TaskSettingsDialog
         Me.TableLayoutPanelActions.ResumeLayout(False)
         Me.TableLayoutPanelActions.PerformLayout()
         CType(Me.DataListViewTasks, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStripOptions.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -229,5 +272,11 @@ Partial Class TaskSettingsDialog
     Friend WithEvents TextBoxArguments As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxName As System.Windows.Forms.TextBox
     Friend WithEvents OlvColumnEnabled As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents ButtonOptions As System.Windows.Forms.Button
+    Friend WithEvents ContextMenuStripOptions As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItemImport As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripMenuItemExportAll As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItemExportSelected As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -473,9 +473,21 @@ Public Class FormMain
 
         InitializeRendering()
 
-        ResetTimer()
-
         AddTimerHandlers()
+
+        If (My.Settings.Running And timeSettings.Synchronize) Then
+            Dim elapsed As TimeSpan = DateTime.Now - My.Settings.Timestamp
+
+            ResetTimer(elapsed)
+
+            RemoveHandler timer.Started, AddressOf Timer_Started
+
+            SetTimerState(True)
+
+            AddHandler timer.Started, AddressOf Timer_Started
+        Else
+            ResetTimer()
+        End If
 
         StartRendering()
 
