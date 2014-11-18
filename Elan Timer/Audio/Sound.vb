@@ -4,7 +4,15 @@ Public Class Sound : Implements IDisposable
     Private loopStream As LoopStream
     Private waveOut As WaveOut
     Private _enabled As Boolean
+    Private _sound As String
     Public Event PlaybackStopped(sender As Object, e As StoppedEventArgs)
+
+    Public ReadOnly Property Sound As String
+        Get
+            Return _sound
+        End Get
+    End Property
+
     Sub New()
 
     End Sub
@@ -16,6 +24,8 @@ Public Class Sound : Implements IDisposable
     Public Sub Load(sound As String)
         DisposeObjects()
         reader = New WaveFileReader(sound)
+        _sound = sound
+        reader = New WaveFileReader(_sound)
         loopStream = New LoopStream(reader)
         waveOut = New WaveOut()
         Me.Volume = Volume
