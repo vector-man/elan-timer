@@ -13,6 +13,17 @@ Public Class AlertsSettings
     End Sub
 
     <UserScopedSetting>
+<DefaultSettingValue("False")>
+    Public Property AlarmPerRestart As Boolean
+        Get
+            Return Me("AlarmPerRestart")
+        End Get
+        Set(value As Boolean)
+            Me("AlarmPerRestart") = value
+        End Set
+    End Property
+
+    <UserScopedSetting>
 <DefaultSettingValue("True")>
     Public Property AlarmEnabled As Boolean
         Get
@@ -20,6 +31,17 @@ Public Class AlertsSettings
         End Get
         Set(value As Boolean)
             Me("AlarmEnabled") = value
+        End Set
+    End Property
+
+    <UserScopedSetting>
+<DefaultSettingValue("False")>
+    Public Property DisplayNoteEnabled As Boolean
+        Get
+            Return Me("DisplayNoteEnabled")
+        End Get
+        Set(value As Boolean)
+            Me("DisplayNoteEnabled") = value
         End Set
     End Property
 
@@ -75,6 +97,7 @@ Public Class AlertsSettings
         model.AlarmName = Me.AlarmName
         model.AlarmVolume = Me.AlarmVolume
         model.AlertEnabled = Me.AlertEnabled
+        model.AlarmPerRestart = Me.AlarmPerRestart
         ImporterExporter.Export(Of AlertsModel)(model, stream)
     End Sub
 
@@ -86,5 +109,7 @@ Public Class AlertsSettings
         Me.AlarmLoop = model.AlarmLoop
         Me.AlarmVolume = model.AlarmVolume
         Me.AlertEnabled = model.AlertEnabled
+        Me.DisplayNoteEnabled = model.DisplayNoteEnabled
+        Me.AlarmPerRestart = model.AlarmPerRestart
     End Sub
 End Class
