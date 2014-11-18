@@ -1,0 +1,31 @@
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\NLog.config
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\LICENSE.txt
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Elan TimerTests.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Elan TimerTests.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Elan TimerTests.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Elan Timer.exe
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\NLog.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Picker.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\ColorComboBox.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\ObjectListView.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.Threading.Tasks.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\PSTaskDialog.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\SharpCompress.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Elan Timer.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\NAudio.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\NLog.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.Threading.Tasks.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\PSTaskDialog.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\bin\Debug\es-ES\Elan Timer.resources.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan TimerTests.vbprojResolveAssemblyReference.cache
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan_TimerTests.Resources.resources
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan TimerTests.vbproj.GenerateResource.Cache
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan TimerTests.dll
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan TimerTests.xml
+C:\Users\Michael\Documents\Visual Studio 2013\Projects\Elan Timer\Elan TimerTests\obj\Debug\Elan TimerTests.pdb
