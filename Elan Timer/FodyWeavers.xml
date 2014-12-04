@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Weavers>
   <PropertyChanged />
+  <Costura>
+    <IncludeAssemblies>
+      ColorComboBox
+      Exceptionless
+      Exceptionless.Models
+      Exceptionless.Windows
+      Microsoft.Threading.Tasks
+      Microsoft.Threading.Tasks.Extensions.Desktop
+      Microsoft.Threading.Tasks.Extensions
+      Microsoft.WindowsAPICodePack
+      Microsoft.WindowsAPICodePack.Shell
+      NAudio
+      Newtonsoft.Json
+      NLog
+      ObjectListView
+      Picker
+      PSTaskDialog
+      SharpCompress
+      System.Runtime
+      System.Threading.Tasks
+      DocoptNet
+    </IncludeAssemblies>
+  </Costura>
 </Weavers>

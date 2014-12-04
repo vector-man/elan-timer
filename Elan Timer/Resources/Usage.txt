@@ -1,0 +1,5 @@
+    Usage:
+      elan_timer.exe [PRESET] [--start]
+
+    Options:
+      --start     Starts the timer.
