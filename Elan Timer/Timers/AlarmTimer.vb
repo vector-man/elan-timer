@@ -140,9 +140,6 @@ Namespace CodeIsle.Timers
             End Get
             Set(value As Sound)
                 If (Not Object.ReferenceEquals(_alarm, value)) Then
-                    If (_alarm IsNot Nothing) Then
-                        _alarm.Dispose()
-                    End If
                     _alarm = value
                 End If
             End Set
