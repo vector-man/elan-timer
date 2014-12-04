@@ -1,5 +1,4 @@
 ﻿Imports System.Configuration
-
 Public Class SettingsInfo
     Public Property Description As String
     Public Property FileFilter As String

@@ -15,7 +15,7 @@ Namespace CodeIsle.Timers
         Public Property AlarmPerRestart As Boolean
 
         ''' <summary>
-        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' Provides a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
         ''' <param name="duration"></param>
         ''' <remarks></remarks>
@@ -23,7 +23,7 @@ Namespace CodeIsle.Timers
             Me.New(duration, TimeSpan.Zero, Nothing, False)
         End Sub
         ''' <summary>
-        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' Provides a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
         ''' <param name="duration"></param>
         ''' <param name="elapsed"></param>
@@ -32,7 +32,7 @@ Namespace CodeIsle.Timers
             Me.New(duration, elapsed, Nothing, False)
         End Sub
         ''' <summary>
-        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' Provides a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
         ''' <param name="duration">The duration.</param>
         ''' <param name="elapsed">The elapsed time.</param>
@@ -42,7 +42,7 @@ Namespace CodeIsle.Timers
             Me.New(duration, elapsed, alarm, True)
         End Sub
         ''' <summary>
-        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' Provides a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
         ''' <param name="duration">The duration.</param>
         ''' <param name="elapsed">The elapsed time.</param>
@@ -53,7 +53,7 @@ Namespace CodeIsle.Timers
             Me.New(duration, elapsed, alarm, alarmEnabled, 0)
         End Sub
         ''' <summary>
-        ''' Provieds a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
+        ''' Provides a set of methods and properties that you can use to accurately measure elapsed time with an alarm.
         ''' </summary>
         ''' <param name="duration">The duration.</param>
         ''' <param name="elapsed">The elapsed time.</param>
@@ -68,7 +68,7 @@ Namespace CodeIsle.Timers
             singleAlarm = New Sound()
         End Sub
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <param name="sender"></param>
         ''' <param name="e"></param>
@@ -78,7 +78,7 @@ Namespace CodeIsle.Timers
             PlayAlarm(Alarm)
         End Sub
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <param name="sender"></param>
         ''' <param name="e"></param>
@@ -88,7 +88,7 @@ Namespace CodeIsle.Timers
             StopAlarm(Alarm)
         End Sub
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <remarks></remarks>
         Private Sub PlayAlarm(sound As Sound)
@@ -102,7 +102,7 @@ Namespace CodeIsle.Timers
         End Sub
 
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>
@@ -129,7 +129,7 @@ Namespace CodeIsle.Timers
             End Set
         End Property
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <value></value>
         ''' <returns></returns>
@@ -145,7 +145,7 @@ Namespace CodeIsle.Timers
             End Set
         End Property
         ''' <summary>
-        ''' 
+        '''
         ''' </summary>
         ''' <remarks></remarks>
         Public Overrides Sub Reset(duration As TimeSpan, elapsed As TimeSpan, restarts As Integer)
@@ -192,7 +192,6 @@ Namespace CodeIsle.Timers
                 Catch ex As Exception
                     logger.Warn(ex)
                 End Try
-
 
                 PlayAlarm(singleAlarm)
             End If

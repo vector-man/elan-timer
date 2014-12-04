@@ -370,7 +370,7 @@ Namespace CodeIsle.Timers
         ''' <remarks></remarks>
         Private Sub ExpiredPoll(token As Threading.CancellationToken)
             While Not token.IsCancellationRequested Or Enabled
-                Threading.Thread.Sleep(_expirationPollRate)
+                Threading.Thread.Sleep(_ExpirationPollRate)
                 If (Remaining.TotalMilliseconds <= 0) Then
                     If (_remainingRestarts > 0) Then
                         _remainingRestarts -= 1

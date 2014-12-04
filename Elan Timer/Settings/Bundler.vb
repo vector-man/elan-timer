@@ -53,27 +53,21 @@ Public Class Bundler
 
                 Dim setting As SettingsInfo = SettingsInfos.Where(Function(f) f.FileExtension = ext).FirstOrDefault()
 
-                If (setting Is Nothing) Then Return
-
-                files.Add(entry.Key)
-                Using entryStream = entry.OpenEntryStream()
-                    setting.Settings.Import(entryStream)
-                End Using
-
-                'For Each info As SettingsInfo In SettingsInfos
-                '    Dim ms As MemoryStream = New MemoryStream()
-                '    info.Settings.Import(ms)
-                '    zip.AddEntry("bundle" + info.FileExtension, s, True)
-                'Next
+                If (setting IsNot Nothing) Then
+                    files.Add(entry.Key)
+                    Using entryStream = entry.OpenEntryStream()
+                        setting.Settings.Import(entryStream)
+                    End Using
+                End If
             Next
 
             containedFiles = files.ToArray()
         End Using
     End Sub
-    Public Function GetFilter(index As Integer)
-        'Dim info As SettingsInfo = SettingsInfos(index)
-        'Return String.Format("{0} (*{1})|*{1}", info.Description, info.FileExtension, info.FileExtension)
-    End Function
+    'Public Function GetFilter(index As Integer)
+    '    'Dim info As SettingsInfo = SettingsInfos(index)
+    '    'Return String.Format("{0} (*{1})|*{1}", info.Description, info.FileExtension, info.FileExtension)
+    'End Function
 
     Public Function GetExtensions() As String()
         Dim extensions = SettingsInfos.Select(Function(s) s.FileExtension).ToList()

@@ -22,8 +22,14 @@ Public Class NewEditDialog
     End Property
 
     Protected Overrides Sub OnLoad(e As EventArgs)
-        Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
-        Me.TopMost = True
+
+        If (Owner Is Nothing) Then
+            Me.StartPosition = FormStartPosition.CenterScreen
+            Me.TopMost = True
+        Else
+            Me.StartPosition = FormStartPosition.CenterParent
+        End If
+
         MyBase.OnLoad(e)
     End Sub
 

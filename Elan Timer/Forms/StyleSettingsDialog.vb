@@ -135,7 +135,6 @@ Public Class StyleSettingsDialog
         TrackBarTransparency.DataBindings.Clear()
         TrackBarTransparency.DataBindings.Add("Value", Style, "Transparency", False, DataSourceUpdateMode.OnPropertyChanged)
 
-
         SetStrings()
     End Sub
 
@@ -248,29 +247,6 @@ Public Class StyleSettingsDialog
         Initialize()
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
     End Sub
-    'TODO: Remove.
-    'Private Sub MenuItemLoadStyle_Click(sender As Object, e As EventArgs)
-    '    Using dialogOpen As New OpenFileDialog()
-    '        dialogOpen.InitialDirectory = InitialDirectory
-    '        dialogOpen.CheckPathExists = True
-    '        dialogOpen.Filter = FileFilter
-    '        If (dialogOpen.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-    '            RaiseEvent Loading(Me, New LoadingEventArgs(dialogOpen.FileName))
-    '            UpdateUI()
-    '        End If
-    '    End Using
-    'End Sub
-    'TODO: Remove.
-    'Private Sub MenuItemSaveStyleAs_Click(sender As Object, e As EventArgs)
-    '    Using dialogSave As New SaveFileDialog()
-    '        dialogSave.InitialDirectory = Utils.GetStylesPath()
-    '        dialogSave.CheckPathExists = True
-    '        dialogSave.Filter = My.Settings.StyleDialogFilter
-    '        If (dialogSave.ShowDialog(Me) = Windows.Forms.DialogResult.OK) Then
-    '            RaiseEvent Saving(Me, New SavingEventArgs(dialogSave.FileName))
-    '        End If
-    '    End Using
-    'End Sub
 
     Private Sub TrackBarTransparency_Scroll(sender As Object, e As EventArgs) Handles TrackBarTransparency.Scroll
         toolTip.SetToolTip(TrackBarTransparency, TrackBarTransparency.Value)
@@ -312,5 +288,4 @@ Public Class StyleSettingsDialog
     Private Sub PreviewTimer_Expired(sender As Object, e As TimerEventArgs)
         RestartTimer()
     End Sub
-
 End Class

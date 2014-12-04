@@ -131,7 +131,7 @@
     <Setting Name="RecentPresets" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="Running" Type="System.Boolean" Scope="User">
+    <Setting Name="Paused" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Timestamp" Type="System.DateTime" Scope="User">
@@ -140,8 +140,14 @@
     <Setting Name="MaximumRecentPresets" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="SettingsInfos" Type="System.Collections.Specialized.OrderedDictionary" Scope="User">
+    <Setting Name="ExcludedBundleSettings" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Expired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Elapsed" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:00</Value>
     </Setting>
   </Settings>
 </SettingsFile>

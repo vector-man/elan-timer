@@ -34,6 +34,9 @@ Partial Class SettingsDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBoxEnableToolbarStyling = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.FastObjectListView1 = New BrightIdeasSoftware.FastObjectListView()
+        Me.OlvColumnEnabled = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumnSetting = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
@@ -43,6 +46,7 @@ Partial Class SettingsDialog
         Me.CheckBoxClickingTrayIconStopsAlarm = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.FastObjectListView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.CheckedGroupBoxShowInSystemTray.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -113,11 +117,32 @@ Partial Class SettingsDialog
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.FastObjectListView1)
         Me.GroupBox1.Controls.Add(Me.CheckBox4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
+        '
+        'FastObjectListView1
+        '
+        Me.FastObjectListView1.AllColumns.Add(Me.OlvColumnEnabled)
+        Me.FastObjectListView1.AllColumns.Add(Me.OlvColumnSetting)
+        Me.FastObjectListView1.CheckBoxes = True
+        Me.FastObjectListView1.CheckedAspectName = "Value"
+        Me.FastObjectListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnEnabled, Me.OlvColumnSetting})
+        resources.ApplyResources(Me.FastObjectListView1, "FastObjectListView1")
+        Me.FastObjectListView1.Name = "FastObjectListView1"
+        Me.FastObjectListView1.ShowGroups = False
+        Me.FastObjectListView1.ShowImagesOnSubItems = True
+        Me.FastObjectListView1.UseCompatibleStateImageBehavior = False
+        Me.FastObjectListView1.View = System.Windows.Forms.View.Details
+        Me.FastObjectListView1.VirtualMode = True
+        '
+        'OlvColumnEnabled
+        '
+        Me.OlvColumnEnabled.AspectName = "Value"
+        resources.ApplyResources(Me.OlvColumnEnabled, "OlvColumnEnabled")
         '
         'CheckBox4
         '
@@ -183,6 +208,7 @@ Partial Class SettingsDialog
         Me.TableLayoutPanel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.FastObjectListView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         Me.CheckedGroupBoxShowInSystemTray.ResumeLayout(False)
@@ -211,4 +237,7 @@ Partial Class SettingsDialog
     Friend WithEvents TableLayoutPanel9 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents CheckBoxCloseToSystemTray As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBoxClickingTrayIconStopsAlarm As System.Windows.Forms.CheckBox
+    Friend WithEvents FastObjectListView1 As BrightIdeasSoftware.FastObjectListView
+    Friend WithEvents OlvColumnSetting As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumnEnabled As BrightIdeasSoftware.OLVColumn
 End Class

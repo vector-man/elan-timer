@@ -13,6 +13,8 @@
 
     Public Property DisplayNoteEnabled As Boolean
 
+    Public Property FlashTaskbar
+
     Public Property AlarmPerRestart As Boolean
 
     Public Function Clone() As Object Implements ICloneable.Clone
@@ -22,7 +24,8 @@
                                       .AlarmVolume = Me.AlarmVolume,
                                       .AlertEnabled = Me.AlertEnabled,
                                       .DisplayNoteEnabled = Me.DisplayNoteEnabled,
-                                      .AlarmPerRestart = Me.AlarmPerRestart}
+                                      .AlarmPerRestart = Me.AlarmPerRestart,
+                                       .FlashTaskbar = Me.FlashTaskbar}
     End Function
 
     Public Sub Export(stream As IO.Stream) Implements IExportable.Export

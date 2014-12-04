@@ -1,6 +1,9 @@
-﻿Namespace Rendering
+﻿Imports PropertyChanged
+Namespace Rendering
+    <ImplementPropertyChanged>
     Public Class TextRenderable
-        Implements IRenderable, IDisposable
+        Implements IRenderable, IDisposable, IBindableComponent
+
         Const MaximumFontSize = 1000
         Private colorBrush As SolidBrush
         Sub New()
@@ -89,6 +92,14 @@
 #End Region
 
         Public Property Rectangle As Rectangle Implements IRenderable.Rectangle
+        Public Property Size As System.Drawing.Size
+            Get
+                Return Rectangle.Size
+            End Get
+            Set(value As System.Drawing.Size)
+                Rectangle = New Rectangle(0, 0, value.Width, value.Height)
+            End Set
+        End Property
         Public Property TextRenderFormat As Func(Of String)
         Public Sub Render(e As PaintEventArgs) Implements IRenderable.Render
             e.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAlias
@@ -107,5 +118,22 @@
                 End Using
             End If
         End Sub
+
+        Private _bindings As ControlBindingsCollection
+
+        Public Event Disposed(sender As Object, e As EventArgs) Implements System.ComponentModel.IComponent.Disposed
+
+        Public Property Site As System.ComponentModel.ISite Implements System.ComponentModel.IComponent.Site
+
+        Public Property BindingContext As New BindingContext Implements IBindableComponent.BindingContext
+
+        Public ReadOnly Property DataBindings As ControlBindingsCollection Implements IBindableComponent.DataBindings
+            Get
+                If (_bindings Is Nothing) Then
+                    _bindings = New ControlBindingsCollection(Me)
+                End If
+                Return _bindings
+            End Get
+        End Property
     End Class
 End Namespace

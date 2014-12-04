@@ -2,7 +2,7 @@
 
     Private applicationBindingSource As BindingSource
 
-    Public Property SettingsInfos As New Dictionary(Of SettingsInfo, Boolean)
+    Public Property SettingsInfos As New List(Of MutableKeyValuePair(Of SettingsInfo, Boolean))
 
     Private Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
         My.Settings.CloseToSystemTray = CheckBoxCloseToSystemTray.Checked
@@ -32,6 +32,13 @@
         CheckBoxClickingTrayIconStopsAlarm.Checked = My.Settings.ClickingTrayIconStopsAlarm
         CheckBoxEnableToolbarStyling.Checked = My.Settings.UseToolbarStyling
 
+        OlvColumnSetting.AspectGetter = Function(obj)
+                                            Dim row As MutableKeyValuePair(Of SettingsInfo, Boolean) = obj
+                                            Return row.Key.Description
+                                        End Function
+
+        FastObjectListView1.SetObjects(SettingsInfos)
+        FastObjectListView1.HeaderStyle = ColumnHeaderStyle.None
         'For Each info As KeyValuePair(Of SettingsInfo, Boolean) In SettingsInfos
         '    CheckedListBox1.Items.Add(info.Key, info.Value)
         'Next
@@ -59,5 +66,11 @@
         Me.StartPosition = If(Owner Is Nothing, FormStartPosition.CenterScreen, FormStartPosition.CenterParent)
         Me.TopMost = True
         MyBase.OnLoad(e)
+    End Sub
+
+    Private Sub FastObjectListView1_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles FastObjectListView1.ItemCheck
+        If (Me.SettingsInfos.Where(Function(i) i.Value = False).Count >= Me.SettingsInfos.Count - 1) Then
+            e.NewValue = CheckState.Checked
+        End If
     End Sub
 End Class

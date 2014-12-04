@@ -58,7 +58,6 @@ Namespace Rendering
             End While
         End Sub
 
-
         Public Property Enabled As Boolean
             Get
                 Return _enabled
@@ -82,5 +81,3 @@ Namespace Rendering
     End Class
 
 End Namespace
-
-

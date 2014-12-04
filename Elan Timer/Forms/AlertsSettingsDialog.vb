@@ -39,6 +39,15 @@ Public Class AlertsSettingsDialog
         End Set
     End Property
 
+    Public Property FlashTaskbar As Boolean
+        Get
+            Return Alerts.FlashTaskbar
+        End Get
+        Set(value As Boolean)
+            Alerts.FlashTaskbar = value
+        End Set
+    End Property
+
     Public Property AlarmLoop As Boolean
         Get
             Return Alerts.AlarmLoop
@@ -75,16 +84,19 @@ Public Class AlertsSettingsDialog
         End Set
     End Property
 
-
     Public Property SoundsPath As String
 
     Public Property SelectedSound As New KeyValuePair(Of String, String)
+
+    Protected Property SupportedSoundExtensions As String() = {".mp3", ".wav", ".wave"}
 
     Private Function GetSoundsByPath(soundsPath As String) As List(Of KeyValuePair(Of String, String))
         Dim dict As New List(Of KeyValuePair(Of String, String))
 
         If (Directory.Exists(soundsPath)) Then
-            For Each sound As String In My.Computer.FileSystem.GetFiles(soundsPath)
+            For Each sound As String In My.Computer.FileSystem.GetFiles(soundsPath) _
+                .Where(Function(f) SupportedSoundExtensions.Contains(Path.GetExtension(f)))
+
                 dict.Add(New KeyValuePair(Of String, String)(Path.GetFileNameWithoutExtension(sound), Path.GetFileName(sound)))
             Next
         End If
@@ -92,55 +104,41 @@ Public Class AlertsSettingsDialog
         Return dict
     End Function
 
-
     Private Sub Initialize()
         ComboBoxAlarmPath.DataSource = If(GetSoundsByPath(SoundsPath), New List(Of KeyValuePair(Of String, String)))
         ComboBoxAlarmPath.ValueMember = "Value"
         ComboBoxAlarmPath.DisplayMember = "Key"
         CheckBoxAlertEnabled.DataBindings.Add("Checked", Me, "AlertEnabled")
         CheckBoxDisplayNoteEnabled.DataBindings.Add("Checked", Me, "DisplayNoteEnabled")
+        CheckBoxFlashTaskbar.DataBindings.Add("Checked", Me, "FlashTaskbar")
         CheckedGroupBox1.DataBindings.Add("Checked", Me, "AlarmEnabled")
         TrackBarVolume.DataBindings.Add("Value", Me, "AlarmVolume")
         CheckBoxLoop.DataBindings.Add("Checked", Me, "AlarmLoop")
         CheckBoxAlarmPerRestart.DataBindings.Add("Checked", Me, "AlarmPerRestart")
         ComboBoxAlarmPath.DataBindings.Add("SelectedValue", Me, "AlarmName")
-        UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
+
+        alarmPlayer = New Sound()
+
+        RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+        AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+
+        UpdateAlarmPlayer()
     End Sub
 
     Private Sub ButtonAlarmPlay_Click(sender As Object, e As EventArgs) Handles ButtonAlarmPlay.Click
         Try
-            If (alarmPlayer IsNot Nothing) Then
-                If (alarmPlayer.Playing) Then
-                    alarmPlayer.Stop()
-                Else
-                    ButtonAlarmPlay.Image = My.Resources.stop_red
-                    alarmPlayer.Play()
-                End If
+            If (alarmPlayer Is Nothing) Then Return
+
+            If (alarmPlayer.Playing) Then
+                alarmPlayer.Stop()
+            Else
+                ButtonAlarmPlay.Image = My.Resources.stop_red
+                alarmPlayer.Play()
             End If
         Catch ex As Exception
             logger.Error(ex)
-        End Try
-    End Sub
 
-    Private Sub UpdateAlarmPlayer(soundName As String)
-        If (alarmPlayer IsNot Nothing) Then
             ButtonAlarmPlay.Image = My.Resources.play_green
-
-            RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
-            alarmPlayer.Dispose()
-        End If
-
-        If (soundName IsNot Nothing) Then
-            alarmPlayer = New Sound(Path.Combine(SoundsPath, soundName), Alerts.AlarmVolume, False)
-            AddHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
-        End If
-    End Sub
-
-    Private Sub ComboBoxAlarmPath_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxAlarmPath.SelectedValueChanged
-        Try
-            UpdateAlarmPlayer(TryCast(ComboBoxAlarmPath.SelectedValue, String))
-        Catch ex As Exception
-            logger.Error(ex)
         End Try
     End Sub
 
@@ -154,22 +152,41 @@ Public Class AlertsSettingsDialog
 
     Private Sub TrackBarVolume_ValueChanged(sender As Object, e As EventArgs) Handles TrackBarVolume.ValueChanged
         Try
-            If (alarmPlayer IsNot Nothing) Then
-                alarmPlayer.Volume = TrackBarVolume.Value
-            End If
+            If (alarmPlayer Is Nothing) Then Return
+
+            alarmPlayer.Volume = TrackBarVolume.Value
         Catch ex As Exception
             logger.Error(ex)
         End Try
     End Sub
 
     Private Sub AlertsSettingsDialog_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-        If (alarmPlayer IsNot Nothing) Then
-            RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
-            alarmPlayer.Dispose()
-        End If
+        If (alarmPlayer Is Nothing) Then Return
+
+        RemoveHandler alarmPlayer.PlaybackStopped, AddressOf AlarmPlayer_PlaybackStopped
+        alarmPlayer.Dispose()
     End Sub
 
     Private Sub AlertsSettingsDialog_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Initialize()
     End Sub
+
+    Private Sub ComboBoxAlarmPath_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxAlarmPath.SelectedIndexChanged
+        UpdateAlarmPlayer()
+    End Sub
+
+    Private Sub UpdateAlarmPlayer()
+        If (alarmPlayer Is Nothing) Then Return
+
+        If (alarmPlayer.Playing) Then alarmPlayer.Stop()
+
+        Try
+            Dim soundFileName As String = Path.Combine(SoundsPath, ComboBoxAlarmPath.SelectedValue)
+            alarmPlayer.Load(soundFileName)
+            alarmPlayer.Volume = AlarmVolume
+        Catch ex As Exception
+            logger.Error(ex)
+        End Try
+    End Sub
+
 End Class

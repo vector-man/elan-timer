@@ -2,8 +2,10 @@
 
 Imports ElanTimer
 
-Namespace ElanTimer.Tests
-    <TestClass()> Public Class SoundTests
+
+Namespace ElanTimer.Tests
+
+    <TestClass()> Public Class SoundTests
         Private playbackCount = 0
         <TestMethod()> Public Sub LoadTest()
             Dim sound As New Sound()
