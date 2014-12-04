@@ -1,5 +1,8 @@
 ﻿Imports System.Configuration
+Imports PropertyChanged
+
 Namespace Settings
+    <ImplementPropertyChanged>
     Public Class TimeSettings
         Inherits ApplicationSettingsBase
         Implements ISettings

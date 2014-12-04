@@ -1,7 +1,9 @@
 ﻿Imports System.Configuration
 Imports System.IO
+Imports PropertyChanged
 
 Namespace Settings
+    <ImplementPropertyChanged>
     Public Class TaskSettings
         Inherits ApplicationSettingsBase
         Implements ISettings

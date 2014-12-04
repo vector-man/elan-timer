@@ -3,8 +3,9 @@ Imports System.IO
 Imports System.Linq
 Imports System.Xml.Linq
 Imports System.Xml.XPath
+Imports PropertyChanged
 Namespace Settings
-
+    <ImplementPropertyChanged>
     Public Class StyleSettings
         Inherits ApplicationSettingsBase
         Implements ISettings
